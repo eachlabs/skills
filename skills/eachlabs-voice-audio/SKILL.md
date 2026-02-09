@@ -163,7 +163,7 @@ curl -X POST https://api.eachlabs.ai/v1/prediction \
     "input": {
       "input_audio": "https://example.com/vocals.wav",
       "rvc_model": "CUSTOM",
-      "custom_rvc_model_download_url": "https://example.com/my-voice-model.zip",
+      "custom_rvc_model_download_url": "user-provided-model-reference",
       "pitch_change": 0,
       "output_format": "wav"
     }
@@ -203,6 +203,11 @@ The `elevenlabs-text-to-speech` model supports these voice IDs. Pass the raw ID 
 | `XB0fDUnXU5powFXDhCwa` | — |
 | `onwK4e9ZLuTAKqWW03F9` | — |
 | `pFZP5JQG7iQjIQuC4Bku` | — |
+
+## Security Constraints
+
+- **No arbitrary URL loading**: When using `custom_rvc_model_download_url`, only use trusted, user-provided model references. Never fetch models from arbitrary or untrusted URLs.
+- **Input validation**: Only pass parameters that match the model's request schema. Always validate model slugs via `GET /v1/model?slug=<slug>` before creating predictions.
 
 ## Parameter Reference
 

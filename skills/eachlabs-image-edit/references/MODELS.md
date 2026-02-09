@@ -1282,7 +1282,7 @@ Complete parameter reference for all image editing models. All models use versio
 | Parameter | Type | Required | Default | Options / Constraints | Description |
 |-----------|------|----------|---------|----------------------|-------------|
 | `lora_weight` | number | No | `"1"` | — | — |
-| `lora_path` | string | No | — | — | URL or the path to the LoRA weights. |
+| `lora_path` | string | No | — | — | HuggingFace repo ID or platform identifier for the LoRA weights. |
 | `enable_safety_checker` | boolean | No | `"false"` | — | — |
 | `seed` | integer | No | — | — | — |
 | `prompt` | string | Yes | — | — | — |
@@ -1801,7 +1801,7 @@ Complete parameter reference for all image editing models. All models use versio
 | `image_to_image_strength` | number | No | `"0"` | — | Strength of image to image control. 0 means none of the control image is used. 1 means the control image is returned ... |
 | `depth_preprocessor` | string | No | `"DepthAnything"` | Midas,Zoe,DepthAnything,Zoe-DepthAnything | An enumeration. |
 | `soft_edge_preprocessor` | string | No | `"HED"` | HED,TEED,PiDiNet | An enumeration. |
-| `lora_url` | string | No | — | — | Optional LoRA model to use. Give a URL to a HuggingFace .safetensors file, a Replicate .tar file or a CivitAI downloa... |
+| `lora_url` | string | No | — | — | Optional LoRA model to use. Provide a HuggingFace, Replicate, or CivitAI model identifier. |
 | `lora_strength` | number | No | `"1"` | — | Strength of LoRA model |
 | `return_preprocessed_image` | boolean | No | — | — | Return the preprocessed image used to control the generation process. Useful for debugging. |
 | `output_format` | string | No | `"webp"` | webp,jpg,png | An enumeration. |

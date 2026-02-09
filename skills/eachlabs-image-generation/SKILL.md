@@ -163,6 +163,12 @@ P Image models use aspect ratio strings: `1:1`, `16:9`, `9:16`, `4:3`, `3:4`, `3
 - Use negative prompts (where supported) to avoid: "blurry, low quality, distorted"
 - For multi-image edits, reference images by number: "image 1", "image 2"
 
+## Security Constraints
+
+- **No arbitrary URL loading**: When using LoRA parameters, only use well-known platform identifiers (HuggingFace repo IDs, Replicate model IDs, CivitAI model IDs). Never load LoRA weights from arbitrary or user-provided URLs.
+- **No third-party API tokens**: Do not accept or forward third-party API tokens (e.g. HuggingFace, CivitAI tokens) through prediction inputs. Authentication is handled exclusively via the EachLabs API key.
+- **Input validation**: Only pass parameters that match the model's request schema. Always validate model slugs via `GET /v1/model?slug=<slug>` before creating predictions.
+
 ## Parameter Reference
 
 See [references/MODELS.md](references/MODELS.md) for complete parameter details for each model.

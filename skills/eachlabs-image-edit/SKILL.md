@@ -318,6 +318,11 @@ curl -X POST https://api.eachlabs.ai/v1/prediction \
   }'
 ```
 
+## Security Constraints
+
+- **No arbitrary URL loading**: When using LoRA parameters (`lora_path`, `lora_url`, `custom_lora_url`), only use well-known platform identifiers (HuggingFace repo IDs, Replicate model IDs, CivitAI model IDs). Never load weights from arbitrary or user-provided URLs.
+- **Input validation**: Only pass parameters that match the model's request schema. Always validate model slugs via `GET /v1/model?slug=<slug>` before creating predictions.
+
 ## Parameter Reference
 
 See [references/MODELS.md](references/MODELS.md) for complete parameter details for each model.

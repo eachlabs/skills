@@ -330,7 +330,7 @@ Complete parameter reference for all voice and audio models. All models use vers
 |-----------|------|----------|---------|----------------------|-------------|
 | `input_audio` | string | Yes | — | — | Upload your audio file here. |
 | `rvc_model` | string | No | `"CUSTOM"` | Obama,Trump,Sandy,Rogan,CUSTOM | An enumeration. |
-| `custom_rvc_model_download_url` | string | No | — | — | URL to download a custom RVC model. If provided, the model will be downloaded (if it doesn't already exist) and used ... |
+| `custom_rvc_model_download_url` | string | No | — | — | Identifier for a custom RVC model. Only use with user-provided, trusted model references. |
 | `pitch_change` | number | No | `"0"` | — | Adjust pitch of AI vocals in semitones. Use positive values to increase pitch, negative to decrease. |
 | `index_rate` | number | No | `"0.5"` | — | Control how much of the AI's accent to leave in the vocals. |
 | `filter_radius` | integer | No | `"3"` | — | If >=3: apply median filtering to the harvested pitch results. |
@@ -488,7 +488,7 @@ Complete parameter reference for all voice and audio models. All models use vers
 |-----------|------|----------|---------|----------------------|-------------|
 | `song_input` | string | Yes | — | — | The original song file provided as input. |
 | `rvc_model` | string | No | `"Squidward"` | Squidward,MrKrabs,Plankton,Drake,Vader,Trump,Biden,Obama,Guitar,Voilin,CUSTOM | The specific RVC model used for the function. |
-| `custom_rvc_model_download_url` | string | No | — | — | URL to download a custom RVC model. |
+| `custom_rvc_model_download_url` | string | No | — | — | Identifier for a custom RVC model. Only use with user-provided, trusted model references. |
 | `pitch_change` | string | No | `"no-change"` | no-change,male-to-female,female-to-male | Alteration in the pitch of the audio. |
 | `index_rate` | number | No | `"0.5"` | — | The frequency at which indexing is performed. |
 | `filter_radius` | integer | No | `"3"` | — | Range of frequencies affected by the filter. |

@@ -304,7 +304,7 @@ Complete parameter reference for all image generation models. All models use ver
 | Parameter | Type | Required | Default | Options / Constraints | Description |
 |-----------|------|----------|---------|----------------------|-------------|
 | `prompt` | string | Yes | — | — | The prompt to generate an image from. |
-| `loras` | array | No | — | — | List of LoRA weights to apply (maximum 3). Each LoRA can be a URL, HuggingFace repo ID, or local path. |
+| `loras` | array | No | — | — | List of LoRA weights to apply (maximum 3). Each LoRA should be a HuggingFace repo ID (e.g. user/model-name). |
 | `guidance_scale` | number | No | `"2.5"` | — | — |
 | `num_inference_steps` | integer | No | `"28"` | — | — |
 | `image_size` | string | No | `"square_hd"` | square_hd,square,portrait_4_3,portrait_16_9,landscape_4_3,landscape_16_9 | — |
@@ -406,13 +406,11 @@ Complete parameter reference for all image generation models. All models use ver
 | `output_quality` | integer | No | `"80"` | — | Quality when saving the output images, from 0 to 100. 100 is best quality, 0 is lowest quality. Not relevant for .png... |
 | `disable_safety_checker` | boolean | No | — | — | Disable safety checker for generated images. |
 | `go_fast` | boolean | No | `"False"` | — | Run faster predictions with model optimized for speed (currently fp8 quantized); disable to run in original bf16. Not... |
-| `lora_weights` | string | No | — | — | Load LoRA weights. Supports Replicate models in the format <owner>/<username> or <owner>/<username>/<version>, Huggin... |
+| `lora_weights` | string | No | — | — | Load LoRA weights. Supports Replicate models in the format <owner>/<username> or <owner>/<username>/<version>, or Hug... |
 | `lora_scale` | number | No | `"1"` | — | Determines how strongly the main LoRA should be applied. Sane results between 0 and 1 for base inference. For go_fast... |
-| `extra_lora` | string | No | — | — | Load LoRA weights. Supports Replicate models in the format <owner>/<username> or <owner>/<username>/<version>, Huggin... |
+| `extra_lora` | string | No | — | — | Load additional LoRA weights. Supports Replicate models in the format <owner>/<username> or <owner>/<username>/<versi... |
 | `extra_lora_scale` | number | No | `"1"` | — | Determines how strongly the extra LoRA should be applied. Sane results between 0 and 1 for base inference. For go_fas... |
 | `megapixels` | string | No | `"1"` | 1,0.25 | An enumeration. |
-| `hf_api_token` | string | No | — | — | HuggingFace API token. If you're using a hf lora that needs authentication, you'll need to provide an API token. |
-| `civitai_api_token` | string | No | — | — | Civitai API token. If you're using a civitai lora that needs authentication, you'll need to provide an API token. |
 
 ---
 
@@ -791,7 +789,7 @@ Complete parameter reference for all image generation models. All models use ver
 | `seed` | integer | No | — | — | Random seed. Set for reproducible generation |
 | `output_format` | string | No | `"webp"` | webp,jpg,png | An enumeration. |
 | `output_quality` | integer | No | `"80"` | — | Quality when saving the output images, from 0 to 100. 100 is best quality, 0 is lowest quality. Not relevant for .png... |
-| `hf_lora` | string | No | — | — | HF, Replicate, CivitAI, or URL to a LoRA. Ex: alvdansen/frosting_lane_flux |
+| `hf_lora` | string | No | — | — | HuggingFace, Replicate, or CivitAI LoRA identifier. Ex: alvdansen/frosting_lane_flux |
 | `lora_scale` | number | No | `"0.8"` | — | Scale for the LoRA weights |
 | `disable_safety_checker` | boolean | No | `"true"` | — | Disable safety checker for generated images. This feature is only available through the API. See [https://replicate.c... |
 
@@ -982,7 +980,7 @@ Complete parameter reference for all image generation models. All models use ver
 | `image_number` | integer | No | `"1"` | — | How many image to generate |
 | `image_seed` | integer | No | `"-1"` | — | Seed to generate image, -1 for random |
 | `use_default_loras` | boolean | No | `"True"` | — | Use default LoRAs |
-| `loras_custom_urls` | string | No | — | — | Custom LoRAs URLs in the format 'url,weight' provide multiple seperated by ; (example 'url1,0.3;url2,0.1') |
+| `loras_custom_urls` | string | No | — | — | Custom LoRA identifiers with weights, separated by ; (example 'lora_id,0.3;lora_id2,0.1') |
 | `sharpness` | number | No | `"2"` | — | — |
 | `guidance_scale` | number | No | `"7"` | — | — |
 | `refiner_switch` | number | No | `"0.5"` | — | — |
