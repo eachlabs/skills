@@ -1,0 +1,23 @@
+{
+  "name": "@eachlabs/skills",
+  "version": "0.0.1",
+  "description": "Agent Skills for each::labs — 445+ AI models for video, image, music, voice, and more",
+  "bin": {
+    "skills": "./bin/cli.js"
+  },
+  "files": [
+    "bin",
+    "skills"
+  ],
+  "keywords": [
+    "claude-code",
+    "agent-skills",
+    "ai",
+    "eachlabs"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eachlabs/skills"
+  }
+}
