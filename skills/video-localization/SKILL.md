@@ -10,6 +10,7 @@ metadata:
 
 Localize and dub videos into multiple languages using each::sense. This skill handles audio translation, voice cloning, lip synchronization, and subtitle generation for global content distribution.
 
+
 ## Features
 
 - **AI Dubbing**: Translate and dub video audio into any language
