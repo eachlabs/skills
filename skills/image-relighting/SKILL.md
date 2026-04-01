@@ -3,7 +3,7 @@ name: image-relighting
 description: Relight photos and images using each::sense AI. Transform lighting conditions, add studio lighting, golden hour effects, dramatic shadows, neon glows, and match lighting to any environment.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Image Relighting
@@ -24,12 +24,14 @@ Transform the lighting in your photos using each::sense. This skill allows you t
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Add professional studio lighting to this portrait - soft key light from the left with subtle fill",
+    "messages": [{"role": "user", "content": "Add professional studio lighting to this portrait - soft key light from the left with subtle fill"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/portrait.jpg"],
     "mode": "max"
   }'
@@ -57,12 +59,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Transform a casual photo into a professionally lit portrait with classic three-point lighting setup.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Add professional studio lighting to this portrait. Use a soft key light from 45 degrees left, fill light from the right to reduce shadows, and a subtle hair light from behind. Keep the background dark for a classic studio look.",
+    "messages": [{"role": "user", "content": "Add professional studio lighting to this portrait. Use a soft key light from 45 degrees left, fill light from the right to reduce shadows, and a subtle hair light from behind. Keep the background dark for a classic studio look."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/portrait.jpg"],
     "mode": "max"
   }'
@@ -73,12 +77,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Add warm, golden sunlight effect as if the photo was taken during the magic hour.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Relight this photo with golden hour lighting. Add warm, soft sunlight coming from the side, creating a beautiful golden glow on the skin. Include subtle lens flare and that magical sunset atmosphere.",
+    "messages": [{"role": "user", "content": "Relight this photo with golden hour lighting. Add warm, soft sunlight coming from the side, creating a beautiful golden glow on the skin. Include subtle lens flare and that magical sunset atmosphere."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/outdoor-photo.jpg"],
     "mode": "max"
   }'
@@ -89,12 +95,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create bold, dramatic portraits with strong directional light and deep shadows.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Apply dramatic side lighting to this portrait. Strong directional light from the left creating deep shadows on the right side of the face. High contrast, moody atmosphere, like a film noir character portrait.",
+    "messages": [{"role": "user", "content": "Apply dramatic side lighting to this portrait. Strong directional light from the left creating deep shadows on the right side of the face. High contrast, moody atmosphere, like a film noir character portrait."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/headshot.jpg"],
     "mode": "max"
   }'
@@ -105,12 +113,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create flattering, even lighting that minimizes harsh shadows and skin imperfections.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Relight this photo with soft, diffused lighting. Like shooting through a large softbox or on an overcast day. Even, flattering light with minimal shadows, perfect for beauty photography. Keep the skin looking natural and glowing.",
+    "messages": [{"role": "user", "content": "Relight this photo with soft, diffused lighting. Like shooting through a large softbox or on an overcast day. Even, flattering light with minimal shadows, perfect for beauty photography. Keep the skin looking natural and glowing."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/beauty-shot.jpg"],
     "mode": "max"
   }'
@@ -121,12 +131,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Add vibrant, creative colored lighting for editorial or artistic effects.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Add neon lighting to this portrait. Cyberpunk style with pink/magenta light from the left and blue/cyan light from the right. Create that futuristic nightclub vibe with vibrant colored reflections on the skin and a dark background.",
+    "messages": [{"role": "user", "content": "Add neon lighting to this portrait. Cyberpunk style with pink/magenta light from the left and blue/cyan light from the right. Create that futuristic nightclub vibe with vibrant colored reflections on the skin and a dark background."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/model-photo.jpg"],
     "mode": "max"
   }'
@@ -137,12 +149,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Simulate beautiful, soft natural light coming through a window.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Relight this portrait with natural window light. Soft, directional daylight coming from a large window on the left side. Create gentle shadows and that beautiful, airy natural light photographers love. Slightly cool color temperature.",
+    "messages": [{"role": "user", "content": "Relight this portrait with natural window light. Soft, directional daylight coming from a large window on the left side. Create gentle shadows and that beautiful, airy natural light photographers love. Slightly cool color temperature."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/indoor-portrait.jpg"],
     "mode": "max"
   }'
@@ -153,12 +167,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Add the signature ring light look popular in beauty and social media content.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Apply ring light effect to this selfie. Even, frontal lighting with that signature circular catchlight in the eyes. Minimize shadows under the nose and chin, create that beauty influencer look with glowing, even skin illumination.",
+    "messages": [{"role": "user", "content": "Apply ring light effect to this selfie. Even, frontal lighting with that signature circular catchlight in the eyes. Minimize shadows under the nose and chin, create that beauty influencer look with glowing, even skin illumination."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/selfie.jpg"],
     "mode": "max"
   }'
@@ -169,12 +185,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create movie-quality lighting with dramatic contrast and atmosphere.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Apply cinematic lighting to this portrait. Hollywood movie style with strong key light, deep shadows, and subtle rim light separating the subject from background. Moody and atmospheric like a scene from a thriller. Add subtle haze/atmosphere in the air.",
+    "messages": [{"role": "user", "content": "Apply cinematic lighting to this portrait. Hollywood movie style with strong key light, deep shadows, and subtle rim light separating the subject from background. Moody and atmospheric like a scene from a thriller. Add subtle haze/atmosphere in the air."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/actor-photo.jpg"],
     "mode": "max"
   }'
@@ -185,12 +203,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Fix poorly lit photos by softening or removing unflattering harsh shadows.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Remove the harsh shadows from this photo. The midday sun created unflattering dark shadows under the eyes and nose. Relight it with softer, more even lighting while keeping a natural outdoor look. Fill in the shadow areas without making it look flat.",
+    "messages": [{"role": "user", "content": "Remove the harsh shadows from this photo. The midday sun created unflattering dark shadows under the eyes and nose. Relight it with softer, more even lighting while keeping a natural outdoor look. Fill in the shadow areas without making it look flat."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/harsh-shadow-photo.jpg"],
     "mode": "max"
   }'
@@ -201,12 +221,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Adjust subject lighting to seamlessly match a new environment or composited background.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Relight this person to match the beach sunset background. The subject was photographed indoors with flat lighting, but needs to look like they are actually on the beach during golden hour. Match the warm color temperature, add rim lighting from the setting sun behind them, and ensure the shadows are consistent with the background lighting direction.",
+    "messages": [{"role": "user", "content": "Relight this person to match the beach sunset background. The subject was photographed indoors with flat lighting, but needs to look like they are actually on the beach during golden hour. Match the warm color temperature, add rim lighting from the setting sun behind them, and ensure the shadows are consistent with the background lighting direction."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": [
       "https://example.com/subject-indoor.jpg",
       "https://example.com/beach-sunset-background.jpg"
@@ -221,33 +243,39 @@ Use `session_id` to iteratively refine lighting across multiple requests:
 
 ```bash
 # Initial relighting
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Add dramatic studio lighting to this portrait with strong shadows",
+    "messages": [{"role": "user", "content": "Add dramatic studio lighting to this portrait with strong shadows"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/portrait.jpg"],
     "session_id": "lighting-session-001"
   }'
 
 # Refine the result
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "The shadows are too harsh. Can you soften them slightly while keeping the dramatic feel? Also add a subtle blue rim light on the shadow side.",
+    "messages": [{"role": "user", "content": "The shadows are too harsh. Can you soften them slightly while keeping the dramatic feel? Also add a subtle blue rim light on the shadow side."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "lighting-session-001"
   }'
 
 # Try a variation
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create another version with warmer color temperature, like tungsten lighting",
+    "messages": [{"role": "user", "content": "Create another version with warmer color temperature, like tungsten lighting"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "lighting-session-001"
   }'
 ```

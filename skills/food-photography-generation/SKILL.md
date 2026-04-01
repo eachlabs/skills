@@ -4,7 +4,7 @@ description: Generate professional food photography using each::sense API for re
 metadata:
   category: image-generation
   api: sense
-  endpoint: https://sense.eachlabs.run/chat
+  endpoint: https://eachsense-agent.core.eachlabs.run/v1/chat/completions
   modes: [max, eco]
   features:
     - Professional food styling
@@ -30,12 +30,14 @@ The each::sense API enables AI-powered food photography generation with:
 ## Quick Start
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a professional food photo of a gourmet burger with melted cheese, fresh lettuce, and crispy bacon on a rustic wooden board, warm lighting, shallow depth of field",
+    "messages": [{"role": "user", "content": "Generate a professional food photo of a gourmet burger with melted cheese, fresh lettuce, and crispy bacon on a rustic wooden board, warm lighting, shallow depth of field"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -55,12 +57,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ### Restaurant Menu Item
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Professional restaurant menu photo of grilled salmon fillet with lemon butter sauce, asparagus, and roasted potatoes on a white ceramic plate, elegant fine dining presentation, soft natural lighting, clean background",
+    "messages": [{"role": "user", "content": "Professional restaurant menu photo of grilled salmon fillet with lemon butter sauce, asparagus, and roasted potatoes on a white ceramic plate, elegant fine dining presentation, soft natural lighting, clean background"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -68,12 +72,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ### Food Delivery App Listing
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Appetizing food delivery app photo of a loaded pepperoni pizza with stretchy melted mozzarella cheese, fresh basil leaves, in a pizza box, overhead angle, bright even lighting, looks delicious and ready to order",
+    "messages": [{"role": "user", "content": "Appetizing food delivery app photo of a loaded pepperoni pizza with stretchy melted mozzarella cheese, fresh basil leaves, in a pizza box, overhead angle, bright even lighting, looks delicious and ready to order"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -81,12 +87,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ### Recipe Blog Hero Image
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Beautiful recipe blog hero image of homemade chocolate chip cookies, stack of warm cookies with melted chocolate chips visible, cookie crumbs scattered on marble surface, rustic kitchen background, cozy warm tones, food photography style",
+    "messages": [{"role": "user", "content": "Beautiful recipe blog hero image of homemade chocolate chip cookies, stack of warm cookies with melted chocolate chips visible, cookie crumbs scattered on marble surface, rustic kitchen background, cozy warm tones, food photography style"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -94,12 +102,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ### Coffee and Beverage Shot
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Professional coffee shop photo of a latte with intricate leaf latte art in a ceramic cup on a wooden saucer, steam rising gently, coffee beans scattered nearby, morning light from window, cafe atmosphere",
+    "messages": [{"role": "user", "content": "Professional coffee shop photo of a latte with intricate leaf latte art in a ceramic cup on a wooden saucer, steam rising gently, coffee beans scattered nearby, morning light from window, cafe atmosphere"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -107,12 +117,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ### Dessert Photography
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Elegant dessert photography of a layered tiramisu in a glass, visible coffee-soaked ladyfinger layers and mascarpone cream, dusted with cocoa powder, silver spoon beside it, dark moody background, dramatic lighting",
+    "messages": [{"role": "user", "content": "Elegant dessert photography of a layered tiramisu in a glass, visible coffee-soaked ladyfinger layers and mascarpone cream, dusted with cocoa powder, silver spoon beside it, dark moody background, dramatic lighting"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -120,12 +132,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ### Action Shot with Movement
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Dynamic food action shot of maple syrup being poured over a stack of fluffy pancakes with fresh blueberries, syrup caught mid-pour creating a golden stream, steam rising, breakfast table setting, warm morning light",
+    "messages": [{"role": "user", "content": "Dynamic food action shot of maple syrup being poured over a stack of fluffy pancakes with fresh blueberries, syrup caught mid-pour creating a golden stream, steam rising, breakfast table setting, warm morning light"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -133,12 +147,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ### Ingredient Flat Lay
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Overhead flat lay food photography of Italian pasta recipe ingredients: fresh tomatoes, basil leaves, garlic cloves, olive oil in a glass bottle, parmesan wedge, dried pasta, arranged artfully on a dark slate surface, natural lighting",
+    "messages": [{"role": "user", "content": "Overhead flat lay food photography of Italian pasta recipe ingredients: fresh tomatoes, basil leaves, garlic cloves, olive oil in a glass bottle, parmesan wedge, dried pasta, arranged artfully on a dark slate surface, natural lighting"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -146,12 +162,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ### Table Setting and Spread
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Beautiful brunch table spread photography featuring avocado toast, fresh fruit bowl, croissants, orange juice glasses, and a French press coffee, rustic wooden table with linen napkins, overhead angle, bright natural daylight, lifestyle food photography",
+    "messages": [{"role": "user", "content": "Beautiful brunch table spread photography featuring avocado toast, fresh fruit bowl, croissants, orange juice glasses, and a French press coffee, rustic wooden table with linen napkins, overhead angle, bright natural daylight, lifestyle food photography"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -159,12 +177,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ### Fast Food Product Shot
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Commercial fast food photography of crispy fried chicken bucket meal with golden brown pieces, seasoned fries in a red container, coleslaw cup, on a branded tray, clean studio lighting, appetizing and crave-worthy presentation",
+    "messages": [{"role": "user", "content": "Commercial fast food photography of crispy fried chicken bucket meal with golden brown pieces, seasoned fries in a red container, coleslaw cup, on a branded tray, clean studio lighting, appetizing and crave-worthy presentation"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -172,12 +192,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ### Healthy Meal Prep
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Clean healthy meal prep photography showing glass containers with grilled chicken breast, quinoa, roasted vegetables including broccoli and sweet potato, colorful and nutritious, organized kitchen counter, bright lighting, fitness lifestyle aesthetic",
+    "messages": [{"role": "user", "content": "Clean healthy meal prep photography showing glass containers with grilled chicken breast, quinoa, roasted vegetables including broccoli and sweet potato, colorful and nutritious, organized kitchen counter, bright lighting, fitness lifestyle aesthetic"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -236,34 +258,40 @@ Use `session_id` to maintain consistent styling across a menu series:
 
 ```bash
 # First dish in menu series
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Professional restaurant menu photo of beef tenderloin steak with red wine reduction, roasted garlic mashed potatoes, and grilled asparagus on a white plate, elegant fine dining style, soft lighting, dark wood table background",
+    "messages": [{"role": "user", "content": "Professional restaurant menu photo of beef tenderloin steak with red wine reduction, roasted garlic mashed potatoes, and grilled asparagus on a white plate, elegant fine dining style, soft lighting, dark wood table background"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "menu-series-001",
     "mode": "max"
   }'
 
 # Second dish maintaining consistent style
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now create a matching menu photo of pan-seared duck breast with cherry glaze, wild rice pilaf, and sauteed spinach, same elegant fine dining style and plating",
+    "messages": [{"role": "user", "content": "Now create a matching menu photo of pan-seared duck breast with cherry glaze, wild rice pilaf, and sauteed spinach, same elegant fine dining style and plating"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "menu-series-001",
     "mode": "max"
   }'
 
 # Third dish in the series
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Continue with a dessert photo in the same style: chocolate lava cake with vanilla ice cream and raspberry coulis, elegant presentation matching the previous dishes",
+    "messages": [{"role": "user", "content": "Continue with a dessert photo in the same style: chocolate lava cake with vanilla ice cream and raspberry coulis, elegant presentation matching the previous dishes"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "menu-series-001",
     "mode": "max"
   }'
@@ -281,12 +309,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Example with error handling:
 
 ```bash
-response=$(curl -s -w "\n%{http_code}" -X POST "https://sense.eachlabs.run/chat" \
+response=$(curl -s -w "\n%{http_code}" -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Professional food photo of a sushi platter with various nigiri and maki rolls, fresh wasabi and pickled ginger, elegant Japanese presentation on a black lacquer tray",
+    "messages": [{"role": "user", "content": "Professional food photo of a sushi platter with various nigiri and maki rolls, fresh wasabi and pickled ginger, elegant Japanese presentation on a black lacquer tray"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }')
 

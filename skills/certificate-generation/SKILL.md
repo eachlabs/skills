@@ -3,7 +3,7 @@ name: certificate-generation
 description: Generate professional certificates, diplomas, and awards using each::sense AI. Create course completion certificates, achievement awards, professional certifications, academic diplomas, and custom branded certificates.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Certificate Generation
@@ -26,12 +26,14 @@ Generate professional certificates, diplomas, and awards using each::sense. This
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a professional course completion certificate for a web development bootcamp. Include placeholder text for recipient name, course name, completion date, and instructor signature.",
+    "messages": [{"role": "user", "content": "Create a professional course completion certificate for a web development bootcamp. Include placeholder text for recipient name, course name, completion date, and instructor signature."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -55,12 +57,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Course Completion Certificate
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an elegant course completion certificate for an online learning platform. Modern design with navy blue and gold accents. Include sections for: recipient name, course title, completion date, instructor signature, and platform logo placeholder. Add a decorative border and official seal.",
+    "messages": [{"role": "user", "content": "Create an elegant course completion certificate for an online learning platform. Modern design with navy blue and gold accents. Include sections for: recipient name, course title, completion date, instructor signature, and platform logo placeholder. Add a decorative border and official seal."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -68,12 +72,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Achievement Certificate
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design an achievement certificate for a sales team. Celebratory design with star motifs and ribbon accents. Include fields for: employee name, achievement description (e.g., exceeded quarterly target by 150%), date, and manager signature. Corporate professional style with red and silver color scheme.",
+    "messages": [{"role": "user", "content": "Design an achievement certificate for a sales team. Celebratory design with star motifs and ribbon accents. Include fields for: employee name, achievement description (e.g., exceeded quarterly target by 150%), date, and manager signature. Corporate professional style with red and silver color scheme."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -81,12 +87,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Award Certificate
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an award certificate for a science fair competition. First place winner design with trophy imagery and laurel wreath elements. Include: winner name, project title, competition name, date, and judges signatures. Premium golden design with white background.",
+    "messages": [{"role": "user", "content": "Create an award certificate for a science fair competition. First place winner design with trophy imagery and laurel wreath elements. Include: winner name, project title, competition name, date, and judges signatures. Premium golden design with white background."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -94,12 +102,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Professional Certification
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a professional certification certificate for a project management credential. Formal corporate style with clean lines. Include: certified professional name, certification title (Certified Project Manager), issue date, expiration date, certification ID number, and certifying authority signature. Use dark blue and white color scheme with embossed seal look.",
+    "messages": [{"role": "user", "content": "Design a professional certification certificate for a project management credential. Formal corporate style with clean lines. Include: certified professional name, certification title (Certified Project Manager), issue date, expiration date, certification ID number, and certifying authority signature. Use dark blue and white color scheme with embossed seal look."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -107,12 +117,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. Academic Diploma
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a traditional academic diploma for a university. Classic formal design with ornate border and calligraphic elements. Include: graduate name, degree title (Bachelor of Science in Computer Science), university name, graduation date, university seal placeholder, and signatures for dean and president. Ivory background with dark green and gold accents.",
+    "messages": [{"role": "user", "content": "Create a traditional academic diploma for a university. Classic formal design with ornate border and calligraphic elements. Include: graduate name, degree title (Bachelor of Science in Computer Science), university name, graduation date, university seal placeholder, and signatures for dean and president. Ivory background with dark green and gold accents."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -120,12 +132,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Training Certificate
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a corporate training certificate for workplace safety compliance. Professional and official design. Include: employee name, training program name, training hours completed, completion date, trainer signature, and HR manager signature. Add company logo placeholder and compliance badge. Blue and gray corporate colors.",
+    "messages": [{"role": "user", "content": "Design a corporate training certificate for workplace safety compliance. Professional and official design. Include: employee name, training program name, training hours completed, completion date, trainer signature, and HR manager signature. Add company logo placeholder and compliance badge. Blue and gray corporate colors."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -133,12 +147,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Appreciation Certificate
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a certificate of appreciation for volunteer work. Warm and heartfelt design with soft colors. Include: volunteer name, organization name, description of service, hours contributed, date, and director signature. Add decorative elements like hands or hearts. Use teal and coral color palette.",
+    "messages": [{"role": "user", "content": "Create a certificate of appreciation for volunteer work. Warm and heartfelt design with soft colors. Include: volunteer name, organization name, description of service, hours contributed, date, and director signature. Add decorative elements like hands or hearts. Use teal and coral color palette."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -146,12 +162,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Participation Certificate
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a participation certificate for a hackathon event. Modern tech-inspired design with geometric patterns. Include: participant name, event name, event dates, category/track participated in, and organizer signature. Use vibrant purple and electric blue colors with clean sans-serif typography.",
+    "messages": [{"role": "user", "content": "Design a participation certificate for a hackathon event. Modern tech-inspired design with geometric patterns. Include: participant name, event name, event dates, category/track participated in, and organizer signature. Use vibrant purple and electric blue colors with clean sans-serif typography."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -159,12 +177,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. Employee of the Month
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an Employee of the Month certificate. Prestigious and motivating design with star and spotlight elements. Include: employee name, month and year, department, reason for recognition, CEO signature, and company logo placeholder. Premium gold and black design with elegant typography.",
+    "messages": [{"role": "user", "content": "Create an Employee of the Month certificate. Prestigious and motivating design with star and spotlight elements. Include: employee name, month and year, department, reason for recognition, CEO signature, and company logo placeholder. Premium gold and black design with elegant typography."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -172,12 +192,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 10. Custom Branded Certificate
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a certificate template for a tech company named TechForward. Minimalist modern design that matches tech startup aesthetics. Include: recipient name, certificate title (flexible), achievement description, date, and dual signature lines. Use clean white background with gradient accent in purple to blue. Include prominent logo placeholder area and QR code placeholder for verification.",
+    "messages": [{"role": "user", "content": "Design a certificate template for a tech company named TechForward. Minimalist modern design that matches tech startup aesthetics. Include: recipient name, certificate title (flexible), achievement description, date, and dual signature lines. Use clean white background with gradient accent in purple to blue. Include prominent logo placeholder area and QR code placeholder for verification."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -199,32 +221,38 @@ Use `session_id` to iterate on certificate designs:
 
 ```bash
 # Initial design
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a certificate of completion for a coding bootcamp",
+    "messages": [{"role": "user", "content": "Create a certificate of completion for a coding bootcamp"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "cert-bootcamp-001"
   }'
 
 # Iterate based on feedback
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Make the design more modern with darker colors and add a tech-inspired geometric border",
+    "messages": [{"role": "user", "content": "Make the design more modern with darker colors and add a tech-inspired geometric border"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "cert-bootcamp-001"
   }'
 
 # Add specific elements
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Add a QR code placeholder in the bottom right corner and include space for a holographic seal",
+    "messages": [{"role": "user", "content": "Add a QR code placeholder in the bottom right corner and include space for a holographic seal"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "cert-bootcamp-001"
   }'
 ```
@@ -235,32 +263,38 @@ Generate consistent certificates for different levels:
 
 ```bash
 # Bronze level certificate
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a Bronze level achievement certificate for a learning platform. Use bronze/copper metallic accents. Include level badge prominently.",
+    "messages": [{"role": "user", "content": "Create a Bronze level achievement certificate for a learning platform. Use bronze/copper metallic accents. Include level badge prominently."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "cert-levels-001"
   }'
 
 # Silver level certificate (same session for consistency)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create the Silver level version of this certificate. Same layout but with silver metallic accents.",
+    "messages": [{"role": "user", "content": "Create the Silver level version of this certificate. Same layout but with silver metallic accents."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "cert-levels-001"
   }'
 
 # Gold level certificate
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create the Gold level version. Same layout but with gold metallic accents and more ornate details.",
+    "messages": [{"role": "user", "content": "Create the Gold level version. Same layout but with gold metallic accents and more ornate details."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "cert-levels-001"
   }'
 ```

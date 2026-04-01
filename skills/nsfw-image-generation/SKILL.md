@@ -4,7 +4,7 @@ description: Generate adult images, artistic nudes, glamour photography, and fan
 metadata:
   category: image-generation
   subcategory: nsfw
-  api_endpoint: https://sense.eachlabs.run/chat
+  api_endpoint: https://eachsense-agent.core.eachlabs.run/v1/chat/completions
   content_rating: adult
   requires_age_verification: true
 tags:
@@ -35,9 +35,9 @@ The each::sense API enables NSFW image generation when the `enable_safety_checke
 ## Quick Start
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $EACH_API_KEY" \
+  -H "X-API-Key: $EACHLABS_API_KEY" \
   -d '{
     "messages": [
       {
@@ -46,6 +46,8 @@ curl -X POST "https://sense.eachlabs.run/chat" \
       }
     ],
     "mode": "max",
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 ```
@@ -68,9 +70,9 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Classic fine art nude with emphasis on form and lighting.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $EACH_API_KEY" \
+  -H "X-API-Key: $EACHLABS_API_KEY" \
   -d '{
     "messages": [
       {
@@ -79,6 +81,8 @@ curl -X POST "https://sense.eachlabs.run/chat" \
       }
     ],
     "mode": "max",
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 ```
@@ -88,9 +92,9 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Professional glamour photography with fashion aesthetics.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $EACH_API_KEY" \
+  -H "X-API-Key: $EACHLABS_API_KEY" \
   -d '{
     "messages": [
       {
@@ -99,6 +103,8 @@ curl -X POST "https://sense.eachlabs.run/chat" \
       }
     ],
     "mode": "max",
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 ```
@@ -108,9 +114,9 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Intimate and sensual boudoir imagery.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $EACH_API_KEY" \
+  -H "X-API-Key: $EACHLABS_API_KEY" \
   -d '{
     "messages": [
       {
@@ -119,6 +125,8 @@ curl -X POST "https://sense.eachlabs.run/chat" \
       }
     ],
     "mode": "max",
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 ```
@@ -128,9 +136,9 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Retro-inspired pin-up illustrations and photography.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $EACH_API_KEY" \
+  -H "X-API-Key: $EACHLABS_API_KEY" \
   -d '{
     "messages": [
       {
@@ -139,6 +147,8 @@ curl -X POST "https://sense.eachlabs.run/chat" \
       }
     ],
     "mode": "max",
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 ```
@@ -148,9 +158,9 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Adult fantasy illustrations with mythical themes.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $EACH_API_KEY" \
+  -H "X-API-Key: $EACHLABS_API_KEY" \
   -d '{
     "messages": [
       {
@@ -159,6 +169,8 @@ curl -X POST "https://sense.eachlabs.run/chat" \
       }
     ],
     "mode": "max",
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 ```
@@ -168,9 +180,9 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Classical fine art representation of the human form.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $EACH_API_KEY" \
+  -H "X-API-Key: $EACHLABS_API_KEY" \
   -d '{
     "messages": [
       {
@@ -179,6 +191,8 @@ curl -X POST "https://sense.eachlabs.run/chat" \
       }
     ],
     "mode": "max",
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 ```
@@ -188,9 +202,9 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Romantic and intimate couples imagery.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $EACH_API_KEY" \
+  -H "X-API-Key: $EACHLABS_API_KEY" \
   -d '{
     "messages": [
       {
@@ -199,6 +213,8 @@ curl -X POST "https://sense.eachlabs.run/chat" \
       }
     ],
     "mode": "max",
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 ```
@@ -208,9 +224,9 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Generate consistent character imagery using reference images.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $EACH_API_KEY" \
+  -H "X-API-Key: $EACHLABS_API_KEY" \
   -d '{
     "messages": [
       {
@@ -220,6 +236,8 @@ curl -X POST "https://sense.eachlabs.run/chat" \
     ],
     "image_urls": ["https://example.com/reference-model.jpg"],
     "mode": "max",
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 ```
@@ -229,9 +247,9 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Detailed body study for artistic purposes.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $EACH_API_KEY" \
+  -H "X-API-Key: $EACHLABS_API_KEY" \
   -d '{
     "messages": [
       {
@@ -240,6 +258,8 @@ curl -X POST "https://sense.eachlabs.run/chat" \
       }
     ],
     "mode": "max",
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 ```
@@ -249,9 +269,9 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Classic vintage erotica aesthetics.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $EACH_API_KEY" \
+  -H "X-API-Key: $EACHLABS_API_KEY" \
   -d '{
     "messages": [
       {
@@ -260,6 +280,8 @@ curl -X POST "https://sense.eachlabs.run/chat" \
       }
     ],
     "mode": "max",
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 ```
@@ -322,9 +344,9 @@ Technical: Medium format, shallow depth of field
 ### Production Quality
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $EACH_API_KEY" \
+  -H "X-API-Key: $EACHLABS_API_KEY" \
   -d '{
     "messages": [
       {
@@ -333,6 +355,8 @@ curl -X POST "https://sense.eachlabs.run/chat" \
       }
     ],
     "mode": "max",
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 ```
@@ -340,9 +364,9 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ### Draft and Iteration
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $EACH_API_KEY" \
+  -H "X-API-Key: $EACHLABS_API_KEY" \
   -d '{
     "messages": [
       {
@@ -351,6 +375,8 @@ curl -X POST "https://sense.eachlabs.run/chat" \
       }
     ],
     "mode": "eco",
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 ```
@@ -362,9 +388,9 @@ Use `session_id` to maintain character consistency across multiple images.
 ### Initial Generation
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $EACH_API_KEY" \
+  -H "X-API-Key: $EACHLABS_API_KEY" \
   -d '{
     "messages": [
       {
@@ -374,6 +400,8 @@ curl -X POST "https://sense.eachlabs.run/chat" \
     ],
     "session_id": "model-session-001",
     "mode": "max",
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 ```
@@ -381,9 +409,9 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ### Follow-Up with Same Character
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $EACH_API_KEY" \
+  -H "X-API-Key: $EACHLABS_API_KEY" \
   -d '{
     "messages": [
       {
@@ -393,6 +421,8 @@ curl -X POST "https://sense.eachlabs.run/chat" \
     ],
     "session_id": "model-session-001",
     "mode": "max",
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 ```

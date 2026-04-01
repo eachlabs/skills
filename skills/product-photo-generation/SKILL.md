@@ -27,12 +27,14 @@ You can also provide your own product images via `image_urls` to place your actu
 ## Quick Start
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a professional product photo of a minimalist ceramic coffee mug on a white background with soft studio lighting",
+    "messages": [{"role": "user", "content": "Generate a professional product photo of a minimalist ceramic coffee mug on a white background with soft studio lighting"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -55,12 +57,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Standard e-commerce product photography with clean white background.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Professional product photo of a stainless steel water bottle on pure white background, centered composition, soft box lighting from above and sides, no shadows, e-commerce style, 4K quality",
+    "messages": [{"role": "user", "content": "Professional product photo of a stainless steel water bottle on pure white background, centered composition, soft box lighting from above and sides, no shadows, e-commerce style, 4K quality"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -70,12 +74,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Product shown in an aspirational real-world setting.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Lifestyle product photography of premium wireless headphones on a modern wooden desk, morning light through window, MacBook and coffee cup in soft focus background, warm and inviting atmosphere",
+    "messages": [{"role": "user", "content": "Lifestyle product photography of premium wireless headphones on a modern wooden desk, morning light through window, MacBook and coffee cup in soft focus background, warm and inviting atmosphere"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -85,12 +91,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Top-down arrangement with complementary props.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Flat lay product photography of a leather wallet, arranged with sunglasses, car keys, and a fountain pen on marble surface, overhead shot, even lighting, editorial style composition",
+    "messages": [{"role": "user", "content": "Flat lay product photography of a leather wallet, arranged with sunglasses, car keys, and a fountain pen on marble surface, overhead shot, even lighting, editorial style composition"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -100,12 +108,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 High-impact product image for marketing materials.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Hero shot of a luxury perfume bottle, dramatic side lighting creating elegant shadows, dark moody background with subtle gradient, glass reflections and caustics, premium advertising quality",
+    "messages": [{"role": "user", "content": "Hero shot of a luxury perfume bottle, dramatic side lighting creating elegant shadows, dark moody background with subtle gradient, glass reflections and caustics, premium advertising quality"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -115,12 +125,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Close-up focusing on product texture and craftsmanship.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Macro detail shot of handcrafted leather bag stitching, extreme close-up showing texture and quality of leather grain, shallow depth of field, warm directional lighting highlighting craftsmanship",
+    "messages": [{"role": "user", "content": "Macro detail shot of handcrafted leather bag stitching, extreme close-up showing texture and quality of leather grain, shallow depth of field, warm directional lighting highlighting craftsmanship"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -130,12 +142,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Product being actively used or demonstrated.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Action product shot of running shoes in motion, dynamic angle showing flexibility, slight motion blur on background, athletic track setting, energetic and sporty atmosphere",
+    "messages": [{"role": "user", "content": "Action product shot of running shoes in motion, dynamic angle showing flexibility, slight motion blur on background, athletic track setting, energetic and sporty atmosphere"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -145,12 +159,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Product styled for specific season or holiday.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Holiday themed product photo of a scented candle surrounded by pine branches, dried oranges, and cinnamon sticks, warm cozy lighting, festive winter atmosphere, gift-ready presentation",
+    "messages": [{"role": "user", "content": "Holiday themed product photo of a scented candle surrounded by pine branches, dried oranges, and cinnamon sticks, warm cozy lighting, festive winter atmosphere, gift-ready presentation"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -160,12 +176,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Product shown with reference objects for scale.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Product scale photo of a compact Bluetooth speaker next to a smartphone and coffee cup for size reference, clean white background, even lighting, showing portable dimensions clearly",
+    "messages": [{"role": "user", "content": "Product scale photo of a compact Bluetooth speaker next to a smartphone and coffee cup for size reference, clean white background, even lighting, showing portable dimensions clearly"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -175,12 +193,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Product with its packaging for unboxing experience.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Product and packaging photo of premium skincare bottle emerging from elegant black box, tissue paper visible, unboxing moment, luxury presentation, soft lighting on neutral background",
+    "messages": [{"role": "user", "content": "Product and packaging photo of premium skincare bottle emerging from elegant black box, tissue paper visible, unboxing moment, luxury presentation, soft lighting on neutral background"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -190,12 +210,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Provide actual product photos via `image_urls` to place your products into professionally styled scenes.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Place this product in a modern kitchen setting, morning light, marble countertop, lifestyle photography style",
+    "messages": [{"role": "user", "content": "Place this product in a modern kitchen setting, morning light, marble countertop, lifestyle photography style"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/my-product.jpg"],
     "mode": "max"
   }'
@@ -204,12 +226,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ### Product with Custom Background
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Put this product on a pure white background with professional studio lighting, remove existing background, e-commerce ready",
+    "messages": [{"role": "user", "content": "Put this product on a pure white background with professional studio lighting, remove existing background, e-commerce ready"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/raw-product-photo.jpg"],
     "mode": "max"
   }'
@@ -282,12 +306,14 @@ Use `session_id` to maintain consistency across a product line or catalog series
 ### Start a product series session
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a product photo of a blue ceramic coffee mug on white background with soft natural lighting, minimalist style",
+    "messages": [{"role": "user", "content": "Generate a product photo of a blue ceramic coffee mug on white background with soft natural lighting, minimalist style"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "product-catalog-2024",
     "mode": "max"
   }'
@@ -296,12 +322,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ### Continue with consistent style
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now generate the matching red ceramic mug in the same style and lighting setup",
+    "messages": [{"role": "user", "content": "Now generate the matching red ceramic mug in the same style and lighting setup"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "product-catalog-2024",
     "mode": "max"
   }'
@@ -310,12 +338,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ### Add variations
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a lifestyle version showing both mugs on a breakfast table with croissants",
+    "messages": [{"role": "user", "content": "Create a lifestyle version showing both mugs on a breakfast table with croissants"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "product-catalog-2024",
     "mode": "max"
   }'
@@ -334,12 +364,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 
 ```bash
 for i in 1 2 3; do
-  response=$(curl -s -w "%{http_code}" -X POST "https://sense.eachlabs.run/chat" \
+  response=$(curl -s -w "%{http_code}" -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
     -H "Content-Type: application/json" \
     -H "X-API-Key: $EACHLABS_API_KEY" \
     -H "Accept: text/event-stream" \
     -d '{
-      "message": "Professional product photo of wireless earbuds on white background",
+      "messages": [{"role": "user", "content": "Professional product photo of wireless earbuds on white background"}],
+      "model": "eachsense/beta",
+    "stream": true,
       "mode": "max"
     }')
 

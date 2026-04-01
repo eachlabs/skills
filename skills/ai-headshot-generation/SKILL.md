@@ -3,7 +3,7 @@ name: ai-headshot-generation
 description: Generate professional AI headshots from casual photos using each::sense AI. Create corporate portraits, LinkedIn photos, executive headshots, team photos, and more with consistent, professional quality.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # AI Headshot Generation
@@ -24,12 +24,14 @@ Generate professional AI headshots from casual photos or text descriptions using
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a professional corporate headshot from this casual photo. Clean background, professional lighting, business appropriate appearance.",
+    "messages": [{"role": "user", "content": "Create a professional corporate headshot from this casual photo. Clean background, professional lighting, business appropriate appearance."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/casual-photo.jpg"]
   }'
@@ -53,12 +55,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Transform a casual selfie or personal photo into a polished corporate headshot.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Transform this casual photo into a professional corporate headshot. Use a clean neutral gray background, soft professional studio lighting, and ensure the subject looks polished and approachable. Keep the likeness accurate.",
+    "messages": [{"role": "user", "content": "Transform this casual photo into a professional corporate headshot. Use a clean neutral gray background, soft professional studio lighting, and ensure the subject looks polished and approachable. Keep the likeness accurate."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/casual-selfie.jpg"]
   }'
@@ -69,12 +73,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create an optimized headshot specifically for LinkedIn that conveys professionalism and approachability.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a LinkedIn-optimized professional headshot from this photo. Square 1:1 format, friendly but professional expression, clean blurred office background, warm natural lighting. The subject should appear confident and approachable.",
+    "messages": [{"role": "user", "content": "Create a LinkedIn-optimized professional headshot from this photo. Square 1:1 format, friendly but professional expression, clean blurred office background, warm natural lighting. The subject should appear confident and approachable."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/source-photo.jpg"]
   }'
@@ -85,12 +91,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Premium quality headshot for C-suite executives, board members, and senior leadership.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a premium executive headshot from this photo. Dark sophisticated background with subtle gradient, dramatic professional lighting, formal business attire appearance. The subject should convey authority, confidence, and leadership. Magazine cover quality.",
+    "messages": [{"role": "user", "content": "Create a premium executive headshot from this photo. Dark sophisticated background with subtle gradient, dramatic professional lighting, formal business attire appearance. The subject should convey authority, confidence, and leadership. Magazine cover quality."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/ceo-casual.jpg"]
   }'
@@ -102,36 +110,42 @@ Generate matching headshots for team members to ensure visual consistency across
 
 ```bash
 # First team member - establish the style
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a professional team headshot with these specifications: light gray background, soft diffused lighting from the left, 1:1 square format, head and shoulders framing. Professional but friendly expression. This will be the template style for our entire team.",
+    "messages": [{"role": "user", "content": "Create a professional team headshot with these specifications: light gray background, soft diffused lighting from the left, 1:1 square format, head and shoulders framing. Professional but friendly expression. This will be the template style for our entire team."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "team-headshots-2024",
     "mode": "max",
     "image_urls": ["https://example.com/team-member-1.jpg"]
   }'
 
 # Second team member - maintain consistency
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a headshot for this team member using the exact same style as the previous one - same background, lighting, framing, and overall aesthetic.",
+    "messages": [{"role": "user", "content": "Create a headshot for this team member using the exact same style as the previous one - same background, lighting, framing, and overall aesthetic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "team-headshots-2024",
     "mode": "max",
     "image_urls": ["https://example.com/team-member-2.jpg"]
   }'
 
 # Third team member
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a headshot for this team member matching our established team style.",
+    "messages": [{"role": "user", "content": "Create a headshot for this team member matching our established team style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "team-headshots-2024",
     "mode": "max",
     "image_urls": ["https://example.com/team-member-3.jpg"]
@@ -144,35 +158,41 @@ Generate the same headshot with various background options.
 
 ```bash
 # Office background
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a professional headshot with a blurred modern office background. Glass windows, city view visible but out of focus. Natural daylight feel.",
+    "messages": [{"role": "user", "content": "Create a professional headshot with a blurred modern office background. Glass windows, city view visible but out of focus. Natural daylight feel."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "background-variations",
     "mode": "max",
     "image_urls": ["https://example.com/source-photo.jpg"]
   }'
 
 # Studio gradient background
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now create the same headshot but with a classic studio gradient background - deep blue fading to lighter blue. Keep the same professional lighting on the subject.",
+    "messages": [{"role": "user", "content": "Now create the same headshot but with a classic studio gradient background - deep blue fading to lighter blue. Keep the same professional lighting on the subject."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "background-variations",
     "mode": "max"
   }'
 
 # Nature/outdoor background
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create another variation with a natural outdoor background - soft green foliage, blurred bokeh effect, golden hour lighting. More relaxed professional vibe.",
+    "messages": [{"role": "user", "content": "Create another variation with a natural outdoor background - soft green foliage, blurred bokeh effect, golden hour lighting. More relaxed professional vibe."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "background-variations",
     "mode": "max"
   }'
@@ -184,35 +204,41 @@ Transform the subject's appearance with professional attire options.
 
 ```bash
 # Navy suit
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a professional headshot from this casual photo. Dress the subject in a classic navy blue business suit with a white dress shirt and subtle tie. Clean gray background, professional studio lighting.",
+    "messages": [{"role": "user", "content": "Create a professional headshot from this casual photo. Dress the subject in a classic navy blue business suit with a white dress shirt and subtle tie. Clean gray background, professional studio lighting."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "outfit-variations",
     "mode": "max",
     "image_urls": ["https://example.com/casual-photo.jpg"]
   }'
 
 # Business casual
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create another version with business casual attire - a blazer over a smart polo shirt or open-collar dress shirt. Same background and lighting as before.",
+    "messages": [{"role": "user", "content": "Create another version with business casual attire - a blazer over a smart polo shirt or open-collar dress shirt. Same background and lighting as before."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "outfit-variations",
     "mode": "max"
   }'
 
 # Creative professional
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a version for creative industry - stylish but professional, perhaps a dark turtleneck or modern collarless jacket. Contemporary creative professional look.",
+    "messages": [{"role": "user", "content": "Create a version for creative industry - stylish but professional, perhaps a dark turtleneck or modern collarless jacket. Contemporary creative professional look."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "outfit-variations",
     "mode": "max"
   }'
@@ -223,12 +249,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Clean, professional headshot optimized for job applications and CVs.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a clean, professional headshot suitable for a resume or CV. Simple solid light background (white or very light gray), professional attire, friendly and confident expression. The photo should be conservative and appropriate for any industry. Square format, head and shoulders framing.",
+    "messages": [{"role": "user", "content": "Create a clean, professional headshot suitable for a resume or CV. Simple solid light background (white or very light gray), professional attire, friendly and confident expression. The photo should be conservative and appropriate for any industry. Square format, head and shoulders framing."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/applicant-photo.jpg"]
   }'
@@ -239,12 +267,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Dynamic headshot for conference speakers, authors, and thought leaders.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a compelling speaker/author headshot. The subject should appear engaging, confident, and dynamic. Use dramatic lighting with a dark background to create visual impact. Slight smile, eyes that connect with the viewer. This should work well on book covers, conference websites, and keynote slides. High contrast, memorable, professional.",
+    "messages": [{"role": "user", "content": "Create a compelling speaker/author headshot. The subject should appear engaging, confident, and dynamic. Use dramatic lighting with a dark background to create visual impact. Slight smile, eyes that connect with the viewer. This should work well on book covers, conference websites, and keynote slides. High contrast, memorable, professional."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/author-source.jpg"]
   }'
@@ -255,12 +285,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Approachable, trustworthy headshot for real estate professionals.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a real estate agent headshot. The subject should appear trustworthy, friendly, and professional. Warm lighting, genuine smile, approachable expression. Background should be a subtle blurred interior of an upscale home or modern building. Professional but not stiff - someone you would trust to help you buy a home.",
+    "messages": [{"role": "user", "content": "Create a real estate agent headshot. The subject should appear trustworthy, friendly, and professional. Warm lighting, genuine smile, approachable expression. Background should be a subtle blurred interior of an upscale home or modern building. Professional but not stiff - someone you would trust to help you buy a home."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/agent-photo.jpg"]
   }'
@@ -272,35 +304,41 @@ Generate several expression options from the same source photo.
 
 ```bash
 # Confident/serious
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a professional headshot with a confident, serious expression. Professional and authoritative, suitable for a law firm or financial services. Neutral gray background, classic professional lighting.",
+    "messages": [{"role": "user", "content": "Create a professional headshot with a confident, serious expression. Professional and authoritative, suitable for a law firm or financial services. Neutral gray background, classic professional lighting."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "expression-variations",
     "mode": "max",
     "image_urls": ["https://example.com/source-photo.jpg"]
   }'
 
 # Friendly/approachable
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now create a variation with a warm, friendly smile. Approachable and welcoming, suitable for customer-facing roles or consulting. Same background and lighting setup.",
+    "messages": [{"role": "user", "content": "Now create a variation with a warm, friendly smile. Approachable and welcoming, suitable for customer-facing roles or consulting. Same background and lighting setup."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "expression-variations",
     "mode": "max"
   }'
 
 # Thoughtful/engaged
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create another variation with a thoughtful, engaged expression - slight smile, intelligent and curious look. Good for tech industry or academia. Same background and lighting.",
+    "messages": [{"role": "user", "content": "Create another variation with a thoughtful, engaged expression - slight smile, intelligent and curious look. Good for tech industry or academia. Same background and lighting."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "expression-variations",
     "mode": "max"
   }'
@@ -350,35 +388,41 @@ Use `session_id` to iterate and perfect headshots:
 
 ```bash
 # Initial generation
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a professional headshot from this photo with a blue gradient background",
+    "messages": [{"role": "user", "content": "Create a professional headshot from this photo with a blue gradient background"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "headshot-refinement",
     "mode": "max",
     "image_urls": ["https://example.com/source.jpg"]
   }'
 
 # Refine based on feedback
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Make the lighting warmer and the expression slightly more friendly. Keep the same background.",
+    "messages": [{"role": "user", "content": "Make the lighting warmer and the expression slightly more friendly. Keep the same background."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "headshot-refinement",
     "mode": "max"
   }'
 
 # Final adjustments
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Perfect. Now generate 2 more slight variations of this final result.",
+    "messages": [{"role": "user", "content": "Perfect. Now generate 2 more slight variations of this final result."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "headshot-refinement",
     "mode": "max"
   }'
@@ -390,24 +434,28 @@ Generate consistent headshots for entire teams efficiently:
 
 ```bash
 # Define team style first
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "I need to create headshots for a team of 10 people. Our brand colors are navy blue and white. We want: 1:1 square format, light gray background, soft professional lighting, business casual attire, friendly but professional expressions. First, create a headshot for this team member to establish the style.",
+    "messages": [{"role": "user", "content": "I need to create headshots for a team of 10 people. Our brand colors are navy blue and white. We want: 1:1 square format, light gray background, soft professional lighting, business casual attire, friendly but professional expressions. First, create a headshot for this team member to establish the style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "acme-corp-team",
     "mode": "max",
     "image_urls": ["https://example.com/team/person-1.jpg"]
   }'
 
 # Continue with remaining team members using same session
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create headshot for next team member, matching established style",
+    "messages": [{"role": "user", "content": "Create headshot for next team member, matching established style"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "acme-corp-team",
     "mode": "eco",
     "image_urls": ["https://example.com/team/person-2.jpg"]

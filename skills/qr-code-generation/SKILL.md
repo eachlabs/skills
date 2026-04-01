@@ -3,7 +3,7 @@ name: qr-code-generation
 description: Generate artistic and stylized QR codes using each::sense AI. Create branded QR codes, QR codes with logos, artistic designs, and custom themes that remain scannable while looking visually stunning.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # QR Code Generation
@@ -23,12 +23,14 @@ Generate artistic, branded, and visually stunning QR codes using each::sense. Th
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a stylized QR code for https://mywebsite.com with a modern tech aesthetic",
+    "messages": [{"role": "user", "content": "Create a stylized QR code for https://mywebsite.com with a modern tech aesthetic"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -48,12 +50,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Basic Stylized QR Code
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a stylized QR code for https://example.com. Use a modern, clean design with rounded corners on the modules. Keep it scannable with good contrast. Blue and white color scheme.",
+    "messages": [{"role": "user", "content": "Generate a stylized QR code for https://example.com. Use a modern, clean design with rounded corners on the modules. Keep it scannable with good contrast. Blue and white color scheme."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -61,12 +65,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. QR Code with Logo Center
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a QR code for https://mycompany.com with space in the center for a company logo. The QR should have a professional corporate look with dark blue modules. Make sure the center area is clean and square-shaped for logo placement.",
+    "messages": [{"role": "user", "content": "Create a QR code for https://mycompany.com with space in the center for a company logo. The QR should have a professional corporate look with dark blue modules. Make sure the center area is clean and square-shaped for logo placement."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/company-logo.png"]
   }'
@@ -75,12 +81,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Artistic QR Code (Nature Theme)
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate an artistic QR code for https://naturereserve.org with a nature theme. Incorporate organic shapes - the modules should look like leaves or natural elements. Use earthy green and brown tones. The overall design should feel like it belongs in nature while remaining fully scannable.",
+    "messages": [{"role": "user", "content": "Generate an artistic QR code for https://naturereserve.org with a nature theme. Incorporate organic shapes - the modules should look like leaves or natural elements. Use earthy green and brown tones. The overall design should feel like it belongs in nature while remaining fully scannable."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -88,12 +96,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Branded QR Code (Company Colors)
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a branded QR code for https://techstartup.io using brand colors: primary #FF6B35 (orange) and secondary #1A1A2E (dark navy). The design should feel innovative and tech-forward. Use geometric patterns around the QR code. Maintain high scannability.",
+    "messages": [{"role": "user", "content": "Create a branded QR code for https://techstartup.io using brand colors: primary #FF6B35 (orange) and secondary #1A1A2E (dark navy). The design should feel innovative and tech-forward. Use geometric patterns around the QR code. Maintain high scannability."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -101,12 +111,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. QR Code with Background Image
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a QR code for https://beachresort.com that integrates with a tropical beach background. The QR modules should be semi-transparent or styled to blend naturally with the beach scene. Use sandy and ocean blue tones. The code must remain scannable despite the artistic integration.",
+    "messages": [{"role": "user", "content": "Create a QR code for https://beachresort.com that integrates with a tropical beach background. The QR modules should be semi-transparent or styled to blend naturally with the beach scene. Use sandy and ocean blue tones. The code must remain scannable despite the artistic integration."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -114,12 +126,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Minimalist QR Code
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a minimalist QR code for https://minimal.design. Ultra-clean aesthetic with thin, precise modules. Pure black on white. No decorative elements - just elegant simplicity. The design should feel premium and high-end through restraint.",
+    "messages": [{"role": "user", "content": "Generate a minimalist QR code for https://minimal.design. Ultra-clean aesthetic with thin, precise modules. Pure black on white. No decorative elements - just elegant simplicity. The design should feel premium and high-end through restraint."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -127,12 +141,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Colorful Gradient QR Code
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a vibrant gradient QR code for https://creativestudio.art. Apply a smooth gradient across the modules from pink (#FF6B9D) to purple (#C44569) to blue (#3D5A80). The gradient should flow diagonally. Make it eye-catching and artistic while remaining scannable.",
+    "messages": [{"role": "user", "content": "Create a vibrant gradient QR code for https://creativestudio.art. Apply a smooth gradient across the modules from pink (#FF6B9D) to purple (#C44569) to blue (#3D5A80). The gradient should flow diagonally. Make it eye-catching and artistic while remaining scannable."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -140,12 +156,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. QR Code for Restaurant Menu
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a QR code for a restaurant digital menu at https://restaurant.com/menu. Design should have an elegant dining theme - incorporate subtle fork and knife motifs or food-related design elements around the QR. Use warm, appetizing colors like burgundy and gold. Perfect for table tents.",
+    "messages": [{"role": "user", "content": "Create a QR code for a restaurant digital menu at https://restaurant.com/menu. Design should have an elegant dining theme - incorporate subtle fork and knife motifs or food-related design elements around the QR. Use warm, appetizing colors like burgundy and gold. Perfect for table tents."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -153,12 +171,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. QR Code for Business Card
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a professional QR code for a digital business card vCard at https://vcard.example.com/johndoe. The design should be compact and suitable for printing on a business card. Use a sophisticated charcoal gray color with subtle metallic accents. Include a small professional icon element.",
+    "messages": [{"role": "user", "content": "Generate a professional QR code for a digital business card vCard at https://vcard.example.com/johndoe. The design should be compact and suitable for printing on a business card. Use a sophisticated charcoal gray color with subtle metallic accents. Include a small professional icon element."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -166,12 +186,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 10. QR Code for Social Media Profile
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a fun, social-media-ready QR code linking to https://linktr.ee/influencer. Design should feel young, trendy, and Instagram-worthy. Use a playful color palette with neon accents. Add decorative elements like stars or sparkles around the QR. Perfect for sharing on social platforms.",
+    "messages": [{"role": "user", "content": "Create a fun, social-media-ready QR code linking to https://linktr.ee/influencer. Design should feel young, trendy, and Instagram-worthy. Use a playful color palette with neon accents. Add decorative elements like stars or sparkles around the QR. Perfect for sharing on social platforms."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -216,32 +238,38 @@ Use `session_id` to iterate on QR code designs:
 
 ```bash
 # Initial QR code design
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a stylized QR code for https://mybrand.com with a modern tech aesthetic",
+    "messages": [{"role": "user", "content": "Create a stylized QR code for https://mybrand.com with a modern tech aesthetic"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "qr-design-project"
   }'
 
 # Refine the design
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Make the corners more rounded and add a subtle glow effect around the QR code",
+    "messages": [{"role": "user", "content": "Make the corners more rounded and add a subtle glow effect around the QR code"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "qr-design-project"
   }'
 
 # Request color variation
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a version with gold and black colors for our premium product line",
+    "messages": [{"role": "user", "content": "Create a version with gold and black colors for our premium product line"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "qr-design-project"
   }'
 ```
@@ -252,34 +280,40 @@ Generate consistent QR codes for multiple destinations:
 
 ```bash
 # Main website QR
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a branded QR code for https://company.com with blue gradient styling",
+    "messages": [{"role": "user", "content": "Create a branded QR code for https://company.com with blue gradient styling"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco",
     "session_id": "company-qr-set"
   }'
 
 # Product page QR
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a matching QR code for https://company.com/products in the same style",
+    "messages": [{"role": "user", "content": "Create a matching QR code for https://company.com/products in the same style"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco",
     "session_id": "company-qr-set"
   }'
 
 # Contact page QR
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a matching QR code for https://company.com/contact in the same style",
+    "messages": [{"role": "user", "content": "Create a matching QR code for https://company.com/contact in the same style"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco",
     "session_id": "company-qr-set"
   }'

@@ -3,7 +3,7 @@ name: game-asset-generation
 description: Generate game art assets using each::sense AI. Create 2D sprites, character sprite sheets, seamless textures, UI elements, icons, tilesets, loading screens, logos, and concept art for games.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Game Asset Generation
@@ -29,12 +29,14 @@ Generate professional game art assets using each::sense. This skill creates 2D s
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 32x32 pixel art sword icon for an RPG game, golden blade with ornate hilt, transparent background",
+    "messages": [{"role": "user", "content": "Create a 32x32 pixel art sword icon for an RPG game, golden blade with ornate hilt, transparent background"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -55,12 +57,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. 2D Sprite Generation (Pixel Art)
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 64x64 pixel art character sprite of a medieval knight with blue armor and silver sword. Retro 16-bit style, side view facing right, transparent background. Clean pixel edges, no anti-aliasing.",
+    "messages": [{"role": "user", "content": "Create a 64x64 pixel art character sprite of a medieval knight with blue armor and silver sword. Retro 16-bit style, side view facing right, transparent background. Clean pixel edges, no anti-aliasing."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -68,12 +72,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Character Sprite Sheet
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a character sprite sheet for a pixel art wizard character. Include 8 frames: 2 idle poses, 2 walking frames, 2 attack frames, 1 jump, 1 hurt pose. 32x32 per frame, arranged in a 4x2 grid (256x64 total). Purple robe, white beard, wooden staff.",
+    "messages": [{"role": "user", "content": "Create a character sprite sheet for a pixel art wizard character. Include 8 frames: 2 idle poses, 2 walking frames, 2 attack frames, 1 jump, 1 hurt pose. 32x32 per frame, arranged in a 4x2 grid (256x64 total). Purple robe, white beard, wooden staff."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -81,12 +87,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Game Texture Generation (Seamless)
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a seamless tileable 512x512 stone dungeon floor texture. Dark gray cobblestones with moss growing between cracks, worn and weathered look. Must tile perfectly with no visible seams when repeated.",
+    "messages": [{"role": "user", "content": "Create a seamless tileable 512x512 stone dungeon floor texture. Dark gray cobblestones with moss growing between cracks, worn and weathered look. Must tile perfectly with no visible seams when repeated."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -95,32 +103,38 @@ curl -X POST https://sense.eachlabs.run/chat \
 
 ```bash
 # First icon
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 64x64 pixel art health potion icon for an RPG. Red liquid in a glass flask with cork stopper, glowing effect, transparent background. Fantasy game style.",
+    "messages": [{"role": "user", "content": "Create a 64x64 pixel art health potion icon for an RPG. Red liquid in a glass flask with cork stopper, glowing effect, transparent background. Fantasy game style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "rpg-icons-set"
   }'
 
 # Second icon (same session for style consistency)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a mana potion icon in the same style. Blue liquid instead of red, same flask design, matching art style.",
+    "messages": [{"role": "user", "content": "Create a mana potion icon in the same style. Blue liquid instead of red, same flask design, matching art style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "rpg-icons-set"
   }'
 
 # Third icon
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a stamina potion icon. Green liquid, same consistent style as the health and mana potions.",
+    "messages": [{"role": "user", "content": "Create a stamina potion icon. Green liquid, same consistent style as the health and mana potions."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "rpg-icons-set"
   }'
 ```
@@ -128,12 +142,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. UI Elements (Buttons, Frames, Bars)
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a fantasy RPG UI kit containing: 1 rectangular button (200x50) with stone texture and gold border, 1 health bar frame (300x30) with ornate metal design, 1 inventory slot frame (64x64) with wooden texture and metal corners. Arrange on transparent background. Medieval fantasy style matching games like Diablo or Baldur'\''s Gate.",
+    "messages": [{"role": "user", "content": "Create a fantasy RPG UI kit containing: 1 rectangular button (200x50) with stone texture and gold border, 1 health bar frame (300x30) with ornate metal design, 1 inventory slot frame (64x64) with wooden texture and metal corners. Arrange on transparent background. Medieval fantasy style matching games like Diablo or Baldur'\''s Gate."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -141,12 +157,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Environment/Tileset Generation
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 2D platformer tileset for a forest level. Include 16x16 pixel tiles: grass top, dirt fill, grass corner pieces (4 corners), tree trunk, leaves, flowers, rocks, wooden platform. Arrange in a tileset grid. Colorful cartoon style similar to classic platformers. 256x256 total sheet.",
+    "messages": [{"role": "user", "content": "Create a 2D platformer tileset for a forest level. Include 16x16 pixel tiles: grass top, dirt fill, grass corner pieces (4 corners), tree trunk, leaves, flowers, rocks, wooden platform. Arrange in a tileset grid. Colorful cartoon style similar to classic platformers. 256x256 total sheet."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -154,12 +172,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Item/Weapon Icons
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a set of 6 weapon icons for a fantasy game, each 48x48 pixels: iron sword, wooden bow, fire staff, battle axe, throwing daggers, war hammer. Arrange in a 3x2 grid. Consistent hand-painted style with slight glow effects, transparent backgrounds. Top-down perspective for inventory display.",
+    "messages": [{"role": "user", "content": "Create a set of 6 weapon icons for a fantasy game, each 48x48 pixels: iron sword, wooden bow, fire staff, battle axe, throwing daggers, war hammer. Arrange in a 3x2 grid. Consistent hand-painted style with slight glow effects, transparent backgrounds. Top-down perspective for inventory display."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -167,12 +187,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Loading Screen Art
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1920x1080 loading screen for a dark fantasy action RPG. Epic scene showing a lone warrior silhouette standing before a massive gothic castle on a cliff, stormy sky with lightning, dark moody atmosphere. Leave space at bottom center for a loading bar. Painterly digital art style.",
+    "messages": [{"role": "user", "content": "Create a 1920x1080 loading screen for a dark fantasy action RPG. Epic scene showing a lone warrior silhouette standing before a massive gothic castle on a cliff, stormy sky with lightning, dark moody atmosphere. Leave space at bottom center for a loading bar. Painterly digital art style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -180,12 +202,15 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. Game Logo Design
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a game logo for a space shooter called \"NOVA STRIKE\". Bold metallic chrome letters with neon blue glow effects, slight 3D perspective, stars and energy particles around it. Sci-fi futuristic style. Transparent background, 1024x512 resolution. Suitable for title screen and marketing.",
+    "messages": [{"role": "user", "content": "Create a game logo for a space shooter called \"NOVA STRIKE\". Bold metallic chrome letters with neon blue glow effects, slight 3D perspective, stars and energy particles around it. Sci-fi futuristic style. Transparent background, 1024x512 resolution. Suitable for title screen and marketing."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -193,12 +218,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 10. Concept Art for Games
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create concept art for a post-apocalyptic survival game. Show an abandoned city overgrown with vegetation, rusted vehicles, crumbling skyscrapers with trees growing through them, dramatic sunset lighting breaking through clouds. Painterly concept art style like The Last of Us or Horizon. 16:9 aspect ratio for presentation.",
+    "messages": [{"role": "user", "content": "Create concept art for a post-apocalyptic survival game. Show an abandoned city overgrown with vegetation, rusted vehicles, crumbling skyscrapers with trees growing through them, dramatic sunset lighting breaking through clouds. Painterly concept art style like The Last of Us or Horizon. 16:9 aspect ratio for presentation."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -243,32 +270,38 @@ Use `session_id` to iterate and create consistent asset sets:
 
 ```bash
 # Initial character design
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a pixel art hero character for a platformer game, 64x64, knight with red cape",
+    "messages": [{"role": "user", "content": "Create a pixel art hero character for a platformer game, 64x64, knight with red cape"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "hero-character-project"
   }'
 
 # Request variations
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create the same character but with a blue cape for player 2, matching style exactly",
+    "messages": [{"role": "user", "content": "Create the same character but with a blue cape for player 2, matching style exactly"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "hero-character-project"
   }'
 
 # Create matching enemy
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an enemy character in the same pixel art style - a skeleton warrior, same size and art direction",
+    "messages": [{"role": "user", "content": "Create an enemy character in the same pixel art style - a skeleton warrior, same size and art direction"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "hero-character-project"
   }'
 ```
@@ -279,32 +312,38 @@ Generate multiple variations efficiently:
 
 ```bash
 # Style A - Pixel Art
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a treasure chest icon, 32x32, pixel art, closed position",
+    "messages": [{"role": "user", "content": "Create a treasure chest icon, 32x32, pixel art, closed position"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 
 # Style B - Hand-painted
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a treasure chest icon, 64x64, hand-painted fantasy style, closed position",
+    "messages": [{"role": "user", "content": "Create a treasure chest icon, 64x64, hand-painted fantasy style, closed position"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 
 # Style C - Modern Vector
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a treasure chest icon, 128x128, clean vector style with gradients, modern mobile game look",
+    "messages": [{"role": "user", "content": "Create a treasure chest icon, 128x128, clean vector style with gradients, modern mobile game look"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 ```

@@ -3,7 +3,7 @@ name: image-upscaling
 description: Upscale images using each::sense AI. Enhance resolution for web, print, large format displays, with options for face enhancement, noise reduction, and AI art optimization.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Image Upscaling
@@ -24,12 +24,14 @@ Upscale and enhance images using each::sense. This skill provides AI-powered ima
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Upscale this image 4x for print quality",
+    "messages": [{"role": "user", "content": "Upscale this image 4x for print quality"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/my-image.jpg"],
     "mode": "max"
   }'
@@ -51,12 +53,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Perfect for improving image quality for websites, social media posts, and digital marketing.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Upscale this web image 2x. Optimize for fast loading while improving sharpness and clarity. The image will be used on a website hero section.",
+    "messages": [{"role": "user", "content": "Upscale this web image 2x. Optimize for fast loading while improving sharpness and clarity. The image will be used on a website hero section."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/website-hero.jpg"],
     "mode": "eco"
   }'
@@ -67,12 +71,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 High-quality upscaling for brochures, flyers, magazines, and other print materials requiring 300 DPI.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Upscale this image 4x for print production. I need 300 DPI quality for a magazine spread. Preserve all fine details and ensure crisp edges.",
+    "messages": [{"role": "user", "content": "Upscale this image 4x for print production. I need 300 DPI quality for a magazine spread. Preserve all fine details and ensure crisp edges."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/magazine-photo.jpg"],
     "mode": "max"
   }'
@@ -83,12 +89,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Extreme upscaling for billboards, trade show displays, and wall-sized prints.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Upscale this image 8x for a large format banner print. The final output will be displayed on a 10 foot wide trade show backdrop. Maximize detail enhancement and ensure no artifacts.",
+    "messages": [{"role": "user", "content": "Upscale this image 8x for a large format banner print. The final output will be displayed on a 10 foot wide trade show backdrop. Maximize detail enhancement and ensure no artifacts."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/tradeshow-banner.jpg"],
     "mode": "max"
   }'
@@ -99,12 +107,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Intelligent facial restoration that enhances eyes, skin texture, and facial features while upscaling portraits.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Upscale this portrait 4x with face enhancement enabled. Restore facial details, enhance eyes, improve skin texture while keeping it natural. This is a headshot photo.",
+    "messages": [{"role": "user", "content": "Upscale this portrait 4x with face enhancement enabled. Restore facial details, enhance eyes, improve skin texture while keeping it natural. This is a headshot photo."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/portrait-headshot.jpg"],
     "mode": "max"
   }'
@@ -115,12 +125,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Clean up grainy, compressed, or low-quality images while increasing resolution.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Upscale this noisy low-light photo 4x. Apply aggressive noise reduction while preserving important details. The image was taken in low light conditions and has visible grain and compression artifacts.",
+    "messages": [{"role": "user", "content": "Upscale this noisy low-light photo 4x. Apply aggressive noise reduction while preserving important details. The image was taken in low light conditions and has visible grain and compression artifacts."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/low-light-photo.jpg"],
     "mode": "max"
   }'
@@ -131,12 +143,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Restore and upscale vintage photographs, old family photos, and historical images.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Upscale and restore this old family photograph from the 1970s. The image is faded, slightly damaged, and low resolution. Enhance to 4x while restoring colors, fixing damage, and improving clarity. Preserve the vintage aesthetic.",
+    "messages": [{"role": "user", "content": "Upscale and restore this old family photograph from the 1970s. The image is faded, slightly damaged, and low resolution. Enhance to 4x while restoring colors, fixing damage, and improving clarity. Preserve the vintage aesthetic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/old-family-photo.jpg"],
     "mode": "max"
   }'
@@ -147,12 +161,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Enhance AI-generated artwork while preserving artistic style and avoiding artifacts.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Upscale this AI-generated artwork 4x for print. Preserve the artistic style and enhance fine details. This is digital art created by an AI image generator - avoid adding unwanted textures or changing the artistic style.",
+    "messages": [{"role": "user", "content": "Upscale this AI-generated artwork 4x for print. Preserve the artistic style and enhance fine details. This is digital art created by an AI image generator - avoid adding unwanted textures or changing the artistic style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/ai-artwork.png"],
     "mode": "max"
   }'
@@ -163,12 +179,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 E-commerce optimized upscaling for product photography with detail enhancement.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Upscale this product photo 4x for e-commerce use. Enhance product details, improve sharpness on edges and textures. The image is of a leather handbag and needs to show material texture clearly for zoom functionality.",
+    "messages": [{"role": "user", "content": "Upscale this product photo 4x for e-commerce use. Enhance product details, improve sharpness on edges and textures. The image is of a leather handbag and needs to show material texture clearly for zoom functionality."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/product-handbag.jpg"],
     "mode": "max"
   }'
@@ -179,12 +197,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Enhance individual video frames or thumbnails extracted from video content.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Upscale this video frame 4x. This is a still frame extracted from 1080p video footage. Enhance it to 4K quality while reducing compression artifacts and maintaining natural motion blur where present.",
+    "messages": [{"role": "user", "content": "Upscale this video frame 4x. This is a still frame extracted from 1080p video footage. Enhance it to 4K quality while reducing compression artifacts and maintaining natural motion blur where present."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/video-frame.jpg"],
     "mode": "max"
   }'
@@ -196,35 +216,41 @@ Process multiple images with consistent settings using session persistence.
 
 ```bash
 # First image in batch
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Upscale this product image 4x with face enhancement and noise reduction. This is the first of a series of product photos I need processed.",
+    "messages": [{"role": "user", "content": "Upscale this product image 4x with face enhancement and noise reduction. This is the first of a series of product photos I need processed."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/product-001.jpg"],
     "session_id": "batch-upscale-products",
     "mode": "max"
   }'
 
 # Second image (same session maintains settings)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Upscale this next product image using the same settings as before.",
+    "messages": [{"role": "user", "content": "Upscale this next product image using the same settings as before."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/product-002.jpg"],
     "session_id": "batch-upscale-products"
   }'
 
 # Third image
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Continue with the same upscaling settings for this product image.",
+    "messages": [{"role": "user", "content": "Continue with the same upscaling settings for this product image."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/product-003.jpg"],
     "session_id": "batch-upscale-products"
   }'
@@ -283,33 +309,39 @@ Use `session_id` to iterate on upscaling results:
 
 ```bash
 # Initial upscale
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Upscale this photo 4x for print",
+    "messages": [{"role": "user", "content": "Upscale this photo 4x for print"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/photo.jpg"],
     "session_id": "upscale-project-001"
   }'
 
 # Request adjustments
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "The result looks good but can you also apply face enhancement and reduce noise?",
+    "messages": [{"role": "user", "content": "The result looks good but can you also apply face enhancement and reduce noise?"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "upscale-project-001"
   }'
 
 # Request different scale
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Actually I need 8x for a larger print. Can you upscale it further?",
+    "messages": [{"role": "user", "content": "Actually I need 8x for a larger print. Can you upscale it further?"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "upscale-project-001"
   }'
 ```

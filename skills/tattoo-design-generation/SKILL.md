@@ -3,7 +3,7 @@ name: tattoo-design-generation
 description: Generate custom tattoo designs using each::sense AI. Create traditional, Japanese, minimalist, geometric, watercolor, blackwork, realistic, floral, and script tattoo designs optimized for various styles and placements.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Tattoo Design Generation
@@ -26,12 +26,14 @@ Generate stunning custom tattoo designs using each::sense. This skill creates hi
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a minimalist line art tattoo of a wolf howling at the moon, suitable for forearm placement",
+    "messages": [{"role": "user", "content": "Create a minimalist line art tattoo of a wolf howling at the moon, suitable for forearm placement"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -55,12 +57,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Traditional/Old School Tattoo
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a traditional American old school tattoo design of an eagle with a banner. Bold black outlines, classic limited color palette (red, yellow, green, blue). Vintage sailor flash style. Suitable for upper arm placement.",
+    "messages": [{"role": "user", "content": "Create a traditional American old school tattoo design of an eagle with a banner. Bold black outlines, classic limited color palette (red, yellow, green, blue). Vintage sailor flash style. Suitable for upper arm placement."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -68,12 +72,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Japanese Irezumi Style
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a Japanese irezumi style tattoo design featuring a koi fish swimming upstream through waves with cherry blossoms. Traditional Japanese tattoo aesthetic with flowing water, wind bars, and complementary background elements. Full sleeve design.",
+    "messages": [{"role": "user", "content": "Create a Japanese irezumi style tattoo design featuring a koi fish swimming upstream through waves with cherry blossoms. Traditional Japanese tattoo aesthetic with flowing water, wind bars, and complementary background elements. Full sleeve design."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -81,12 +87,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Minimalist Line Art Tattoo
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a minimalist single continuous line tattoo design of a woman's face in profile. Clean, elegant, modern aesthetic. Fine line work only, no shading. Small size suitable for wrist or ankle placement.",
+    "messages": [{"role": "user", "content": "Create a minimalist single continuous line tattoo design of a woman's face in profile. Clean, elegant, modern aesthetic. Fine line work only, no shading. Small size suitable for wrist or ankle placement."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -94,12 +102,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Geometric/Mandala Tattoo
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a geometric mandala tattoo design with sacred geometry elements. Incorporate dotwork shading, perfect symmetry, and intricate patterns. Include hexagonal shapes, flower of life elements, and fine line details. Suitable for chest or back center placement.",
+    "messages": [{"role": "user", "content": "Create a geometric mandala tattoo design with sacred geometry elements. Incorporate dotwork shading, perfect symmetry, and intricate patterns. Include hexagonal shapes, flower of life elements, and fine line details. Suitable for chest or back center placement."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -107,12 +117,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. Watercolor Tattoo Style
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a watercolor style tattoo design of a hummingbird with splashes of vibrant color. Painterly effect with color bleeds in purple, blue, and teal. Soft edges blending into skin, artistic paint drips. No heavy outlines. Shoulder blade placement.",
+    "messages": [{"role": "user", "content": "Create a watercolor style tattoo design of a hummingbird with splashes of vibrant color. Painterly effect with color bleeds in purple, blue, and teal. Soft edges blending into skin, artistic paint drips. No heavy outlines. Shoulder blade placement."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -120,12 +132,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Blackwork/Tribal Tattoo
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a blackwork tattoo design combining geometric patterns with organic flow. Heavy solid black areas contrasted with negative space. Modern tribal-inspired but not cultural appropriation. Bold, graphic, high contrast. Half-sleeve design from shoulder to elbow.",
+    "messages": [{"role": "user", "content": "Create a blackwork tattoo design combining geometric patterns with organic flow. Heavy solid black areas contrasted with negative space. Modern tribal-inspired but not cultural appropriation. Bold, graphic, high contrast. Half-sleeve design from shoulder to elbow."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -133,12 +147,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Realistic Portrait Tattoo
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a photorealistic black and grey tattoo design of a lion portrait. Highly detailed fur texture, intense eyes, dramatic lighting with deep shadows. Hyper-realistic style suitable for chest or upper arm. Show fine detail work and smooth gradients.",
+    "messages": [{"role": "user", "content": "Create a photorealistic black and grey tattoo design of a lion portrait. Highly detailed fur texture, intense eyes, dramatic lighting with deep shadows. Hyper-realistic style suitable for chest or upper arm. Show fine detail work and smooth gradients."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -146,12 +162,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Floral/Botanical Tattoo
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a botanical tattoo design featuring peonies and roses with leaves and delicate stems. Fine line work with subtle dotwork shading. Elegant, feminine, flowing composition. Black and grey with option for soft color accents. Thigh or shoulder placement.",
+    "messages": [{"role": "user", "content": "Create a botanical tattoo design featuring peonies and roses with leaves and delicate stems. Fine line work with subtle dotwork shading. Elegant, feminine, flowing composition. Black and grey with option for soft color accents. Thigh or shoulder placement."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -159,12 +177,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. Script/Lettering Tattoo
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a script tattoo design with elegant flowing calligraphy lettering. Gothic blackletter style mixed with modern flourishes. Design should flow naturally with the body, suitable for ribcage or collarbone placement. Include decorative elements that complement the text without overwhelming it.",
+    "messages": [{"role": "user", "content": "Create a script tattoo design with elegant flowing calligraphy lettering. Gothic blackletter style mixed with modern flourishes. Design should flow naturally with the body, suitable for ribcage or collarbone placement. Include decorative elements that complement the text without overwhelming it."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -173,33 +193,39 @@ curl -X POST https://sense.eachlabs.run/chat \
 
 ```bash
 # Initial concept request
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a custom tattoo design that combines a compass with mountain scenery and forest elements. The compass should be the central focus with mountains and pine trees integrated into the design. Add small geometric accents. Adventure/travel theme. Forearm placement, vertical orientation.",
+    "messages": [{"role": "user", "content": "Create a custom tattoo design that combines a compass with mountain scenery and forest elements. The compass should be the central focus with mountains and pine trees integrated into the design. Add small geometric accents. Adventure/travel theme. Forearm placement, vertical orientation."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "custom-tattoo-001",
     "mode": "max"
   }'
 
 # Iterate on the design
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "I like it but can you make the mountains more prominent and add a crescent moon at the top? Keep the compass but make it slightly smaller.",
+    "messages": [{"role": "user", "content": "I like it but can you make the mountains more prominent and add a crescent moon at the top? Keep the compass but make it slightly smaller."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "custom-tattoo-001"
   }'
 
 # Request variations
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create 2 variations - one with more fine line detail and one with bolder blackwork elements",
+    "messages": [{"role": "user", "content": "Create 2 variations - one with more fine line detail and one with bolder blackwork elements"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "custom-tattoo-001"
   }'
 ```
@@ -261,32 +287,38 @@ Use `session_id` to iterate on tattoo designs:
 
 ```bash
 # Initial design
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a neo-traditional snake and dagger tattoo design",
+    "messages": [{"role": "user", "content": "Create a neo-traditional snake and dagger tattoo design"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "snake-dagger-design"
   }'
 
 # Add elements
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Add roses around the dagger and make the snake more menacing with detailed scales",
+    "messages": [{"role": "user", "content": "Add roses around the dagger and make the snake more menacing with detailed scales"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "snake-dagger-design"
   }'
 
 # Style adjustment
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Convert this to black and grey only, with heavy contrast",
+    "messages": [{"role": "user", "content": "Convert this to black and grey only, with heavy contrast"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "snake-dagger-design"
   }'
 ```
@@ -297,22 +329,26 @@ Generate designs optimized for specific body placements:
 
 ```bash
 # Sleeve design (wrapping)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a full sleeve tattoo design with Japanese waves and koi fish. Design should flow around the arm and connect seamlessly. Include filler elements for gaps.",
+    "messages": [{"role": "user", "content": "Create a full sleeve tattoo design with Japanese waves and koi fish. Design should flow around the arm and connect seamlessly. Include filler elements for gaps."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 
 # Small wrist design
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a tiny minimalist tattoo design of a paper airplane with a dotted flight path. Very small scale suitable for inner wrist. Fine lines that will hold up at small size.",
+    "messages": [{"role": "user", "content": "Create a tiny minimalist tattoo design of a paper airplane with a dotted flight path. Very small scale suitable for inner wrist. Fine lines that will hold up at small size."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -322,12 +358,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Use reference images for inspiration or style matching:
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a tattoo design in a similar style to this reference but featuring a phoenix instead. Match the line weight and shading technique.",
+    "messages": [{"role": "user", "content": "Create a tattoo design in a similar style to this reference but featuring a phoenix instead. Match the line weight and shading technique."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/tattoo-reference.jpg"]
   }'

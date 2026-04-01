@@ -3,7 +3,7 @@ name: vtuber-avatar-generation
 description: Generate VTuber avatars and character designs using each::sense AI. Create anime-style avatars, Live2D ready characters, expression sheets, full body designs, and accessories for virtual content creators.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # VTuber Avatar Generation
@@ -24,12 +24,14 @@ Generate professional VTuber avatars and character designs using each::sense. Th
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a cute anime VTuber avatar, female character with pink hair and cat ears, cheerful expression, upper body portrait for streaming",
+    "messages": [{"role": "user", "content": "Create a cute anime VTuber avatar, female character with pink hair and cat ears, cheerful expression, upper body portrait for streaming"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -50,12 +52,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Anime VTuber Avatar Design
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a female anime VTuber avatar portrait. Character has long silver hair with blue highlights, heterochromia eyes (one blue, one gold), wearing a futuristic headset with holographic elements. Gentle smile, soft pastel color palette, clean anime art style suitable for Live2D. Upper body shot with simple gradient background.",
+    "messages": [{"role": "user", "content": "Create a female anime VTuber avatar portrait. Character has long silver hair with blue highlights, heterochromia eyes (one blue, one gold), wearing a futuristic headset with holographic elements. Gentle smile, soft pastel color palette, clean anime art style suitable for Live2D. Upper body shot with simple gradient background."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -63,12 +67,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Live2D Ready Character
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a Live2D ready VTuber character. Female, half body view facing forward. Red twintails hairstyle, large expressive purple eyes, wearing a magical girl outfit with frills and ribbons. Clean linework, flat colors with minimal shading, transparent background. Ensure hair, clothing, and accessories are clearly separated for easy rigging.",
+    "messages": [{"role": "user", "content": "Design a Live2D ready VTuber character. Female, half body view facing forward. Red twintails hairstyle, large expressive purple eyes, wearing a magical girl outfit with frills and ribbons. Clean linework, flat colors with minimal shading, transparent background. Ensure hair, clothing, and accessories are clearly separated for easy rigging."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -76,12 +82,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Multiple Expression Sheet
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an expression sheet for a VTuber character. Same character shown 6 times with different emotions: happy, sad, angry, surprised, smug, and blushing. Anime girl with short blue bob cut and fox ears. Arrange expressions in a 3x2 grid layout, consistent art style across all expressions, white background.",
+    "messages": [{"role": "user", "content": "Create an expression sheet for a VTuber character. Same character shown 6 times with different emotions: happy, sad, angry, surprised, smug, and blushing. Anime girl with short blue bob cut and fox ears. Arrange expressions in a 3x2 grid layout, consistent art style across all expressions, white background."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -89,12 +97,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Full Body VTuber Design
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a full body VTuber character. Female idol-themed character with long gradient hair (pink to purple). Wearing an elaborate stage costume with a cropped jacket, pleated skirt, thigh-high boots, and star accessories. Dynamic pose showing personality, detailed outfit design, clean anime illustration style.",
+    "messages": [{"role": "user", "content": "Design a full body VTuber character. Female idol-themed character with long gradient hair (pink to purple). Wearing an elaborate stage costume with a cropped jacket, pleated skirt, thigh-high boots, and star accessories. Dynamic pose showing personality, detailed outfit design, clean anime illustration style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -102,12 +112,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. Chibi/Mascot Version
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a chibi mascot version of a VTuber. Super deformed style with large head and small body (2-3 head ratio). Dragon girl character with small horns, tail, and wings. Cute excited expression, holding a game controller. Transparent background, suitable for Twitch emotes and Discord stickers.",
+    "messages": [{"role": "user", "content": "Create a chibi mascot version of a VTuber. Super deformed style with large head and small body (2-3 head ratio). Dragon girl character with small horns, tail, and wings. Cute excited expression, holding a game controller. Transparent background, suitable for Twitch emotes and Discord stickers."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -115,12 +127,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Male VTuber Design
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a male VTuber avatar. Handsome anime boy with messy dark green hair and sharp golden eyes. Wearing a modern streetwear outfit - oversized hoodie with tech patterns, chain accessories. Cool confident expression, upper body portrait, dark moody aesthetic with neon accent lighting.",
+    "messages": [{"role": "user", "content": "Create a male VTuber avatar. Handsome anime boy with messy dark green hair and sharp golden eyes. Wearing a modern streetwear outfit - oversized hoodie with tech patterns, chain accessories. Cool confident expression, upper body portrait, dark moody aesthetic with neon accent lighting."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -128,12 +142,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Fantasy/Elf VTuber
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a fantasy elf VTuber character. Elegant female elf with very long flowing white hair and pointed ears. Emerald green eyes, wearing an intricate elven robe with gold embroidery and nature motifs. Serene wise expression, ethereal glowing particles around her, fantasy forest atmosphere in background.",
+    "messages": [{"role": "user", "content": "Design a fantasy elf VTuber character. Elegant female elf with very long flowing white hair and pointed ears. Emerald green eyes, wearing an intricate elven robe with gold embroidery and nature motifs. Serene wise expression, ethereal glowing particles around her, fantasy forest atmosphere in background."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -141,12 +157,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Cyberpunk VTuber Style
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a cyberpunk VTuber avatar. Female character with asymmetric neon pink and cyan hair, cybernetic eye implants with glowing HUD display. Wearing a tech-enhanced jacket with LED strips and holographic patches. Edgy confident smirk, urban night city reflections, heavy neon lighting in pink and blue.",
+    "messages": [{"role": "user", "content": "Create a cyberpunk VTuber avatar. Female character with asymmetric neon pink and cyan hair, cybernetic eye implants with glowing HUD display. Wearing a tech-enhanced jacket with LED strips and holographic patches. Edgy confident smirk, urban night city reflections, heavy neon lighting in pink and blue."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -154,12 +172,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. Matching Accessories/Props
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design matching accessories for a witch-themed VTuber. Create a set including: a magical staff with crystal orb, a cute familiar (small black cat with purple eyes), a floating spellbook, and a cauldron prop. All items in cute anime style with purple and black color scheme, transparent background, arranged as item sheet.",
+    "messages": [{"role": "user", "content": "Design matching accessories for a witch-themed VTuber. Create a set including: a magical staff with crystal orb, a cute familiar (small black cat with purple eyes), a floating spellbook, and a cauldron prop. All items in cute anime style with purple and black color scheme, transparent background, arranged as item sheet."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "witch-vtuber-001"
   }'
 ```
@@ -167,12 +187,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 10. VTuber Model Turnaround Sheet
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a character turnaround reference sheet for a VTuber. Show the same character from front view, 3/4 view, side view, and back view. Female character with twin buns hairstyle in mint green, wearing a maid cafe uniform. Consistent proportions across all views, white background, label each angle. Suitable for 3D modeling reference.",
+    "messages": [{"role": "user", "content": "Create a character turnaround reference sheet for a VTuber. Show the same character from front view, 3/4 view, side view, and back view. Female character with twin buns hairstyle in mint green, wearing a maid cafe uniform. Consistent proportions across all views, white background, label each angle. Suitable for 3D modeling reference."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -242,32 +264,38 @@ Use `session_id` to iterate on character designs:
 
 ```bash
 # Initial concept
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a VTuber avatar concept: cozy streamer girl with autumn theme",
+    "messages": [{"role": "user", "content": "Create a VTuber avatar concept: cozy streamer girl with autumn theme"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "autumn-vtuber-project"
   }'
 
 # Refine based on feedback
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "I like the design! Add maple leaf hair accessories and make the sweater more oversized and cozy looking",
+    "messages": [{"role": "user", "content": "I like the design! Add maple leaf hair accessories and make the sweater more oversized and cozy looking"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "autumn-vtuber-project"
   }'
 
 # Create variations
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now create an alternate outfit version - same character but in a Halloween costume",
+    "messages": [{"role": "user", "content": "Now create an alternate outfit version - same character but in a Halloween costume"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "autumn-vtuber-project"
   }'
 ```
@@ -278,34 +306,40 @@ Generate a complete VTuber asset set:
 
 ```bash
 # Step 1: Main Avatar
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create main VTuber avatar: space-themed girl with galaxy hair and astronaut-inspired outfit",
+    "messages": [{"role": "user", "content": "Create main VTuber avatar: space-themed girl with galaxy hair and astronaut-inspired outfit"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "space-vtuber-assets",
     "mode": "max"
   }'
 
 # Step 2: Expression Sheet (same session for consistency)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now create an expression sheet for this character with 6 different emotions",
+    "messages": [{"role": "user", "content": "Now create an expression sheet for this character with 6 different emotions"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "space-vtuber-assets",
     "mode": "max"
   }'
 
 # Step 3: Chibi Version
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a chibi version of this character for emotes, super cute style",
+    "messages": [{"role": "user", "content": "Create a chibi version of this character for emotes, super cute style"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "space-vtuber-assets",
     "mode": "eco"
   }'

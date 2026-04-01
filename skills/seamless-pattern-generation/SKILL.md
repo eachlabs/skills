@@ -3,7 +3,7 @@ name: seamless-pattern-generation
 description: Generate seamless, tileable patterns using each::sense AI. Create repeating patterns for textiles, wallpapers, gift wrap, digital backgrounds, and surface designs that tile perfectly without visible seams.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Seamless Pattern Generation
@@ -25,12 +25,14 @@ Generate professional-quality seamless, tileable patterns using each::sense. Thi
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a seamless floral pattern with pink roses and green leaves on a cream background, suitable for fabric printing",
+    "messages": [{"role": "user", "content": "Create a seamless floral pattern with pink roses and green leaves on a cream background, suitable for fabric printing"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -53,12 +55,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Floral Seamless Pattern
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a seamless tileable floral pattern featuring delicate watercolor roses, peonies, and eucalyptus leaves. Soft pink, blush, and sage green color palette on an off-white background. Romantic cottage core aesthetic, suitable for fabric printing and textile design.",
+    "messages": [{"role": "user", "content": "Create a seamless tileable floral pattern featuring delicate watercolor roses, peonies, and eucalyptus leaves. Soft pink, blush, and sage green color palette on an off-white background. Romantic cottage core aesthetic, suitable for fabric printing and textile design."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -66,12 +70,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Geometric Pattern
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a seamless geometric pattern with interlocking hexagons and triangles. Modern minimalist style with navy blue, gold, and white colors. Art deco influence, clean lines, perfect for luxury packaging or interior wallpaper. Must tile seamlessly.",
+    "messages": [{"role": "user", "content": "Create a seamless geometric pattern with interlocking hexagons and triangles. Modern minimalist style with navy blue, gold, and white colors. Art deco influence, clean lines, perfect for luxury packaging or interior wallpaper. Must tile seamlessly."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -79,12 +85,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Abstract Pattern
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a seamless abstract pattern with fluid organic shapes and bold brush strokes. Vibrant coral, teal, and mustard yellow on a dark charcoal background. Contemporary artistic style inspired by mid-century modern art. Tileable for fashion prints.",
+    "messages": [{"role": "user", "content": "Create a seamless abstract pattern with fluid organic shapes and bold brush strokes. Vibrant coral, teal, and mustard yellow on a dark charcoal background. Contemporary artistic style inspired by mid-century modern art. Tileable for fashion prints."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -92,12 +100,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Fabric/Textile Pattern
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a seamless textile pattern for summer dress fabric. Tropical design with palm leaves, monstera, and hibiscus flowers. Fresh green, coral pink, and cream colors on white. Playful yet sophisticated, ready for fabric repeat printing.",
+    "messages": [{"role": "user", "content": "Create a seamless textile pattern for summer dress fabric. Tropical design with palm leaves, monstera, and hibiscus flowers. Fresh green, coral pink, and cream colors on white. Playful yet sophisticated, ready for fabric repeat printing."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -105,12 +115,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. Wallpaper Pattern
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a seamless wallpaper pattern with elegant chinoiserie style. Featuring birds, flowering branches, and butterflies. Soft blue and white porcelain color scheme with subtle gold accents. Classic, timeless interior design aesthetic. Must tile perfectly for wall application.",
+    "messages": [{"role": "user", "content": "Create a seamless wallpaper pattern with elegant chinoiserie style. Featuring birds, flowering branches, and butterflies. Soft blue and white porcelain color scheme with subtle gold accents. Classic, timeless interior design aesthetic. Must tile perfectly for wall application."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -118,12 +130,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Gift Wrap Pattern
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a seamless gift wrap pattern for birthday celebrations. Colorful confetti, balloons, streamers, and party hats scattered playfully. Bright rainbow colors including pink, blue, yellow, and green on a light lavender background. Fun and festive, perfect for wrapping paper.",
+    "messages": [{"role": "user", "content": "Create a seamless gift wrap pattern for birthday celebrations. Colorful confetti, balloons, streamers, and party hats scattered playfully. Bright rainbow colors including pink, blue, yellow, and green on a light lavender background. Fun and festive, perfect for wrapping paper."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -131,12 +145,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Camouflage Pattern
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a seamless woodland camouflage pattern with organic irregular shapes. Traditional military camo colors: olive green, brown, tan, and black. Realistic forest environment camouflage suitable for hunting gear or outdoor apparel. Must tile seamlessly.",
+    "messages": [{"role": "user", "content": "Create a seamless woodland camouflage pattern with organic irregular shapes. Traditional military camo colors: olive green, brown, tan, and black. Realistic forest environment camouflage suitable for hunting gear or outdoor apparel. Must tile seamlessly."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -144,12 +160,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Marble/Stone Texture Pattern
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a seamless marble texture pattern resembling Italian Calacatta marble. White base with elegant grey and gold veining. Luxurious, high-end aesthetic suitable for interior design, countertops visualization, or luxury packaging. Realistic stone texture that tiles without visible seams.",
+    "messages": [{"role": "user", "content": "Create a seamless marble texture pattern resembling Italian Calacatta marble. White base with elegant grey and gold veining. Luxurious, high-end aesthetic suitable for interior design, countertops visualization, or luxury packaging. Realistic stone texture that tiles without visible seams."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -157,12 +175,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. Digital Camo Pattern
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a seamless digital camouflage pattern with pixelated rectangular shapes. Urban style with grey, black, white, and dark blue colors. Modern tactical military aesthetic, similar to MARPAT or UCP patterns. Clean digital pixels, perfect for gaming, streetwear, or tech accessories.",
+    "messages": [{"role": "user", "content": "Create a seamless digital camouflage pattern with pixelated rectangular shapes. Urban style with grey, black, white, and dark blue colors. Modern tactical military aesthetic, similar to MARPAT or UCP patterns. Clean digital pixels, perfect for gaming, streetwear, or tech accessories."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -170,12 +190,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 10. Custom Branded Pattern
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a seamless branded pattern for a coffee shop. Feature small coffee cups, coffee beans, croissants, and steam swirls as repeating elements. Warm brown, cream, and copper color palette. Vintage artisanal cafe aesthetic, suitable for packaging, menus, and store decor. Tileable pattern.",
+    "messages": [{"role": "user", "content": "Create a seamless branded pattern for a coffee shop. Feature small coffee cups, coffee beans, croissants, and steam swirls as repeating elements. Warm brown, cream, and copper color palette. Vintage artisanal cafe aesthetic, suitable for packaging, menus, and store decor. Tileable pattern."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -237,32 +259,38 @@ Use `session_id` to iterate on pattern designs:
 
 ```bash
 # Initial pattern
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a seamless botanical pattern with ferns and monstera leaves, green tones on white",
+    "messages": [{"role": "user", "content": "Create a seamless botanical pattern with ferns and monstera leaves, green tones on white"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "pattern-project-001"
   }'
 
 # Iterate based on feedback
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Make the leaves larger and add some small berries in coral color",
+    "messages": [{"role": "user", "content": "Make the leaves larger and add some small berries in coral color"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "pattern-project-001"
   }'
 
 # Request color variation
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a variation with a dark navy background instead of white",
+    "messages": [{"role": "user", "content": "Create a variation with a dark navy background instead of white"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "pattern-project-001"
   }'
 ```
@@ -273,34 +301,40 @@ Generate coordinating patterns for a collection:
 
 ```bash
 # Main pattern
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a seamless floral pattern with large roses in dusty pink and sage green, vintage style",
+    "messages": [{"role": "user", "content": "Create a seamless floral pattern with large roses in dusty pink and sage green, vintage style"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "collection-vintage-florals",
     "mode": "max"
   }'
 
 # Coordinating geometric
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a coordinating seamless stripe pattern using the same dusty pink and sage green colors, simple elegant stripes",
+    "messages": [{"role": "user", "content": "Create a coordinating seamless stripe pattern using the same dusty pink and sage green colors, simple elegant stripes"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "collection-vintage-florals",
     "mode": "max"
   }'
 
 # Coordinating small-scale
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a small-scale seamless polka dot pattern in the same color palette for a blender pattern",
+    "messages": [{"role": "user", "content": "Create a small-scale seamless polka dot pattern in the same color palette for a blender pattern"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "collection-vintage-florals",
     "mode": "max"
   }'

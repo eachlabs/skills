@@ -3,7 +3,7 @@ name: album-cover-generation
 description: Generate professional music album covers using each::sense AI. Create artwork for hip-hop, rock, pop, electronic, jazz, classical, indie albums, singles, EPs, and Spotify canvas visuals.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Album Cover Generation
@@ -23,12 +23,15 @@ Generate stunning, professional album artwork using each::sense. This skill crea
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 3000x3000 album cover for a hip-hop album called \"Midnight Dreams\". Dark city skyline at night, neon lights reflecting on wet streets, cinematic and moody atmosphere.",
+    "messages": [{"role": "user", "content": "Create a 3000x3000 album cover for a hip-hop album called \"Midnight Dreams\". Dark city skyline at night, neon lights reflecting on wet streets, cinematic and moody atmosphere."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -49,12 +52,15 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Hip-Hop/Rap Album Cover
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 3000x3000 hip-hop album cover for \"Street Chronicles\". Urban environment with graffiti walls, gold chains aesthetic, dark moody lighting with purple and gold accents. Leave space at bottom for artist name and album title. Gritty, authentic street vibe.",
+    "messages": [{"role": "user", "content": "Create a 3000x3000 hip-hop album cover for \"Street Chronicles\". Urban environment with graffiti walls, gold chains aesthetic, dark moody lighting with purple and gold accents. Leave space at bottom for artist name and album title. Gritty, authentic street vibe."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -62,12 +68,15 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Rock/Metal Album Cover
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 3000x3000 heavy metal album cover for \"Eternal Flames\". Epic dark fantasy scene with a burning skull, lightning storms, gothic cathedral ruins in the background. High contrast, dramatic red and black color scheme. Classic metal album art style like Iron Maiden or Metallica.",
+    "messages": [{"role": "user", "content": "Create a 3000x3000 heavy metal album cover for \"Eternal Flames\". Epic dark fantasy scene with a burning skull, lightning storms, gothic cathedral ruins in the background. High contrast, dramatic red and black color scheme. Classic metal album art style like Iron Maiden or Metallica."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -75,12 +84,15 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Pop Album Cover
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 3000x3000 pop album cover for \"Sunshine State\". Bright, colorful aesthetic with pastel gradients (pink, blue, yellow). Abstract geometric shapes, playful and energetic mood. Modern, clean design that appeals to Gen-Z. Think Dua Lipa or Ariana Grande album vibes.",
+    "messages": [{"role": "user", "content": "Create a 3000x3000 pop album cover for \"Sunshine State\". Bright, colorful aesthetic with pastel gradients (pink, blue, yellow). Abstract geometric shapes, playful and energetic mood. Modern, clean design that appeals to Gen-Z. Think Dua Lipa or Ariana Grande album vibes."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -88,12 +100,15 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Electronic/EDM Album Cover
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 3000x3000 electronic music album cover for \"Neon Pulse\". Futuristic cyberpunk cityscape, glowing neon lights in cyan and magenta, digital glitch effects, synthwave aesthetic. Dark background with vibrant light trails. High-tech, immersive club atmosphere.",
+    "messages": [{"role": "user", "content": "Create a 3000x3000 electronic music album cover for \"Neon Pulse\". Futuristic cyberpunk cityscape, glowing neon lights in cyan and magenta, digital glitch effects, synthwave aesthetic. Dark background with vibrant light trails. High-tech, immersive club atmosphere."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -101,12 +116,15 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. Jazz Album Cover
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 3000x3000 jazz album cover for \"Blue Notes After Dark\". Classic Blue Note Records inspired design. Abstract illustration of a saxophone player silhouette, smoky jazz club atmosphere. Two-tone color palette (deep blue and cream). Minimalist, sophisticated, vintage 1960s jazz aesthetic.",
+    "messages": [{"role": "user", "content": "Create a 3000x3000 jazz album cover for \"Blue Notes After Dark\". Classic Blue Note Records inspired design. Abstract illustration of a saxophone player silhouette, smoky jazz club atmosphere. Two-tone color palette (deep blue and cream). Minimalist, sophisticated, vintage 1960s jazz aesthetic."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -114,12 +132,15 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Classical Album Cover
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 3000x3000 classical music album cover for \"Symphonic Visions\". Elegant and timeless design featuring a grand concert hall interior with golden chandeliers, velvet curtains. Soft, warm lighting. Refined and prestigious aesthetic suitable for an orchestra recording. Deutsche Grammophon style.",
+    "messages": [{"role": "user", "content": "Create a 3000x3000 classical music album cover for \"Symphonic Visions\". Elegant and timeless design featuring a grand concert hall interior with golden chandeliers, velvet curtains. Soft, warm lighting. Refined and prestigious aesthetic suitable for an orchestra recording. Deutsche Grammophon style."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -127,12 +148,15 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Indie/Alternative Album Cover
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 3000x3000 indie album cover for \"Suburban Daydreams\". Nostalgic, dreamy aesthetic with faded film photography look. Empty suburban street at golden hour, lo-fi grainy texture. Melancholic but beautiful mood. Think Bon Iver, Phoebe Bridgers, or The National album art style.",
+    "messages": [{"role": "user", "content": "Create a 3000x3000 indie album cover for \"Suburban Daydreams\". Nostalgic, dreamy aesthetic with faded film photography look. Empty suburban street at golden hour, lo-fi grainy texture. Melancholic but beautiful mood. Think Bon Iver, Phoebe Bridgers, or The National album art style."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -140,12 +164,15 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Single Artwork
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 3000x3000 single artwork for a song called \"Heartbeat\". Minimalist design with a stylized anatomical heart in neon red against a pure black background. Simple, bold, and immediately recognizable. Modern and striking for streaming thumbnail visibility.",
+    "messages": [{"role": "user", "content": "Create a 3000x3000 single artwork for a song called \"Heartbeat\". Minimalist design with a stylized anatomical heart in neon red against a pure black background. Simple, bold, and immediately recognizable. Modern and striking for streaming thumbnail visibility."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -153,12 +180,15 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. EP Cover
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 3000x3000 EP cover for a 5-track R&B EP called \"Velvet Nights\". Luxurious, sensual aesthetic with deep purple velvet textures, soft ambient lighting, rose petals. Intimate and romantic mood. High-end, premium feel for an R&B/soul artist.",
+    "messages": [{"role": "user", "content": "Create a 3000x3000 EP cover for a 5-track R&B EP called \"Velvet Nights\". Luxurious, sensual aesthetic with deep purple velvet textures, soft ambient lighting, rose petals. Intimate and romantic mood. High-end, premium feel for an R&B/soul artist."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -166,12 +196,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 10. Spotify Canvas (Vertical Animated)
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 9:16 vertical video for Spotify Canvas, 8 seconds long. Looping animation of abstract colorful paint swirls flowing upward, psychedelic and hypnotic movement. Vibrant colors (orange, pink, purple) blending smoothly. Seamless loop for continuous playback on Spotify.",
+    "messages": [{"role": "user", "content": "Create a 9:16 vertical video for Spotify Canvas, 8 seconds long. Looping animation of abstract colorful paint swirls flowing upward, psychedelic and hypnotic movement. Vibrant colors (orange, pink, purple) blending smoothly. Seamless loop for continuous playback on Spotify."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -236,32 +268,38 @@ Use `session_id` to iterate on album artwork:
 
 ```bash
 # Initial concept
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 3000x3000 album cover for an ambient electronic album. Minimal, atmospheric, space theme.",
+    "messages": [{"role": "user", "content": "Create a 3000x3000 album cover for an ambient electronic album. Minimal, atmospheric, space theme."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "album-project-001"
   }'
 
 # Refine based on feedback
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Make it darker with more contrast. Add subtle star field in the background and a gradient from deep blue to black.",
+    "messages": [{"role": "user", "content": "Make it darker with more contrast. Add subtle star field in the background and a gradient from deep blue to black."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "album-project-001"
   }'
 
 # Request variations
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create 2 more variations with different color schemes - one in purple tones and one in warm orange/red sunset colors.",
+    "messages": [{"role": "user", "content": "Create 2 more variations with different color schemes - one in purple tones and one in warm orange/red sunset colors."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "album-project-001"
   }'
 ```
@@ -272,32 +310,39 @@ Generate matching artwork for album, singles, and promotional materials:
 
 ```bash
 # Main album cover
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 3000x3000 album cover for \"Fragments\" by an indie band. Shattered mirror aesthetic with warm golden light fragments. Artistic and abstract.",
+    "messages": [{"role": "user", "content": "Create a 3000x3000 album cover for \"Fragments\" by an indie band. Shattered mirror aesthetic with warm golden light fragments. Artistic and abstract."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "fragments-album-campaign"
   }'
 
 # Single artwork (same session for consistency)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create single artwork for the lead single from the same album. Use the same visual language but focus on a single large fragment. Maintain the color palette.",
+    "messages": [{"role": "user", "content": "Create single artwork for the lead single from the same album. Use the same visual language but focus on a single large fragment. Maintain the color palette."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "fragments-album-campaign"
   }'
 
 # Spotify Canvas
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 9:16 Spotify Canvas video using the same shattered mirror aesthetic. Slow motion fragments floating and rotating, 6 seconds, seamless loop.",
+    "messages": [{"role": "user", "content": "Create a 9:16 Spotify Canvas video using the same shattered mirror aesthetic. Slow motion fragments floating and rotating, 6 seconds, seamless loop."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "fragments-album-campaign"
   }'
 ```

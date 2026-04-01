@@ -3,7 +3,7 @@ name: social-carousel-generation
 description: Generate social media carousel content using each::sense AI. Create educational slides, product showcases, storytelling sequences, tutorials, and more for Instagram, LinkedIn, Facebook, and other platforms.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Social Carousel Generation
@@ -25,12 +25,14 @@ Generate engaging social media carousel content using each::sense. This skill cr
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 5-slide Instagram carousel about morning routine tips. Clean minimalist design with soft colors.",
+    "messages": [{"role": "user", "content": "Create a 5-slide Instagram carousel about morning routine tips. Clean minimalist design with soft colors."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -51,12 +53,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Educational Carousel (Tips/How-To)
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 6-slide Instagram carousel (1:1) teaching 5 productivity tips for remote workers. Slide 1: Eye-catching title slide with hook. Slides 2-6: One tip per slide with clean icons and brief text space. Use a modern gradient background (purple to blue), white text, minimalist style.",
+    "messages": [{"role": "user", "content": "Create a 6-slide Instagram carousel (1:1) teaching 5 productivity tips for remote workers. Slide 1: Eye-catching title slide with hook. Slides 2-6: One tip per slide with clean icons and brief text space. Use a modern gradient background (purple to blue), white text, minimalist style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -65,32 +69,38 @@ curl -X POST https://sense.eachlabs.run/chat \
 
 ```bash
 # Slide 1 - Hero shot
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create slide 1 of 5 for a product showcase carousel (1:1 square). Premium wireless headphones hero shot - dramatic lighting, floating product, dark gradient background with subtle light rays. Space for brand logo at top.",
+    "messages": [{"role": "user", "content": "Create slide 1 of 5 for a product showcase carousel (1:1 square). Premium wireless headphones hero shot - dramatic lighting, floating product, dark gradient background with subtle light rays. Space for brand logo at top."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "headphones-carousel-001"
   }'
 
 # Slide 2 - Detail shot (same session for consistency)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create slide 2 of 5. Close-up detail shot showing the premium materials and craftsmanship. Same visual style and lighting as slide 1.",
+    "messages": [{"role": "user", "content": "Create slide 2 of 5. Close-up detail shot showing the premium materials and craftsmanship. Same visual style and lighting as slide 1."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "headphones-carousel-001"
   }'
 
 # Slide 3 - Lifestyle shot
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create slide 3 of 5. Lifestyle shot showing someone wearing the headphones in an urban setting. Maintain the premium dark aesthetic.",
+    "messages": [{"role": "user", "content": "Create slide 3 of 5. Lifestyle shot showing someone wearing the headphones in an urban setting. Maintain the premium dark aesthetic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "headphones-carousel-001"
   }'
 ```
@@ -98,12 +108,15 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Before/After Carousel
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 4-slide before/after carousel for a home renovation service. Slide 1: Title slide with \"Transformation Tuesday\" hook. Slide 2: Before image - outdated kitchen with old cabinets. Slide 3: After image - modern renovated kitchen, same angle. Slide 4: Call-to-action slide with space for contact info. Use 4:5 aspect ratio, consistent framing between before/after.",
+    "messages": [{"role": "user", "content": "Create a 4-slide before/after carousel for a home renovation service. Slide 1: Title slide with \"Transformation Tuesday\" hook. Slide 2: Before image - outdated kitchen with old cabinets. Slide 3: After image - modern renovated kitchen, same angle. Slide 4: Call-to-action slide with space for contact info. Use 4:5 aspect ratio, consistent framing between before/after."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -112,30 +125,36 @@ curl -X POST https://sense.eachlabs.run/chat \
 
 ```bash
 # Create a story across multiple slides
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create slide 1 of 6 for a brand story carousel. Opening scene: A founder working late at night in a small garage, surrounded by prototypes and sketches. Warm lamp light, aspirational startup vibes. Cinematic style, 1:1 format. Leave space at bottom for caption overlay.",
+    "messages": [{"role": "user", "content": "Create slide 1 of 6 for a brand story carousel. Opening scene: A founder working late at night in a small garage, surrounded by prototypes and sketches. Warm lamp light, aspirational startup vibes. Cinematic style, 1:1 format. Leave space at bottom for caption overlay."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "brand-story-001"
   }'
 
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create slide 2 of 6. The journey continues - early team meeting in a coffee shop, 3-4 people huddled around a laptop, excited expressions. Same cinematic warmth and style.",
+    "messages": [{"role": "user", "content": "Create slide 2 of 6. The journey continues - early team meeting in a coffee shop, 3-4 people huddled around a laptop, excited expressions. Same cinematic warmth and style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "brand-story-001"
   }'
 
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create slide 3 of 6. Growth moment - first office space, small but professional, team of about 8 people celebrating. Maintain visual continuity.",
+    "messages": [{"role": "user", "content": "Create slide 3 of 6. Growth moment - first office space, small but professional, team of about 8 people celebrating. Maintain visual continuity."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "brand-story-001"
   }'
 ```
@@ -143,12 +162,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. Feature Highlight Carousel
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an 8-slide feature highlight carousel for a mobile app (1:1). Slide 1: App icon with tagline hook. Slides 2-7: Each featuring one key feature with a phone mockup showing the UI and an icon representing the feature. Slide 8: Download CTA with app store badges. Use a clean white background with brand accent color (teal), modern tech aesthetic.",
+    "messages": [{"role": "user", "content": "Create an 8-slide feature highlight carousel for a mobile app (1:1). Slide 1: App icon with tagline hook. Slides 2-7: Each featuring one key feature with a phone mockup showing the UI and an icon representing the feature. Slide 8: Download CTA with app store badges. Use a clean white background with brand accent color (teal), modern tech aesthetic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -156,12 +177,15 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Testimonial Carousel
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 5-slide testimonial carousel (1:1). Slide 1: Title \"What Our Customers Say\" with 5-star rating visual. Slides 2-4: Each slide shows a professional headshot placeholder (diverse representation), quote marks, space for testimonial text, and name/title area. Elegant cream background, gold accents, serif typography style. Slide 5: CTA with \"Join 10,000+ Happy Customers\".",
+    "messages": [{"role": "user", "content": "Create a 5-slide testimonial carousel (1:1). Slide 1: Title \"What Our Customers Say\" with 5-star rating visual. Slides 2-4: Each slide shows a professional headshot placeholder (diverse representation), quote marks, space for testimonial text, and name/title area. Elegant cream background, gold accents, serif typography style. Slide 5: CTA with \"Join 10,000+ Happy Customers\"."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -170,30 +194,37 @@ curl -X POST https://sense.eachlabs.run/chat \
 
 ```bash
 # Create each step with consistent styling
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create slide 1 of 7 for a recipe tutorial carousel (4:5). Title slide: \"Perfect Homemade Pizza in 6 Steps\" with appetizing hero image of finished pizza. Rustic kitchen aesthetic, warm tones, food photography style.",
+    "messages": [{"role": "user", "content": "Create slide 1 of 7 for a recipe tutorial carousel (4:5). Title slide: \"Perfect Homemade Pizza in 6 Steps\" with appetizing hero image of finished pizza. Rustic kitchen aesthetic, warm tones, food photography style."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "pizza-tutorial-001"
   }'
 
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create slide 2 of 7. Step 1: Ingredients laid out on wooden cutting board - flour, yeast, tomatoes, mozzarella, basil. Overhead shot, same warm aesthetic. Include step number badge.",
+    "messages": [{"role": "user", "content": "Create slide 2 of 7. Step 1: Ingredients laid out on wooden cutting board - flour, yeast, tomatoes, mozzarella, basil. Overhead shot, same warm aesthetic. Include step number badge."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "pizza-tutorial-001"
   }'
 
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create slide 3 of 7. Step 2: Hands kneading pizza dough on floured surface. Action shot showing the technique. Consistent lighting and style.",
+    "messages": [{"role": "user", "content": "Create slide 3 of 7. Step 2: Hands kneading pizza dough on floured surface. Action shot showing the technique. Consistent lighting and style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "pizza-tutorial-001"
   }'
 ```
@@ -201,12 +232,15 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Comparison Carousel
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 5-slide comparison carousel (1:1) for a SaaS product vs competitors. Slide 1: Title \"Why Choose Us?\" with versus graphic. Slides 2-4: Split-screen comparisons showing our product (green checkmarks, clean UI) vs competitors (red X marks, cluttered UI) for features like pricing, support, and ease of use. Slide 5: Summary table with winner badges. Modern tech style, dark mode aesthetic.",
+    "messages": [{"role": "user", "content": "Create a 5-slide comparison carousel (1:1) for a SaaS product vs competitors. Slide 1: Title \"Why Choose Us?\" with versus graphic. Slides 2-4: Split-screen comparisons showing our product (green checkmarks, clean UI) vs competitors (red X marks, cluttered UI) for features like pricing, support, and ease of use. Slide 5: Summary table with winner badges. Modern tech style, dark mode aesthetic."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -214,12 +248,15 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. List/Ranking Carousel
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 7-slide ranking carousel (1:1) for \"Top 5 Travel Destinations 2024\". Slide 1: Eye-catching title with globe graphic and countdown teaser. Slides 2-6: Each destination with ranking number (5 to 1), stunning landscape image, and space for location name. Build anticipation toward #1. Slide 7: Reveal the winner with celebratory design. Use vibrant travel photography style, bold number overlays.",
+    "messages": [{"role": "user", "content": "Create a 7-slide ranking carousel (1:1) for \"Top 5 Travel Destinations 2024\". Slide 1: Eye-catching title with globe graphic and countdown teaser. Slides 2-6: Each destination with ranking number (5 to 1), stunning landscape image, and space for location name. Build anticipation toward #1. Slide 7: Reveal the winner with celebratory design. Use vibrant travel photography style, bold number overlays."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -227,30 +264,37 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 10. Portfolio Carousel
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create slide 1 of 6 for a design portfolio carousel (4:5). Cover slide: \"Recent Work\" title with abstract geometric shapes, modern sans-serif typography, black background with accent colors (coral, teal). Professional agency aesthetic.",
+    "messages": [{"role": "user", "content": "Create slide 1 of 6 for a design portfolio carousel (4:5). Cover slide: \"Recent Work\" title with abstract geometric shapes, modern sans-serif typography, black background with accent colors (coral, teal). Professional agency aesthetic."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "portfolio-carousel-001"
   }'
 
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create slide 2 of 6. Project showcase - mockup of a mobile app UI design displayed on a floating phone. Clean presentation, subtle shadow, same dark background with coral accent. Space for project name and brief description.",
+    "messages": [{"role": "user", "content": "Create slide 2 of 6. Project showcase - mockup of a mobile app UI design displayed on a floating phone. Clean presentation, subtle shadow, same dark background with coral accent. Space for project name and brief description."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "portfolio-carousel-001"
   }'
 
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create slide 3 of 6. Brand identity project - logo mockups on business cards and stationery, arranged in an elegant flat lay. Consistent portfolio style.",
+    "messages": [{"role": "user", "content": "Create slide 3 of 6. Brand identity project - logo mockups on business cards and stationery, arranged in an elegant flat lay. Consistent portfolio style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "portfolio-carousel-001"
   }'
 ```
@@ -317,32 +361,38 @@ Use `session_id` to maintain consistency across slides:
 
 ```bash
 # Start the carousel
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create slide 1 of 5 for a fitness tips carousel. Bold title slide with energetic colors.",
+    "messages": [{"role": "user", "content": "Create slide 1 of 5 for a fitness tips carousel. Bold title slide with energetic colors."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "fitness-carousel-project"
   }'
 
 # Continue with same session
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create slide 2 - first fitness tip about morning stretches. Same style as slide 1.",
+    "messages": [{"role": "user", "content": "Create slide 2 - first fitness tip about morning stretches. Same style as slide 1."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "fitness-carousel-project"
   }'
 
 # Request adjustments
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "The colors are too bright. Regenerate slide 1 with more muted, earth tones.",
+    "messages": [{"role": "user", "content": "The colors are too bright. Regenerate slide 1 with more muted, earth tones."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "fitness-carousel-project"
   }'
 ```
@@ -353,32 +403,38 @@ Generate multiple carousel variations:
 
 ```bash
 # Version A - Minimalist
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 5-slide marketing tips carousel. Style: Clean minimalist, white background, black text, simple icons.",
+    "messages": [{"role": "user", "content": "Create a 5-slide marketing tips carousel. Style: Clean minimalist, white background, black text, simple icons."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 
 # Version B - Bold & Colorful
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 5-slide marketing tips carousel. Style: Bold gradients, vibrant colors (pink, orange, purple), dynamic shapes.",
+    "messages": [{"role": "user", "content": "Create a 5-slide marketing tips carousel. Style: Bold gradients, vibrant colors (pink, orange, purple), dynamic shapes."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 
 # Version C - Dark Mode
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 5-slide marketing tips carousel. Style: Dark mode, black background, neon accents, modern tech aesthetic.",
+    "messages": [{"role": "user", "content": "Create a 5-slide marketing tips carousel. Style: Dark mode, black background, neon accents, modern tech aesthetic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 ```

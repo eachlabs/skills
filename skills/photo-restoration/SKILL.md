@@ -3,7 +3,7 @@ name: photo-restoration
 description: Restore and enhance old, damaged, or degraded photos using each::sense AI. Fix scratches, tears, fading, water damage, colorize black and white photos, and restore faces in historical images.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Photo Restoration
@@ -24,12 +24,14 @@ Restore and enhance old, damaged, or degraded photos using each::sense. This ski
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Restore this old damaged family photo - fix the scratches and improve the overall quality",
+    "messages": [{"role": "user", "content": "Restore this old damaged family photo - fix the scratches and improve the overall quality"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/old-family-photo.jpg"]
   }'
@@ -42,12 +44,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Restore a photo with multiple types of damage including scratches, stains, and degradation.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Restore this old damaged photo from the 1950s. It has scratches, some staining, and general degradation. Please repair the damage while preserving the authentic vintage feel.",
+    "messages": [{"role": "user", "content": "Restore this old damaged photo from the 1950s. It has scratches, some staining, and general degradation. Please repair the damage while preserving the authentic vintage feel."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/damaged-1950s-photo.jpg"]
   }'
@@ -58,12 +62,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Add realistic colors to a black and white photograph.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Colorize this black and white photo from the 1940s. It shows a family portrait - add natural, realistic colors to skin tones, clothing, and the background.",
+    "messages": [{"role": "user", "content": "Colorize this black and white photo from the 1940s. It shows a family portrait - add natural, realistic colors to skin tones, clothing, and the background."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/bw-family-portrait.jpg"]
   }'
@@ -74,12 +80,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Remove scratches and surface damage from a photograph.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Remove the scratches from this photo. There are multiple deep scratches across the surface and some light surface marks. Keep the image sharp and clear after repair.",
+    "messages": [{"role": "user", "content": "Remove the scratches from this photo. There are multiple deep scratches across the surface and some light surface marks. Keep the image sharp and clear after repair."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/scratched-photo.jpg"]
   }'
@@ -90,12 +98,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Restore color and contrast to faded photographs.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Enhance this faded photo - the colors have washed out over time and the image looks dull. Restore the vibrancy and contrast while keeping it looking natural, not over-processed.",
+    "messages": [{"role": "user", "content": "Enhance this faded photo - the colors have washed out over time and the image looks dull. Restore the vibrancy and contrast while keeping it looking natural, not over-processed."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/faded-vintage-photo.jpg"]
   }'
@@ -106,12 +116,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Repair photos that have suffered water or moisture damage.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Restore this water damaged photo. It has staining, warping effects, and some areas where the image has deteriorated due to moisture. Recover as much detail as possible.",
+    "messages": [{"role": "user", "content": "Restore this water damaged photo. It has staining, warping effects, and some areas where the image has deteriorated due to moisture. Recover as much detail as possible."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/water-damaged-photo.jpg"]
   }'
@@ -122,12 +134,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Enhance and restore faces that are blurry or degraded in old photographs.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Restore the faces in this old family photo. The faces are blurry and lack detail. Enhance facial features to make them clear and recognizable while maintaining the authentic look of the era.",
+    "messages": [{"role": "user", "content": "Restore the faces in this old family photo. The faces are blurry and lack detail. Enhance facial features to make them clear and recognizable while maintaining the authentic look of the era."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/old-blurry-faces.jpg"]
   }'
@@ -138,12 +152,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Restore archival photographs with professional-grade enhancement.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Restore this historical photograph from the early 1900s. It is a street scene that has significant age-related degradation. Improve clarity, fix damage, and optionally colorize it while preserving historical accuracy.",
+    "messages": [{"role": "user", "content": "Restore this historical photograph from the early 1900s. It is a street scene that has significant age-related degradation. Improve clarity, fix damage, and optionally colorize it while preserving historical accuracy."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/historical-1900s-street.jpg"]
   }'
@@ -154,12 +170,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Restore precious family memories with comprehensive repair.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Restore this precious family photo from my grandparents wedding in 1960. It has yellowing, some creases, and the edges are damaged. Make it look fresh while preserving the nostalgic quality.",
+    "messages": [{"role": "user", "content": "Restore this precious family photo from my grandparents wedding in 1960. It has yellowing, some creases, and the edges are damaged. Make it look fresh while preserving the nostalgic quality."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/grandparents-wedding.jpg"]
   }'
@@ -170,12 +188,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Digitally reconstruct photos that have been physically torn.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Repair this torn photo - there is a visible tear line running through the middle of the image. Reconstruct the damaged areas seamlessly and restore the photo to its original state.",
+    "messages": [{"role": "user", "content": "Repair this torn photo - there is a visible tear line running through the middle of the image. Reconstruct the damaged areas seamlessly and restore the photo to its original state."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/torn-photo.jpg"]
   }'
@@ -186,12 +206,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Clean up excessive grain and noise from old film photographs.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Remove the heavy film grain from this old photograph. The grain is very visible and distracting. Clean it up while preserving the sharpness and detail of the image. Keep some subtle texture so it does not look overly processed.",
+    "messages": [{"role": "user", "content": "Remove the heavy film grain from this old photograph. The grain is very visible and distracting. Clean it up while preserving the sharpness and detail of the image. Keep some subtle texture so it does not look overly processed."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/grainy-film-photo.jpg"]
   }'
@@ -203,33 +225,39 @@ Use `session_id` for iterative restoration and refinement:
 
 ```bash
 # Initial restoration
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Restore this old damaged black and white photo - fix the scratches and damage first",
+    "messages": [{"role": "user", "content": "Restore this old damaged black and white photo - fix the scratches and damage first"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "family-photo-restoration",
     "image_urls": ["https://example.com/old-bw-damaged.jpg"]
   }'
 
 # Follow up with colorization
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now colorize the restored photo with natural colors appropriate for the 1930s era",
+    "messages": [{"role": "user", "content": "Now colorize the restored photo with natural colors appropriate for the 1930s era"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "family-photo-restoration"
   }'
 
 # Further refinement
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Enhance the faces to make them clearer and more detailed",
+    "messages": [{"role": "user", "content": "Enhance the faces to make them clearer and more detailed"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "family-photo-restoration"
   }'
 ```
@@ -240,34 +268,40 @@ Process multiple photos with consistent settings:
 
 ```bash
 # Photo 1
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Restore and colorize this old family photo",
+    "messages": [{"role": "user", "content": "Restore and colorize this old family photo"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco",
     "image_urls": ["https://example.com/family-photo-1.jpg"]
   }'
 
 # Photo 2
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Restore and colorize this old family photo",
+    "messages": [{"role": "user", "content": "Restore and colorize this old family photo"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco",
     "image_urls": ["https://example.com/family-photo-2.jpg"]
   }'
 
 # Photo 3
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Restore and colorize this old family photo",
+    "messages": [{"role": "user", "content": "Restore and colorize this old family photo"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco",
     "image_urls": ["https://example.com/family-photo-3.jpg"]
   }'

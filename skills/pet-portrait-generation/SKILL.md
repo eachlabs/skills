@@ -3,7 +3,7 @@ name: pet-portrait-generation
 description: Generate custom pet portraits using each::sense AI. Create realistic, artistic, and stylized pet portraits from photos - including cartoon, renaissance, watercolor, pop art, anime styles, and custom product mockups.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Pet Portrait Generation
@@ -26,12 +26,14 @@ Generate stunning custom pet portraits using each::sense. Transform your pet pho
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a beautiful portrait of my golden retriever in a classic oil painting style",
+    "messages": [{"role": "user", "content": "Create a beautiful portrait of my golden retriever in a classic oil painting style"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/my-pet-photo.jpg"],
     "mode": "max"
   }'
@@ -44,12 +46,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create a professional studio-quality portrait that captures your pet's personality.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a realistic professional portrait of my cat. Studio lighting, soft bokeh background in warm earth tones. Capture the eyes beautifully with catchlights. High-end pet photography style.",
+    "messages": [{"role": "user", "content": "Create a realistic professional portrait of my cat. Studio lighting, soft bokeh background in warm earth tones. Capture the eyes beautifully with catchlights. High-end pet photography style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/my-cat.jpg"],
     "mode": "max"
   }'
@@ -60,12 +64,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Transform your pet into a fun, colorful cartoon character.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Transform my dog into a cute cartoon illustration. Disney/Pixar style with big expressive eyes, playful pose. Vibrant colors, clean lines. Include a fun background with bones and toys.",
+    "messages": [{"role": "user", "content": "Transform my dog into a cute cartoon illustration. Disney/Pixar style with big expressive eyes, playful pose. Vibrant colors, clean lines. Include a fun background with bones and toys."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/my-dog.jpg"],
     "mode": "max"
   }'
@@ -76,12 +82,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Give your pet the royal treatment with a majestic historical portrait.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a renaissance-style royal portrait of my cat. Dress them as a noble king with a golden crown, velvet robe with ermine fur trim, and royal jewelry. Classical oil painting style, dramatic lighting, ornate gilded frame effect. Regal and majestic.",
+    "messages": [{"role": "user", "content": "Create a renaissance-style royal portrait of my cat. Dress them as a noble king with a golden crown, velvet robe with ermine fur trim, and royal jewelry. Classical oil painting style, dramatic lighting, ornate gilded frame effect. Regal and majestic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/my-cat.jpg"],
     "mode": "max"
   }'
@@ -92,12 +100,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create a beautiful watercolor artwork of your pet.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Paint my dog in a loose, expressive watercolor style. Soft edges, beautiful color bleeds and washes. Capture their personality with artistic brush strokes. Pastel background with splashes of color. Fine art watercolor painting look.",
+    "messages": [{"role": "user", "content": "Paint my dog in a loose, expressive watercolor style. Soft edges, beautiful color bleeds and washes. Capture their personality with artistic brush strokes. Pastel background with splashes of color. Fine art watercolor painting look."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/my-dog.jpg"],
     "mode": "max"
   }'
@@ -108,12 +118,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create a bold, vibrant pop art portrait inspired by Andy Warhol.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a pop art portrait of my cat in Andy Warhol style. Bold, bright contrasting colors - hot pink, electric blue, yellow, orange. High contrast, graphic style with halftone dots. Create a 2x2 grid with different color variations.",
+    "messages": [{"role": "user", "content": "Create a pop art portrait of my cat in Andy Warhol style. Bold, bright contrasting colors - hot pink, electric blue, yellow, orange. High contrast, graphic style with halftone dots. Create a 2x2 grid with different color variations."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/my-cat.jpg"],
     "mode": "max"
   }'
@@ -124,12 +136,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Transform your pet into an adorable anime character.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an anime-style portrait of my dog. Japanese anime aesthetic with big sparkly eyes, soft shading, and cute kawaii expression. Include cherry blossoms in the background. Studio Ghibli inspired, warm and whimsical.",
+    "messages": [{"role": "user", "content": "Create an anime-style portrait of my dog. Japanese anime aesthetic with big sparkly eyes, soft shading, and cute kawaii expression. Include cherry blossoms in the background. Studio Ghibli inspired, warm and whimsical."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/my-dog.jpg"],
     "mode": "max"
   }'
@@ -140,12 +154,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Dress up your pet in fun costumes and themed outfits.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a portrait of my cat as a space astronaut. Wearing a detailed NASA spacesuit with helmet, floating in space with Earth visible in the background. Stars and nebula. Realistic lighting, cinematic quality.",
+    "messages": [{"role": "user", "content": "Create a portrait of my cat as a space astronaut. Wearing a detailed NASA spacesuit with helmet, floating in space with Earth visible in the background. Stars and nebula. Realistic lighting, cinematic quality."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/my-cat.jpg"],
     "mode": "max"
   }'
@@ -157,12 +173,14 @@ Create a beautiful portrait featuring multiple pets together.
 
 ```bash
 # First request - provide all pet photos
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a family portrait with all three of my pets together. Classical portrait style with a warm, cozy living room background. Position them naturally as if they are posing together - the dog in the center, cats on either side. Soft, warm lighting, harmonious composition.",
+    "messages": [{"role": "user", "content": "Create a family portrait with all three of my pets together. Classical portrait style with a warm, cozy living room background. Position them naturally as if they are posing together - the dog in the center, cats on either side. Soft, warm lighting, harmonious composition."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": [
       "https://example.com/my-dog.jpg",
       "https://example.com/my-cat1.jpg",
@@ -173,12 +191,14 @@ curl -X POST https://sense.eachlabs.run/chat \
   }'
 
 # Follow-up to adjust the portrait
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Can you make the background a garden setting with flowers instead? Keep the same arrangement of the pets.",
+    "messages": [{"role": "user", "content": "Can you make the background a garden setting with flowers instead? Keep the same arrangement of the pets."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "pet-family-portrait"
   }'
 ```
@@ -188,12 +208,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create a touching tribute portrait for a beloved pet.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a memorial portrait for my beloved dog who passed away. Peaceful, serene setting with soft golden light. Include angel wings, subtle rainbow bridge elements in the background. Ethereal and comforting, celebrating their spirit. Beautiful tribute artwork.",
+    "messages": [{"role": "user", "content": "Create a memorial portrait for my beloved dog who passed away. Peaceful, serene setting with soft golden light. Include angel wings, subtle rainbow bridge elements in the background. Ethereal and comforting, celebrating their spirit. Beautiful tribute artwork."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/my-dog.jpg"],
     "mode": "max"
   }'
@@ -205,24 +227,28 @@ Generate mockups of your pet portrait on merchandise and products.
 
 ```bash
 # Pet portrait on a mug
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a product mockup of my cat portrait on a white ceramic coffee mug. The portrait should be a cute illustrated style. Show the mug on a wooden table with coffee, cozy morning setting. Professional product photography.",
+    "messages": [{"role": "user", "content": "Create a product mockup of my cat portrait on a white ceramic coffee mug. The portrait should be a cute illustrated style. Show the mug on a wooden table with coffee, cozy morning setting. Professional product photography."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/my-cat.jpg"],
     "session_id": "pet-products",
     "mode": "max"
   }'
 
 # Same pet portrait on canvas
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now create a mockup of this same pet portrait as a canvas print hanging on a living room wall. Modern interior setting, natural lighting. Show it as wall art in context.",
+    "messages": [{"role": "user", "content": "Now create a mockup of this same pet portrait as a canvas print hanging on a living room wall. Modern interior setting, natural lighting. Show it as wall art in context."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "pet-products"
   }'
 ```
@@ -268,33 +294,39 @@ Use `session_id` to refine and iterate on portraits:
 
 ```bash
 # Initial portrait
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a renaissance portrait of my dog as a nobleman",
+    "messages": [{"role": "user", "content": "Create a renaissance portrait of my dog as a nobleman"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/my-dog.jpg"],
     "session_id": "dog-portrait-project"
   }'
 
 # Refine the result
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Make the costume more elaborate with gold embroidery and add a sword",
+    "messages": [{"role": "user", "content": "Make the costume more elaborate with gold embroidery and add a sword"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "dog-portrait-project"
   }'
 
 # Try different variations
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create 2 more variations with different poses and backgrounds",
+    "messages": [{"role": "user", "content": "Create 2 more variations with different poses and backgrounds"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "dog-portrait-project"
   }'
 ```
@@ -305,32 +337,38 @@ Generate different styles to find the perfect look:
 
 ```bash
 # Explore different styles with eco mode for speed
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create my cat portrait in oil painting style",
+    "messages": [{"role": "user", "content": "Create my cat portrait in oil painting style"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/my-cat.jpg"],
     "mode": "eco"
   }'
 
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create my cat portrait in minimalist line art style",
+    "messages": [{"role": "user", "content": "Create my cat portrait in minimalist line art style"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/my-cat.jpg"],
     "mode": "eco"
   }'
 
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create my cat portrait in stained glass window style",
+    "messages": [{"role": "user", "content": "Create my cat portrait in stained glass window style"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/my-cat.jpg"],
     "mode": "eco"
   }'

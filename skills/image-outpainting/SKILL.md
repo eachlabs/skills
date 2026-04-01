@@ -3,7 +3,7 @@ name: image-outpainting
 description: Extend and expand images beyond their original boundaries using each::sense AI. Create panoramic views, convert aspect ratios, add backgrounds, and uncrop photos intelligently.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Image Outpainting / Extension
@@ -24,12 +24,14 @@ Extend images beyond their original boundaries using each::sense. This skill use
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Extend this image horizontally to create a wider 16:9 composition, maintaining the same style and lighting",
+    "messages": [{"role": "user", "content": "Extend this image horizontally to create a wider 16:9 composition, maintaining the same style and lighting"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/original-photo.jpg"],
     "mode": "max"
   }'
@@ -51,12 +53,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Extend Image Horizontally
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Extend this image horizontally on both sides. Add more of the natural environment while keeping the subject centered. Maintain consistent lighting, color grading, and style throughout the extension.",
+    "messages": [{"role": "user", "content": "Extend this image horizontally on both sides. Add more of the natural environment while keeping the subject centered. Maintain consistent lighting, color grading, and style throughout the extension."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/landscape-photo.jpg"],
     "mode": "max"
   }'
@@ -65,12 +69,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Extend Image Vertically
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Extend this image vertically - add more sky above and more ground/foreground below. Keep the horizon line natural and maintain the same atmosphere and time of day.",
+    "messages": [{"role": "user", "content": "Extend this image vertically - add more sky above and more ground/foreground below. Keep the horizon line natural and maintain the same atmosphere and time of day."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/landscape.jpg"],
     "mode": "max"
   }'
@@ -79,12 +85,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Convert Portrait to Landscape
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Convert this vertical portrait photo to a horizontal 16:9 landscape format. Extend the background on both sides to create a wider scene. Keep the person as the main subject and ensure the extended areas match the original environment perfectly.",
+    "messages": [{"role": "user", "content": "Convert this vertical portrait photo to a horizontal 16:9 landscape format. Extend the background on both sides to create a wider scene. Keep the person as the main subject and ensure the extended areas match the original environment perfectly."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/portrait-photo.jpg"],
     "mode": "max"
   }'
@@ -93,12 +101,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Convert Square to Widescreen
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Transform this square 1:1 image into a cinematic 21:9 widescreen format. Extend the scene horizontally while preserving the central composition. Match the lighting, textures, and visual style seamlessly.",
+    "messages": [{"role": "user", "content": "Transform this square 1:1 image into a cinematic 21:9 widescreen format. Extend the scene horizontally while preserving the central composition. Match the lighting, textures, and visual style seamlessly."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/square-image.jpg"],
     "mode": "max"
   }'
@@ -107,12 +117,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. Extend Product Photo for Banner
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Extend this product photo into a wide banner format (approximately 4:1 ratio). Keep the product on the left third of the image and extend the clean background to the right to create space for text overlay. Maintain the same studio lighting and surface texture.",
+    "messages": [{"role": "user", "content": "Extend this product photo into a wide banner format (approximately 4:1 ratio). Keep the product on the left third of the image and extend the clean background to the right to create space for text overlay. Maintain the same studio lighting and surface texture."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/product-shot.jpg"],
     "mode": "max"
   }'
@@ -121,12 +133,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Add More Background/Context
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Expand this image in all directions to add more environmental context. The subject is too tightly cropped - extend the scene to show more of the surroundings, making it feel less cramped. Keep the original subject size and add approximately 50% more space around it.",
+    "messages": [{"role": "user", "content": "Expand this image in all directions to add more environmental context. The subject is too tightly cropped - extend the scene to show more of the surroundings, making it feel less cramped. Keep the original subject size and add approximately 50% more space around it."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/tight-crop.jpg"],
     "mode": "max"
   }'
@@ -135,12 +149,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Uncrop a Cropped Photo
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "This photo has been tightly cropped - uncrop it to reveal more of the scene. Extend downward to show the full body (currently cut off at the waist) and extend the sides to show more of the room interior. Generate realistic content that matches the existing style.",
+    "messages": [{"role": "user", "content": "This photo has been tightly cropped - uncrop it to reveal more of the scene. Extend downward to show the full body (currently cut off at the waist) and extend the sides to show more of the room interior. Generate realistic content that matches the existing style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/cropped-photo.jpg"],
     "mode": "max"
   }'
@@ -149,12 +165,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Create Panoramic from Single Image
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Transform this landscape photo into a wide panoramic image with a 3:1 aspect ratio. Extend the scenic view on both left and right sides, continuing the mountain range, sky, and terrain naturally. Create a sweeping vista that feels like a real panoramic photograph.",
+    "messages": [{"role": "user", "content": "Transform this landscape photo into a wide panoramic image with a 3:1 aspect ratio. Extend the scenic view on both left and right sides, continuing the mountain range, sky, and terrain naturally. Create a sweeping vista that feels like a real panoramic photograph."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/mountain-view.jpg"],
     "mode": "max"
   }'
@@ -163,12 +181,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. Extend Artwork/Illustration
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Extend this digital illustration horizontally to double its width. Continue the artistic style, color palette, and visual elements seamlessly. This is a fantasy landscape illustration - extend the magical forest and atmospheric elements on both sides while maintaining the same painting technique and mood.",
+    "messages": [{"role": "user", "content": "Extend this digital illustration horizontally to double its width. Continue the artistic style, color palette, and visual elements seamlessly. This is a fantasy landscape illustration - extend the magical forest and atmospheric elements on both sides while maintaining the same painting technique and mood."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/fantasy-illustration.jpg"],
     "mode": "max"
   }'
@@ -177,12 +197,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 10. Add Environment to Portrait
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "This is a headshot with a blurred background. Extend the image to show more of the environment - convert to a 3/4 or full body shot by extending downward, and widen the scene to show the cafe/office setting implied by the background. Keep the portrait style and depth of field consistent.",
+    "messages": [{"role": "user", "content": "This is a headshot with a blurred background. Extend the image to show more of the environment - convert to a 3/4 or full body shot by extending downward, and widen the scene to show the cafe/office setting implied by the background. Keep the portrait style and depth of field consistent."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/headshot.jpg"],
     "mode": "max"
   }'
@@ -194,34 +216,40 @@ Use `session_id` to iterate on outpainting results:
 
 ```bash
 # Initial extension request
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Extend this beach photo horizontally to create a wider 16:9 composition",
+    "messages": [{"role": "user", "content": "Extend this beach photo horizontally to create a wider 16:9 composition"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/beach.jpg"],
     "session_id": "outpaint-beach-001",
     "mode": "max"
   }'
 
 # Request adjustments
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "The right side extension looks good, but can you add some palm trees on the left side to balance the composition?",
+    "messages": [{"role": "user", "content": "The right side extension looks good, but can you add some palm trees on the left side to balance the composition?"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "outpaint-beach-001"
   }'
 
 # Further refinement
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now extend it vertically as well - add more dramatic sky with sunset clouds above",
+    "messages": [{"role": "user", "content": "Now extend it vertically as well - add more dramatic sky with sunset clouds above"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "outpaint-beach-001"
   }'
 ```

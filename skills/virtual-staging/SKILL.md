@@ -3,7 +3,7 @@ name: virtual-staging
 description: Transform empty rooms into beautifully furnished spaces using each::sense AI. Create photorealistic virtual staging for real estate listings, commercial properties, and interior design visualization.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Virtual Staging
@@ -24,12 +24,14 @@ Transform empty or outdated rooms into beautifully furnished spaces using each::
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Stage this empty living room with modern furniture, neutral tones, and natural lighting. Add a sectional sofa, coffee table, area rug, and minimal decor.",
+    "messages": [{"role": "user", "content": "Stage this empty living room with modern furniture, neutral tones, and natural lighting. Add a sectional sofa, coffee table, area rug, and minimal decor."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/empty-living-room.jpg"]
   }'
@@ -51,12 +53,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Transform a vacant living room into an inviting, furnished space.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Stage this empty living room with warm, inviting furniture. Add a large comfortable sofa, accent chairs, coffee table, area rug, floor lamp, and subtle wall art. Use neutral earth tones that appeal to broad buyers.",
+    "messages": [{"role": "user", "content": "Stage this empty living room with warm, inviting furniture. Add a large comfortable sofa, accent chairs, coffee table, area rug, floor lamp, and subtle wall art. Use neutral earth tones that appeal to broad buyers."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/empty-living-room.jpg"]
   }'
@@ -67,12 +71,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create a serene, restful bedroom that helps buyers visualize themselves in the space.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Stage this empty bedroom as a master suite. Add a king-size bed with plush bedding, nightstands with lamps, a bench at the foot of the bed, and soft curtains. Keep it elegant but not cluttered. Neutral color palette with subtle blue accents.",
+    "messages": [{"role": "user", "content": "Stage this empty bedroom as a master suite. Add a king-size bed with plush bedding, nightstands with lamps, a bench at the foot of the bed, and soft curtains. Keep it elegant but not cluttered. Neutral color palette with subtle blue accents."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/empty-bedroom.jpg"]
   }'
@@ -83,12 +89,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Showcase kitchen potential with thoughtful staging elements.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Stage this kitchen with lifestyle elements. Add bar stools at the island, pendant lighting, a fruit bowl on the counter, fresh flowers in a vase, and coordinated dish towels. Make it look lived-in but immaculate, ready for a real estate photo.",
+    "messages": [{"role": "user", "content": "Stage this kitchen with lifestyle elements. Add bar stools at the island, pendant lighting, a fruit bowl on the counter, fresh flowers in a vase, and coordinated dish towels. Make it look lived-in but immaculate, ready for a real estate photo."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/empty-kitchen.jpg"]
   }'
@@ -99,12 +107,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Appeal to remote workers with a functional, stylish workspace.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Transform this empty room into a professional home office. Add a modern desk with ergonomic chair, bookshelf with books and decor, desk lamp, and a small plant. Include good task lighting and keep it organized and productive-looking.",
+    "messages": [{"role": "user", "content": "Transform this empty room into a professional home office. Add a modern desk with ergonomic chair, bookshelf with books and decor, desk lamp, and a small plant. Include good task lighting and keep it organized and productive-looking."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/empty-room.jpg"]
   }'
@@ -115,12 +125,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Visualize outdoor living potential.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Stage this empty patio/deck area as an outdoor living space. Add comfortable outdoor seating with cushions, a coffee table, potted plants, string lights, and outdoor rug. Make it feel like an extension of the home, perfect for entertaining.",
+    "messages": [{"role": "user", "content": "Stage this empty patio/deck area as an outdoor living space. Add comfortable outdoor seating with cushions, a coffee table, potted plants, string lights, and outdoor rug. Make it feel like an extension of the home, perfect for entertaining."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/empty-patio.jpg"]
   }'
@@ -132,34 +144,40 @@ Generate the same room with different design aesthetics.
 
 ```bash
 # Modern/Contemporary Style
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Stage this room in modern contemporary style. Clean lines, minimal furniture, neutral colors with bold accent pieces, geometric patterns, and sleek finishes. Include a low-profile sofa, glass coffee table, and abstract wall art.",
+    "messages": [{"role": "user", "content": "Stage this room in modern contemporary style. Clean lines, minimal furniture, neutral colors with bold accent pieces, geometric patterns, and sleek finishes. Include a low-profile sofa, glass coffee table, and abstract wall art."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/empty-room.jpg"],
     "session_id": "staging-styles-demo"
   }'
 
 # Traditional Style (same session for comparison)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now stage the same room in traditional style. Classic furniture with curved lines, rich wood tones, warm colors, elegant fabrics, and ornate details. Include a classic sofa, wooden coffee table, and traditional artwork.",
+    "messages": [{"role": "user", "content": "Now stage the same room in traditional style. Classic furniture with curved lines, rich wood tones, warm colors, elegant fabrics, and ornate details. Include a classic sofa, wooden coffee table, and traditional artwork."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "staging-styles-demo"
   }'
 
 # Minimalist Style (same session)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now stage it minimalist style. Very few furniture pieces, lots of negative space, monochromatic color scheme, essential items only. Simple sofa, single plant, minimal decor. Less is more.",
+    "messages": [{"role": "user", "content": "Now stage it minimalist style. Very few furniture pieces, lots of negative space, monochromatic color scheme, essential items only. Simple sofa, single plant, minimal decor. Less is more."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "staging-styles-demo"
   }'
 ```
@@ -169,12 +187,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Stage office buildings, retail spaces, and commercial properties.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Stage this empty commercial office space. Add modern workstations, ergonomic chairs, a reception area with seating, plants, and professional decor. Make it look like a productive, appealing workplace that companies would want to lease.",
+    "messages": [{"role": "user", "content": "Stage this empty commercial office space. Add modern workstations, ergonomic chairs, a reception area with seating, plants, and professional decor. Make it look like a productive, appealing workplace that companies would want to lease."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/empty-office-space.jpg"]
   }'
@@ -186,24 +206,28 @@ Create staged versions of multiple rooms for a complete listing.
 
 ```bash
 # Living room
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Stage this living room photo for a real estate listing. Modern farmhouse style with comfortable furniture, cozy textiles, and warm lighting. Keep architectural features visible.",
+    "messages": [{"role": "user", "content": "Stage this living room photo for a real estate listing. Modern farmhouse style with comfortable furniture, cozy textiles, and warm lighting. Keep architectural features visible."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/listing-living-room.jpg"],
     "session_id": "full-home-staging"
   }'
 
 # Master bedroom (same listing, same session)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now stage the master bedroom in the same modern farmhouse style. Maintain consistency with the living room staging. King bed with white linens, wooden nightstands, soft lighting.",
+    "messages": [{"role": "user", "content": "Now stage the master bedroom in the same modern farmhouse style. Maintain consistency with the living room staging. King bed with white linens, wooden nightstands, soft lighting."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/listing-master-bedroom.jpg"],
     "session_id": "full-home-staging"
   }'
@@ -214,12 +238,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Generate several staging options for client selection.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Stage this empty living room in 3 different styles: 1) Coastal - light blues, whites, natural textures, beachy vibe 2) Mid-century modern - iconic furniture shapes, warm wood tones, retro accents 3) Scandinavian - light woods, white and gray palette, cozy hygge feel. Generate all three versions.",
+    "messages": [{"role": "user", "content": "Stage this empty living room in 3 different styles: 1) Coastal - light blues, whites, natural textures, beachy vibe 2) Mid-century modern - iconic furniture shapes, warm wood tones, retro accents 3) Scandinavian - light woods, white and gray palette, cozy hygge feel. Generate all three versions."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/empty-living-room.jpg"]
   }'
@@ -230,12 +256,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Remove outdated or cluttered furniture and restage with better design.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "This room has old, dated furniture. Remove all existing furniture and restage with modern, neutral furniture that will appeal to more buyers. Keep the room layout logical but update everything - sofa, chairs, tables, decor. Make it look like a model home.",
+    "messages": [{"role": "user", "content": "This room has old, dated furniture. Remove all existing furniture and restage with modern, neutral furniture that will appeal to more buyers. Keep the room layout logical but update everything - sofa, chairs, tables, decor. Make it look like a model home."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/dated-living-room.jpg"]
   }'
@@ -267,33 +295,39 @@ Use `session_id` to refine staging results:
 
 ```bash
 # Initial staging
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Stage this empty living room with modern furniture",
+    "messages": [{"role": "user", "content": "Stage this empty living room with modern furniture"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/empty-room.jpg"],
     "session_id": "living-room-project"
   }'
 
 # Request adjustments
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "The sofa looks good, but can you add more warmth? Add some throw pillows, a cozy blanket, and warmer lighting",
+    "messages": [{"role": "user", "content": "The sofa looks good, but can you add more warmth? Add some throw pillows, a cozy blanket, and warmer lighting"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "living-room-project"
   }'
 
 # Try a different arrangement
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Actually, lets try a different furniture arrangement with the sofa facing the window instead",
+    "messages": [{"role": "user", "content": "Actually, lets try a different furniture arrangement with the sofa facing the window instead"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "living-room-project"
   }'
 ```

@@ -3,7 +3,7 @@ name: depth-map-generation
 description: Generate depth maps from images using each::sense AI. Create depth estimation for 3D effects, parallax animations, VR/AR applications, focus effects, and stereo image generation.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Depth Map Generation
@@ -26,12 +26,14 @@ Generate accurate depth maps from any image using each::sense. This skill extrac
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a depth map from this photo",
+    "messages": [{"role": "user", "content": "Generate a depth map from this photo"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/photo.jpg"],
     "mode": "max"
   }'
@@ -53,12 +55,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Basic depth extraction from any image.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a depth map from this image. Output as grayscale where white represents closer objects and black represents distant objects.",
+    "messages": [{"role": "user", "content": "Generate a depth map from this image. Output as grayscale where white represents closer objects and black represents distant objects."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/scene.jpg"],
     "mode": "max"
   }'
@@ -69,12 +73,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Extract precise depth from portrait photos for bokeh effects and 3D portraits.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a high-precision depth map from this portrait photo. Focus on accurate edge detection around the subject, especially hair and facial features. I need this for applying realistic depth-of-field effects.",
+    "messages": [{"role": "user", "content": "Create a high-precision depth map from this portrait photo. Focus on accurate edge detection around the subject, especially hair and facial features. I need this for applying realistic depth-of-field effects."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/portrait.jpg"],
     "mode": "max"
   }'
@@ -85,12 +91,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Generate depth from landscape and outdoor scenes with extended depth range.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a depth map from this landscape photo. The scene has foreground elements, mid-ground terrain, and distant mountains. Capture the full depth range from near to far with good separation between depth layers.",
+    "messages": [{"role": "user", "content": "Generate a depth map from this landscape photo. The scene has foreground elements, mid-ground terrain, and distant mountains. Capture the full depth range from near to far with good separation between depth layers."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/landscape.jpg"],
     "mode": "max"
   }'
@@ -101,12 +109,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create depth maps for product images to enable 3D viewing experiences.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Extract a depth map from this product photo. I need accurate depth information to create a 3D interactive view for an e-commerce website. Focus on capturing the product shape and surface details.",
+    "messages": [{"role": "user", "content": "Extract a depth map from this product photo. I need accurate depth information to create a 3D interactive view for an e-commerce website. Focus on capturing the product shape and surface details."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/product-sneaker.jpg"],
     "mode": "max"
   }'
@@ -117,12 +127,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Generate depth from architectural and interior photos for visualization.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a depth map from this interior architecture photo. Capture the spatial relationships between walls, furniture, and architectural elements. I need this for a virtual tour with depth-based transitions.",
+    "messages": [{"role": "user", "content": "Create a depth map from this interior architecture photo. Capture the spatial relationships between walls, furniture, and architectural elements. I need this for a virtual tour with depth-based transitions."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/interior.jpg"],
     "mode": "max"
   }'
@@ -133,12 +145,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Generate depth maps optimized for creating parallax animations and Ken Burns effects.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a depth map from this photo that I will use for a 3D parallax animation. I need clear depth separation between foreground, midground, and background elements. The depth should be smooth with distinct layers for a compelling parallax effect.",
+    "messages": [{"role": "user", "content": "Generate a depth map from this photo that I will use for a 3D parallax animation. I need clear depth separation between foreground, midground, and background elements. The depth should be smooth with distinct layers for a compelling parallax effect."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/scene-for-parallax.jpg"],
     "mode": "max"
   }'
@@ -149,12 +163,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create depth maps suitable for virtual and augmented reality applications.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a depth map from this room photo for AR/VR use. I need metric depth estimation that accurately represents real-world distances. This will be used for placing virtual objects in an augmented reality application.",
+    "messages": [{"role": "user", "content": "Generate a depth map from this room photo for AR/VR use. I need metric depth estimation that accurately represents real-world distances. This will be used for placing virtual objects in an augmented reality application."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/room.jpg"],
     "mode": "max"
   }'
@@ -165,12 +181,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Convert 2D images to stereoscopic 3D using depth estimation.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a depth map from this photo and use it to create a stereoscopic 3D image pair (left and right eye views). The stereo effect should be subtle enough for comfortable viewing but noticeable enough to create depth perception.",
+    "messages": [{"role": "user", "content": "Generate a depth map from this photo and use it to create a stereoscopic 3D image pair (left and right eye views). The stereo effect should be subtle enough for comfortable viewing but noticeable enough to create depth perception."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/photo-for-stereo.jpg"],
     "mode": "max"
   }'
@@ -181,12 +199,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Generate depth maps for computational focus stacking and all-in-focus composites.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a depth map from this macro/close-up photo. I need precise depth information to identify focus planes for computational focus stacking. Each depth layer should be clearly defined so I can select which areas should be in focus.",
+    "messages": [{"role": "user", "content": "Create a depth map from this macro/close-up photo. I need precise depth information to identify focus planes for computational focus stacking. Each depth layer should be clearly defined so I can select which areas should be in focus."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/macro-photo.jpg"],
     "mode": "max"
   }'
@@ -197,12 +217,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Generate depth for applying realistic bokeh and background blur effects.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a depth map from this photo for applying depth-aware background blur. The subject in the foreground should be clearly separated from the background. I need accurate edge detection so the blur transition looks natural, similar to a portrait mode effect.",
+    "messages": [{"role": "user", "content": "Generate a depth map from this photo for applying depth-aware background blur. The subject in the foreground should be clearly separated from the background. I need accurate edge detection so the blur transition looks natural, similar to a portrait mode effect."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/photo-for-blur.jpg"],
     "mode": "max"
   }'
@@ -214,33 +236,39 @@ Use `session_id` to refine depth maps or process multiple related images:
 
 ```bash
 # Initial depth estimation
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a depth map from this photo",
+    "messages": [{"role": "user", "content": "Generate a depth map from this photo"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/scene.jpg"],
     "session_id": "depth-project-001"
   }'
 
 # Refine the depth map
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "The depth map looks good but can you enhance the edge detection around the main subject? The boundaries are a bit fuzzy.",
+    "messages": [{"role": "user", "content": "The depth map looks good but can you enhance the edge detection around the main subject? The boundaries are a bit fuzzy."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "depth-project-001"
   }'
 
 # Apply the depth map for an effect
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now use this depth map to create a 3D parallax video animation with subtle camera movement",
+    "messages": [{"role": "user", "content": "Now use this depth map to create a 3D parallax video animation with subtle camera movement"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "depth-project-001"
   }'
 ```
@@ -251,24 +279,28 @@ Process multiple images for consistent depth estimation:
 
 ```bash
 # Process first image
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a depth map from this product photo. I will be sending more product images that need consistent depth estimation.",
+    "messages": [{"role": "user", "content": "Generate a depth map from this product photo. I will be sending more product images that need consistent depth estimation."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/product1.jpg"],
     "session_id": "product-depth-batch",
     "mode": "eco"
   }'
 
 # Process second image with same settings
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate depth map for this product using the same approach as before",
+    "messages": [{"role": "user", "content": "Generate depth map for this product using the same approach as before"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/product2.jpg"],
     "session_id": "product-depth-batch",
     "mode": "eco"

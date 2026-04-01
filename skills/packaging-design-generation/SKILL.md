@@ -3,7 +3,7 @@ name: packaging-design-generation
 description: Generate professional product packaging designs using each::sense AI. Create box designs, food packaging, cosmetic containers, beverage labels, supplement bottles, coffee bags, candle packaging, gift boxes, shopping bags, and product labels.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Packaging Design Generation
@@ -26,12 +26,14 @@ Generate professional product packaging designs using each::sense. This skill cr
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a premium coffee bag packaging design for an artisan roaster called Mountain Peak Coffee, featuring earthy tones and mountain imagery",
+    "messages": [{"role": "user", "content": "Create a premium coffee bag packaging design for an artisan roaster called Mountain Peak Coffee, featuring earthy tones and mountain imagery"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -56,12 +58,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Product Box Design
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a sleek product box design for premium wireless headphones. Modern tech aesthetic with dark matte finish, silver accents, and clean typography. Show the box at a 3/4 angle with the product visible through a window cutout. Brand name: SoundWave Pro.",
+    "messages": [{"role": "user", "content": "Create a sleek product box design for premium wireless headphones. Modern tech aesthetic with dark matte finish, silver accents, and clean typography. Show the box at a 3/4 angle with the product visible through a window cutout. Brand name: SoundWave Pro."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -69,12 +73,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Food Packaging Design
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a vibrant snack packaging for organic veggie chips. Colorful, playful design with hand-drawn vegetable illustrations. Kraft paper bag with a window to show the product. Brand: Crunch Garden. Flavors: Sea Salt & Herb. Include organic certification badge space.",
+    "messages": [{"role": "user", "content": "Design a vibrant snack packaging for organic veggie chips. Colorful, playful design with hand-drawn vegetable illustrations. Kraft paper bag with a window to show the product. Brand: Crunch Garden. Flavors: Sea Salt & Herb. Include organic certification badge space."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -82,12 +88,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Cosmetic/Beauty Packaging
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create luxury skincare packaging for a serum bottle and box set. Minimalist design with soft pink and rose gold accents. Frosted glass bottle with dropper, matching outer box. Brand: Lumina Beauty. Product: Renewal Face Serum. Elegant serif typography.",
+    "messages": [{"role": "user", "content": "Create luxury skincare packaging for a serum bottle and box set. Minimalist design with soft pink and rose gold accents. Frosted glass bottle with dropper, matching outer box. Brand: Lumina Beauty. Product: Renewal Face Serum. Elegant serif typography."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -95,12 +103,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Beverage Label Design
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a craft beer label for an IPA. Vintage-inspired with modern twist, featuring hop illustrations and mountain scenery. Deep green and gold color palette. Brewery name: Summit Brewing Co. Beer name: Trail Blazer IPA. Include ABV space and tasting notes area.",
+    "messages": [{"role": "user", "content": "Design a craft beer label for an IPA. Vintage-inspired with modern twist, featuring hop illustrations and mountain scenery. Deep green and gold color palette. Brewery name: Summit Brewing Co. Beer name: Trail Blazer IPA. Include ABV space and tasting notes area."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -108,12 +118,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. Supplement/Vitamin Packaging
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a clean, trustworthy supplement bottle design for daily multivitamins. White bottle with blue and green accents suggesting health and vitality. Modern sans-serif typography. Brand: VitaCore. Product: Complete Daily Multivitamin. Show front label with dosage info area.",
+    "messages": [{"role": "user", "content": "Create a clean, trustworthy supplement bottle design for daily multivitamins. White bottle with blue and green accents suggesting health and vitality. Modern sans-serif typography. Brand: VitaCore. Product: Complete Daily Multivitamin. Show front label with dosage info area."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -121,12 +133,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Coffee Bag Design
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design an artisan coffee bag for single-origin Ethiopian beans. Kraft paper bag with matte black label. Featuring Ethiopian landscape illustration in warm earth tones. Brand: Origin Story Coffee. Include space for roast date, flavor notes (blueberry, citrus, chocolate), and brewing recommendations.",
+    "messages": [{"role": "user", "content": "Design an artisan coffee bag for single-origin Ethiopian beans. Kraft paper bag with matte black label. Featuring Ethiopian landscape illustration in warm earth tones. Brand: Origin Story Coffee. Include space for roast date, flavor notes (blueberry, citrus, chocolate), and brewing recommendations."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -134,12 +148,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Candle Packaging
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create luxury candle packaging for a home fragrance brand. Amber glass jar with minimalist white label, housed in a elegant black box with gold foil details. Brand: Maison Lumiere. Scent: Fireside & Vanilla. Cozy, sophisticated aesthetic suitable for gifting.",
+    "messages": [{"role": "user", "content": "Create luxury candle packaging for a home fragrance brand. Amber glass jar with minimalist white label, housed in a elegant black box with gold foil details. Brand: Maison Lumiere. Scent: Fireside & Vanilla. Cozy, sophisticated aesthetic suitable for gifting."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -147,12 +163,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Gift Box Design
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a premium gift box for a chocolate assortment. Rich burgundy exterior with embossed gold pattern, satin ribbon closure. Interior with velvet-textured compartments visible. Brand: Artisan Chocolatier. Luxurious, festive design suitable for holidays and special occasions.",
+    "messages": [{"role": "user", "content": "Design a premium gift box for a chocolate assortment. Rich burgundy exterior with embossed gold pattern, satin ribbon closure. Interior with velvet-textured compartments visible. Brand: Artisan Chocolatier. Luxurious, festive design suitable for holidays and special occasions."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -160,12 +178,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. Shopping Bag Design
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a retail shopping bag design for a boutique fashion store. Thick paper bag with rope handles. Minimalist design with large logo placement, matte white with black typography. Brand: Atelier Mode. Sustainable, premium feel that customers would reuse.",
+    "messages": [{"role": "user", "content": "Create a retail shopping bag design for a boutique fashion store. Thick paper bag with rope handles. Minimalist design with large logo placement, matte white with black typography. Brand: Atelier Mode. Sustainable, premium feel that customers would reuse."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -173,12 +193,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 10. Product Label/Sticker Design
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a product label for artisan honey jars. Circular label with honeycomb pattern border, featuring bee illustration. Warm amber and golden tones. Brand: Wild Meadow Apiary. Include space for honey type, weight, and harvest date. Rustic yet refined aesthetic.",
+    "messages": [{"role": "user", "content": "Design a product label for artisan honey jars. Circular label with honeycomb pattern border, featuring bee illustration. Warm amber and golden tones. Brand: Wild Meadow Apiary. Include space for honey type, weight, and harvest date. Rustic yet refined aesthetic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -243,32 +265,38 @@ Use `session_id` to iterate on packaging designs:
 
 ```bash
 # Initial design concept
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a protein powder packaging design, modern fitness aesthetic, bold typography",
+    "messages": [{"role": "user", "content": "Create a protein powder packaging design, modern fitness aesthetic, bold typography"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "protein-packaging-001"
   }'
 
 # Iterate based on feedback
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Make it more premium looking with matte black finish and gold accents. Add a resealable pouch mockup.",
+    "messages": [{"role": "user", "content": "Make it more premium looking with matte black finish and gold accents. Add a resealable pouch mockup."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "protein-packaging-001"
   }'
 
 # Request variations
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create 2 flavor variants: Chocolate and Vanilla, keeping the same design language",
+    "messages": [{"role": "user", "content": "Create 2 flavor variants: Chocolate and Vanilla, keeping the same design language"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "protein-packaging-001"
   }'
 ```
@@ -279,32 +307,38 @@ Generate cohesive packaging across product variants:
 
 ```bash
 # First product in line
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create skincare packaging for a cleanser. Minimalist white with sage green accents. Brand: Pure Botanics. Establish the design system for the entire product line.",
+    "messages": [{"role": "user", "content": "Create skincare packaging for a cleanser. Minimalist white with sage green accents. Brand: Pure Botanics. Establish the design system for the entire product line."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "pure-botanics-line"
   }'
 
 # Second product (same session for consistency)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now create the toner packaging in the same design language. Same brand identity but different bottle shape.",
+    "messages": [{"role": "user", "content": "Now create the toner packaging in the same design language. Same brand identity but different bottle shape."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "pure-botanics-line"
   }'
 
 # Third product
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create the moisturizer jar packaging. Continue the Pure Botanics design system with consistent typography and color palette.",
+    "messages": [{"role": "user", "content": "Create the moisturizer jar packaging. Continue the Pure Botanics design system with consistent typography and color palette."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "pure-botanics-line"
   }'
 ```

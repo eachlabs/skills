@@ -3,7 +3,7 @@ name: brochure-design-generation
 description: Generate professional brochure designs using each::sense AI. Create tri-fold, bi-fold, corporate, travel, product, real estate, healthcare, educational, event, and service brochures with print-ready layouts.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Brochure Design Generation
@@ -26,12 +26,14 @@ Generate professional brochure designs using each::sense. This skill creates vis
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a tri-fold brochure design for a digital marketing agency. Modern, clean aesthetic with blue and white color scheme. Include sections for services, case studies, and contact information.",
+    "messages": [{"role": "user", "content": "Create a tri-fold brochure design for a digital marketing agency. Modern, clean aesthetic with blue and white color scheme. Include sections for services, case studies, and contact information."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -52,12 +54,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Tri-Fold Brochure (Marketing Agency)
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a tri-fold brochure design for a digital marketing agency called Vertex Digital. Modern minimalist design with navy blue and electric orange accents. Front panel: bold logo and tagline. Inside panels: services (SEO, PPC, Social Media), client testimonials, and case study highlights. Back panel: contact info and QR code placeholder. Professional photography style with geometric design elements.",
+    "messages": [{"role": "user", "content": "Create a tri-fold brochure design for a digital marketing agency called Vertex Digital. Modern minimalist design with navy blue and electric orange accents. Front panel: bold logo and tagline. Inside panels: services (SEO, PPC, Social Media), client testimonials, and case study highlights. Back panel: contact info and QR code placeholder. Professional photography style with geometric design elements."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -65,12 +69,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Bi-Fold Brochure (Restaurant Menu)
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a bi-fold brochure design for an Italian restaurant called Bella Notte. Elegant design with warm burgundy and cream colors. Front: restaurant name with appetizing pasta dish image. Inside spread: menu sections for antipasti, primi, secondi, and dolci with food photography. Back: location map placeholder, hours, and reservation info. Rustic Italian aesthetic with subtle texture.",
+    "messages": [{"role": "user", "content": "Create a bi-fold brochure design for an Italian restaurant called Bella Notte. Elegant design with warm burgundy and cream colors. Front: restaurant name with appetizing pasta dish image. Inside spread: menu sections for antipasti, primi, secondi, and dolci with food photography. Back: location map placeholder, hours, and reservation info. Rustic Italian aesthetic with subtle texture."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -78,12 +84,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Corporate Brochure (Company Profile)
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a corporate brochure design for a technology consulting firm called Nexus Solutions. Premium, sophisticated design with charcoal gray and gold accents. Include sections for: company overview, leadership team, service offerings, global presence, and client logos placeholder. Clean typography, professional business photography, and modern data visualization elements. Print-ready A4 format.",
+    "messages": [{"role": "user", "content": "Create a corporate brochure design for a technology consulting firm called Nexus Solutions. Premium, sophisticated design with charcoal gray and gold accents. Include sections for: company overview, leadership team, service offerings, global presence, and client logos placeholder. Clean typography, professional business photography, and modern data visualization elements. Print-ready A4 format."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -91,12 +99,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Travel/Tourism Brochure
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a travel brochure for exploring Santorini, Greece. Stunning visuals with white-washed buildings and blue domes. Tri-fold layout with: cover showing iconic sunset view, inside panels featuring top attractions (Oia, Fira, beaches), tour packages with pricing placeholders, and local dining recommendations. Vibrant Mediterranean color palette. Back panel with travel tips and booking information.",
+    "messages": [{"role": "user", "content": "Create a travel brochure for exploring Santorini, Greece. Stunning visuals with white-washed buildings and blue domes. Tri-fold layout with: cover showing iconic sunset view, inside panels featuring top attractions (Oia, Fira, beaches), tour packages with pricing placeholders, and local dining recommendations. Vibrant Mediterranean color palette. Back panel with travel tips and booking information."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -104,12 +114,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. Product Catalog Brochure
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a product catalog brochure for a premium watch brand called Chronos. Luxury aesthetic with black background and silver accents. Showcase 6 different watch models with detailed product photography. Include: model names, key features, price placeholders, and specifications. Elegant typography with ample white space. Gate-fold format for premium presentation.",
+    "messages": [{"role": "user", "content": "Create a product catalog brochure for a premium watch brand called Chronos. Luxury aesthetic with black background and silver accents. Showcase 6 different watch models with detailed product photography. Include: model names, key features, price placeholders, and specifications. Elegant typography with ample white space. Gate-fold format for premium presentation."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -117,12 +129,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Real Estate Brochure
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a real estate brochure for a luxury condominium development called The Residences at Harbor View. Sophisticated design with deep teal and champagne gold colors. Include: hero image of building exterior, floor plan layouts, amenities section (pool, gym, concierge), neighborhood highlights, and pricing table placeholder. Premium photography showing interiors and waterfront views. Bi-fold format.",
+    "messages": [{"role": "user", "content": "Create a real estate brochure for a luxury condominium development called The Residences at Harbor View. Sophisticated design with deep teal and champagne gold colors. Include: hero image of building exterior, floor plan layouts, amenities section (pool, gym, concierge), neighborhood highlights, and pricing table placeholder. Premium photography showing interiors and waterfront views. Bi-fold format."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -130,12 +144,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Healthcare/Medical Brochure
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a healthcare brochure for a family medical clinic called Wellness First Medical Center. Calming design with soft blue and green colors. Tri-fold format with: services offered (primary care, pediatrics, lab services), doctor profiles section, patient resources, insurance information, and location with hours. Friendly, approachable imagery of diverse patients and healthcare providers. Clean, easy-to-read layout.",
+    "messages": [{"role": "user", "content": "Create a healthcare brochure for a family medical clinic called Wellness First Medical Center. Calming design with soft blue and green colors. Tri-fold format with: services offered (primary care, pediatrics, lab services), doctor profiles section, patient resources, insurance information, and location with hours. Friendly, approachable imagery of diverse patients and healthcare providers. Clean, easy-to-read layout."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -143,12 +159,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Educational Brochure (University)
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an educational brochure for a university business school MBA program. Professional yet inspiring design with maroon and white school colors. Include: program overview, curriculum highlights, faculty showcase, career outcomes statistics, campus life images, and application deadlines. Feature diverse students in academic and professional settings. Tri-fold format with clear call-to-action for applications.",
+    "messages": [{"role": "user", "content": "Create an educational brochure for a university business school MBA program. Professional yet inspiring design with maroon and white school colors. Include: program overview, curriculum highlights, faculty showcase, career outcomes statistics, campus life images, and application deadlines. Feature diverse students in academic and professional settings. Tri-fold format with clear call-to-action for applications."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -156,12 +174,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. Event Program Brochure
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an event program brochure for a tech conference called Innovation Summit 2024. Dynamic design with gradient purple to blue colors and tech-inspired geometric patterns. Include: event schedule over 2 days, keynote speaker profiles, workshop sessions, sponsor logos placeholder, venue map, and networking event details. Modern, energetic aesthetic. Bi-fold format for easy reference.",
+    "messages": [{"role": "user", "content": "Create an event program brochure for a tech conference called Innovation Summit 2024. Dynamic design with gradient purple to blue colors and tech-inspired geometric patterns. Include: event schedule over 2 days, keynote speaker profiles, workshop sessions, sponsor logos placeholder, venue map, and networking event details. Modern, energetic aesthetic. Bi-fold format for easy reference."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -169,12 +189,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 10. Service Menu Brochure (Spa)
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a service menu brochure for a luxury spa called Serenity Wellness Spa. Zen-inspired design with soft sage green, cream, and natural wood tones. Tri-fold format with: massage services and pricing, facial treatments, body treatments, packages and specials, and booking information. Peaceful imagery with natural elements like stones, bamboo, and orchids. Elegant serif typography with generous spacing.",
+    "messages": [{"role": "user", "content": "Create a service menu brochure for a luxury spa called Serenity Wellness Spa. Zen-inspired design with soft sage green, cream, and natural wood tones. Tri-fold format with: massage services and pricing, facial treatments, body treatments, packages and specials, and booking information. Peaceful imagery with natural elements like stones, bamboo, and orchids. Elegant serif typography with generous spacing."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -185,32 +207,38 @@ Use `session_id` to iterate on brochure designs:
 
 ```bash
 # Initial design
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a tri-fold brochure for an eco-friendly cleaning company. Green and natural aesthetic.",
+    "messages": [{"role": "user", "content": "Create a tri-fold brochure for an eco-friendly cleaning company. Green and natural aesthetic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "eco-brochure-001"
   }'
 
 # Iterate based on feedback
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Make the design more modern with less leaf imagery. Add icons for each service type and include a pricing table.",
+    "messages": [{"role": "user", "content": "Make the design more modern with less leaf imagery. Add icons for each service type and include a pricing table."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "eco-brochure-001"
   }'
 
 # Request additional panels
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now create the back panel design with contact information, social media icons, and an eco-certification badge.",
+    "messages": [{"role": "user", "content": "Now create the back panel design with contact information, social media icons, and an eco-certification badge."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "eco-brochure-001"
   }'
 ```
@@ -221,32 +249,38 @@ Generate multiple related brochures for a brand:
 
 ```bash
 # Main services brochure
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a tri-fold brochure for a law firm called Sterling & Associates. Navy and gold color scheme, professional photography, services overview.",
+    "messages": [{"role": "user", "content": "Create a tri-fold brochure for a law firm called Sterling & Associates. Navy and gold color scheme, professional photography, services overview."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "law-firm-brochures"
   }'
 
 # Practice area specific brochure
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a matching brochure specifically for the Corporate Law practice area. Maintain the same brand identity and color scheme.",
+    "messages": [{"role": "user", "content": "Create a matching brochure specifically for the Corporate Law practice area. Maintain the same brand identity and color scheme."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "law-firm-brochures"
   }'
 
 # Client testimonial brochure
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a client success stories brochure in the same style. Feature 3-4 case study placeholders with outcome statistics.",
+    "messages": [{"role": "user", "content": "Create a client success stories brochure in the same style. Feature 3-4 case study placeholders with outcome statistics."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "law-firm-brochures"
   }'
 ```

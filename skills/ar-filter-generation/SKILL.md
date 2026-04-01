@@ -3,7 +3,7 @@ name: ar-filter-generation
 description: Generate AR filters and face effects using each::sense AI. Create face filters, beauty effects, makeup overlays, branded AR experiences, and 3D face tracking effects for social media platforms.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # AR Filter Generation
@@ -24,12 +24,14 @@ Generate creative AR filters and face effects using each::sense. This skill crea
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an AR filter concept showing a person with cute dog ears and a dog nose overlay, playful and fun style",
+    "messages": [{"role": "user", "content": "Create an AR filter concept showing a person with cute dog ears and a dog nose overlay, playful and fun style"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -52,12 +54,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Face Filter Design (Dog Ears and Nose)
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an AR filter concept showing a young woman with realistic fluffy golden retriever dog ears on top of her head and a cute black dog nose overlay on her nose. Add subtle whisker dots on cheeks. The filter should look natural and integrate well with the face. Show front-facing selfie view.",
+    "messages": [{"role": "user", "content": "Create an AR filter concept showing a young woman with realistic fluffy golden retriever dog ears on top of her head and a cute black dog nose overlay on her nose. Add subtle whisker dots on cheeks. The filter should look natural and integrate well with the face. Show front-facing selfie view."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -65,12 +69,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Beauty Filter Effect
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a beauty AR filter effect showing before and after comparison. Show a person with the beauty filter applied: smooth skin, subtle face slimming, brightened eyes, soft glow effect, and enhanced jawline definition. Natural-looking enhancement, not overdone. Professional beauty app style.",
+    "messages": [{"role": "user", "content": "Create a beauty AR filter effect showing before and after comparison. Show a person with the beauty filter applied: smooth skin, subtle face slimming, brightened eyes, soft glow effect, and enhanced jawline definition. Natural-looking enhancement, not overdone. Professional beauty app style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -78,12 +84,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Makeup AR Filter
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a virtual makeup AR filter concept. Show a woman with AR-applied makeup: bold red lipstick, smoky eye shadow in bronze and gold tones, defined eyebrows, subtle blush, and winged eyeliner. The makeup should look realistic as if professionally applied. Glamorous evening look. Front-facing portrait.",
+    "messages": [{"role": "user", "content": "Create a virtual makeup AR filter concept. Show a woman with AR-applied makeup: bold red lipstick, smoky eye shadow in bronze and gold tones, defined eyebrows, subtle blush, and winged eyeliner. The makeup should look realistic as if professionally applied. Glamorous evening look. Front-facing portrait."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -91,12 +99,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Sunglasses and Accessories Filter
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an AR try-on filter showing a person wearing virtual aviator sunglasses with gold frames and gradient lenses. Add a matching gold chain necklace and small hoop earrings. The accessories should look photorealistic and properly positioned on the face. Fashion e-commerce style visualization.",
+    "messages": [{"role": "user", "content": "Create an AR try-on filter showing a person wearing virtual aviator sunglasses with gold frames and gradient lenses. Add a matching gold chain necklace and small hoop earrings. The accessories should look photorealistic and properly positioned on the face. Fashion e-commerce style visualization."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -104,12 +114,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. Background Replacement Filter
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an AR background replacement filter concept. Show a person in selfie view with their original background replaced by a tropical beach paradise - palm trees, turquoise water, golden sand, sunset sky. Clean edge detection around the person, natural lighting blend between subject and background.",
+    "messages": [{"role": "user", "content": "Create an AR background replacement filter concept. Show a person in selfie view with their original background replaced by a tropical beach paradise - palm trees, turquoise water, golden sand, sunset sky. Clean edge detection around the person, natural lighting blend between subject and background."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -117,12 +129,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Face Distortion / Funny Filter
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a funny face distortion AR filter. Show a person with comically enlarged eyes (anime style big), tiny mouth, and slightly enlarged forehead. Add sparkles around the eyes and a rainbow effect. Cute and comedic style like popular Snapchat filters. Exaggerated but still recognizable.",
+    "messages": [{"role": "user", "content": "Create a funny face distortion AR filter. Show a person with comically enlarged eyes (anime style big), tiny mouth, and slightly enlarged forehead. Add sparkles around the eyes and a rainbow effect. Cute and comedic style like popular Snapchat filters. Exaggerated but still recognizable."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -130,12 +144,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Branded AR Filter (Logo Overlay)
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a branded AR filter concept for a sports event. Show a person with face paint in team colors (blue and white stripes on cheeks), a virtual foam finger appearing next to their head, confetti particles falling, and a banner frame around the image that says GO TEAM. Celebratory sports fan atmosphere.",
+    "messages": [{"role": "user", "content": "Create a branded AR filter concept for a sports event. Show a person with face paint in team colors (blue and white stripes on cheeks), a virtual foam finger appearing next to their head, confetti particles falling, and a banner frame around the image that says GO TEAM. Celebratory sports fan atmosphere."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -143,12 +159,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Holiday Themed Filter
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a Christmas holiday AR filter. Show a person wearing a virtual Santa hat, with a red Rudolph nose overlay, snowflakes falling around them, and a subtle frost effect on the edges of the frame. Add twinkling lights in the background. Festive and cheerful holiday spirit.",
+    "messages": [{"role": "user", "content": "Create a Christmas holiday AR filter. Show a person wearing a virtual Santa hat, with a red Rudolph nose overlay, snowflakes falling around them, and a subtle frost effect on the edges of the frame. Add twinkling lights in the background. Festive and cheerful holiday spirit."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -156,12 +174,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. Game-Style Filter (Among Us)
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a gaming-inspired AR filter in the style of Among Us. Transform the person into a crewmate character - their face visible through a space helmet visor, wearing the iconic colored spacesuit (red), with a small pet companion floating nearby. Add a spaceship interior background. Fun and recognizable gaming aesthetic.",
+    "messages": [{"role": "user", "content": "Create a gaming-inspired AR filter in the style of Among Us. Transform the person into a crewmate character - their face visible through a space helmet visor, wearing the iconic colored spacesuit (red), with a small pet companion floating nearby. Add a spaceship interior background. Fun and recognizable gaming aesthetic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -169,12 +189,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 10. 3D Object Face Tracking Filter
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 3D face tracking AR filter concept. Show a person with a 3D floating crown hovering above their head that follows head movement, 3D butterflies orbiting around them, and magical sparkle particles emanating from their eyes. The 3D elements should have realistic lighting and shadows. Fantasy magical theme.",
+    "messages": [{"role": "user", "content": "Create a 3D face tracking AR filter concept. Show a person with a 3D floating crown hovering above their head that follows head movement, 3D butterflies orbiting around them, and magical sparkle particles emanating from their eyes. The 3D elements should have realistic lighting and shadows. Fantasy magical theme."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -214,32 +236,38 @@ Use `session_id` to iterate on filter designs:
 
 ```bash
 # Initial filter concept
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a cat face AR filter with whiskers and cat ears",
+    "messages": [{"role": "user", "content": "Create a cat face AR filter with whiskers and cat ears"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "cat-filter-project"
   }'
 
 # Iterate based on feedback
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Make the ears more realistic and fluffy, add a pink nose, and include subtle face contouring to make cheeks more cat-like",
+    "messages": [{"role": "user", "content": "Make the ears more realistic and fluffy, add a pink nose, and include subtle face contouring to make cheeks more cat-like"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "cat-filter-project"
   }'
 
 # Request variation
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a variation with black cat features instead of tabby, and add glowing yellow eyes effect",
+    "messages": [{"role": "user", "content": "Create a variation with black cat features instead of tabby, and add glowing yellow eyes effect"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "cat-filter-project"
   }'
 ```
@@ -250,34 +278,40 @@ Generate multiple related filters for a campaign:
 
 ```bash
 # Filter 1 - Dog
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an AR filter with golden retriever dog ears and nose, cute and playful",
+    "messages": [{"role": "user", "content": "Create an AR filter with golden retriever dog ears and nose, cute and playful"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco",
     "session_id": "animal-filter-pack"
   }'
 
 # Filter 2 - Cat
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now create a matching cat filter with the same style - tabby cat ears and whiskers",
+    "messages": [{"role": "user", "content": "Now create a matching cat filter with the same style - tabby cat ears and whiskers"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco",
     "session_id": "animal-filter-pack"
   }'
 
 # Filter 3 - Bunny
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Complete the pack with a bunny filter - long floppy ears and a pink bunny nose",
+    "messages": [{"role": "user", "content": "Complete the pack with a bunny filter - long floppy ears and a pink bunny nose"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco",
     "session_id": "animal-filter-pack"
   }'

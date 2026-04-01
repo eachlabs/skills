@@ -3,7 +3,7 @@ name: architecture-rendering
 description: Generate photorealistic architectural renders and visualizations using each::sense AI. Create exterior views, interior renders, sketch-to-render conversions, and more for architects, designers, and real estate professionals.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Architecture Rendering
@@ -24,12 +24,14 @@ Generate stunning architectural visualizations using each::sense. This skill cre
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a photorealistic exterior render of a modern minimalist house with floor-to-ceiling glass windows, white concrete walls, flat roof, surrounded by a manicured garden with a pool",
+    "messages": [{"role": "user", "content": "Create a photorealistic exterior render of a modern minimalist house with floor-to-ceiling glass windows, white concrete walls, flat roof, surrounded by a manicured garden with a pool"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -49,12 +51,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Exterior Building Render
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a photorealistic exterior render of a contemporary three-story residential building. Features: exposed concrete and timber cladding, large balconies with glass railings, green roof terrace, floor-to-ceiling windows. Environment: urban street setting, mature trees, late afternoon golden hour lighting, slight overcast for soft shadows. Professional architectural photography style.",
+    "messages": [{"role": "user", "content": "Create a photorealistic exterior render of a contemporary three-story residential building. Features: exposed concrete and timber cladding, large balconies with glass railings, green roof terrace, floor-to-ceiling windows. Environment: urban street setting, mature trees, late afternoon golden hour lighting, slight overcast for soft shadows. Professional architectural photography style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -62,12 +66,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Interior Architectural Render
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a photorealistic interior render of a luxury open-plan living room. Features: double-height ceiling with exposed wooden beams, polished concrete floors, a large sectional sofa in cream fabric, floor-to-ceiling windows overlooking mountains, modern fireplace with black steel surround, pendant lighting fixtures. Style: Scandinavian minimalism meets industrial. Warm natural daylight flooding through windows.",
+    "messages": [{"role": "user", "content": "Create a photorealistic interior render of a luxury open-plan living room. Features: double-height ceiling with exposed wooden beams, polished concrete floors, a large sectional sofa in cream fabric, floor-to-ceiling windows overlooking mountains, modern fireplace with black steel surround, pendant lighting fixtures. Style: Scandinavian minimalism meets industrial. Warm natural daylight flooding through windows."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -75,12 +81,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Sketch to Render Conversion
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Convert this architectural sketch into a photorealistic render. Interpret it as a modern office building with glass curtain wall facade, steel structural elements visible, rooftop garden. Add realistic context: urban setting, pedestrians, cars, trees. Professional architectural visualization quality, sunny day with blue sky and some clouds.",
+    "messages": [{"role": "user", "content": "Convert this architectural sketch into a photorealistic render. Interpret it as a modern office building with glass curtain wall facade, steel structural elements visible, rooftop garden. Add realistic context: urban setting, pedestrians, cars, trees. Professional architectural visualization quality, sunny day with blue sky and some clouds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/architecture-sketch.jpg"]
   }'
@@ -89,12 +97,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Modern House Visualization
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a photorealistic render of a modern single-family home. Architecture: two-story with cantilevered upper floor, white stucco exterior, dark bronze window frames, integrated garage, flat roof with hidden parapets. Landscaping: drought-tolerant native plants, gravel pathways, specimen olive tree. Setting: hillside lot with city views in background. Time: dusk with interior lights glowing warmly, exterior accent lighting.",
+    "messages": [{"role": "user", "content": "Generate a photorealistic render of a modern single-family home. Architecture: two-story with cantilevered upper floor, white stucco exterior, dark bronze window frames, integrated garage, flat roof with hidden parapets. Landscaping: drought-tolerant native plants, gravel pathways, specimen olive tree. Setting: hillside lot with city views in background. Time: dusk with interior lights glowing warmly, exterior accent lighting."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -102,12 +112,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. Commercial Building Render
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a professional architectural visualization of a 20-story commercial office tower. Design: curtain wall glass facade with vertical aluminum fins for solar shading, ground floor retail with double-height lobby, green terraces every 5 floors, rooftop helipad. Context: downtown business district, plaza with water feature at entrance, people walking. Lighting: midday sun, crisp shadows, reflections in glass.",
+    "messages": [{"role": "user", "content": "Create a professional architectural visualization of a 20-story commercial office tower. Design: curtain wall glass facade with vertical aluminum fins for solar shading, ground floor retail with double-height lobby, green terraces every 5 floors, rooftop helipad. Context: downtown business district, plaza with water feature at entrance, people walking. Lighting: midday sun, crisp shadows, reflections in glass."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -115,12 +127,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Landscape Architecture Visualization
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Render a landscape architecture design for a public urban park. Features: meandering pedestrian paths with permeable pavers, native wildflower meadows, a central pond with wooden deck overlook, children playground with natural materials, seating areas with shade structures, mature deciduous and evergreen trees. Include families enjoying the space, joggers, people walking dogs. Spring season, sunny day, vibrant green foliage.",
+    "messages": [{"role": "user", "content": "Render a landscape architecture design for a public urban park. Features: meandering pedestrian paths with permeable pavers, native wildflower meadows, a central pond with wooden deck overlook, children playground with natural materials, seating areas with shade structures, mature deciduous and evergreen trees. Include families enjoying the space, joggers, people walking dogs. Spring season, sunny day, vibrant green foliage."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -128,12 +142,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Night Scene Render
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a dramatic nighttime architectural render of a luxury boutique hotel entrance. Building: Art Deco revival style with geometric patterns, brass detailing, black granite facade. Lighting: warm interior glow through large windows, facade uplighting highlighting architectural details, subtle landscape lighting, illuminated hotel sign. Scene: valet area with luxury car, doorman, guests arriving. Atmosphere: sophisticated, inviting, slight wet pavement reflections from recent rain.",
+    "messages": [{"role": "user", "content": "Create a dramatic nighttime architectural render of a luxury boutique hotel entrance. Building: Art Deco revival style with geometric patterns, brass detailing, black granite facade. Lighting: warm interior glow through large windows, facade uplighting highlighting architectural details, subtle landscape lighting, illuminated hotel sign. Scene: valet area with luxury car, doorman, guests arriving. Atmosphere: sophisticated, inviting, slight wet pavement reflections from recent rain."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -141,12 +157,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Aerial/Bird's Eye View
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate an aerial architectural render of a mixed-use development masterplan. Layout: central public plaza, surrounding mid-rise residential buildings (6-8 stories), ground floor retail, underground parking entrances, community center with distinctive curved roof. Include: rooftop gardens, tree-lined streets, pedestrian promenades, outdoor dining areas. View: 45-degree angle bird's eye perspective, showing the full development and neighborhood context. Clear day, afternoon light.",
+    "messages": [{"role": "user", "content": "Generate an aerial architectural render of a mixed-use development masterplan. Layout: central public plaza, surrounding mid-rise residential buildings (6-8 stories), ground floor retail, underground parking entrances, community center with distinctive curved roof. Include: rooftop gardens, tree-lined streets, pedestrian promenades, outdoor dining areas. View: 45-degree angle bird's eye perspective, showing the full development and neighborhood context. Clear day, afternoon light."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -154,12 +172,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. Construction Progress Visualization
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a construction progress visualization showing a residential tower at 60% completion. Show: concrete core structure complete, lower floors with installed curtain wall glazing, upper floors with exposed steel framing and temporary weather protection, tower crane active, construction workers on scaffolding (safe distances), ground level site office and material staging. Style: documentary realism, overcast day for even lighting, professional construction photography look.",
+    "messages": [{"role": "user", "content": "Create a construction progress visualization showing a residential tower at 60% completion. Show: concrete core structure complete, lower floors with installed curtain wall glazing, upper floors with exposed steel framing and temporary weather protection, tower crane active, construction workers on scaffolding (safe distances), ground level site office and material staging. Style: documentary realism, overcast day for even lighting, professional construction photography look."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -167,12 +187,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 10. Historical Building Restoration Render
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Visualize a restored Victorian-era mansion. Architecture: three-story red brick with ornate white trim, wraparound porch with turned columns, steep gabled roof with decorative shingles, restored original windows with period-appropriate shutters, chimney stacks. Grounds: formal English garden with boxwood hedges, gravel carriage drive, restored iron fence and gate. Show both the historical authenticity and modern updates like subtle landscape lighting. Golden hour lighting, autumn foliage.",
+    "messages": [{"role": "user", "content": "Visualize a restored Victorian-era mansion. Architecture: three-story red brick with ornate white trim, wraparound porch with turned columns, steep gabled roof with decorative shingles, restored original windows with period-appropriate shutters, chimney stacks. Grounds: formal English garden with boxwood hedges, gravel carriage drive, restored iron fence and gate. Show both the historical authenticity and modern updates like subtle landscape lighting. Golden hour lighting, autumn foliage."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -227,33 +249,39 @@ Use `session_id` to iterate on architectural renders:
 
 ```bash
 # Initial concept render
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an exterior render of a modern beach house with large glass walls and a wooden deck",
+    "messages": [{"role": "user", "content": "Create an exterior render of a modern beach house with large glass walls and a wooden deck"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "beach-house-project",
     "mode": "eco"
   }'
 
 # Design revision
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Add a rooftop terrace with a pergola and outdoor kitchen. Make the facade more tropical with natural stone accents.",
+    "messages": [{"role": "user", "content": "Add a rooftop terrace with a pergola and outdoor kitchen. Make the facade more tropical with natural stone accents."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "beach-house-project"
   }'
 
 # Time of day variation
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a sunset version of this design with warm lighting and the interior lights starting to glow",
+    "messages": [{"role": "user", "content": "Create a sunset version of this design with warm lighting and the interior lights starting to glow"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "beach-house-project",
     "mode": "max"
   }'
@@ -265,34 +293,40 @@ Generate a complete set of renders for a project:
 
 ```bash
 # Hero exterior shot
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create the main exterior hero shot of our modern villa project - front facade, golden hour, dramatic angle",
+    "messages": [{"role": "user", "content": "Create the main exterior hero shot of our modern villa project - front facade, golden hour, dramatic angle"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "villa-presentation",
     "mode": "max"
   }'
 
 # Interior living space
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now create an interior render of the main living area - open plan, same modern style, afternoon light",
+    "messages": [{"role": "user", "content": "Now create an interior render of the main living area - open plan, same modern style, afternoon light"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "villa-presentation",
     "mode": "max"
   }'
 
 # Aerial site view
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate an aerial view showing the villa in its landscape context - pool, garden, and property boundaries",
+    "messages": [{"role": "user", "content": "Generate an aerial view showing the villa in its landscape context - pool, garden, and property boundaries"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "villa-presentation",
     "mode": "max"
   }'

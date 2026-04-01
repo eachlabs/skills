@@ -3,7 +3,7 @@ name: linkedin-content-generation
 description: Generate LinkedIn content graphics using each::sense AI. Create professional post images, article headers, company banners, event promotions, thought leadership visuals, and personal brand content optimized for LinkedIn's professional audience.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # LinkedIn Content Generation
@@ -25,12 +25,14 @@ Generate high-impact LinkedIn content graphics using each::sense. This skill cre
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a LinkedIn post graphic about AI transformation in business, professional and modern style with blue color scheme",
+    "messages": [{"role": "user", "content": "Create a LinkedIn post graphic about AI transformation in business, professional and modern style with blue color scheme"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -52,12 +54,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Professional Post Graphic
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1:1 LinkedIn post graphic about digital transformation. Show a professional in a modern office environment with digital elements and data visualizations floating around. Clean, corporate aesthetic with blue and white tones. Leave space at bottom for text overlay.",
+    "messages": [{"role": "user", "content": "Create a 1:1 LinkedIn post graphic about digital transformation. Show a professional in a modern office environment with digital elements and data visualizations floating around. Clean, corporate aesthetic with blue and white tones. Leave space at bottom for text overlay."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -65,12 +69,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Article Header Image
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1200x628 LinkedIn article header image about leadership in remote work. Abstract professional design showing connected people icons, home office elements, and collaboration symbols. Corporate blue gradient background with modern geometric shapes.",
+    "messages": [{"role": "user", "content": "Create a 1200x628 LinkedIn article header image about leadership in remote work. Abstract professional design showing connected people icons, home office elements, and collaboration symbols. Corporate blue gradient background with modern geometric shapes."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -78,12 +84,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Company Page Banner
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a LinkedIn company banner (1128x191 pixels, very wide 4:1 ratio) for a tech consulting firm. Abstract technology-themed design with circuit patterns, subtle gradient from dark blue to teal. Professional and innovative feel. No text, just visual elements.",
+    "messages": [{"role": "user", "content": "Create a LinkedIn company banner (1128x191 pixels, very wide 4:1 ratio) for a tech consulting firm. Abstract technology-themed design with circuit patterns, subtle gradient from dark blue to teal. Professional and innovative feel. No text, just visual elements."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -91,12 +99,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Event Promotion Graphic
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 16:9 LinkedIn event cover for a virtual leadership summit. Show a professional conference stage setup with modern lighting, screens displaying abstract business graphics, and an audience silhouette. Premium corporate event atmosphere with purple and blue accent lighting.",
+    "messages": [{"role": "user", "content": "Create a 16:9 LinkedIn event cover for a virtual leadership summit. Show a professional conference stage setup with modern lighting, screens displaying abstract business graphics, and an audience silhouette. Premium corporate event atmosphere with purple and blue accent lighting."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -104,12 +114,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. Thought Leadership Visual
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1:1 thought leadership post image about the future of AI in healthcare. Show an abstract visualization of AI and medical imagery merging - neural network patterns combined with medical symbols, DNA helixes, and healthcare icons. Clean white background with blue and green accents. Professional and innovative.",
+    "messages": [{"role": "user", "content": "Create a 1:1 thought leadership post image about the future of AI in healthcare. Show an abstract visualization of AI and medical imagery merging - neural network patterns combined with medical symbols, DNA helixes, and healthcare icons. Clean white background with blue and green accents. Professional and innovative."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -117,12 +129,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Data/Stats Visualization Background
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1:1 LinkedIn post background for showcasing business statistics. Abstract data visualization design with subtle chart elements, graph lines, and percentage symbols in the background. Dark professional theme with glowing blue and green data points. Leave large center area for text overlay of actual statistics.",
+    "messages": [{"role": "user", "content": "Create a 1:1 LinkedIn post background for showcasing business statistics. Abstract data visualization design with subtle chart elements, graph lines, and percentage symbols in the background. Dark professional theme with glowing blue and green data points. Leave large center area for text overlay of actual statistics."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -130,12 +144,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Team Announcement Graphic
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1:1 LinkedIn graphic template for a new team member announcement. Professional celebratory design with confetti elements, welcome banner style, and a prominent circular placeholder area for a profile photo. Corporate colors (blue and gold), warm and welcoming atmosphere.",
+    "messages": [{"role": "user", "content": "Create a 1:1 LinkedIn graphic template for a new team member announcement. Professional celebratory design with confetti elements, welcome banner style, and a prominent circular placeholder area for a profile photo. Corporate colors (blue and gold), warm and welcoming atmosphere."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -143,12 +159,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Job Posting Visual
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 4:5 LinkedIn job posting graphic for a software engineering position. Show a modern tech workspace with developers collaborating, multiple screens with code, bright and energetic office environment. Diverse team, innovative startup atmosphere. Leave top portion for job title text.",
+    "messages": [{"role": "user", "content": "Create a 4:5 LinkedIn job posting graphic for a software engineering position. Show a modern tech workspace with developers collaborating, multiple screens with code, bright and energetic office environment. Diverse team, innovative startup atmosphere. Leave top portion for job title text."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -156,12 +174,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. Industry Insight Graphic
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1.91:1 LinkedIn post image about fintech industry trends. Abstract financial technology visualization with blockchain nodes, digital currency symbols, and banking icons interconnected. Gradient from navy to electric blue, futuristic but professional. Suitable for a market analysis post.",
+    "messages": [{"role": "user", "content": "Create a 1.91:1 LinkedIn post image about fintech industry trends. Abstract financial technology visualization with blockchain nodes, digital currency symbols, and banking icons interconnected. Gradient from navy to electric blue, futuristic but professional. Suitable for a market analysis post."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -169,12 +189,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 10. Personal Brand Content
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1:1 personal brand LinkedIn post image for a business coach sharing advice. Show a professional speaking or presenting, confident pose, modern minimalist office background with motivational elements. Warm, approachable lighting. Space at bottom for quote text overlay.",
+    "messages": [{"role": "user", "content": "Create a 1:1 personal brand LinkedIn post image for a business coach sharing advice. Show a professional speaking or presenting, confident pose, modern minimalist office background with motivational elements. Warm, approachable lighting. Space at bottom for quote text overlay."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -236,32 +258,38 @@ Use `session_id` to iterate on LinkedIn content:
 
 ```bash
 # Initial graphic
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1:1 LinkedIn post about SaaS growth strategies, professional blue theme",
+    "messages": [{"role": "user", "content": "Create a 1:1 LinkedIn post about SaaS growth strategies, professional blue theme"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "linkedin-saas-post"
   }'
 
 # Iterate based on feedback
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Make it more dynamic with upward trending graph elements and add some green accent colors for growth theme",
+    "messages": [{"role": "user", "content": "Make it more dynamic with upward trending graph elements and add some green accent colors for growth theme"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "linkedin-saas-post"
   }'
 
 # Request variation
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an alternative version with a darker background for A/B testing",
+    "messages": [{"role": "user", "content": "Create an alternative version with a darker background for A/B testing"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "linkedin-saas-post"
   }'
 ```
@@ -272,23 +300,27 @@ Generate multiple slides for LinkedIn carousel posts:
 
 ```bash
 # Slide 1 - Cover
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create slide 1 of 5 for a LinkedIn carousel about productivity tips. Cover slide design - bold, attention-grabbing with abstract productivity imagery. 1:1 format, dark blue background with orange accents.",
+    "messages": [{"role": "user", "content": "Create slide 1 of 5 for a LinkedIn carousel about productivity tips. Cover slide design - bold, attention-grabbing with abstract productivity imagery. 1:1 format, dark blue background with orange accents."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "productivity-carousel",
     "mode": "max"
   }'
 
 # Slide 2 - Content slide
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create slide 2 of 5 maintaining the same visual style. Show time management concept with clock and calendar elements. Leave space for tip text.",
+    "messages": [{"role": "user", "content": "Create slide 2 of 5 maintaining the same visual style. Show time management concept with clock and calendar elements. Leave space for tip text."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "productivity-carousel",
     "mode": "max"
   }'
@@ -300,32 +332,38 @@ Generate multiple variations for content testing:
 
 ```bash
 # Variation A - Abstract style
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1:1 LinkedIn post about cloud computing - abstract geometric style with cloud and server icons",
+    "messages": [{"role": "user", "content": "Create a 1:1 LinkedIn post about cloud computing - abstract geometric style with cloud and server icons"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 
 # Variation B - Photo-realistic style
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1:1 LinkedIn post about cloud computing - photo-realistic data center with blue lighting",
+    "messages": [{"role": "user", "content": "Create a 1:1 LinkedIn post about cloud computing - photo-realistic data center with blue lighting"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 
 # Variation C - Minimal style
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1:1 LinkedIn post about cloud computing - minimal line art style with simple cloud icon",
+    "messages": [{"role": "user", "content": "Create a 1:1 LinkedIn post about cloud computing - minimal line art style with simple cloud icon"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 ```

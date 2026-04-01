@@ -3,7 +3,7 @@ name: portrait-enhancement
 description: Enhance portrait photos using each::sense AI. Professional-grade retouching including skin smoothing, teeth whitening, eye enhancement, blemish removal, lighting adjustment, and more.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Portrait Enhancement
@@ -26,12 +26,14 @@ Transform portrait photos with professional-grade AI retouching using each::sens
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Enhance this portrait with natural skin smoothing and subtle teeth whitening",
+    "messages": [{"role": "user", "content": "Enhance this portrait with natural skin smoothing and subtle teeth whitening"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/portrait.jpg"]
   }'
@@ -41,7 +43,7 @@ curl -X POST https://sense.eachlabs.run/chat \
 
 | Setting | Value |
 |---------|-------|
-| Endpoint | `POST https://sense.eachlabs.run/chat` |
+| Endpoint | `POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions` |
 | Content-Type | `application/json` |
 | Accept | `text/event-stream` |
 | Client Timeout | Minimum 10 minutes |
@@ -64,12 +66,14 @@ Ask your users before generating:
 Natural skin smoothing that preserves texture and pores while reducing imperfections.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Apply natural skin smoothing to this portrait. Keep the skin texture realistic, reduce visible pores and fine lines, but avoid the plastic look. Maintain skin detail around eyes and lips.",
+    "messages": [{"role": "user", "content": "Apply natural skin smoothing to this portrait. Keep the skin texture realistic, reduce visible pores and fine lines, but avoid the plastic look. Maintain skin detail around eyes and lips."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/portrait.jpg"]
   }'
@@ -80,12 +84,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Brighten teeth naturally without over-whitening.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Whiten the teeth in this portrait photo. Make them bright but natural looking - not Hollywood white. Remove any yellow or staining while keeping the natural tooth shape and texture.",
+    "messages": [{"role": "user", "content": "Whiten the teeth in this portrait photo. Make them bright but natural looking - not Hollywood white. Remove any yellow or staining while keeping the natural tooth shape and texture."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/smile-portrait.jpg"]
   }'
@@ -96,12 +102,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Brighten and sharpen eyes for a more captivating look.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Enhance the eyes in this portrait. Brighten the whites, add subtle catchlights, increase iris clarity and color vibrancy, and reduce any redness or dark circles under the eyes. Keep it natural.",
+    "messages": [{"role": "user", "content": "Enhance the eyes in this portrait. Brighten the whites, add subtle catchlights, increase iris clarity and color vibrancy, and reduce any redness or dark circles under the eyes. Keep it natural."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/headshot.jpg"]
   }'
@@ -112,12 +120,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Remove acne, scars, and temporary skin imperfections.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Remove blemishes from this portrait including acne spots, small scars, and any temporary skin imperfections. Keep moles and natural beauty marks. Preserve the natural skin texture in treated areas.",
+    "messages": [{"role": "user", "content": "Remove blemishes from this portrait including acne spots, small scars, and any temporary skin imperfections. Keep moles and natural beauty marks. Preserve the natural skin texture in treated areas."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/portrait-blemishes.jpg"]
   }'
@@ -128,12 +138,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Fix poor lighting or add studio-quality lighting effects.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Fix the lighting in this portrait. It was taken in harsh midday sun with unflattering shadows. Apply soft studio-style lighting with gentle shadows, reduce harsh highlights on the forehead, and add subtle rim lighting for depth.",
+    "messages": [{"role": "user", "content": "Fix the lighting in this portrait. It was taken in harsh midday sun with unflattering shadows. Apply soft studio-style lighting with gentle shadows, reduce harsh highlights on the forehead, and add subtle rim lighting for depth."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/harsh-light-portrait.jpg"]
   }'
@@ -144,12 +156,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create professional depth-of-field effects to make subjects stand out.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Add a professional bokeh effect to this portrait. Blur the background with a smooth, creamy quality like an 85mm f/1.4 lens. Keep the subject perfectly sharp including hair edges. The blur should gradually increase with distance from the subject.",
+    "messages": [{"role": "user", "content": "Add a professional bokeh effect to this portrait. Blur the background with a smooth, creamy quality like an 85mm f/1.4 lens. Keep the subject perfectly sharp including hair edges. The blur should gradually increase with distance from the subject."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/portrait-busy-background.jpg"]
   }'
@@ -160,12 +174,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Add volume, shine, and polish to hair.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Enhance the hair in this portrait. Add natural-looking shine and healthy luster, tame flyaway hairs, add subtle volume at the crown, and make the hair color more vibrant. Keep the overall hairstyle unchanged.",
+    "messages": [{"role": "user", "content": "Enhance the hair in this portrait. Add natural-looking shine and healthy luster, tame flyaway hairs, add subtle volume at the crown, and make the hair color more vibrant. Keep the overall hairstyle unchanged."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/portrait-hair.jpg"]
   }'
@@ -176,12 +192,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Enhance existing makeup or add subtle, natural-looking makeup.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Enhance the makeup in this portrait photo. Add subtle contouring to define cheekbones, slightly darken and define the eyebrows, add a soft natural lip color, and apply light mascara effect to the lashes. Keep everything looking natural and not overdone.",
+    "messages": [{"role": "user", "content": "Enhance the makeup in this portrait photo. Add subtle contouring to define cheekbones, slightly darken and define the eyebrows, add a soft natural lip color, and apply light mascara effect to the lashes. Keep everything looking natural and not overdone."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/natural-portrait.jpg"]
   }'
@@ -192,12 +210,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Subtle, natural-looking age-defying retouching.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Apply subtle age reduction to this portrait. Soften fine lines and wrinkles, reduce sagging under the eyes, lift the corners of the mouth slightly, and add a healthy glow to the skin. The result should look natural - like a well-rested version, not like a different person.",
+    "messages": [{"role": "user", "content": "Apply subtle age reduction to this portrait. Soften fine lines and wrinkles, reduce sagging under the eyes, lift the corners of the mouth slightly, and add a healthy glow to the skin. The result should look natural - like a well-rested version, not like a different person."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/mature-portrait.jpg"]
   }'
@@ -208,12 +228,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Complete professional retouching workflow combining multiple enhancements.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Give this portrait a complete professional polish suitable for a corporate headshot. Apply natural skin smoothing, subtle teeth whitening, eye enhancement with catchlights, blemish removal, soft studio lighting, gentle background blur, and hair touch-up. The final result should look polished but authentic - suitable for LinkedIn or company website.",
+    "messages": [{"role": "user", "content": "Give this portrait a complete professional polish suitable for a corporate headshot. Apply natural skin smoothing, subtle teeth whitening, eye enhancement with catchlights, blemish removal, soft studio lighting, gentle background blur, and hair touch-up. The final result should look polished but authentic - suitable for LinkedIn or company website."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/corporate-portrait.jpg"]
   }'
@@ -225,43 +247,51 @@ Use `session_id` to iteratively refine portrait enhancements:
 
 ```bash
 # Initial enhancement
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Start with basic skin smoothing on this portrait",
+    "messages": [{"role": "user", "content": "Start with basic skin smoothing on this portrait"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "portrait-retouch-001",
     "image_urls": ["https://example.com/portrait.jpg"]
   }'
 
 # Add teeth whitening
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now add subtle teeth whitening to the result",
+    "messages": [{"role": "user", "content": "Now add subtle teeth whitening to the result"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "portrait-retouch-001"
   }'
 
 # Add eye enhancement
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Enhance the eyes - brighten and add catchlights",
+    "messages": [{"role": "user", "content": "Enhance the eyes - brighten and add catchlights"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "portrait-retouch-001"
   }'
 
 # Final background blur
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Finally, add a gentle background blur for a professional look",
+    "messages": [{"role": "user", "content": "Finally, add a gentle background blur for a professional look"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "portrait-retouch-001"
   }'
 ```
@@ -272,34 +302,40 @@ Process multiple portraits with consistent enhancement:
 
 ```bash
 # Portrait 1
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Professional headshot retouch: natural skin smoothing, eye brightening, subtle background blur",
+    "messages": [{"role": "user", "content": "Professional headshot retouch: natural skin smoothing, eye brightening, subtle background blur"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco",
     "image_urls": ["https://example.com/team-member-1.jpg"]
   }'
 
 # Portrait 2
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Professional headshot retouch: natural skin smoothing, eye brightening, subtle background blur",
+    "messages": [{"role": "user", "content": "Professional headshot retouch: natural skin smoothing, eye brightening, subtle background blur"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco",
     "image_urls": ["https://example.com/team-member-2.jpg"]
   }'
 
 # Portrait 3
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Professional headshot retouch: natural skin smoothing, eye brightening, subtle background blur",
+    "messages": [{"role": "user", "content": "Professional headshot retouch: natural skin smoothing, eye brightening, subtle background blur"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco",
     "image_urls": ["https://example.com/team-member-3.jpg"]
   }'

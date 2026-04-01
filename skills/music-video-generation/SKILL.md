@@ -3,7 +3,7 @@ name: music-video-generation
 description: Generate music videos using each::sense AI. Create visualizers, lyric videos, animated music videos, concert visuals, and genre-specific aesthetics synchronized to audio.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Music Video Generation
@@ -25,12 +25,14 @@ Generate stunning music videos using each::sense. This skill creates visualizers
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an audio visualizer video with neon geometric shapes that pulse to the beat, dark background with vibrant colors",
+    "messages": [{"role": "user", "content": "Create an audio visualizer video with neon geometric shapes that pulse to the beat, dark background with vibrant colors"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -51,12 +53,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Audio Visualizer from Track
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 16:9 audio visualizer video. Circular waveform in the center with particles emanating outward on each beat. Deep purple and electric blue color palette. Dark space background with subtle stars. 10 seconds loop.",
+    "messages": [{"role": "user", "content": "Create a 16:9 audio visualizer video. Circular waveform in the center with particles emanating outward on each beat. Deep purple and electric blue color palette. Dark space background with subtle stars. 10 seconds loop."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -64,12 +68,15 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Lyric Video Generation
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a lyric video for the lyrics: \"Running through the night, chasing starlight, we are infinite tonight\". Animated text appearing word by word with a dreamy night sky background. Stars twinkling, soft gradient from dark blue to purple. Modern sans-serif font with subtle glow effect. 16:9 aspect ratio.",
+    "messages": [{"role": "user", "content": "Create a lyric video for the lyrics: \"Running through the night, chasing starlight, we are infinite tonight\". Animated text appearing word by word with a dreamy night sky background. Stars twinkling, soft gradient from dark blue to purple. Modern sans-serif font with subtle glow effect. 16:9 aspect ratio."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -77,12 +84,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Abstract Music Visuals
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate abstract music visuals for an ambient electronic track. Flowing liquid metal morphing shapes, iridescent surfaces reflecting rainbow colors, slow hypnotic movement. Think art installation meets music video. 16:9, 15 seconds.",
+    "messages": [{"role": "user", "content": "Generate abstract music visuals for an ambient electronic track. Flowing liquid metal morphing shapes, iridescent surfaces reflecting rainbow colors, slow hypnotic movement. Think art installation meets music video. 16:9, 15 seconds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -90,12 +99,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Artist Performance Video
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a music video showing a female singer performing on a dark stage. Dramatic spotlight lighting, smoke effects, cinematic camera movement circling the performer. She is wearing an elegant black dress, passionate emotional performance. 16:9 widescreen, film grain aesthetic.",
+    "messages": [{"role": "user", "content": "Create a music video showing a female singer performing on a dark stage. Dramatic spotlight lighting, smoke effects, cinematic camera movement circling the performer. She is wearing an elegant black dress, passionate emotional performance. 16:9 widescreen, film grain aesthetic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -103,12 +114,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. Animated Music Video (Anime Style)
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an anime-style animated music video. A young character with colorful hair running through a neon-lit cyberpunk city at night. Dynamic action poses, speed lines, rain effects. Japanese anime aesthetic like Studio Trigger. High energy and dramatic. 16:9.",
+    "messages": [{"role": "user", "content": "Create an anime-style animated music video. A young character with colorful hair running through a neon-lit cyberpunk city at night. Dynamic action poses, speed lines, rain effects. Japanese anime aesthetic like Studio Trigger. High energy and dramatic. 16:9."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -116,12 +129,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Concert LED Wall Visuals
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate concert visuals for LED wall projection. Abstract geometric patterns - triangles and hexagons morphing and pulsing. High contrast black and white with occasional bursts of red. Designed for live performance, loopable, high impact visuals that work on massive screens. 21:9 ultrawide aspect ratio.",
+    "messages": [{"role": "user", "content": "Generate concert visuals for LED wall projection. Abstract geometric patterns - triangles and hexagons morphing and pulsing. High contrast black and white with occasional bursts of red. Designed for live performance, loopable, high impact visuals that work on massive screens. 21:9 ultrawide aspect ratio."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -129,12 +144,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Album Art Animation (Spotify Canvas)
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a Spotify Canvas style animation from album art concept. A surreal landscape with floating islands and waterfalls going upward. Soft pastel colors - pink clouds, turquoise water, golden sunset light. Subtle parallax motion, dreamy and ethereal mood. 9:16 vertical format, 8 second seamless loop.",
+    "messages": [{"role": "user", "content": "Create a Spotify Canvas style animation from album art concept. A surreal landscape with floating islands and waterfalls going upward. Soft pastel colors - pink clouds, turquoise water, golden sunset light. Subtle parallax motion, dreamy and ethereal mood. 9:16 vertical format, 8 second seamless loop."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -142,12 +159,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Beat-Synced Visuals
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create beat-synced visuals for a 120 BPM track. Geometric shapes (cubes, spheres, pyramids) that flash and transform on each beat. Strobe-like intensity changes. Black background with neon pink, cyan, and yellow shapes. High energy, rave aesthetic. Design cuts to happen every 0.5 seconds to match tempo. 16:9.",
+    "messages": [{"role": "user", "content": "Create beat-synced visuals for a 120 BPM track. Geometric shapes (cubes, spheres, pyramids) that flash and transform on each beat. Strobe-like intensity changes. Black background with neon pink, cyan, and yellow shapes. High energy, rave aesthetic. Design cuts to happen every 0.5 seconds to match tempo. 16:9."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -155,12 +174,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. Genre-Specific Aesthetics (Hip-Hop)
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a hip-hop music video aesthetic. Urban street scene at night, street lights with lens flares, graffiti walls, luxury cars in background. Slow motion rain falling. Moody cinematic color grading - teal shadows and orange highlights. Trap music vibe, high production value look. 16:9 widescreen.",
+    "messages": [{"role": "user", "content": "Create a hip-hop music video aesthetic. Urban street scene at night, street lights with lens flares, graffiti walls, luxury cars in background. Slow motion rain falling. Moody cinematic color grading - teal shadows and orange highlights. Trap music vibe, high production value look. 16:9 widescreen."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -169,34 +190,40 @@ curl -X POST https://sense.eachlabs.run/chat \
 
 ```bash
 # Part 1: Opening scene
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create the opening scene of a narrative music video. A lonely figure standing at a train station at dawn. Empty platform, morning mist, warm golden light breaking through clouds. Melancholic mood, cinematic widescreen composition. The character is looking at a departing train. 16:9.",
+    "messages": [{"role": "user", "content": "Create the opening scene of a narrative music video. A lonely figure standing at a train station at dawn. Empty platform, morning mist, warm golden light breaking through clouds. Melancholic mood, cinematic widescreen composition. The character is looking at a departing train. 16:9."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "music-video-story-001",
     "mode": "max"
   }'
 
 # Part 2: Middle scene (same session for consistency)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create the next scene continuing our music video story. The same character is now walking through a sunlit field of wildflowers. Memories and flashbacks - double exposure effect showing happy moments. Bittersweet emotion, hope emerging. Maintain the same cinematic color grading and style.",
+    "messages": [{"role": "user", "content": "Create the next scene continuing our music video story. The same character is now walking through a sunlit field of wildflowers. Memories and flashbacks - double exposure effect showing happy moments. Bittersweet emotion, hope emerging. Maintain the same cinematic color grading and style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "music-video-story-001",
     "mode": "max"
   }'
 
 # Part 3: Final scene
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create the final climactic scene of our music video. The character reunites with a loved one on a rooftop at sunset. City skyline in background, warm embrace, emotional payoff. Golden hour lighting, lens flares, cinematic slow motion. End on a hopeful note with them looking at the horizon together.",
+    "messages": [{"role": "user", "content": "Create the final climactic scene of our music video. The character reunites with a loved one on a rooftop at sunset. City skyline in background, warm embrace, emotional payoff. Golden hour lighting, lens flares, cinematic slow motion. End on a hopeful note with them looking at the horizon together."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "music-video-story-001",
     "mode": "max"
   }'
@@ -266,32 +293,38 @@ Use `session_id` to iterate and build upon your music video:
 
 ```bash
 # Initial concept
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a visualizer with glowing orbs floating in space",
+    "messages": [{"role": "user", "content": "Create a visualizer with glowing orbs floating in space"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "visualizer-project-001"
   }'
 
 # Refine based on result
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Add more particle trails to the orbs and make the colors shift from blue to purple",
+    "messages": [{"role": "user", "content": "Add more particle trails to the orbs and make the colors shift from blue to purple"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "visualizer-project-001"
   }'
 
 # Create variation
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a more intense version of this for the chorus section with faster movement",
+    "messages": [{"role": "user", "content": "Create a more intense version of this for the chorus section with faster movement"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "visualizer-project-001"
   }'
 ```

@@ -3,7 +3,7 @@ name: resume-design-generation
 description: Generate professional resume and CV designs using each::sense AI. Create modern, creative, minimalist, executive, tech, academic, infographic, two-column, ATS-friendly, and portfolio-style resumes optimized for various industries and career stages.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Resume Design Generation
@@ -26,12 +26,14 @@ Generate visually stunning and professionally designed resumes and CVs using eac
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a modern professional resume design for a marketing manager with a clean blue and white color scheme, include sections for summary, experience, skills, and education",
+    "messages": [{"role": "user", "content": "Create a modern professional resume design for a marketing manager with a clean blue and white color scheme, include sections for summary, experience, skills, and education"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -56,12 +58,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Modern Professional Resume
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a modern professional resume design for a senior marketing manager. Use a clean navy blue and white color scheme. Include a professional header with name and title, a summary section, work experience timeline, skills section with progress bars, and education. The layout should be single-column, easy to read, and print-ready at A4 size.",
+    "messages": [{"role": "user", "content": "Create a modern professional resume design for a senior marketing manager. Use a clean navy blue and white color scheme. Include a professional header with name and title, a summary section, work experience timeline, skills section with progress bars, and education. The layout should be single-column, easy to read, and print-ready at A4 size."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -69,12 +73,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Creative Designer Resume
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a bold and creative resume for a graphic designer. Use vibrant colors like coral pink and teal accents on a dark charcoal background. Include asymmetric layout elements, custom typography, a personal logo placeholder, portfolio preview section, and creative skill visualization. Make it visually striking and memorable while remaining professional.",
+    "messages": [{"role": "user", "content": "Design a bold and creative resume for a graphic designer. Use vibrant colors like coral pink and teal accents on a dark charcoal background. Include asymmetric layout elements, custom typography, a personal logo placeholder, portfolio preview section, and creative skill visualization. Make it visually striking and memorable while remaining professional."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -82,12 +88,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Minimalist Resume
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a minimalist resume design with maximum white space. Use only black text on white background with subtle gray accents for section dividers. Clean sans-serif typography, ample margins, and elegant simplicity. Include name at top, contact info, professional summary, experience, skills as simple tags, and education. No decorative elements - let the content speak.",
+    "messages": [{"role": "user", "content": "Create a minimalist resume design with maximum white space. Use only black text on white background with subtle gray accents for section dividers. Clean sans-serif typography, ample margins, and elegant simplicity. Include name at top, contact info, professional summary, experience, skills as simple tags, and education. No decorative elements - let the content speak."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -95,12 +103,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Executive/Corporate Resume
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a sophisticated executive resume for a C-level executive (CEO/CFO). Use premium colors - deep burgundy header with gold accents on cream background. Elegant serif typography for headings, clean sans-serif for body. Include executive summary with key achievements, career highlights, board positions section, education with prestigious credentials, and professional affiliations. Two pages, dignified and authoritative.",
+    "messages": [{"role": "user", "content": "Design a sophisticated executive resume for a C-level executive (CEO/CFO). Use premium colors - deep burgundy header with gold accents on cream background. Elegant serif typography for headings, clean sans-serif for body. Include executive summary with key achievements, career highlights, board positions section, education with prestigious credentials, and professional affiliations. Two pages, dignified and authoritative."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -108,12 +118,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. Tech/Developer Resume
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a developer-style resume design with a dark theme (dark gray/black background with green or cyan accent colors like a terminal). Include a code-style header, tech stack section with language/framework icons, GitHub contribution graph style visualization, project cards with tech badges, experience in commit-log style format, and skills with proficiency indicators. Monospace font for headings.",
+    "messages": [{"role": "user", "content": "Create a developer-style resume design with a dark theme (dark gray/black background with green or cyan accent colors like a terminal). Include a code-style header, tech stack section with language/framework icons, GitHub contribution graph style visualization, project cards with tech badges, experience in commit-log style format, and skills with proficiency indicators. Monospace font for headings."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -121,12 +133,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Academic CV
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a formal academic CV template for a university professor or researcher. Classic, traditional layout with navy blue accents on white. Include sections for: contact information, research interests, education with thesis titles, academic positions, publications (with proper citation formatting), grants and funding, teaching experience, conference presentations, professional memberships, and references. Multi-page format, formal typography.",
+    "messages": [{"role": "user", "content": "Design a formal academic CV template for a university professor or researcher. Classic, traditional layout with navy blue accents on white. Include sections for: contact information, research interests, education with thesis titles, academic positions, publications (with proper citation formatting), grants and funding, teaching experience, conference presentations, professional memberships, and references. Multi-page format, formal typography."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -134,12 +148,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Infographic Resume
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an infographic-style resume design for a data analyst or marketing professional. Include circular skill charts, timeline infographic for career progression, bar graphs for proficiency levels, icon-based representations for achievements (e.g., trophy icons for awards), geographic map for locations worked, and pie charts for time allocation. Use a cohesive color palette of blues and oranges. Visual, data-driven, and engaging.",
+    "messages": [{"role": "user", "content": "Create an infographic-style resume design for a data analyst or marketing professional. Include circular skill charts, timeline infographic for career progression, bar graphs for proficiency levels, icon-based representations for achievements (e.g., trophy icons for awards), geographic map for locations worked, and pie charts for time allocation. Use a cohesive color palette of blues and oranges. Visual, data-driven, and engaging."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -147,12 +163,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Two-Column Resume
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a two-column resume layout. Left sidebar (narrower, dark teal background) contains: profile photo placeholder, contact information with icons, skills with rating dots, languages, and interests. Right main column (white background) contains: professional name and title header, summary, detailed work experience, and education. Clean dividers between sections, modern yet professional appearance.",
+    "messages": [{"role": "user", "content": "Design a two-column resume layout. Left sidebar (narrower, dark teal background) contains: profile photo placeholder, contact information with icons, skills with rating dots, languages, and interests. Right main column (white background) contains: professional name and title header, summary, detailed work experience, and education. Clean dividers between sections, modern yet professional appearance."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -160,12 +178,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. ATS-Friendly Resume
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an ATS-optimized resume design that will parse correctly through applicant tracking systems. Single column layout, no tables or complex formatting, no images or graphics, no headers/footers. Standard section headings (Summary, Experience, Education, Skills), clear hierarchy with bold headings, bullet points for achievements, standard fonts (Arial or Calibri style), and consistent formatting. Clean and parseable while still looking professional.",
+    "messages": [{"role": "user", "content": "Create an ATS-optimized resume design that will parse correctly through applicant tracking systems. Single column layout, no tables or complex formatting, no images or graphics, no headers/footers. Standard section headings (Summary, Experience, Education, Skills), clear hierarchy with bold headings, bullet points for achievements, standard fonts (Arial or Calibri style), and consistent formatting. Clean and parseable while still looking professional."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -173,12 +193,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 10. Portfolio Resume (with Work Samples)
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a portfolio-style resume for a creative professional (photographer, architect, or UX designer). Include a header section with name and title, a grid layout showcasing 4-6 project thumbnails with brief descriptions, condensed work experience section, skills as visual icons, client logo section, awards with visual badges, and contact information. Visual-heavy design that doubles as a mini portfolio. Modern, gallery-style aesthetic.",
+    "messages": [{"role": "user", "content": "Design a portfolio-style resume for a creative professional (photographer, architect, or UX designer). Include a header section with name and title, a grid layout showcasing 4-6 project thumbnails with brief descriptions, condensed work experience section, skills as visual icons, client logo section, awards with visual badges, and contact information. Visual-heavy design that doubles as a mini portfolio. Modern, gallery-style aesthetic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -222,32 +244,38 @@ Use `session_id` to iterate on resume designs:
 
 ```bash
 # Initial design
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a modern two-column resume design with a blue sidebar",
+    "messages": [{"role": "user", "content": "Create a modern two-column resume design with a blue sidebar"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "resume-design-project"
   }'
 
 # Iterate based on feedback
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Change the sidebar color to dark green and add a circular photo placeholder at the top",
+    "messages": [{"role": "user", "content": "Change the sidebar color to dark green and add a circular photo placeholder at the top"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "resume-design-project"
   }'
 
 # Request variation
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an alternative version with the same content but a single-column layout",
+    "messages": [{"role": "user", "content": "Create an alternative version with the same content but a single-column layout"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "resume-design-project"
   }'
 ```
@@ -258,32 +286,38 @@ Generate multiple style variations for comparison:
 
 ```bash
 # Variation A - Modern
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a modern resume design for a product manager with blue accents",
+    "messages": [{"role": "user", "content": "Create a modern resume design for a product manager with blue accents"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 
 # Variation B - Minimalist
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a minimalist resume design for a product manager with black and white only",
+    "messages": [{"role": "user", "content": "Create a minimalist resume design for a product manager with black and white only"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 
 # Variation C - Creative
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a creative resume design for a product manager with bold colors and unique layout",
+    "messages": [{"role": "user", "content": "Create a creative resume design for a product manager with bold colors and unique layout"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 ```

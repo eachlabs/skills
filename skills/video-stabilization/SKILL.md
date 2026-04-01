@@ -3,7 +3,7 @@ name: video-stabilization
 description: Stabilize shaky video footage using each::sense AI. Remove camera shake from handheld footage, action cameras, drones, and more with intelligent motion correction.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Video Stabilization
@@ -26,12 +26,14 @@ Stabilize shaky video footage using each::sense. This skill applies intelligent 
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Stabilize this shaky video, remove the camera shake",
+    "messages": [{"role": "user", "content": "Stabilize this shaky video, remove the camera shake"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/shaky-video.mp4"]
   }'
@@ -52,12 +54,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Simple camera shake correction for mildly unstable footage.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Stabilize this video and remove the camera shake. Apply standard stabilization.",
+    "messages": [{"role": "user", "content": "Stabilize this video and remove the camera shake. Apply standard stabilization."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/shaky-footage.mp4"]
   }'
@@ -68,12 +72,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Smooth out natural hand movement from smartphone or camera footage.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "This is handheld smartphone footage. Stabilize it to look smoother while keeping it natural, not too robotic. Remove the jitter from hand movement.",
+    "messages": [{"role": "user", "content": "This is handheld smartphone footage. Stabilize it to look smoother while keeping it natural, not too robotic. Remove the jitter from hand movement."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/handheld-phone-video.mp4"]
   }'
@@ -84,12 +90,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Stabilize high-motion GoPro and action camera footage from extreme sports.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Stabilize this GoPro action camera footage. It has significant shake from mountain biking. Apply strong stabilization to smooth out the bumps while preserving the sense of motion.",
+    "messages": [{"role": "user", "content": "Stabilize this GoPro action camera footage. It has significant shake from mountain biking. Apply strong stabilization to smooth out the bumps while preserving the sense of motion."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/gopro-mtb-footage.mp4"]
   }'
@@ -100,12 +108,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Remove bounce and vertical shake from footage shot while moving on foot.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Fix this walking footage. Remove the up and down bounce from each step while keeping the forward motion smooth. The camera was handheld while walking through a market.",
+    "messages": [{"role": "user", "content": "Fix this walking footage. Remove the up and down bounce from each step while keeping the forward motion smooth. The camera was handheld while walking through a market."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/walking-market-footage.mp4"]
   }'
@@ -116,12 +126,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Smooth aerial footage affected by wind, vibration, or gimbal issues.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Stabilize this drone footage. There is micro-vibration and some wind shake affecting the shot. Make it smooth and cinematic for a real estate showcase video.",
+    "messages": [{"role": "user", "content": "Stabilize this drone footage. There is micro-vibration and some wind shake affecting the shot. Make it smooth and cinematic for a real estate showcase video."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/drone-aerial-footage.mp4"]
   }'
@@ -132,12 +144,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Stabilize dashcam, in-car, or vehicle-mounted camera footage.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Stabilize this dashcam footage from a car driving on rough roads. Remove the vibration and bumps from the road while keeping the driving perspective stable.",
+    "messages": [{"role": "user", "content": "Stabilize this dashcam footage from a car driving on rough roads. Remove the vibration and bumps from the road while keeping the driving perspective stable."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/dashcam-rough-road.mp4"]
   }'
@@ -148,12 +162,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Handle shaky footage shot in challenging low-light conditions.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Stabilize this low light concert footage. It was shot handheld at night with significant shake. Be careful with the stabilization as low light footage can show more artifacts. Prioritize smooth motion over aggressive correction.",
+    "messages": [{"role": "user", "content": "Stabilize this low light concert footage. It was shot handheld at night with significant shake. Be careful with the stabilization as low light footage can show more artifacts. Prioritize smooth motion over aggressive correction."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/concert-lowlight-shaky.mp4"]
   }'
@@ -164,12 +180,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Maximum stabilization for tripod-like locked shot results.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Apply aggressive stabilization to lock this shot completely. I want it to look like it was shot on a tripod. Remove all camera movement and shake. It is okay to crop more of the frame if needed for maximum stability.",
+    "messages": [{"role": "user", "content": "Apply aggressive stabilization to lock this shot completely. I want it to look like it was shot on a tripod. Remove all camera movement and shake. It is okay to crop more of the frame if needed for maximum stability."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/interview-handheld.mp4"]
   }'
@@ -180,12 +198,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Preserve natural camera movement while only reducing noticeable shake.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Apply subtle stabilization to this documentary footage. I want to keep the natural handheld feel and intentional camera movements, but remove only the unwanted micro-shakes and jitter. Do not make it look too smooth or artificial.",
+    "messages": [{"role": "user", "content": "Apply subtle stabilization to this documentary footage. I want to keep the natural handheld feel and intentional camera movements, but remove only the unwanted micro-shakes and jitter. Do not make it look too smooth or artificial."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/documentary-handheld.mp4"]
   }'
@@ -196,12 +216,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Balance stabilization strength with minimal frame cropping.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Stabilize this footage but optimize for minimal cropping. The framing is important and I cannot lose too much of the edges. Find the best balance between stabilization quality and preserving the original frame as much as possible.",
+    "messages": [{"role": "user", "content": "Stabilize this footage but optimize for minimal cropping. The framing is important and I cannot lose too much of the edges. Find the best balance between stabilization quality and preserving the original frame as much as possible."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/tight-framing-shaky.mp4"]
   }'
@@ -224,33 +246,39 @@ Use `session_id` to iterate on stabilization settings:
 
 ```bash
 # Initial stabilization
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Stabilize this shaky video footage",
+    "messages": [{"role": "user", "content": "Stabilize this shaky video footage"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "stabilize-project-001",
     "video_urls": ["https://example.com/shaky-video.mp4"]
   }'
 
 # Request adjustment
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "The stabilization is too aggressive, it looks artificial. Can you apply a more subtle stabilization that keeps some natural movement?",
+    "messages": [{"role": "user", "content": "The stabilization is too aggressive, it looks artificial. Can you apply a more subtle stabilization that keeps some natural movement?"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "stabilize-project-001"
   }'
 
 # Further refinement
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Good, but now there is too much cropping. Can you reduce the crop while maintaining similar stabilization?",
+    "messages": [{"role": "user", "content": "Good, but now there is too much cropping. Can you reduce the crop while maintaining similar stabilization?"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "stabilize-project-001"
   }'
 ```
@@ -261,34 +289,40 @@ Process multiple videos with consistent settings:
 
 ```bash
 # Video 1
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Stabilize this video with medium strength stabilization",
+    "messages": [{"role": "user", "content": "Stabilize this video with medium strength stabilization"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco",
     "video_urls": ["https://example.com/clip1.mp4"]
   }'
 
 # Video 2
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Stabilize this video with medium strength stabilization",
+    "messages": [{"role": "user", "content": "Stabilize this video with medium strength stabilization"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco",
     "video_urls": ["https://example.com/clip2.mp4"]
   }'
 
 # Video 3
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Stabilize this video with medium strength stabilization",
+    "messages": [{"role": "user", "content": "Stabilize this video with medium strength stabilization"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco",
     "video_urls": ["https://example.com/clip3.mp4"]
   }'

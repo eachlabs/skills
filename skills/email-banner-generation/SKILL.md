@@ -3,7 +3,7 @@ name: email-banner-generation
 description: Generate email marketing banners and headers using each::sense AI. Create newsletter headers, promotional banners, welcome emails, and seasonal campaigns optimized for email-safe dimensions and best practices.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Email Banner Generation
@@ -25,12 +25,14 @@ Generate high-converting email marketing banners and headers using each::sense. 
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an email newsletter header, 600px wide, for a tech company weekly digest. Modern, clean design with blue gradient background.",
+    "messages": [{"role": "user", "content": "Create an email newsletter header, 600px wide, for a tech company weekly digest. Modern, clean design with blue gradient background."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -52,12 +54,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Newsletter Header
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 600x200px email newsletter header for a tech startup weekly digest. Clean modern design with subtle geometric patterns, dark blue to purple gradient background. Include space for logo on the left side. Professional and contemporary feel.",
+    "messages": [{"role": "user", "content": "Create a 600x200px email newsletter header for a tech startup weekly digest. Clean modern design with subtle geometric patterns, dark blue to purple gradient background. Include space for logo on the left side. Professional and contemporary feel."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -65,12 +69,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Promotional Sale Banner
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 600x300px promotional email banner for a 50% off summer sale. Bright, energetic design with coral and yellow colors. Include visual space for SALE headline text and shop now button. E-commerce fashion brand style.",
+    "messages": [{"role": "user", "content": "Create a 600x300px promotional email banner for a 50% off summer sale. Bright, energetic design with coral and yellow colors. Include visual space for SALE headline text and shop now button. E-commerce fashion brand style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -78,12 +84,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Product Announcement Banner
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 600x300px email banner announcing a new smartphone launch. Premium tech aesthetic with dark background, subtle light rays, and space for product image placement. Apple-style minimalism with focus on elegance.",
+    "messages": [{"role": "user", "content": "Create a 600x300px email banner announcing a new smartphone launch. Premium tech aesthetic with dark background, subtle light rays, and space for product image placement. Apple-style minimalism with focus on elegance."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -91,12 +99,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Welcome Email Header
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 600x250px welcome email header for a fitness app. Warm, inviting design with energetic person silhouette, sunrise gradient (orange to yellow), motivational atmosphere. Space for Welcome message and brand logo.",
+    "messages": [{"role": "user", "content": "Create a 600x250px welcome email header for a fitness app. Warm, inviting design with energetic person silhouette, sunrise gradient (orange to yellow), motivational atmosphere. Space for Welcome message and brand logo."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -104,12 +114,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. Holiday/Seasonal Banner
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 600x300px holiday email banner for Christmas sale campaign. Festive design with snow, pine trees silhouettes, red and gold color scheme. Elegant with subtle sparkles, space for holiday greeting text and discount badge.",
+    "messages": [{"role": "user", "content": "Create a 600x300px holiday email banner for Christmas sale campaign. Festive design with snow, pine trees silhouettes, red and gold color scheme. Elegant with subtle sparkles, space for holiday greeting text and discount badge."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -117,12 +129,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Event Invitation Header
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 600x350px email header for a virtual conference invitation. Professional corporate design with abstract network visualization, deep blue and teal colors. Include visual areas for event name, date, and register button. Tech conference aesthetic.",
+    "messages": [{"role": "user", "content": "Create a 600x350px email header for a virtual conference invitation. Professional corporate design with abstract network visualization, deep blue and teal colors. Include visual areas for event name, date, and register button. Tech conference aesthetic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -130,12 +144,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. New Collection Announcement
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 600x300px email banner for a fashion brand new spring collection launch. Elegant, high-fashion aesthetic with soft pastel colors (blush pink, sage green). Minimalist with space for NEW COLLECTION text overlay. Luxury brand feel.",
+    "messages": [{"role": "user", "content": "Create a 600x300px email banner for a fashion brand new spring collection launch. Elegant, high-fashion aesthetic with soft pastel colors (blush pink, sage green). Minimalist with space for NEW COLLECTION text overlay. Luxury brand feel."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -143,12 +159,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Flash Sale Countdown Banner
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 600x250px flash sale email banner with urgency. Bold design with red and black colors, dynamic diagonal stripes or lightning bolt elements. Include visual space for countdown timer display boxes (hours:minutes:seconds). High energy, act now feeling.",
+    "messages": [{"role": "user", "content": "Create a 600x250px flash sale email banner with urgency. Bold design with red and black colors, dynamic diagonal stripes or lightning bolt elements. Include visual space for countdown timer display boxes (hours:minutes:seconds). High energy, act now feeling."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -156,12 +174,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. Testimonial/Review Banner
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 600x280px email banner for customer testimonials section. Clean design with soft gradient background (light gray to white), space for circular customer photo placeholder, quote marks design element, 5-star rating visual. Trust-building, professional layout.",
+    "messages": [{"role": "user", "content": "Create a 600x280px email banner for customer testimonials section. Clean design with soft gradient background (light gray to white), space for circular customer photo placeholder, quote marks design element, 5-star rating visual. Trust-building, professional layout."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -169,12 +189,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 10. Email Signature Banner
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 600x100px email signature banner for a marketing agency. Sleek horizontal design with subtle gradient, space for company logo on left, social media icon placeholders on right. Professional, minimal, brand-forward design.",
+    "messages": [{"role": "user", "content": "Create a 600x100px email signature banner for a marketing agency. Sleek horizontal design with subtle gradient, space for company logo on left, social media icon placeholders on right. Professional, minimal, brand-forward design."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -238,32 +260,38 @@ Use `session_id` to iterate on email banners:
 
 ```bash
 # Initial banner
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 600x300px promotional email banner for Black Friday sale. Bold design with dark background.",
+    "messages": [{"role": "user", "content": "Create a 600x300px promotional email banner for Black Friday sale. Bold design with dark background."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "email-campaign-bf2024"
   }'
 
 # Iterate based on feedback
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Add more gold accents and make the design more premium looking. Include space for 70% OFF text.",
+    "messages": [{"role": "user", "content": "Add more gold accents and make the design more premium looking. Include space for 70% OFF text."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "email-campaign-bf2024"
   }'
 
 # Request size variation
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a compact 600x150px version of this banner for email signature use.",
+    "messages": [{"role": "user", "content": "Create a compact 600x150px version of this banner for email signature use."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "email-campaign-bf2024"
   }'
 ```
@@ -274,32 +302,38 @@ Generate multiple variations for A/B testing:
 
 ```bash
 # Variation A - Bold colors
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 600x300px email banner for spring sale - bold vibrant colors, energetic design",
+    "messages": [{"role": "user", "content": "Create a 600x300px email banner for spring sale - bold vibrant colors, energetic design"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 
 # Variation B - Minimal design
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 600x300px email banner for spring sale - minimal clean design, soft pastels",
+    "messages": [{"role": "user", "content": "Create a 600x300px email banner for spring sale - minimal clean design, soft pastels"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 
 # Variation C - Photo-centric
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 600x300px email banner for spring sale - lifestyle photography style, person in spring setting",
+    "messages": [{"role": "user", "content": "Create a 600x300px email banner for spring sale - lifestyle photography style, person in spring setting"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 ```

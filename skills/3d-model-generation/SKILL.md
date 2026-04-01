@@ -3,7 +3,7 @@ name: 3d-model-generation
 description: Generate 3D models using each::sense AI. Create 3D assets from text or images for games, products, architecture, characters, vehicles, and more with PBR textures.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # 3D Model Generation
@@ -26,12 +26,14 @@ Generate production-ready 3D models using each::sense. This skill creates 3D ass
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 3D model of a medieval treasure chest with gold trim and iron locks",
+    "messages": [{"role": "user", "content": "Create a 3D model of a medieval treasure chest with gold trim and iron locks"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -51,12 +53,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Text-to-3D Model Generation
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 3D model of a futuristic sci-fi helmet with glowing blue visor and matte black finish. High detail, suitable for game assets.",
+    "messages": [{"role": "user", "content": "Create a 3D model of a futuristic sci-fi helmet with glowing blue visor and matte black finish. High detail, suitable for game assets."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -64,12 +68,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Image-to-3D Conversion
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Convert this product image into a 3D model. Maintain accurate proportions and surface details for e-commerce use.",
+    "messages": [{"role": "user", "content": "Convert this product image into a 3D model. Maintain accurate proportions and surface details for e-commerce use."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/product-image.jpg"]
   }'
@@ -78,12 +84,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Character 3D Model
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 3D character model of a fantasy warrior elf with ornate silver armor, long pointed ears, and a flowing cape. T-pose, game-ready topology.",
+    "messages": [{"role": "user", "content": "Create a 3D character model of a fantasy warrior elf with ornate silver armor, long pointed ears, and a flowing cape. T-pose, game-ready topology."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -91,12 +99,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Product 3D Model
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a 3D model of a premium wireless headphone. Matte black with rose gold accents, leather ear cushions. High detail for product visualization and AR try-on.",
+    "messages": [{"role": "user", "content": "Generate a 3D model of a premium wireless headphone. Matte black with rose gold accents, leather ear cushions. High detail for product visualization and AR try-on."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -104,12 +114,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. Environment/Scene 3D
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 3D environment scene of a Japanese zen garden with a stone pathway, bamboo fence, koi pond, and cherry blossom trees. Stylized low-poly aesthetic for mobile games.",
+    "messages": [{"role": "user", "content": "Create a 3D environment scene of a Japanese zen garden with a stone pathway, bamboo fence, koi pond, and cherry blossom trees. Stylized low-poly aesthetic for mobile games."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -117,12 +129,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Game Asset 3D Model
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a low-poly 3D game asset pack: a wooden crate, barrel, torch, and treasure chest. Stylized textures, optimized for real-time rendering, under 5000 triangles each.",
+    "messages": [{"role": "user", "content": "Create a low-poly 3D game asset pack: a wooden crate, barrel, torch, and treasure chest. Stylized textures, optimized for real-time rendering, under 5000 triangles each."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 ```
@@ -130,12 +144,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Furniture 3D Model
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a 3D model of a mid-century modern armchair. Walnut wood frame with teal velvet upholstery. Realistic materials for interior design visualization and AR placement.",
+    "messages": [{"role": "user", "content": "Generate a 3D model of a mid-century modern armchair. Walnut wood frame with teal velvet upholstery. Realistic materials for interior design visualization and AR placement."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -143,12 +159,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Vehicle 3D Model
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 3D model of a vintage 1960s muscle car. Cherry red metallic paint, chrome details, whitewall tires. High detail exterior suitable for automotive visualization.",
+    "messages": [{"role": "user", "content": "Create a 3D model of a vintage 1960s muscle car. Cherry red metallic paint, chrome details, whitewall tires. High detail exterior suitable for automotive visualization."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -156,12 +174,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. Architecture 3D Model
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a 3D architectural model of a modern minimalist house. Two stories, large glass windows, flat roof, concrete and wood exterior. Include surrounding landscape.",
+    "messages": [{"role": "user", "content": "Generate a 3D architectural model of a modern minimalist house. Two stories, large glass windows, flat roof, concrete and wood exterior. Include surrounding landscape."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -169,12 +189,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 10. PBR Texture Generation for 3D
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate PBR texture maps for weathered bronze metal. Include albedo, normal, roughness, metallic, and ambient occlusion maps. 2K resolution, tileable.",
+    "messages": [{"role": "user", "content": "Generate PBR texture maps for weathered bronze metal. Include albedo, normal, roughness, metallic, and ambient occlusion maps. 2K resolution, tileable."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -233,32 +255,38 @@ Use `session_id` to iterate on 3D models:
 
 ```bash
 # Initial model
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 3D model of a fantasy sword with dragon motifs",
+    "messages": [{"role": "user", "content": "Create a 3D model of a fantasy sword with dragon motifs"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "sword-project-001"
   }'
 
 # Iterate based on feedback
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Add more intricate engravings on the blade and make the dragon head on the hilt more prominent",
+    "messages": [{"role": "user", "content": "Add more intricate engravings on the blade and make the dragon head on the hilt more prominent"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "sword-project-001"
   }'
 
 # Request variations
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create 2 more variations: one with ice theme and one with fire theme",
+    "messages": [{"role": "user", "content": "Create 2 more variations: one with ice theme and one with fire theme"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "sword-project-001"
   }'
 ```
@@ -269,34 +297,40 @@ Generate multiple 3D assets for a project:
 
 ```bash
 # Asset 1 - Props
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 3D model of a medieval wooden tavern table with benches",
+    "messages": [{"role": "user", "content": "Create a 3D model of a medieval wooden tavern table with benches"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco",
     "session_id": "medieval-tavern-pack"
   }'
 
 # Asset 2 - Environment piece
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 3D model of a stone fireplace with crackling fire effect placeholder",
+    "messages": [{"role": "user", "content": "Create a 3D model of a stone fireplace with crackling fire effect placeholder"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco",
     "session_id": "medieval-tavern-pack"
   }'
 
 # Asset 3 - Decorative
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create 3D models of tavern decorations: hanging lantern, wall-mounted deer head, and wooden mug",
+    "messages": [{"role": "user", "content": "Create 3D models of tavern decorations: hanging lantern, wall-mounted deer head, and wooden mug"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco",
     "session_id": "medieval-tavern-pack"
   }'

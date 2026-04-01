@@ -3,7 +3,7 @@ name: video-localization
 description: Localize and dub videos using each::sense AI. Translate audio, generate subtitles, clone voices, and create lip-synced multilingual versions of your video content.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Video Localization
@@ -25,12 +25,14 @@ Localize and dub videos into multiple languages using each::sense. This skill ha
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Dub this English video into Spanish with lip sync",
+    "messages": [{"role": "user", "content": "Dub this English video into Spanish with lip sync"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/my-video.mp4"]
   }'
@@ -59,12 +61,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Basic dubbing with natural voice synthesis.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Translate and dub this English video into Spanish. Use a natural-sounding voice that matches the original speaker tone and energy.",
+    "messages": [{"role": "user", "content": "Translate and dub this English video into Spanish. Use a natural-sounding voice that matches the original speaker tone and energy."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/english-video.mp4"]
   }'
@@ -75,12 +79,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Full localization with lip movement synchronization for professional results.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Translate this video from English to French with full lip sync. The lip movements should match the French audio perfectly. Maintain the original background music and sound effects.",
+    "messages": [{"role": "user", "content": "Translate this video from English to French with full lip sync. The lip movements should match the French audio perfectly. Maintain the original background music and sound effects."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/presentation-video.mp4"]
   }'
@@ -91,12 +97,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Generate accurate subtitles in source or translated languages.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate subtitles for this video. First transcribe the English audio, then create Spanish subtitles. Output both SRT files and a video with burned-in Spanish subtitles.",
+    "messages": [{"role": "user", "content": "Generate subtitles for this video. First transcribe the English audio, then create Spanish subtitles. Output both SRT files and a video with burned-in Spanish subtitles."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/interview.mp4"]
   }'
@@ -108,35 +116,41 @@ Create localized versions for multiple markets in a single workflow.
 
 ```bash
 # Start multi-language localization session
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "I need to localize this product video into Spanish, French, and German. Start with Spanish dubbing with lip sync.",
+    "messages": [{"role": "user", "content": "I need to localize this product video into Spanish, French, and German. Start with Spanish dubbing with lip sync."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "session_id": "localization-project-001",
     "video_urls": ["https://example.com/product-demo.mp4"]
   }'
 
 # Continue with French version
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now create the French version with the same quality settings.",
+    "messages": [{"role": "user", "content": "Now create the French version with the same quality settings."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "session_id": "localization-project-001"
   }'
 
 # Continue with German version
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Finally, create the German version.",
+    "messages": [{"role": "user", "content": "Finally, create the German version."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "session_id": "localization-project-001"
   }'
@@ -147,12 +161,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Preserve the original speaker's voice characteristics in the dubbed version.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Dub this video from English to Japanese using voice cloning. Clone the original speaker voice so they sound like themselves speaking Japanese. Maintain their unique voice characteristics, tone, and speaking style.",
+    "messages": [{"role": "user", "content": "Dub this video from English to Japanese using voice cloning. Clone the original speaker voice so they sound like themselves speaking Japanese. Maintain their unique voice characteristics, tone, and speaking style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/ceo-message.mp4"]
   }'
@@ -163,12 +179,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Adapt marketing content for regional audiences with cultural considerations.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Localize this marketing video for the Latin American market. Translate to Spanish with a neutral Latin American accent, not Spain Spanish. Apply lip sync and ensure the messaging resonates with the target audience. Keep the energy and excitement of the original.",
+    "messages": [{"role": "user", "content": "Localize this marketing video for the Latin American market. Translate to Spanish with a neutral Latin American accent, not Spain Spanish. Apply lip sync and ensure the messaging resonates with the target audience. Keep the energy and excitement of the original."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/brand-ad.mp4"]
   }'
@@ -179,12 +197,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Translate corporate training and educational content.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Translate this employee training video from English to Mandarin Chinese. Use clear, professional narration suitable for corporate training. Include both dubbed audio and Chinese subtitles for accessibility. Technical terms should be accurately translated.",
+    "messages": [{"role": "user", "content": "Translate this employee training video from English to Mandarin Chinese. Use clear, professional narration suitable for corporate training. Include both dubbed audio and Chinese subtitles for accessibility. Technical terms should be accurately translated."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/onboarding-training.mp4"]
   }'
@@ -195,12 +215,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Prepare content for international YouTube audiences.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Localize this YouTube video for Portuguese-speaking audiences (Brazilian Portuguese). Dub the narration with lip sync, generate Portuguese subtitles in SRT format, and create a localized thumbnail with Portuguese text overlay.",
+    "messages": [{"role": "user", "content": "Localize this YouTube video for Portuguese-speaking audiences (Brazilian Portuguese). Dub the narration with lip sync, generate Portuguese subtitles in SRT format, and create a localized thumbnail with Portuguese text overlay."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/youtube-tutorial.mp4"]
   }'
@@ -211,12 +233,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Adapt advertising content for different regional markets.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Localize this 30-second ad for the German market. Translate and dub to German with lip sync. Ensure the call-to-action is culturally appropriate. Keep the same pacing and emotional impact as the original English version.",
+    "messages": [{"role": "user", "content": "Localize this 30-second ad for the German market. Translate and dub to German with lip sync. Ensure the call-to-action is culturally appropriate. Keep the same pacing and emotional impact as the original English version."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/product-ad-30s.mp4"]
   }'
@@ -227,12 +251,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Translate educational courses and learning materials.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Translate this e-learning module from English to Korean. The instructor should be dubbed with voice cloning to maintain authenticity. Generate Korean subtitles and ensure all on-screen text references are noted for manual localization. Educational terminology must be accurately translated.",
+    "messages": [{"role": "user", "content": "Translate this e-learning module from English to Korean. The instructor should be dubbed with voice cloning to maintain authenticity. Generate Korean subtitles and ensure all on-screen text references are noted for manual localization. Educational terminology must be accurately translated."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/course-module-1.mp4"]
   }'
@@ -277,33 +303,39 @@ Use `session_id` to iterate on localization projects:
 
 ```bash
 # Initial localization request
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Dub this video into Spanish with lip sync",
+    "messages": [{"role": "user", "content": "Dub this video into Spanish with lip sync"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "dubbing-project-xyz",
     "video_urls": ["https://example.com/source-video.mp4"]
   }'
 
 # Request adjustments based on review
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "The voice sounds too formal. Can you make it more conversational and energetic?",
+    "messages": [{"role": "user", "content": "The voice sounds too formal. Can you make it more conversational and energetic?"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "dubbing-project-xyz"
   }'
 
 # Add subtitles to the approved version
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Add Spanish subtitles to this dubbed version",
+    "messages": [{"role": "user", "content": "Add Spanish subtitles to this dubbed version"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "dubbing-project-xyz"
   }'
 ```
@@ -314,12 +346,14 @@ Process multiple videos or languages efficiently:
 
 ```bash
 # Use eco mode for batch processing drafts
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create Spanish dubbed versions of these 3 marketing videos with subtitles",
+    "messages": [{"role": "user", "content": "Create Spanish dubbed versions of these 3 marketing videos with subtitles"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco",
     "video_urls": [
       "https://example.com/video1.mp4",

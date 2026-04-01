@@ -3,7 +3,7 @@ name: presentation-generation
 description: Generate professional presentations and slide decks using each::sense AI. Create pitch decks, business presentations, training materials, conference talks, and more with AI-powered slide generation.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Presentation Generation
@@ -24,12 +24,14 @@ Generate professional presentations and slide decks using each::sense. This skil
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 10-slide business presentation about digital transformation strategy for enterprise companies. Include title slide, agenda, key challenges, solutions, case studies, implementation roadmap, and closing slide.",
+    "messages": [{"role": "user", "content": "Create a 10-slide business presentation about digital transformation strategy for enterprise companies. Include title slide, agenda, key challenges, solutions, case studies, implementation roadmap, and closing slide."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -51,12 +53,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Business Presentation from Topic
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 12-slide business presentation on AI adoption in healthcare. Include: title slide, executive summary, current state of healthcare AI, key use cases (diagnosis, drug discovery, patient care), implementation challenges, ROI analysis, case study examples, future trends, recommendations, and conclusion with next steps. Professional corporate style with blue color scheme.",
+    "messages": [{"role": "user", "content": "Create a 12-slide business presentation on AI adoption in healthcare. Include: title slide, executive summary, current state of healthcare AI, key use cases (diagnosis, drug discovery, patient care), implementation challenges, ROI analysis, case study examples, future trends, recommendations, and conclusion with next steps. Professional corporate style with blue color scheme."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -64,12 +68,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Pitch Deck for Investors
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 10-slide startup pitch deck for a fintech company that provides AI-powered expense management for small businesses. Include: cover slide with company name TechExpense, problem statement showing SMB pain points, solution overview, product demo screenshots, market size ($50B TAM), business model (SaaS subscription), traction (10K users, 40% MoM growth), competitive landscape, team slide, and ask slide ($5M Series A). Modern, clean design with fintech aesthetic.",
+    "messages": [{"role": "user", "content": "Create a 10-slide startup pitch deck for a fintech company that provides AI-powered expense management for small businesses. Include: cover slide with company name TechExpense, problem statement showing SMB pain points, solution overview, product demo screenshots, market size ($50B TAM), business model (SaaS subscription), traction (10K users, 40% MoM growth), competitive landscape, team slide, and ask slide ($5M Series A). Modern, clean design with fintech aesthetic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -77,12 +83,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Sales Presentation
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an 8-slide sales presentation for enterprise cloud security software. Include: title slide, client pain points (data breaches, compliance, complexity), our solution overview, key features (real-time monitoring, automated compliance, AI threat detection), customer success stories with metrics, pricing tiers, implementation timeline, and call-to-action slide. Professional but engaging style, use security-themed visuals.",
+    "messages": [{"role": "user", "content": "Create an 8-slide sales presentation for enterprise cloud security software. Include: title slide, client pain points (data breaches, compliance, complexity), our solution overview, key features (real-time monitoring, automated compliance, AI threat detection), customer success stories with metrics, pricing tiers, implementation timeline, and call-to-action slide. Professional but engaging style, use security-themed visuals."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -90,12 +98,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Educational/Lecture Slides
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 15-slide educational presentation on Machine Learning fundamentals for university students. Include: title slide, learning objectives, what is ML (definition), types of ML (supervised, unsupervised, reinforcement), key algorithms overview, neural networks basics, real-world applications, hands-on exercise introduction, common pitfalls, best practices, resources for further learning, summary, and Q&A slide. Academic style with diagrams and visualizations.",
+    "messages": [{"role": "user", "content": "Create a 15-slide educational presentation on Machine Learning fundamentals for university students. Include: title slide, learning objectives, what is ML (definition), types of ML (supervised, unsupervised, reinforcement), key algorithms overview, neural networks basics, real-world applications, hands-on exercise introduction, common pitfalls, best practices, resources for further learning, summary, and Q&A slide. Academic style with diagrams and visualizations."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -103,12 +113,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. Training Presentation
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 20-slide employee onboarding training presentation for a tech company. Include: welcome slide, company history and mission, organizational structure, core values, team introductions section, key policies (remote work, PTO, benefits), tools and systems overview (Slack, Jira, GitHub), security and compliance training, first week checklist, 30-60-90 day goals, mentorship program, career development paths, FAQ section, key contacts, and closing slide with encouragement. Friendly, approachable design with company brand colors (teal and orange).",
+    "messages": [{"role": "user", "content": "Create a 20-slide employee onboarding training presentation for a tech company. Include: welcome slide, company history and mission, organizational structure, core values, team introductions section, key policies (remote work, PTO, benefits), tools and systems overview (Slack, Jira, GitHub), security and compliance training, first week checklist, 30-60-90 day goals, mentorship program, career development paths, FAQ section, key contacts, and closing slide with encouragement. Friendly, approachable design with company brand colors (teal and orange)."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -116,12 +128,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Product Launch Deck
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 12-slide product launch presentation for a new AI-powered fitness app called FitGenius. Include: dramatic title slide, the fitness problem (lack of personalization), introducing FitGenius, key features (AI coach, adaptive workouts, nutrition tracking, progress analytics), how it works (3-step process), app screenshots showcase, early user testimonials, pricing plans, launch timeline, press and influencer strategy, and closing call-to-action. Energetic, modern design with gradient colors (purple to orange).",
+    "messages": [{"role": "user", "content": "Create a 12-slide product launch presentation for a new AI-powered fitness app called FitGenius. Include: dramatic title slide, the fitness problem (lack of personalization), introducing FitGenius, key features (AI coach, adaptive workouts, nutrition tracking, progress analytics), how it works (3-step process), app screenshots showcase, early user testimonials, pricing plans, launch timeline, press and influencer strategy, and closing call-to-action. Energetic, modern design with gradient colors (purple to orange)."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -129,12 +143,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Quarterly Report Presentation
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 10-slide Q4 2024 quarterly report presentation for a SaaS company. Include: title slide with company logo placeholder, executive summary with key metrics, revenue performance (show $12M ARR, 25% YoY growth), customer metrics (500 new customers, 95% retention), product updates shipped this quarter, team growth (20 new hires), challenges faced and lessons learned, Q1 2025 priorities and goals, financial outlook, and thank you slide. Data-driven with charts and graphs, professional corporate style.",
+    "messages": [{"role": "user", "content": "Create a 10-slide Q4 2024 quarterly report presentation for a SaaS company. Include: title slide with company logo placeholder, executive summary with key metrics, revenue performance (show $12M ARR, 25% YoY growth), customer metrics (500 new customers, 95% retention), product updates shipped this quarter, team growth (20 new hires), challenges faced and lessons learned, Q1 2025 priorities and goals, financial outlook, and thank you slide. Data-driven with charts and graphs, professional corporate style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -142,12 +158,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Conference Talk Slides
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 25-slide conference talk presentation titled Building Scalable Microservices: Lessons from 1 Million RPS. Include: title slide with speaker name placeholder, about me slide, agenda, the scaling journey story (monolith to microservices), architecture evolution diagrams, key technical decisions, database strategies, caching layers, message queues, monitoring and observability, failure stories and recovery, performance benchmarks, cost optimization, team structure, lessons learned (5 slides with one key insight each), what we would do differently, future roadmap, resources and references, Q&A slide, and contact/social media slide. Tech conference style, dark theme with code snippets.",
+    "messages": [{"role": "user", "content": "Create a 25-slide conference talk presentation titled Building Scalable Microservices: Lessons from 1 Million RPS. Include: title slide with speaker name placeholder, about me slide, agenda, the scaling journey story (monolith to microservices), architecture evolution diagrams, key technical decisions, database strategies, caching layers, message queues, monitoring and observability, failure stories and recovery, performance benchmarks, cost optimization, team structure, lessons learned (5 slides with one key insight each), what we would do differently, future roadmap, resources and references, Q&A slide, and contact/social media slide. Tech conference style, dark theme with code snippets."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -155,12 +173,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. Webinar Slides
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 15-slide webinar presentation on Email Marketing Best Practices for E-commerce in 2025. Include: title slide with webinar branding, host introduction, agenda with timing, why email still matters (stats), building your list ethically, segmentation strategies, personalization techniques, automation workflows (welcome, abandoned cart, win-back), subject line optimization, mobile-first design, A/B testing framework, deliverability tips, measuring success (KPIs), live Q&A slide, and special offer slide with CTA. Marketing-focused design, vibrant but professional.",
+    "messages": [{"role": "user", "content": "Create a 15-slide webinar presentation on Email Marketing Best Practices for E-commerce in 2025. Include: title slide with webinar branding, host introduction, agenda with timing, why email still matters (stats), building your list ethically, segmentation strategies, personalization techniques, automation workflows (welcome, abandoned cart, win-back), subject line optimization, mobile-first design, A/B testing framework, deliverability tips, measuring success (KPIs), live Q&A slide, and special offer slide with CTA. Marketing-focused design, vibrant but professional."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -168,12 +188,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 10. Team Meeting Presentation
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an 8-slide weekly team meeting presentation for an engineering team. Include: title slide with date placeholder, sprint progress (velocity chart, completed vs planned), blockers and dependencies, demo highlights (2 features shipped), upcoming priorities for next sprint, team announcements (new hire, PTO), metrics dashboard (bugs fixed, deployment frequency, incident count), and open discussion slide. Simple, functional design focused on clarity, light theme.",
+    "messages": [{"role": "user", "content": "Create an 8-slide weekly team meeting presentation for an engineering team. Include: title slide with date placeholder, sprint progress (velocity chart, completed vs planned), blockers and dependencies, demo highlights (2 features shipped), upcoming priorities for next sprint, team announcements (new hire, PTO), metrics dashboard (bugs fixed, deployment frequency, incident count), and open discussion slide. Simple, functional design focused on clarity, light theme."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -237,42 +259,50 @@ Use `session_id` to iterate and refine your presentation:
 
 ```bash
 # Initial presentation
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 10-slide pitch deck for a sustainable fashion marketplace",
+    "messages": [{"role": "user", "content": "Create a 10-slide pitch deck for a sustainable fashion marketplace"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "pitch-deck-project"
   }'
 
 # Add more slides
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Add 3 more slides: one for partnerships, one for sustainability metrics, and one for media coverage",
+    "messages": [{"role": "user", "content": "Add 3 more slides: one for partnerships, one for sustainability metrics, and one for media coverage"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "pitch-deck-project"
   }'
 
 # Refine specific slide
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Update the market size slide with more detailed TAM/SAM/SOM breakdown",
+    "messages": [{"role": "user", "content": "Update the market size slide with more detailed TAM/SAM/SOM breakdown"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "pitch-deck-project"
   }'
 
 # Change design
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Make the design more minimalist with earth tones to match our sustainability brand",
+    "messages": [{"role": "user", "content": "Make the design more minimalist with earth tones to match our sustainability brand"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "pitch-deck-project"
   }'
 ```
@@ -283,32 +313,38 @@ Generate multiple versions for different audiences:
 
 ```bash
 # Version for investors
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 10-slide pitch deck for our AI analytics product - investor focused, emphasize market size, growth metrics, and funding ask",
+    "messages": [{"role": "user", "content": "Create a 10-slide pitch deck for our AI analytics product - investor focused, emphasize market size, growth metrics, and funding ask"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 
 # Version for enterprise clients
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 10-slide sales deck for our AI analytics product - enterprise client focused, emphasize ROI, security, integration capabilities",
+    "messages": [{"role": "user", "content": "Create a 10-slide sales deck for our AI analytics product - enterprise client focused, emphasize ROI, security, integration capabilities"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 
 # Version for technical audience
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 10-slide technical overview for our AI analytics product - developer focused, emphasize architecture, APIs, and technical capabilities",
+    "messages": [{"role": "user", "content": "Create a 10-slide technical overview for our AI analytics product - developer focused, emphasize architecture, APIs, and technical capabilities"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 ```

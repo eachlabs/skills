@@ -3,7 +3,7 @@ name: youtube-video-generation
 description: Generate YouTube videos and Shorts using each::sense AI. Create faceless videos, explainers, tutorials, product reviews, compilations, and more optimized for YouTube's formats and best practices.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # YouTube Video Generation
@@ -26,12 +26,14 @@ Generate engaging YouTube content using each::sense. This skill creates videos o
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 30-second faceless YouTube video about the benefits of meditation, with calming visuals and text overlays",
+    "messages": [{"role": "user", "content": "Create a 30-second faceless YouTube video about the benefits of meditation, with calming visuals and text overlays"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -49,12 +51,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Faceless YouTube Video Generation
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 60-second faceless YouTube video about 5 interesting facts about space. Use stunning space imagery, smooth transitions, and animated text overlays for each fact. Add a cinematic orchestral background music feel. 16:9 aspect ratio at 1920x1080.",
+    "messages": [{"role": "user", "content": "Create a 60-second faceless YouTube video about 5 interesting facts about space. Use stunning space imagery, smooth transitions, and animated text overlays for each fact. Add a cinematic orchestral background music feel. 16:9 aspect ratio at 1920x1080."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -62,12 +66,15 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. YouTube Shorts from Script
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a YouTube Short (9:16, 1080x1920) from this script: \"Did you know that honey never spoils? Archaeologists found 3000-year-old honey in Egyptian tombs that was still edible!\" Use eye-catching visuals of honey, ancient Egypt, and include bold captions. Make it attention-grabbing for the first 2 seconds.",
+    "messages": [{"role": "user", "content": "Create a YouTube Short (9:16, 1080x1920) from this script: \"Did you know that honey never spoils? Archaeologists found 3000-year-old honey in Egyptian tombs that was still edible!\" Use eye-catching visuals of honey, ancient Egypt, and include bold captions. Make it attention-grabbing for the first 2 seconds."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -75,12 +82,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Explainer/Educational Video
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 2-minute educational explainer video about how photosynthesis works. Use animated diagrams, infographics, and step-by-step visualizations. Include a friendly voiceover style with clear explanations. 16:9 at 1920x1080. Target audience: middle school students.",
+    "messages": [{"role": "user", "content": "Create a 2-minute educational explainer video about how photosynthesis works. Use animated diagrams, infographics, and step-by-step visualizations. Include a friendly voiceover style with clear explanations. 16:9 at 1920x1080. Target audience: middle school students."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -88,12 +97,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Product Review Video
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 90-second product review video for wireless noise-canceling headphones. Show the product from multiple angles, highlight key features (battery life, noise cancellation, comfort), include pros and cons sections with graphics, and end with a rating. 16:9 at 1920x1080, modern tech review style.",
+    "messages": [{"role": "user", "content": "Create a 90-second product review video for wireless noise-canceling headphones. Show the product from multiple angles, highlight key features (battery life, noise cancellation, comfort), include pros and cons sections with graphics, and end with a rating. 16:9 at 1920x1080, modern tech review style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -101,12 +112,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. Tutorial/How-To Video
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a step-by-step tutorial video on how to make the perfect pour-over coffee. Include numbered steps, close-up shots of equipment, water temperature graphics, timing indicators, and brewing tips. 16:9 at 1920x1080. Duration: 3 minutes. Clean, minimalist aesthetic.",
+    "messages": [{"role": "user", "content": "Create a step-by-step tutorial video on how to make the perfect pour-over coffee. Include numbered steps, close-up shots of equipment, water temperature graphics, timing indicators, and brewing tips. 16:9 at 1920x1080. Duration: 3 minutes. Clean, minimalist aesthetic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -114,12 +127,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. News Summary Video
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 60-second news summary video template for a tech news channel. Include animated lower thirds, headline graphics, transition effects, and space for B-roll footage. Professional news broadcast style with modern graphics. 16:9 at 1920x1080. Blue and white color scheme.",
+    "messages": [{"role": "user", "content": "Create a 60-second news summary video template for a tech news channel. Include animated lower thirds, headline graphics, transition effects, and space for B-roll footage. Professional news broadcast style with modern graphics. 16:9 at 1920x1080. Blue and white color scheme."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -127,12 +142,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Compilation Video
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 2-minute satisfying compilation video. Include various satisfying visuals: slime being pressed, perfect cake cutting, kinetic sand, soap cutting, and paint mixing. Smooth transitions between clips, no text overlays, relaxing ambient music vibe. 16:9 at 1920x1080.",
+    "messages": [{"role": "user", "content": "Create a 2-minute satisfying compilation video. Include various satisfying visuals: slime being pressed, perfect cake cutting, kinetic sand, soap cutting, and paint mixing. Smooth transitions between clips, no text overlays, relaxing ambient music vibe. 16:9 at 1920x1080."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -140,12 +157,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Gaming Highlight Video
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 45-second gaming highlight intro/template video. Energetic style with glitch effects, neon colors, dynamic transitions, and space for gameplay clips. Include animated subscribe button, social media handles placeholder, and channel logo placement. 16:9 at 1920x1080. EDM/trap music energy.",
+    "messages": [{"role": "user", "content": "Create a 45-second gaming highlight intro/template video. Energetic style with glitch effects, neon colors, dynamic transitions, and space for gameplay clips. Include animated subscribe button, social media handles placeholder, and channel logo placement. 16:9 at 1920x1080. EDM/trap music energy."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -153,12 +172,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. ASMR/Relaxation Video
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 3-minute relaxation video for sleep and meditation. Slow-moving visuals of a peaceful forest with gentle rain, soft fog drifting through trees, and occasional wildlife. Very slow, calming transitions. No text, no sudden movements. 16:9 at 1920x1080. Ambient nature sounds.",
+    "messages": [{"role": "user", "content": "Create a 3-minute relaxation video for sleep and meditation. Slow-moving visuals of a peaceful forest with gentle rain, soft fog drifting through trees, and occasional wildlife. Very slow, calming transitions. No text, no sudden movements. 16:9 at 1920x1080. Ambient nature sounds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -167,22 +188,27 @@ curl -X POST https://sense.eachlabs.run/chat \
 
 ```bash
 # Create channel intro
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 5-second YouTube channel intro for a cooking channel called \"Kitchen Creations\". Animated logo reveal with steam/smoke effects, wooden textures, warm colors. Include a brief jingle spot. Professional but inviting. 16:9 at 1920x1080.",
+    "messages": [{"role": "user", "content": "Create a 5-second YouTube channel intro for a cooking channel called \"Kitchen Creations\". Animated logo reveal with steam/smoke effects, wooden textures, warm colors. Include a brief jingle spot. Professional but inviting. 16:9 at 1920x1080."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "cooking-channel-branding"
   }'
 
 # Create matching outro (same session for consistency)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now create a matching 10-second outro for the same channel. Include animated end screen with subscribe button, two video placeholders for suggested videos, and social media icons. Match the style and colors of the intro we just created.",
+    "messages": [{"role": "user", "content": "Now create a matching 10-second outro for the same channel. Include animated end screen with subscribe button, two video placeholders for suggested videos, and social media icons. Match the style and colors of the intro we just created."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "cooking-channel-branding"
   }'
 ```
@@ -249,32 +275,39 @@ Use `session_id` to iterate on video content:
 
 ```bash
 # Initial video concept
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 30-second YouTube Short about morning productivity tips",
+    "messages": [{"role": "user", "content": "Create a 30-second YouTube Short about morning productivity tips"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "productivity-short-001"
   }'
 
 # Iterate based on feedback
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Make the transitions faster and add more energetic text animations. Also add a stronger hook in the first 2 seconds.",
+    "messages": [{"role": "user", "content": "Make the transitions faster and add more energetic text animations. Also add a stronger hook in the first 2 seconds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "productivity-short-001"
   }'
 
 # Create thumbnail for the video
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a thumbnail for this video at 1280x720. Make it eye-catching with bold text saying \"5 AM ROUTINE\" and show a sunrise with productivity imagery.",
+    "messages": [{"role": "user", "content": "Create a thumbnail for this video at 1280x720. Make it eye-catching with bold text saying \"5 AM ROUTINE\" and show a sunrise with productivity imagery."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "productivity-short-001"
   }'
 ```
@@ -285,23 +318,28 @@ Generate consistent content for a video series:
 
 ```bash
 # Episode 1
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create episode 1 of a \"World Mysteries\" series - focus on the Bermuda Triangle. 2 minutes, dramatic documentary style, 16:9 at 1920x1080.",
+    "messages": [{"role": "user", "content": "Create episode 1 of a \"World Mysteries\" series - focus on the Bermuda Triangle. 2 minutes, dramatic documentary style, 16:9 at 1920x1080."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "world-mysteries-series",
     "mode": "max"
   }'
 
 # Episode 2 (same session for style consistency)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create episode 2 about Stonehenge. Keep the same visual style, intro, and format as episode 1.",
+    "messages": [{"role": "user", "content": "Create episode 2 about Stonehenge. Keep the same visual style, intro, and format as episode 1."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "world-mysteries-series",
     "mode": "max"
   }'

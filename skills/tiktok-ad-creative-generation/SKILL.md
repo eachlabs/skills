@@ -25,12 +25,14 @@ The each::sense API enables you to generate TikTok-optimized ad creatives that b
 ## Quick Start
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a TikTok ad video for a skincare brand. UGC style, girl doing her morning routine, showing the product naturally. Vertical 9:16, trendy aesthetic, soft morning light.",
+    "messages": [{"role": "user", "content": "Create a TikTok ad video for a skincare brand. UGC style, girl doing her morning routine, showing the product naturally. Vertical 9:16, trendy aesthetic, soft morning light."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -53,12 +55,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Generate authentic user-generated content style ads that feel native to TikTok.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a UGC-style TikTok ad. A young woman in her bedroom talking directly to camera about her favorite new lip gloss. Natural lighting, casual outfit, authentic vibe. She holds up the product excitedly. Vertical 9:16 format, iPhone selfie camera angle.",
+    "messages": [{"role": "user", "content": "Create a UGC-style TikTok ad. A young woman in her bedroom talking directly to camera about her favorite new lip gloss. Natural lighting, casual outfit, authentic vibe. She holds up the product excitedly. Vertical 9:16 format, iPhone selfie camera angle."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -68,12 +72,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Create dynamic product reveals using popular TikTok transitions.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "TikTok product showcase video for wireless earbuds. Start with hand covering camera, transition reveal to the earbuds floating with dynamic lighting. Trendy purple and blue gradient background, tech aesthetic. 9:16 vertical, punchy and fast-paced.",
+    "messages": [{"role": "user", "content": "TikTok product showcase video for wireless earbuds. Start with hand covering camera, transition reveal to the earbuds floating with dynamic lighting. Trendy purple and blue gradient background, tech aesthetic. 9:16 vertical, punchy and fast-paced."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -83,12 +89,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Capitalize on viral challenge formats for maximum engagement.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a TikTok challenge-style video for a fitness app. Person doing the popular dance trend but incorporating workout moves. Energetic, fun, gym setting with ring light. Caption space at top. Vertical 9:16, high energy vibe.",
+    "messages": [{"role": "user", "content": "Create a TikTok challenge-style video for a fitness app. Person doing the popular dance trend but incorporating workout moves. Energetic, fun, gym setting with ring light. Caption space at top. Vertical 9:16, high energy vibe."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -98,12 +106,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Showcase dramatic results with split-screen or transition reveals.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Before and after TikTok ad for a hair styling tool. Left side: messy bedhead hair. Right side: sleek, styled hair. Same person, dramatic transformation. Clean white bathroom background, good lighting. 9:16 vertical split screen style.",
+    "messages": [{"role": "user", "content": "Before and after TikTok ad for a hair styling tool. Left side: messy bedhead hair. Right side: sleek, styled hair. Same person, dramatic transformation. Clean white bathroom background, good lighting. 9:16 vertical split screen style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -113,12 +123,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Create ASMR-friendly unboxing content that drives curiosity.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "TikTok unboxing video for a luxury subscription box. Hands slowly opening a beautiful pink box, revealing tissue paper, then premium beauty products. ASMR aesthetic, close-up shots, soft overhead lighting. Vertical 9:16, satisfying and aesthetic.",
+    "messages": [{"role": "user", "content": "TikTok unboxing video for a luxury subscription box. Hands slowly opening a beautiful pink box, revealing tissue paper, then premium beauty products. ASMR aesthetic, close-up shots, soft overhead lighting. Vertical 9:16, satisfying and aesthetic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -128,12 +140,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Educational content that provides value while showcasing products.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Quick tutorial TikTok ad for a cooking gadget. Hands demonstrating how to use a vegetable spiralizer in 3 easy steps. Bright kitchen, overhead angle, ingredients visible. Text overlay space for step numbers. 9:16 vertical, fast and informative.",
+    "messages": [{"role": "user", "content": "Quick tutorial TikTok ad for a cooking gadget. Hands demonstrating how to use a vegetable spiralizer in 3 easy steps. Bright kitchen, overhead angle, ingredients visible. Text overlay space for step numbers. 9:16 vertical, fast and informative."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -143,12 +157,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Immersive first-person perspective that resonates with TikTok audiences.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "POV TikTok ad: you just received your online order. First-person view of hands opening a package, pulling out trendy sneakers, trying them on. Bedroom floor setting, excited energy, millennial aesthetic. Vertical 9:16 format.",
+    "messages": [{"role": "user", "content": "POV TikTok ad: you just received your online order. First-person view of hands opening a package, pulling out trendy sneakers, trying them on. Bedroom floor setting, excited energy, millennial aesthetic. Vertical 9:16 format."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -158,12 +174,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Authentic reaction content that builds trust and relatability.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "TikTok reaction-style ad for a snack brand. Person trying the new flavor for the first time, genuine surprised expression, then excited approval. Casual home setting, ring light, talking to camera. Space for text overlays. 9:16 vertical.",
+    "messages": [{"role": "user", "content": "TikTok reaction-style ad for a snack brand. Person trying the new flavor for the first time, genuine surprised expression, then excited approval. Casual home setting, ring light, talking to camera. Space for text overlays. 9:16 vertical."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -173,12 +191,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Visually pleasing arrangements perfect for beauty and lifestyle brands.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Aesthetic flat lay TikTok video for a stationery brand. Hands arranging pastel notebooks, pens, and washi tape on a marble desk. Satisfying organization, soft shadows, minimal aesthetic. Stop motion feel. 9:16 vertical format.",
+    "messages": [{"role": "user", "content": "Aesthetic flat lay TikTok video for a stationery brand. Hands arranging pastel notebooks, pens, and washi tape on a marble desk. Satisfying organization, soft shadows, minimal aesthetic. Stop motion feel. 9:16 vertical format."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -188,12 +208,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Seamlessly integrate products into lifestyle content.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Day in the life TikTok ad for a coffee brand. Morning routine montage - alarm, stretching, making coffee with the product featured naturally, sipping while checking phone. Cozy apartment, golden hour light, lo-fi aesthetic. 9:16 vertical.",
+    "messages": [{"role": "user", "content": "Day in the life TikTok ad for a coffee brand. Morning routine montage - alarm, stretching, making coffee with the product featured naturally, sipping while checking phone. Cozy apartment, golden hour light, lo-fi aesthetic. 9:16 vertical."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -203,12 +225,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Provide product images or brand references to guide the generation.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a TikTok ad featuring this product. UGC style, young creator showing it off in their room. Trendy, authentic, vertical 9:16 format.",
+    "messages": [{"role": "user", "content": "Create a TikTok ad featuring this product. UGC style, young creator showing it off in their room. Trendy, authentic, vertical 9:16 format."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/product-image.jpg"],
     "mode": "max"
   }'
@@ -300,12 +324,14 @@ Example:
 Use for high-quality ad creatives requiring detailed visuals.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Premium TikTok TopView ad for a luxury perfume. Cinematic close-up of the bottle, light refracting through glass, elegant hands reaching for it. High-end aesthetic, 9:16 vertical.",
+    "messages": [{"role": "user", "content": "Premium TikTok TopView ad for a luxury perfume. Cinematic close-up of the bottle, light refracting through glass, elegant hands reaching for it. High-end aesthetic, 9:16 vertical."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -315,12 +341,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Use for rapid iteration and concept exploration.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Quick TikTok ad concept for a snack brand. Person snacking while scrolling phone. Casual, relatable. 9:16.",
+    "messages": [{"role": "user", "content": "Quick TikTok ad concept for a snack brand. Person snacking while scrolling phone. Casual, relatable. 9:16."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 ```
@@ -332,12 +360,14 @@ Refine your TikTok ad creatives through conversation.
 ### Initial Generation
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a TikTok ad for a new energy drink. Young person at the gym, taking a sip, then crushing their workout. High energy, motivational. 9:16 vertical.",
+    "messages": [{"role": "user", "content": "Create a TikTok ad for a new energy drink. Young person at the gym, taking a sip, then crushing their workout. High energy, motivational. 9:16 vertical."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "tiktok-ad-energy-001",
     "mode": "max"
   }'
@@ -346,12 +376,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ### Iterate on Style
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Make it more UGC style, less polished. Like someone filming themselves with their phone propped up.",
+    "messages": [{"role": "user", "content": "Make it more UGC style, less polished. Like someone filming themselves with their phone propped up."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "tiktok-ad-energy-001",
     "mode": "max"
   }'
@@ -360,12 +392,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ### Adjust for Brand Guidelines
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Add more neon green accents to match our brand colors. Keep the can prominently visible.",
+    "messages": [{"role": "user", "content": "Add more neon green accents to match our brand colors. Keep the can prominently visible."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "tiktok-ad-energy-001",
     "mode": "max"
   }'
@@ -378,12 +412,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ```bash
 # Implement retry with exponential backoff
 for i in 1 2 3; do
-  response=$(curl -s -w "\n%{http_code}" -X POST "https://sense.eachlabs.run/chat" \
+  response=$(curl -s -w "\n%{http_code}" -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
     -H "Content-Type: application/json" \
     -H "X-API-Key: $EACHLABS_API_KEY" \
     -H "Accept: text/event-stream" \
     -d '{
-      "message": "TikTok ad for a fashion brand, trendy outfit reveal. 9:16 vertical.",
+      "messages": [{"role": "user", "content": "TikTok ad for a fashion brand, trendy outfit reveal. 9:16 vertical."}],
+      "model": "eachsense/beta",
+    "stream": true,
       "mode": "max"
     }')
 
@@ -411,12 +447,14 @@ if [ -z "$EACHLABS_API_KEY" ]; then
   exit 1
 fi
 
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "TikTok in-feed ad for headphones. 9:16 vertical format.",
+    "messages": [{"role": "user", "content": "TikTok in-feed ad for headphones. 9:16 vertical format."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```

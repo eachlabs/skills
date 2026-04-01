@@ -3,7 +3,7 @@ name: menu-design-generation
 description: Generate professional restaurant, cafe, and bar menu designs using each::sense AI. Create print-ready menus, digital displays, QR code menus, and seasonal specials with stunning food photography and elegant typography layouts.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Menu Design Generation
@@ -24,12 +24,14 @@ Generate professional menu designs for restaurants, cafes, bars, and food servic
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a modern restaurant menu design for an Italian trattoria with appetizers, pasta, mains, and desserts sections. Warm rustic aesthetic with elegant typography.",
+    "messages": [{"role": "user", "content": "Create a modern restaurant menu design for an Italian trattoria with appetizers, pasta, mains, and desserts sections. Warm rustic aesthetic with elegant typography."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -51,12 +53,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Restaurant Menu (Full Page)
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a full-page restaurant menu design for a Mediterranean bistro. Include sections for Starters (hummus, falafel, calamari), Mains (grilled lamb, seafood platter, moussaka), and Desserts (baklava, tiramisu). Use warm earth tones, elegant serif typography, and include subtle olive branch decorative elements. Portrait orientation for print.",
+    "messages": [{"role": "user", "content": "Create a full-page restaurant menu design for a Mediterranean bistro. Include sections for Starters (hummus, falafel, calamari), Mains (grilled lamb, seafood platter, moussaka), and Desserts (baklava, tiramisu). Use warm earth tones, elegant serif typography, and include subtle olive branch decorative elements. Portrait orientation for print."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -64,12 +68,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Cafe/Coffee Shop Menu
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a cozy coffee shop menu board for an artisan cafe. Include Hot Drinks (espresso, latte, cappuccino, mocha), Cold Drinks (iced coffee, cold brew, frappes), and Pastries (croissants, muffins, cookies). Rustic chalkboard aesthetic with hand-drawn style illustrations, warm brown and cream colors. Horizontal format for counter display.",
+    "messages": [{"role": "user", "content": "Design a cozy coffee shop menu board for an artisan cafe. Include Hot Drinks (espresso, latte, cappuccino, mocha), Cold Drinks (iced coffee, cold brew, frappes), and Pastries (croissants, muffins, cookies). Rustic chalkboard aesthetic with hand-drawn style illustrations, warm brown and cream colors. Horizontal format for counter display."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -77,12 +83,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Bar/Cocktail Menu
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an upscale cocktail bar menu design. Include Signature Cocktails (Old Fashioned, Negroni, Espresso Martini), Classic Cocktails, Wine by the Glass, and Premium Spirits sections. Dark moody aesthetic with gold accents, art deco styling, elegant script typography. Tall format suitable for leather menu holder.",
+    "messages": [{"role": "user", "content": "Create an upscale cocktail bar menu design. Include Signature Cocktails (Old Fashioned, Negroni, Espresso Martini), Classic Cocktails, Wine by the Glass, and Premium Spirits sections. Dark moody aesthetic with gold accents, art deco styling, elegant script typography. Tall format suitable for leather menu holder."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -90,12 +98,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Fast Food Menu Board
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a bold fast food menu board for a burger joint. Include Burgers (classic, bacon, veggie), Sides (fries, onion rings, nuggets), Drinks, and Combo Meals with large pricing. Bright colors (red, yellow, white), high contrast, appetizing burger photography, easy to read from distance. 16:9 landscape for overhead display.",
+    "messages": [{"role": "user", "content": "Design a bold fast food menu board for a burger joint. Include Burgers (classic, bacon, veggie), Sides (fries, onion rings, nuggets), Drinks, and Combo Meals with large pricing. Bright colors (red, yellow, white), high contrast, appetizing burger photography, easy to read from distance. 16:9 landscape for overhead display."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -103,12 +113,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. Fine Dining Menu
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an elegant fine dining tasting menu design. Include 7-course tasting menu: Amuse-bouche, First Course, Fish Course, Palate Cleanser, Main Course, Pre-Dessert, Dessert. Minimalist luxury aesthetic with lots of white space, thin elegant fonts, subtle gold foil accents on cream paper texture. Portrait A4 format.",
+    "messages": [{"role": "user", "content": "Create an elegant fine dining tasting menu design. Include 7-course tasting menu: Amuse-bouche, First Course, Fish Course, Palate Cleanser, Main Course, Pre-Dessert, Dessert. Minimalist luxury aesthetic with lots of white space, thin elegant fonts, subtle gold foil accents on cream paper texture. Portrait A4 format."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -116,12 +128,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Brunch Menu
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a vibrant weekend brunch menu for a trendy cafe. Include Eggs & Benedicts, Pancakes & Waffles, Healthy Bowls, Bottomless Brunch Drinks (mimosas, bloody marys, bellinis). Fresh, light aesthetic with pastel colors, modern sans-serif typography, watercolor fruit illustrations. Portrait format for table menus.",
+    "messages": [{"role": "user", "content": "Design a vibrant weekend brunch menu for a trendy cafe. Include Eggs & Benedicts, Pancakes & Waffles, Healthy Bowls, Bottomless Brunch Drinks (mimosas, bloody marys, bellinis). Fresh, light aesthetic with pastel colors, modern sans-serif typography, watercolor fruit illustrations. Portrait format for table menus."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -129,12 +143,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Dessert Menu
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a decadent dessert menu for a patisserie. Include Cakes (chocolate lava, cheesecake, tiramisu), Pastries (eclairs, macarons, tarts), Ice Cream & Sorbets, and Specialty Coffee Pairings. Luxurious aesthetic with rich colors (burgundy, gold, chocolate brown), elegant cursive headers, beautiful dessert photography. Square format.",
+    "messages": [{"role": "user", "content": "Create a decadent dessert menu for a patisserie. Include Cakes (chocolate lava, cheesecake, tiramisu), Pastries (eclairs, macarons, tarts), Ice Cream & Sorbets, and Specialty Coffee Pairings. Luxurious aesthetic with rich colors (burgundy, gold, chocolate brown), elegant cursive headers, beautiful dessert photography. Square format."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -142,12 +158,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Digital Menu for Display
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a digital menu display for a sushi restaurant TV screen. Include Sashimi, Nigiri, Maki Rolls, Special Rolls with prices. Modern Japanese aesthetic with dark background for screen display, high contrast white and red text, clean grid layout, subtle wave patterns. 16:9 HD format optimized for digital signage.",
+    "messages": [{"role": "user", "content": "Design a digital menu display for a sushi restaurant TV screen. Include Sashimi, Nigiri, Maki Rolls, Special Rolls with prices. Modern Japanese aesthetic with dark background for screen display, high contrast white and red text, clean grid layout, subtle wave patterns. 16:9 HD format optimized for digital signage."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -155,12 +173,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. QR Code Menu Design
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a mobile-optimized QR code menu design for a taco restaurant. Include Tacos (carnitas, al pastor, fish), Burritos, Sides (rice, beans, guacamole), and Drinks. Scrollable single-column layout, large touch-friendly sections, vibrant Mexican colors (orange, green, pink), playful typography. 9:16 mobile portrait format with clear section headers.",
+    "messages": [{"role": "user", "content": "Create a mobile-optimized QR code menu design for a taco restaurant. Include Tacos (carnitas, al pastor, fish), Burritos, Sides (rice, beans, guacamole), and Drinks. Scrollable single-column layout, large touch-friendly sections, vibrant Mexican colors (orange, green, pink), playful typography. 9:16 mobile portrait format with clear section headers."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -168,12 +188,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 10. Seasonal/Special Menu
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a winter holiday special menu for a restaurant. Include Holiday Appetizers, Seasonal Mains (roast turkey, prime rib, glazed ham), Festive Desserts (pumpkin pie, yule log, gingerbread), and Holiday Cocktails. Elegant winter theme with deep greens, gold, and cream colors, snowflake accents, festive but sophisticated typography. Portrait format for table insert.",
+    "messages": [{"role": "user", "content": "Design a winter holiday special menu for a restaurant. Include Holiday Appetizers, Seasonal Mains (roast turkey, prime rib, glazed ham), Festive Desserts (pumpkin pie, yule log, gingerbread), and Holiday Cocktails. Elegant winter theme with deep greens, gold, and cream colors, snowflake accents, festive but sophisticated typography. Portrait format for table insert."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -245,32 +267,38 @@ Use `session_id` to iterate on menu designs:
 
 ```bash
 # Initial menu design
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a menu design for a modern Asian fusion restaurant with appetizers, mains, and drinks",
+    "messages": [{"role": "user", "content": "Create a menu design for a modern Asian fusion restaurant with appetizers, mains, and drinks"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "menu-project-001"
   }'
 
 # Iterate based on feedback
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Make the background darker and add more gold accents. Also add a dessert section.",
+    "messages": [{"role": "user", "content": "Make the background darker and add more gold accents. Also add a dessert section."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "menu-project-001"
   }'
 
 # Request format variation
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now create a digital display version of this menu in 16:9 landscape format",
+    "messages": [{"role": "user", "content": "Now create a digital display version of this menu in 16:9 landscape format"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "menu-project-001"
   }'
 ```
@@ -281,32 +309,38 @@ Generate a complete set of matching menus:
 
 ```bash
 # Main dinner menu
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a dinner menu for an upscale steakhouse with elegant dark theme, gold accents",
+    "messages": [{"role": "user", "content": "Create a dinner menu for an upscale steakhouse with elegant dark theme, gold accents"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "steakhouse-brand"
   }'
 
 # Matching wine menu
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a matching wine list menu in the same style - include Reds, Whites, and Champagne sections",
+    "messages": [{"role": "user", "content": "Create a matching wine list menu in the same style - include Reds, Whites, and Champagne sections"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "steakhouse-brand"
   }'
 
 # Matching dessert menu
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a matching dessert menu in the same brand style",
+    "messages": [{"role": "user", "content": "Create a matching dessert menu in the same brand style"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "steakhouse-brand"
   }'
 ```

@@ -3,7 +3,7 @@ name: face-morphing
 description: Morph, blend, and transform faces using each::sense AI. Create face morphs, celebrity blends, family resemblance predictions, gender swaps, and animated transitions between faces.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Face Morphing
@@ -26,12 +26,14 @@ Transform and blend faces using each::sense. This skill enables face morphing, b
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Morph these two faces together into a seamless blend, 50% each",
+    "messages": [{"role": "user", "content": "Morph these two faces together into a seamless blend, 50% each"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": [
       "https://example.com/face1.jpg",
       "https://example.com/face2.jpg"
@@ -47,12 +49,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Basic face morphing that blends two faces into one unified result.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Morph these two faces together. Create a seamless blend that takes facial structure from the first image and some features like eyes and nose from the second image. Make it look natural and realistic.",
+    "messages": [{"role": "user", "content": "Morph these two faces together. Create a seamless blend that takes facial structure from the first image and some features like eyes and nose from the second image. Make it look natural and realistic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": [
       "https://example.com/person-a.jpg",
       "https://example.com/person-b.jpg"
@@ -66,12 +70,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Blend a user photo with a celebrity face for fun transformations.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Blend my face with this celebrity photo. Create a 50/50 morph that combines my facial structure with their features. Keep the result looking like a real person, not artificial.",
+    "messages": [{"role": "user", "content": "Blend my face with this celebrity photo. Create a 50/50 morph that combines my facial structure with their features. Keep the result looking like a real person, not artificial."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": [
       "https://example.com/my-photo.jpg",
       "https://example.com/celebrity.jpg"
@@ -85,12 +91,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Generate what a child might look like based on two parent photos.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Based on these two parent photos, generate what their child might look like. Create a baby/toddler face that naturally combines features from both parents - take eye shape from the first parent, nose structure from the second, and blend skin tones appropriately. Make it look like a realistic child portrait.",
+    "messages": [{"role": "user", "content": "Based on these two parent photos, generate what their child might look like. Create a baby/toddler face that naturally combines features from both parents - take eye shape from the first parent, nose structure from the second, and blend skin tones appropriately. Make it look like a realistic child portrait."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": [
       "https://example.com/parent1.jpg",
       "https://example.com/parent2.jpg"
@@ -104,12 +112,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create a merged face from a couple's photos.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Merge these two faces from a couple into one face. The result should look like a single person who has balanced features from both individuals. Keep natural proportions and make it look like a genuine portrait photo.",
+    "messages": [{"role": "user", "content": "Merge these two faces from a couple into one face. The result should look like a single person who has balanced features from both individuals. Keep natural proportions and make it look like a genuine portrait photo."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": [
       "https://example.com/partner1.jpg",
       "https://example.com/partner2.jpg"
@@ -123,12 +133,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Visualize genetic similarities across family members.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Analyze these family member photos and create a face that represents the family resemblance - the common features shared across all family members. Highlight the genetic similarities in bone structure, eye shape, and facial proportions.",
+    "messages": [{"role": "user", "content": "Analyze these family member photos and create a face that represents the family resemblance - the common features shared across all family members. Highlight the genetic similarities in bone structure, eye shape, and facial proportions."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": [
       "https://example.com/family-member1.jpg",
       "https://example.com/family-member2.jpg",
@@ -143,12 +155,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create a smooth video transition morphing from one face to another.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a gradual morph animation video that smoothly transitions from the first face to the second face over 3 seconds. The transformation should be fluid and show intermediate blended states between both faces. Output as a video.",
+    "messages": [{"role": "user", "content": "Create a gradual morph animation video that smoothly transitions from the first face to the second face over 3 seconds. The transformation should be fluid and show intermediate blended states between both faces. Output as a video."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": [
       "https://example.com/start-face.jpg",
       "https://example.com/end-face.jpg"
@@ -162,12 +176,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Transform facial features to appear as a different gender.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Transform this face to show how the person might look as a different gender. Adjust facial features like jawline, brow ridge, cheekbones, and add appropriate hair and makeup while maintaining recognizable features from the original person.",
+    "messages": [{"role": "user", "content": "Transform this face to show how the person might look as a different gender. Adjust facial features like jawline, brow ridge, cheekbones, and add appropriate hair and makeup while maintaining recognizable features from the original person."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": [
       "https://example.com/original-face.jpg"
     ],
@@ -180,12 +196,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create a face that blends features from multiple ethnicities.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Blend these faces from different ethnic backgrounds into a single harmonious face. Create a natural-looking result that represents a mix of features from each source face - taking skin tone, eye shape, nose structure, and facial proportions from different inputs.",
+    "messages": [{"role": "user", "content": "Blend these faces from different ethnic backgrounds into a single harmonious face. Create a natural-looking result that represents a mix of features from each source face - taking skin tone, eye shape, nose structure, and facial proportions from different inputs."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": [
       "https://example.com/face-ethnicity1.jpg",
       "https://example.com/face-ethnicity2.jpg",
@@ -200,12 +218,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Transform a historical portrait to modern photographic style.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Take this historical portrait and modernize it. Transform the face to show how this historical figure would look in a modern photograph - update the lighting to contemporary photography style, adjust skin texture to look photorealistic, and give them a modern hairstyle while preserving their distinctive facial features.",
+    "messages": [{"role": "user", "content": "Take this historical portrait and modernize it. Transform the face to show how this historical figure would look in a modern photograph - update the lighting to contemporary photography style, adjust skin texture to look photorealistic, and give them a modern hairstyle while preserving their distinctive facial features."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": [
       "https://example.com/historical-portrait.jpg"
     ],
@@ -218,12 +238,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Generate an average face that combines features from multiple input faces.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an average face from all these input photos. Blend the facial features mathematically to produce a single face that represents the statistical average of all inputs - averaged bone structure, feature placement, skin tone, and proportions.",
+    "messages": [{"role": "user", "content": "Create an average face from all these input photos. Blend the facial features mathematically to produce a single face that represents the statistical average of all inputs - averaged bone structure, feature placement, skin tone, and proportions."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": [
       "https://example.com/face1.jpg",
       "https://example.com/face2.jpg",
@@ -241,12 +263,14 @@ Use `session_id` to refine and iterate on face morphs:
 
 ```bash
 # Initial morph
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Morph these two faces together with a 50/50 blend",
+    "messages": [{"role": "user", "content": "Morph these two faces together with a 50/50 blend"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": [
       "https://example.com/face-a.jpg",
       "https://example.com/face-b.jpg"
@@ -255,22 +279,26 @@ curl -X POST https://sense.eachlabs.run/chat \
   }'
 
 # Adjust the blend ratio
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Adjust the blend to be 70% first face and 30% second face",
+    "messages": [{"role": "user", "content": "Adjust the blend to be 70% first face and 30% second face"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "morph-project-001"
   }'
 
 # Request specific feature adjustments
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Keep the eyes from the first face but use the jawline from the second face",
+    "messages": [{"role": "user", "content": "Keep the eyes from the first face but use the jawline from the second face"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "morph-project-001"
   }'
 ```

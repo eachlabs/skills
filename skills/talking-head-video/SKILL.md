@@ -3,7 +3,7 @@ name: talking-head-video
 description: Generate talking head videos using each::sense AI. Create AI presenters, lip-sync avatars, corporate spokespersons, training videos, and multi-language content from photos, scripts, or audio files.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Talking Head Video Generation
@@ -26,12 +26,14 @@ Generate professional talking head videos using each::sense. This skill transfor
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a talking head video of a professional presenter saying: Welcome to our company. We are excited to have you join our team today.",
+    "messages": [{"role": "user", "content": "Create a talking head video of a professional presenter saying: Welcome to our company. We are excited to have you join our team today."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -52,12 +54,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Generate a talking head video from a text script with an AI-generated presenter.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a talking head video with a professional female presenter in business attire. She should say: Welcome to our quarterly earnings report. This quarter we achieved record growth across all market segments. Our revenue increased by 25 percent compared to last year. Speaking style should be confident and authoritative.",
+    "messages": [{"role": "user", "content": "Create a talking head video with a professional female presenter in business attire. She should say: Welcome to our quarterly earnings report. This quarter we achieved record growth across all market segments. Our revenue increased by 25 percent compared to last year. Speaking style should be confident and authoritative."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -67,12 +71,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Transform a static portrait photo into an animated talking video.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Animate this photo to create a talking head video. The person should say: Hello, I am Dr. Sarah Chen, and I will be guiding you through todays medical seminar. Please ensure you have your notes ready. Make the lip movements natural and add subtle head movements.",
+    "messages": [{"role": "user", "content": "Animate this photo to create a talking head video. The person should say: Hello, I am Dr. Sarah Chen, and I will be guiding you through todays medical seminar. Please ensure you have your notes ready. Make the lip movements natural and add subtle head movements."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/portrait-photo.jpg"]
   }'
@@ -83,12 +89,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Synchronize a portrait photo or video with an existing audio track.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a lip-sync video using this portrait photo and audio file. Synchronize the lip movements perfectly to the speech. Add natural blinking and subtle expressions that match the audio tone.",
+    "messages": [{"role": "user", "content": "Create a lip-sync video using this portrait photo and audio file. Synchronize the lip movements perfectly to the speech. Add natural blinking and subtle expressions that match the audio tone."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/presenter-headshot.jpg"],
     "audio_url": "https://example.com/voiceover-script.mp3"
@@ -100,12 +108,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create professional business spokesperson content for corporate communications.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a corporate spokesperson video. Middle-aged professional male in a suit, neutral office background. Script: At TechCorp, we believe in innovation that matters. Our commitment to sustainability drives everything we do. Join us in building a better tomorrow. Delivery should be warm, trustworthy, and professional. 16:9 aspect ratio for website embedding.",
+    "messages": [{"role": "user", "content": "Generate a corporate spokesperson video. Middle-aged professional male in a suit, neutral office background. Script: At TechCorp, we believe in innovation that matters. Our commitment to sustainability drives everything we do. Join us in building a better tomorrow. Delivery should be warm, trustworthy, and professional. 16:9 aspect ratio for website embedding."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -115,12 +125,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Generate educational and onboarding video content with an AI instructor.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a training video presenter. Friendly instructor appearance, casual professional attire. Script: Welcome to module three of your safety training. Today we will cover emergency procedures. First, locate your nearest exit. Second, familiarize yourself with the evacuation route. Remember, safety is everyones responsibility. Tone should be clear, encouraging, and educational.",
+    "messages": [{"role": "user", "content": "Create a training video presenter. Friendly instructor appearance, casual professional attire. Script: Welcome to module three of your safety training. Today we will cover emergency procedures. First, locate your nearest exit. Second, familiarize yourself with the evacuation route. Remember, safety is everyones responsibility. Tone should be clear, encouraging, and educational."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -130,12 +142,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create broadcast-quality news presenter videos.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a news anchor style talking head video. Professional female news presenter, polished appearance, studio background with subtle graphics. Script: Good evening. Tonight we bring you breaking coverage of the technology summit where world leaders announced new AI guidelines. Industry experts call this a historic moment. Speaking style should be authoritative, clear, and broadcast-professional.",
+    "messages": [{"role": "user", "content": "Generate a news anchor style talking head video. Professional female news presenter, polished appearance, studio background with subtle graphics. Script: Good evening. Tonight we bring you breaking coverage of the technology summit where world leaders announced new AI guidelines. Industry experts call this a historic moment. Speaking style should be authoritative, clear, and broadcast-professional."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -145,12 +159,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create product demonstration and explainer videos with an AI host.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a product explainer video with a talking head presenter. Young, energetic tech reviewer appearance. Script: Let me show you the amazing features of the new SmartWatch Pro. This device tracks your heart rate, monitors sleep patterns, and even measures stress levels. The battery lasts seven days on a single charge. Its a game-changer for fitness enthusiasts. Delivery should be enthusiastic and engaging, like a YouTube tech review.",
+    "messages": [{"role": "user", "content": "Create a product explainer video with a talking head presenter. Young, energetic tech reviewer appearance. Script: Let me show you the amazing features of the new SmartWatch Pro. This device tracks your heart rate, monitors sleep patterns, and even measures stress levels. The battery lasts seven days on a single charge. Its a game-changer for fitness enthusiasts. Delivery should be enthusiastic and engaging, like a YouTube tech review."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -161,34 +177,40 @@ Generate talking head content in multiple languages for international audiences.
 
 ```bash
 # English version
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a talking head video in English. Professional presenter appearance. Script: Welcome to our global platform. We connect businesses across continents. Keep the same presenter appearance for consistency with other language versions.",
+    "messages": [{"role": "user", "content": "Create a talking head video in English. Professional presenter appearance. Script: Welcome to our global platform. We connect businesses across continents. Keep the same presenter appearance for consistency with other language versions."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "multilang-campaign-001",
     "mode": "max"
   }'
 
 # Spanish version (same session for consistency)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create the same talking head video but in Spanish. Use the same presenter from the previous video. Script: Bienvenidos a nuestra plataforma global. Conectamos empresas a traves de los continentes. Match the tone and delivery style of the English version.",
+    "messages": [{"role": "user", "content": "Create the same talking head video but in Spanish. Use the same presenter from the previous video. Script: Bienvenidos a nuestra plataforma global. Conectamos empresas a traves de los continentes. Match the tone and delivery style of the English version."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "multilang-campaign-001",
     "mode": "max"
   }'
 
 # French version (same session for consistency)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now create the French version with the same presenter. Script: Bienvenue sur notre plateforme mondiale. Nous connectons les entreprises a travers les continents. Maintain visual consistency with previous versions.",
+    "messages": [{"role": "user", "content": "Now create the French version with the same presenter. Script: Bienvenue sur notre plateforme mondiale. Nous connectons les entreprises a travers les continents. Maintain visual consistency with previous versions."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "multilang-campaign-001",
     "mode": "max"
   }'
@@ -200,23 +222,27 @@ Create a personalized AI avatar spokesperson for consistent brand representation
 
 ```bash
 # Initial avatar creation
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a custom AI avatar presenter for our brand. Female, late 20s, professional but approachable appearance, dark hair, wearing a navy blazer. This will be our consistent brand spokesperson. Generate a reference image first.",
+    "messages": [{"role": "user", "content": "Create a custom AI avatar presenter for our brand. Female, late 20s, professional but approachable appearance, dark hair, wearing a navy blazer. This will be our consistent brand spokesperson. Generate a reference image first."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "brand-avatar-001",
     "mode": "max"
   }'
 
 # Use avatar for video
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now create a talking head video using this avatar. Script: Hi, I am Maya, your AI assistant from TechBrand. I am here to help you get the most out of our products. Lets explore what we can do together. Keep her appearance consistent with the avatar we created.",
+    "messages": [{"role": "user", "content": "Now create a talking head video using this avatar. Script: Hi, I am Maya, your AI assistant from TechBrand. I am here to help you get the most out of our products. Lets explore what we can do together. Keep her appearance consistent with the avatar we created."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "brand-avatar-001",
     "mode": "max"
   }'
@@ -228,34 +254,40 @@ Generate talking head videos with specific emotional expressions and delivery st
 
 ```bash
 # Empathetic customer service
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a talking head video with empathetic expression. Customer service representative appearance. Script: We understand this has been a frustrating experience for you. Your satisfaction is our top priority. Let me personally ensure we resolve this issue today. Expression should convey genuine concern, understanding, and warmth. Soft, caring tone.",
+    "messages": [{"role": "user", "content": "Create a talking head video with empathetic expression. Customer service representative appearance. Script: We understand this has been a frustrating experience for you. Your satisfaction is our top priority. Let me personally ensure we resolve this issue today. Expression should convey genuine concern, understanding, and warmth. Soft, caring tone."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "expression-variations",
     "mode": "max"
   }'
 
 # Excited product launch
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now create a talking head video with excited, energetic expression. Same presenter. Script: I am thrilled to announce our biggest launch ever! This is the moment weve all been waiting for. Get ready to experience something incredible. Expression should show genuine excitement, big smile, energetic delivery with dynamic gestures.",
+    "messages": [{"role": "user", "content": "Now create a talking head video with excited, energetic expression. Same presenter. Script: I am thrilled to announce our biggest launch ever! This is the moment weve all been waiting for. Get ready to experience something incredible. Expression should show genuine excitement, big smile, energetic delivery with dynamic gestures."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "expression-variations",
     "mode": "max"
   }'
 
 # Serious announcement
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a talking head video with serious, professional expression. Same presenter. Script: We need to address some important changes to our policies. Effective immediately, all accounts will require two-factor authentication. This measure protects your data and ensures platform security. Expression should be serious, authoritative, but not alarming. Measured, deliberate delivery.",
+    "messages": [{"role": "user", "content": "Create a talking head video with serious, professional expression. Same presenter. Script: We need to address some important changes to our policies. Effective immediately, all accounts will require two-factor authentication. This measure protects your data and ensures platform security. Expression should be serious, authoritative, but not alarming. Measured, deliberate delivery."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "expression-variations",
     "mode": "max"
   }'
@@ -325,32 +357,38 @@ Use `session_id` to iterate on talking head videos:
 
 ```bash
 # Initial video
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a talking head video with a professional presenter for a tech company intro",
+    "messages": [{"role": "user", "content": "Create a talking head video with a professional presenter for a tech company intro"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "company-intro-video"
   }'
 
 # Iterate based on feedback
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Make the presenter look younger and more approachable, change to casual business attire",
+    "messages": [{"role": "user", "content": "Make the presenter look younger and more approachable, change to casual business attire"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "company-intro-video"
   }'
 
 # Update script
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Same presenter, but change the script to: Hey there! Welcome to InnovateTech. Were a team of passionate builders creating the future of AI. Ready to join us?",
+    "messages": [{"role": "user", "content": "Same presenter, but change the script to: Hey there! Welcome to InnovateTech. Were a team of passionate builders creating the future of AI. Ready to join us?"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "company-intro-video"
   }'
 ```
@@ -361,34 +399,40 @@ Create consistent video series for courses or campaigns:
 
 ```bash
 # Module 1
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a training series presenter. Instructor appearance, friendly and knowledgeable. Module 1 script: Welcome to the Python fundamentals course. In this first module, we will cover variables and data types. By the end, you will write your first Python program.",
+    "messages": [{"role": "user", "content": "Create a training series presenter. Instructor appearance, friendly and knowledgeable. Module 1 script: Welcome to the Python fundamentals course. In this first module, we will cover variables and data types. By the end, you will write your first Python program."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "python-course-series",
     "mode": "max"
   }'
 
 # Module 2 (same presenter)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Same instructor for Module 2. Script: Welcome back. Today we dive into control flow. You will learn about if statements, loops, and how to make your programs make decisions. Lets get started.",
+    "messages": [{"role": "user", "content": "Same instructor for Module 2. Script: Welcome back. Today we dive into control flow. You will learn about if statements, loops, and how to make your programs make decisions. Lets get started."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "python-course-series",
     "mode": "max"
   }'
 
 # Module 3 (same presenter)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Continue with Module 3, same instructor. Script: Great progress so far. Module 3 covers functions. Functions help you organize code and avoid repetition. This is where your code starts to feel professional.",
+    "messages": [{"role": "user", "content": "Continue with Module 3, same instructor. Script: Great progress so far. Module 3 covers functions. Functions help you organize code and avoid repetition. This is where your code starts to feel professional."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "python-course-series",
     "mode": "max"
   }'

@@ -3,7 +3,7 @@ name: floor-plan-generation
 description: Generate floor plans and architectural layouts using each::sense AI. Create apartment designs, house layouts, office spaces, retail stores, restaurants, and 3D visualizations with furniture arrangements and measurements.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Floor Plan Generation
@@ -23,12 +23,14 @@ Generate professional floor plans and architectural layouts using each::sense. T
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a floor plan for a modern 2-bedroom apartment, approximately 900 sq ft, with open kitchen and living area",
+    "messages": [{"role": "user", "content": "Create a floor plan for a modern 2-bedroom apartment, approximately 900 sq ft, with open kitchen and living area"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -48,12 +50,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Generate Floor Plan from Description
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a floor plan for a single-story family home with 3 bedrooms, 2 bathrooms, a large open-concept kitchen and living room, home office, and attached 2-car garage. Modern minimalist style.",
+    "messages": [{"role": "user", "content": "Generate a floor plan for a single-story family home with 3 bedrooms, 2 bathrooms, a large open-concept kitchen and living room, home office, and attached 2-car garage. Modern minimalist style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -61,12 +65,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Apartment Layout Design
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a studio apartment floor plan, 550 sq ft. Include a sleeping area, kitchenette, bathroom, and living space. Maximize natural light with large windows. Modern urban style with efficient use of space.",
+    "messages": [{"role": "user", "content": "Design a studio apartment floor plan, 550 sq ft. Include a sleeping area, kitchenette, bathroom, and living space. Maximize natural light with large windows. Modern urban style with efficient use of space."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -74,12 +80,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. House Floor Plan
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a traditional 2-story house floor plan. Ground floor: entryway, living room, dining room, kitchen, half bath, mudroom. Second floor: master suite with walk-in closet and en-suite, 3 additional bedrooms, 2 full bathrooms, laundry room. Approximately 2,800 sq ft total.",
+    "messages": [{"role": "user", "content": "Create a traditional 2-story house floor plan. Ground floor: entryway, living room, dining room, kitchen, half bath, mudroom. Second floor: master suite with walk-in closet and en-suite, 3 additional bedrooms, 2 full bathrooms, laundry room. Approximately 2,800 sq ft total."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -87,12 +95,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Office Space Plan
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design an open office floor plan for a tech startup, 3,000 sq ft. Include: open workspace for 30 employees with standing desk options, 3 private offices, 2 meeting rooms (one for 8, one for 4), a phone booth area, kitchen/break room, reception area, and server room. Modern collaborative workspace aesthetic.",
+    "messages": [{"role": "user", "content": "Design an open office floor plan for a tech startup, 3,000 sq ft. Include: open workspace for 30 employees with standing desk options, 3 private offices, 2 meeting rooms (one for 8, one for 4), a phone booth area, kitchen/break room, reception area, and server room. Modern collaborative workspace aesthetic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -100,12 +110,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. Restaurant Layout
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a floor plan for a 2,500 sq ft casual dining restaurant. Include: main dining area seating 60 guests, bar area with 12 bar stools, commercial kitchen with separate prep and cooking areas, walk-in cooler, restrooms, staff area, and outdoor patio seating for 20. Optimize customer flow and server paths.",
+    "messages": [{"role": "user", "content": "Create a floor plan for a 2,500 sq ft casual dining restaurant. Include: main dining area seating 60 guests, bar area with 12 bar stools, commercial kitchen with separate prep and cooking areas, walk-in cooler, restrooms, staff area, and outdoor patio seating for 20. Optimize customer flow and server paths."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -113,12 +125,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Retail Store Layout
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a retail clothing store floor plan, 1,800 sq ft. Include: storefront display windows, main sales floor with clothing racks and display tables, fitting rooms (4 units), checkout counter area, stockroom, and small office. Create a customer journey that maximizes product exposure. Contemporary boutique style.",
+    "messages": [{"role": "user", "content": "Design a retail clothing store floor plan, 1,800 sq ft. Include: storefront display windows, main sales floor with clothing racks and display tables, fitting rooms (4 units), checkout counter area, stockroom, and small office. Create a customer journey that maximizes product exposure. Contemporary boutique style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -126,12 +140,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. 3D Floor Plan Visualization
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 3D isometric floor plan visualization of a luxury penthouse apartment. Show the layout from an elevated angle with visible furniture, textures, and materials. Include living room, dining area, gourmet kitchen, master bedroom, two guest bedrooms, and wraparound terrace. High-end modern interior design with warm lighting.",
+    "messages": [{"role": "user", "content": "Create a 3D isometric floor plan visualization of a luxury penthouse apartment. Show the layout from an elevated angle with visible furniture, textures, and materials. Include living room, dining area, gourmet kitchen, master bedroom, two guest bedrooms, and wraparound terrace. High-end modern interior design with warm lighting."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -139,12 +155,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Furniture Arrangement Plan
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a furnished floor plan for a 400 sq ft living room. The room is rectangular (20ft x 20ft) with windows on the south wall and entry door on the north wall. Include furniture placement for: sectional sofa, coffee table, TV console, two accent chairs, bookshelf, and floor lamp. Focus on conversation-friendly arrangement with good TV viewing angles.",
+    "messages": [{"role": "user", "content": "Create a furnished floor plan for a 400 sq ft living room. The room is rectangular (20ft x 20ft) with windows on the south wall and entry door on the north wall. Include furniture placement for: sectional sofa, coffee table, TV console, two accent chairs, bookshelf, and floor lamp. Focus on conversation-friendly arrangement with good TV viewing angles."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -152,12 +170,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. Multi-Story Floor Plan
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a 3-story townhouse floor plan. Basement: home gym, media room, full bathroom, utility room. Ground floor: open living/dining/kitchen, powder room, back patio access. Second floor: master suite with walk-in closet and spa bathroom, two bedrooms with shared bathroom, small home office nook. Show all three levels side by side.",
+    "messages": [{"role": "user", "content": "Design a 3-story townhouse floor plan. Basement: home gym, media room, full bathroom, utility room. Ground floor: open living/dining/kitchen, powder room, back patio access. Second floor: master suite with walk-in closet and spa bathroom, two bedrooms with shared bathroom, small home office nook. Show all three levels side by side."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -165,12 +185,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 10. Floor Plan with Measurements
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a technical floor plan with detailed measurements for a 1,200 sq ft 2-bedroom apartment. Show room dimensions, door widths, window placements with sizes, and wall thicknesses. Include: living room (15x18 ft), kitchen (10x12 ft), master bedroom (12x14 ft), second bedroom (10x12 ft), bathroom (8x6 ft), and hallway. Architectural blueprint style with dimension lines.",
+    "messages": [{"role": "user", "content": "Create a technical floor plan with detailed measurements for a 1,200 sq ft 2-bedroom apartment. Show room dimensions, door widths, window placements with sizes, and wall thicknesses. Include: living room (15x18 ft), kitchen (10x12 ft), master bedroom (12x14 ft), second bedroom (10x12 ft), bathroom (8x6 ft), and hallway. Architectural blueprint style with dimension lines."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -233,32 +255,38 @@ Use `session_id` to iterate on floor plan designs:
 
 ```bash
 # Initial floor plan
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a floor plan for a 1,500 sq ft 3-bedroom ranch house with open concept living",
+    "messages": [{"role": "user", "content": "Create a floor plan for a 1,500 sq ft 3-bedroom ranch house with open concept living"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "floorplan-project-001"
   }'
 
 # Request modification
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Add a sunroom off the living area and make the master closet larger",
+    "messages": [{"role": "user", "content": "Add a sunroom off the living area and make the master closet larger"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "floorplan-project-001"
   }'
 
 # Convert to 3D view
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now show this floor plan as a 3D visualization with modern furniture",
+    "messages": [{"role": "user", "content": "Now show this floor plan as a 3D visualization with modern furniture"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "floorplan-project-001"
   }'
 ```
@@ -269,32 +297,38 @@ Generate multiple layout options for comparison:
 
 ```bash
 # Option A - Open concept
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 2-bedroom apartment floor plan, 1,000 sq ft, with completely open concept living/dining/kitchen",
+    "messages": [{"role": "user", "content": "Create a 2-bedroom apartment floor plan, 1,000 sq ft, with completely open concept living/dining/kitchen"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 
 # Option B - Defined spaces
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 2-bedroom apartment floor plan, 1,000 sq ft, with separate defined living room, dining room, and kitchen",
+    "messages": [{"role": "user", "content": "Create a 2-bedroom apartment floor plan, 1,000 sq ft, with separate defined living room, dining room, and kitchen"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 
 # Option C - Split bedroom layout
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 2-bedroom apartment floor plan, 1,000 sq ft, with bedrooms on opposite sides of the unit for maximum privacy",
+    "messages": [{"role": "user", "content": "Create a 2-bedroom apartment floor plan, 1,000 sq ft, with bedrooms on opposite sides of the unit for maximum privacy"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 ```

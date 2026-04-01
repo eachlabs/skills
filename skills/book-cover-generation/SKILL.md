@@ -10,7 +10,7 @@ metadata:
     - audiobook
     - publishing
     - design
-  api_endpoint: https://sense.eachlabs.run/chat
+  api_endpoint: https://eachsense-agent.core.eachlabs.run/v1/chat/completions
   supported_modes:
     - max
     - eco
@@ -34,12 +34,15 @@ The each::sense API enables AI-powered book cover generation with support for:
 ## Quick Start
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a book cover for a psychological thriller titled \"The Silent Witness\" by Sarah Mitchell. Dark, moody atmosphere with a shadowy figure standing at a window. Include space for the title at the top.",
+    "messages": [{"role": "user", "content": "Create a book cover for a psychological thriller titled \"The Silent Witness\" by Sarah Mitchell. Dark, moody atmosphere with a shadowy figure standing at a window. Include space for the title at the top."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -62,12 +65,15 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ### Thriller/Mystery Cover
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a book cover for a crime thriller called \"Dead End Road\". Show an abandoned car on a foggy rural road at night, headlights cutting through mist. Ominous atmosphere with dark blues and blacks. Leave clear space at the top third for the title text.",
+    "messages": [{"role": "user", "content": "Design a book cover for a crime thriller called \"Dead End Road\". Show an abandoned car on a foggy rural road at night, headlights cutting through mist. Ominous atmosphere with dark blues and blacks. Leave clear space at the top third for the title text."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -75,12 +81,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ### Romance Novel Cover
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a contemporary romance book cover. A couple silhouetted against a sunset on a beach, warm golden and pink tones. Romantic and dreamy atmosphere. The composition should have open space at the top for the title and bottom for author name. Soft, painterly style.",
+    "messages": [{"role": "user", "content": "Create a contemporary romance book cover. A couple silhouetted against a sunset on a beach, warm golden and pink tones. Romantic and dreamy atmosphere. The composition should have open space at the top for the title and bottom for author name. Soft, painterly style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -88,12 +96,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ### Sci-Fi/Fantasy Cover
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate an epic fantasy book cover showing a lone warrior standing on a cliff overlooking a vast magical kingdom with floating islands and a massive dragon silhouette in the stormy sky. Rich purples, deep blues, and golden highlights. Epic cinematic composition with title space at top.",
+    "messages": [{"role": "user", "content": "Generate an epic fantasy book cover showing a lone warrior standing on a cliff overlooking a vast magical kingdom with floating islands and a massive dragon silhouette in the stormy sky. Rich purples, deep blues, and golden highlights. Epic cinematic composition with title space at top."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -101,12 +111,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ### Self-Help/Business Book
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a minimalist self-help book cover. Abstract representation of personal growth - a small seedling transforming into a flourishing tree. Clean white background with teal and gold accents. Modern, professional aesthetic with plenty of negative space for large typography.",
+    "messages": [{"role": "user", "content": "Design a minimalist self-help book cover. Abstract representation of personal growth - a small seedling transforming into a flourishing tree. Clean white background with teal and gold accents. Modern, professional aesthetic with plenty of negative space for large typography."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -114,12 +126,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ### Memoir/Biography
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a memoir book cover with a nostalgic, vintage feel. An old photograph-style image of a weathered wooden porch with a rocking chair, faded sepia tones blending into modern color. Evokes memory and reflection. Elegant, literary design with space for a centered title.",
+    "messages": [{"role": "user", "content": "Create a memoir book cover with a nostalgic, vintage feel. An old photograph-style image of a weathered wooden porch with a rocking chair, faded sepia tones blending into modern color. Evokes memory and reflection. Elegant, literary design with space for a centered title."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -127,12 +141,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ### Children's Book Cover
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a colorful children's book cover featuring a brave little fox wearing a red scarf, exploring an enchanted forest with glowing mushrooms and friendly woodland creatures. Whimsical illustration style with bright, cheerful colors. Large clear area at top for playful title text.",
+    "messages": [{"role": "user", "content": "Design a colorful children's book cover featuring a brave little fox wearing a red scarf, exploring an enchanted forest with glowing mushrooms and friendly woodland creatures. Whimsical illustration style with bright, cheerful colors. Large clear area at top for playful title text."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -140,12 +156,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ### Cookbook Cover
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a cookbook cover with a rustic, appetizing aesthetic. A beautifully arranged overhead shot of fresh Mediterranean ingredients - olive oil, tomatoes, herbs, artisan bread on a worn wooden table. Warm, inviting lighting. Clean space at top for title and bottom for subtitle.",
+    "messages": [{"role": "user", "content": "Create a cookbook cover with a rustic, appetizing aesthetic. A beautifully arranged overhead shot of fresh Mediterranean ingredients - olive oil, tomatoes, herbs, artisan bread on a worn wooden table. Warm, inviting lighting. Clean space at top for title and bottom for subtitle."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -153,12 +171,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ### Poetry Collection
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design an artistic poetry book cover. Abstract watercolor imagery with flowing shapes suggesting nature and emotion - soft petals, flowing water, gentle gradients. Muted earth tones with touches of deep rose. Ethereal, contemplative mood. Minimalist composition with centered title area.",
+    "messages": [{"role": "user", "content": "Design an artistic poetry book cover. Abstract watercolor imagery with flowing shapes suggesting nature and emotion - soft petals, flowing water, gentle gradients. Muted earth tones with touches of deep rose. Ethereal, contemplative mood. Minimalist composition with centered title area."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -166,12 +186,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ### Audiobook Cover (Square Format)
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a square audiobook cover for a historical fiction novel set in 1920s Paris. Show the Eiffel Tower at twilight with art deco styling, a mysterious woman in silhouette wearing a cloche hat. Rich golds, deep burgundy, and midnight blue. Bold, legible design that works at small sizes. Square 1:1 aspect ratio.",
+    "messages": [{"role": "user", "content": "Create a square audiobook cover for a historical fiction novel set in 1920s Paris. Show the Eiffel Tower at twilight with art deco styling, a mysterious woman in silhouette wearing a cloche hat. Rich golds, deep burgundy, and midnight blue. Bold, legible design that works at small sizes. Square 1:1 aspect ratio."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -182,23 +204,27 @@ Use `session_id` to maintain visual consistency across a book series:
 
 ```bash
 # First book in series
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create the first book cover for a urban fantasy series. A city skyline at night with magical energy swirling through the streets, a hooded figure with glowing eyes. Dark purples and electric blues with neon accents. Consistent banner area at top for series branding and title.",
+    "messages": [{"role": "user", "content": "Create the first book cover for a urban fantasy series. A city skyline at night with magical energy swirling through the streets, a hooded figure with glowing eyes. Dark purples and electric blues with neon accents. Consistent banner area at top for series branding and title."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "fantasy-series-covers",
     "mode": "max"
   }'
 
 # Second book - same session for consistency
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create the second book cover in the same urban fantasy series style. Same hooded figure now standing in an ancient underground chamber with mystical runes glowing on the walls. Maintain the same color palette of dark purples, electric blues, and neon accents. Same banner layout for series consistency.",
+    "messages": [{"role": "user", "content": "Create the second book cover in the same urban fantasy series style. Same hooded figure now standing in an ancient underground chamber with mystical runes glowing on the walls. Maintain the same color palette of dark purples, electric blues, and neon accents. Same banner layout for series consistency."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "fantasy-series-covers",
     "mode": "max"
   }'
@@ -292,23 +318,27 @@ Use `session_id` to maintain context across requests:
 
 ```bash
 # Initial cover concept
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a book cover for a cozy mystery novel set in a small bookshop. Show a charming bookstore exterior at dusk with warm light glowing from windows, a cat sitting in the doorway, autumn leaves scattered on the cobblestone.",
+    "messages": [{"role": "user", "content": "Create a book cover for a cozy mystery novel set in a small bookshop. Show a charming bookstore exterior at dusk with warm light glowing from windows, a cat sitting in the doorway, autumn leaves scattered on the cobblestone."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "cozy-mystery-cover",
     "mode": "max"
   }'
 
 # Request variation
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create another version with the same bookshop but from an interior perspective, looking out through the window at the evening street. Keep the cozy, inviting atmosphere and the cat somewhere in the scene.",
+    "messages": [{"role": "user", "content": "Create another version with the same bookshop but from an interior perspective, looking out through the window at the evening street. Keep the cozy, inviting atmosphere and the cat somewhere in the scene."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "cozy-mystery-cover",
     "mode": "max"
   }'
@@ -326,12 +356,14 @@ if [ -z "$EACHLABS_API_KEY" ]; then
 fi
 
 # Make request with error handling
-response=$(curl -s -w "\n%{http_code}" -X POST "https://sense.eachlabs.run/chat" \
+response=$(curl -s -w "\n%{http_code}" -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a minimalist book cover with abstract geometric shapes in blue and gold.",
+    "messages": [{"role": "user", "content": "Create a minimalist book cover with abstract geometric shapes in blue and gold."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }')
 

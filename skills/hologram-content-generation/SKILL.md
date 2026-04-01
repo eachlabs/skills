@@ -3,7 +3,7 @@ name: hologram-content-generation
 description: Generate hologram and 3D display content using each::sense AI. Create holographic product displays, presenters, 3D logos, interactive menus, event content, museum exhibits, retail displays, and trade show holograms.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Hologram Content Generation
@@ -26,12 +26,14 @@ Generate stunning hologram and 3D display content using each::sense. This skill 
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a holographic product display showing a luxury watch floating and slowly rotating with particle effects and blue glow",
+    "messages": [{"role": "user", "content": "Create a holographic product display showing a luxury watch floating and slowly rotating with particle effects and blue glow"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -52,12 +54,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Holographic Product Display
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a holographic product display for a premium perfume bottle. The bottle should float in the center, slowly rotating with a magical mist swirling around it. Add sparkle particles and a soft pink/purple glow. Black background for hologram fan display. 1:1 aspect ratio, 5 second loop.",
+    "messages": [{"role": "user", "content": "Create a holographic product display for a premium perfume bottle. The bottle should float in the center, slowly rotating with a magical mist swirling around it. Add sparkle particles and a soft pink/purple glow. Black background for hologram fan display. 1:1 aspect ratio, 5 second loop."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -65,12 +69,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Hologram Presenter/Spokesperson
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a holographic presenter - a professional woman in business attire appearing as a blue-tinted hologram. She should be gesturing welcomingly as if greeting visitors. Add scan lines and digital glitch effects for authentic hologram look. Full body shot, black background, 16:9 aspect ratio.",
+    "messages": [{"role": "user", "content": "Create a holographic presenter - a professional woman in business attire appearing as a blue-tinted hologram. She should be gesturing welcomingly as if greeting visitors. Add scan lines and digital glitch effects for authentic hologram look. Full body shot, black background, 16:9 aspect ratio."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -78,12 +84,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. 3D Logo Animation
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 3D holographic logo animation. A futuristic tech company logo (abstract geometric shape) assembles from floating particles, rotates to reveal depth, then pulses with energy. Cyan and white color scheme with electric effects. Black background, 1:1 square format, 6 second seamless loop.",
+    "messages": [{"role": "user", "content": "Create a 3D holographic logo animation. A futuristic tech company logo (abstract geometric shape) assembles from floating particles, rotates to reveal depth, then pulses with energy. Cyan and white color scheme with electric effects. Black background, 1:1 square format, 6 second seamless loop."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -91,12 +99,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Holographic Menu/Interface
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a holographic menu interface for a futuristic restaurant. Floating translucent panels showing food items with 3D dish previews. Sci-fi UI design with glowing borders, subtle animations. Blue and orange accent colors on dark background. 16:9 aspect ratio, interactive feel.",
+    "messages": [{"role": "user", "content": "Create a holographic menu interface for a futuristic restaurant. Floating translucent panels showing food items with 3D dish previews. Sci-fi UI design with glowing borders, subtle animations. Blue and orange accent colors on dark background. 16:9 aspect ratio, interactive feel."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -104,12 +114,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. Event Hologram Content
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create holographic stage content for a product launch event. A smartphone emerging from an explosion of light particles, floating and rotating to show all angles. Dynamic camera movement, epic reveal moment with lens flares and energy waves. 16:9 cinematic format, 10 seconds.",
+    "messages": [{"role": "user", "content": "Create holographic stage content for a product launch event. A smartphone emerging from an explosion of light particles, floating and rotating to show all angles. Dynamic camera movement, epic reveal moment with lens flares and energy waves. 16:9 cinematic format, 10 seconds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -117,12 +129,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Museum/Exhibit Hologram
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a holographic museum exhibit showing a dinosaur (T-Rex) in educational display format. The dinosaur should appear as a detailed 3D hologram, slowly rotating with anatomical labels floating around it. Scientific visualization style with blue holographic effect. Black background, 1:1 format, 8 second loop.",
+    "messages": [{"role": "user", "content": "Create a holographic museum exhibit showing a dinosaur (T-Rex) in educational display format. The dinosaur should appear as a detailed 3D hologram, slowly rotating with anatomical labels floating around it. Scientific visualization style with blue holographic effect. Black background, 1:1 format, 8 second loop."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -130,12 +144,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Retail Hologram Display
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a retail holographic display for sneakers. The shoe floats and rotates showing all angles, with dynamic lighting highlighting materials and details. Add speed lines and energy effects suggesting performance. Price tag holographically appears. Attention-grabbing for store window. 1:1 square, 5 second loop.",
+    "messages": [{"role": "user", "content": "Create a retail holographic display for sneakers. The shoe floats and rotates showing all angles, with dynamic lighting highlighting materials and details. Add speed lines and energy effects suggesting performance. Price tag holographically appears. Attention-grabbing for store window. 1:1 square, 5 second loop."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -143,12 +159,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Trade Show Hologram
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an attention-grabbing trade show booth hologram. A futuristic robot mascot waving and beckoning visitors, surrounded by floating company info graphics and product highlights. High energy, playful but professional. Include particle effects and holographic glitches. 1:1 format, 10 second loop.",
+    "messages": [{"role": "user", "content": "Create an attention-grabbing trade show booth hologram. A futuristic robot mascot waving and beckoning visitors, surrounded by floating company info graphics and product highlights. High energy, playful but professional. Include particle effects and holographic glitches. 1:1 format, 10 second loop."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -156,12 +174,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. Holographic Greeting
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a holographic birthday greeting. A magical 3D birthday cake with floating candles, sparkles swirling around it, and the text HAPPY BIRTHDAY appearing in glowing 3D letters above. Warm golden and pink colors with festive particle effects. Black background, 1:1 square format, 6 seconds.",
+    "messages": [{"role": "user", "content": "Create a holographic birthday greeting. A magical 3D birthday cake with floating candles, sparkles swirling around it, and the text HAPPY BIRTHDAY appearing in glowing 3D letters above. Warm golden and pink colors with festive particle effects. Black background, 1:1 square format, 6 seconds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -169,12 +189,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 10. Interactive Hologram Design
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an interactive holographic globe interface. A 3D Earth slowly rotating with data points lighting up across continents, connection lines between cities, and floating info panels that appear. Sci-fi command center aesthetic. Blue and cyan tones on black background. 1:1 format, 8 second loop.",
+    "messages": [{"role": "user", "content": "Create an interactive holographic globe interface. A 3D Earth slowly rotating with data points lighting up across continents, connection lines between cities, and floating info panels that appear. Sci-fi command center aesthetic. Blue and cyan tones on black background. 1:1 format, 8 second loop."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -247,32 +269,38 @@ Use `session_id` to iterate on hologram content:
 
 ```bash
 # Initial concept
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a holographic car display for an auto showroom, the car floating and rotating",
+    "messages": [{"role": "user", "content": "Create a holographic car display for an auto showroom, the car floating and rotating"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "car-hologram-001"
   }'
 
 # Refine based on feedback
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Make it more dramatic - add energy lines tracing the car body, and have parts explode outward to show the engine",
+    "messages": [{"role": "user", "content": "Make it more dramatic - add energy lines tracing the car body, and have parts explode outward to show the engine"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "car-hologram-001"
   }'
 
 # Request variations
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a version with different color scheme - red and orange energy effects instead of blue",
+    "messages": [{"role": "user", "content": "Create a version with different color scheme - red and orange energy effects instead of blue"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "car-hologram-001"
   }'
 ```

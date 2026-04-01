@@ -3,7 +3,7 @@ name: video-speed-adjustment
 description: Adjust video speed using each::sense AI. Create slow motion, time-lapse, hyperlapse, speed ramps, reverse effects, and cinematic slow-mo with frame interpolation for smooth playback.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Video Speed Adjustment
@@ -24,12 +24,14 @@ Adjust video playback speed using each::sense. This skill enables speed manipula
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Speed up this video to 2x playback speed",
+    "messages": [{"role": "user", "content": "Speed up this video to 2x playback speed"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_url": "https://example.com/my-video.mp4"
   }'
@@ -55,12 +57,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Double the playback speed for a quick recap or to fit content into a shorter duration.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Speed up this video to 2x playback speed. Keep the audio pitch corrected.",
+    "messages": [{"role": "user", "content": "Speed up this video to 2x playback speed. Keep the audio pitch corrected."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_url": "https://example.com/tutorial-video.mp4"
   }'
@@ -71,12 +75,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create a half-speed slow motion effect for emphasis and drama.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 0.5x slow motion version of this video. Apply frame interpolation for smooth playback without stuttering.",
+    "messages": [{"role": "user", "content": "Create a 0.5x slow motion version of this video. Apply frame interpolation for smooth playback without stuttering."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_url": "https://example.com/action-clip.mp4"
   }'
@@ -87,12 +93,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Transform regular footage into a time-lapse for showing long processes quickly.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 10x time-lapse effect from this video. This is footage of a sunset, compress the 30 minute recording into a 3 minute clip. Maintain smooth motion and remove audio.",
+    "messages": [{"role": "user", "content": "Create a 10x time-lapse effect from this video. This is footage of a sunset, compress the 30 minute recording into a 3 minute clip. Maintain smooth motion and remove audio."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_url": "https://example.com/sunset-footage.mp4"
   }'
@@ -103,12 +111,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Use AI frame interpolation to create buttery-smooth slow motion from standard 30fps footage.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a smooth 0.25x slow motion video using AI frame interpolation. The source is 30fps footage - interpolate to 120fps first, then slow down to 0.25x for silky smooth playback. This is a skateboard trick that needs to look cinematic.",
+    "messages": [{"role": "user", "content": "Create a smooth 0.25x slow motion video using AI frame interpolation. The source is 30fps footage - interpolate to 120fps first, then slow down to 0.25x for silky smooth playback. This is a skateboard trick that needs to look cinematic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_url": "https://example.com/skateboard-trick.mp4"
   }'
@@ -119,12 +129,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create dynamic speed changes within a single clip - start slow, speed up, then slow down again.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Apply a speed ramp effect to this video: Start at 0.5x slow motion for the first 2 seconds (the jump), then ramp up to 2x speed for the middle section (the landing and walk), then back to 0.5x for the final trick. Create smooth transitions between speed changes.",
+    "messages": [{"role": "user", "content": "Apply a speed ramp effect to this video: Start at 0.5x slow motion for the first 2 seconds (the jump), then ramp up to 2x speed for the middle section (the landing and walk), then back to 0.5x for the final trick. Create smooth transitions between speed changes."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_url": "https://example.com/parkour-clip.mp4"
   }'
@@ -135,12 +147,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Play the video backwards for creative effects or reveals.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Reverse this video so it plays backwards. This is a glass breaking - I want to show it reassembling. Keep the audio reversed as well for the effect.",
+    "messages": [{"role": "user", "content": "Reverse this video so it plays backwards. This is a glass breaking - I want to show it reassembling. Keep the audio reversed as well for the effect."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_url": "https://example.com/glass-breaking.mp4"
   }'
@@ -151,12 +165,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create a stabilized, smooth hyperlapse from handheld footage with speed increase.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a hyperlapse effect from this walking footage. Speed up to 8x while applying stabilization and motion smoothing. This is a walk through a city street - make it look like a professional hyperlapse with smooth camera movement.",
+    "messages": [{"role": "user", "content": "Create a hyperlapse effect from this walking footage. Speed up to 8x while applying stabilization and motion smoothing. This is a walk through a city street - make it look like a professional hyperlapse with smooth camera movement."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_url": "https://example.com/city-walk.mp4"
   }'
@@ -167,12 +183,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create dramatic slow motion from sports footage with emphasis on key moments.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a slow motion sports highlight from this basketball footage. Apply 0.3x slow motion with frame interpolation for smooth playback. Focus on making the dunk look dramatic and cinematic. Output at 60fps for smooth viewing.",
+    "messages": [{"role": "user", "content": "Create a slow motion sports highlight from this basketball footage. Apply 0.3x slow motion with frame interpolation for smooth playback. Focus on making the dunk look dramatic and cinematic. Output at 60fps for smooth viewing."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_url": "https://example.com/basketball-dunk.mp4"
   }'
@@ -183,12 +201,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Speed up specific sections while keeping others at normal speed.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "This is a cooking tutorial video. Speed up the waiting/cooking parts to 4x (like when the food is just sitting in the oven or boiling) but keep the active cooking instruction parts at normal 1x speed. Make the speed transitions smooth.",
+    "messages": [{"role": "user", "content": "This is a cooking tutorial video. Speed up the waiting/cooking parts to 4x (like when the food is just sitting in the oven or boiling) but keep the active cooking instruction parts at normal 1x speed. Make the speed transitions smooth."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_url": "https://example.com/cooking-tutorial.mp4"
   }'
@@ -199,12 +219,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create film-quality slow motion with high frame rate output for professional results.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a cinematic slow motion video at 0.4x speed. Use AI frame interpolation to generate smooth intermediate frames and output at 60fps. This is a fashion model walking on a runway - add slight motion blur for a filmic look. The result should look like it was shot with a high-speed camera.",
+    "messages": [{"role": "user", "content": "Create a cinematic slow motion video at 0.4x speed. Use AI frame interpolation to generate smooth intermediate frames and output at 60fps. This is a fashion model walking on a runway - add slight motion blur for a filmic look. The result should look like it was shot with a high-speed camera."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_url": "https://example.com/runway-walk.mp4"
   }'
@@ -216,33 +238,39 @@ Use `session_id` to iterate on speed adjustments:
 
 ```bash
 # Initial speed adjustment
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a slow motion version of this video at 0.5x speed",
+    "messages": [{"role": "user", "content": "Create a slow motion version of this video at 0.5x speed"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "speed-project-001",
     "video_url": "https://example.com/action-scene.mp4"
   }'
 
 # Request further adjustment
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "The slow motion looks good but I want it even slower - make it 0.25x with frame interpolation for smoothness",
+    "messages": [{"role": "user", "content": "The slow motion looks good but I want it even slower - make it 0.25x with frame interpolation for smoothness"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "speed-project-001"
   }'
 
 # Add additional effect
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now add a speed ramp at the end - gradually speed up from 0.25x to 2x over the last 3 seconds",
+    "messages": [{"role": "user", "content": "Now add a speed ramp at the end - gradually speed up from 0.25x to 2x over the last 3 seconds"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "speed-project-001"
   }'
 ```

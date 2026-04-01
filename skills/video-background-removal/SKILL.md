@@ -3,7 +3,7 @@ name: video-background-removal
 description: Remove, replace, or modify video backgrounds using each::sense AI. Create transparent backgrounds, virtual offices, green screen effects without green screens, blur effects, and professional video compositing.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Video Background Removal
@@ -26,12 +26,14 @@ Remove and replace video backgrounds using each::sense. This skill enables trans
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Remove the background from this video and make it transparent",
+    "messages": [{"role": "user", "content": "Remove the background from this video and make it transparent"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/my-video.mp4"]
   }'
@@ -44,12 +46,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create a video with transparent background for compositing in video editors.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Remove the background from this video completely. Output should have a transparent background so I can composite it in my video editor. Keep the subject cleanly isolated with smooth edges.",
+    "messages": [{"role": "user", "content": "Remove the background from this video completely. Output should have a transparent background so I can composite it in my video editor. Keep the subject cleanly isolated with smooth edges."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/presenter-video.mp4"]
   }'
@@ -60,12 +64,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Replace background with a clean solid color for professional content.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Replace the background of this video with a solid white background. Keep the subject sharp and well-isolated. Clean edges, professional look suitable for corporate presentations.",
+    "messages": [{"role": "user", "content": "Replace the background of this video with a solid white background. Keep the subject sharp and well-isolated. Clean edges, professional look suitable for corporate presentations."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/interview-clip.mp4"]
   }'
@@ -76,12 +82,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Composite subject onto a static image background.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Remove the background from this video and replace it with the provided image. Blend the subject naturally into the new scene with appropriate lighting and shadows.",
+    "messages": [{"role": "user", "content": "Remove the background from this video and replace it with the provided image. Blend the subject naturally into the new scene with appropriate lighting and shadows."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/person-talking.mp4"],
     "image_urls": ["https://example.com/beach-sunset-background.jpg"]
@@ -93,12 +101,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create dynamic composites with moving video backgrounds.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Remove the background from my video and replace it with the second video as the new background. Sync the timing and make the composite look natural.",
+    "messages": [{"role": "user", "content": "Remove the background from my video and replace it with the second video as the new background. Sync the timing and make the composite look natural."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": [
       "https://example.com/foreground-subject.mp4",
@@ -112,12 +122,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create professional virtual meeting backgrounds.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Replace the background with a professional modern office environment. Clean minimalist design with bookshelves, plants, and soft natural lighting. Suitable for executive video calls and professional meetings.",
+    "messages": [{"role": "user", "content": "Replace the background with a professional modern office environment. Clean minimalist design with bookshelves, plants, and soft natural lighting. Suitable for executive video calls and professional meetings."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/webcam-recording.mp4"]
   }'
@@ -128,12 +140,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Achieve chroma key quality results from any video, no green screen needed.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Extract the person from this video as if it was shot on a green screen. Clean matte extraction with no background spill. Output with transparent background or green screen color for post-production keying.",
+    "messages": [{"role": "user", "content": "Extract the person from this video as if it was shot on a green screen. Clean matte extraction with no background spill. Output with transparent background or green screen color for post-production keying."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/filmed-at-home.mp4"]
   }'
@@ -144,12 +158,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Apply privacy-preserving background blur for video calls and content.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Apply a smooth gaussian blur to the background while keeping the person in focus. Moderate blur intensity - enough to hide details but keep sense of depth. Natural bokeh effect like a portrait mode camera.",
+    "messages": [{"role": "user", "content": "Apply a smooth gaussian blur to the background while keeping the person in focus. Moderate blur intensity - enough to hide details but keep sense of depth. Natural bokeh effect like a portrait mode camera."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/home-office-call.mp4"]
   }'
@@ -160,12 +176,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Add dynamic motion graphics or animated backgrounds.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Remove the background and replace it with an animated gradient background. Smooth flowing colors transitioning between blue and purple. Subtle movement, not distracting. Professional motion graphics style.",
+    "messages": [{"role": "user", "content": "Remove the background and replace it with an animated gradient background. Smooth flowing colors transitioning between blue and purple. Subtle movement, not distracting. Professional motion graphics style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/content-creator.mp4"]
   }'
@@ -176,12 +194,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Clean product footage for e-commerce and marketing.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Remove the background from this product video. The product is a rotating sneaker on a turntable. Make the background pure white for e-commerce use. Maintain all product details, reflections, and shadows.",
+    "messages": [{"role": "user", "content": "Remove the background from this product video. The product is a rotating sneaker on a turntable. Make the background pure white for e-commerce use. Maintain all product details, reflections, and shadows."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/product-360-spin.mp4"]
   }'
@@ -192,12 +212,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Professional presenter and talking head video backgrounds.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Replace the background in this talking head video with a professional studio setting. Dark backdrop with subtle colored accent lighting like a podcast studio or news desk. Keep the presenter well-lit and naturally composited.",
+    "messages": [{"role": "user", "content": "Replace the background in this talking head video with a professional studio setting. Dark backdrop with subtle colored accent lighting like a podcast studio or news desk. Keep the presenter well-lit and naturally composited."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/youtube-video.mp4"]
   }'
@@ -209,33 +231,39 @@ Use `session_id` to iterate on background replacements across multiple requests.
 
 ```bash
 # Initial background removal
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Remove the background from this video of me presenting",
+    "messages": [{"role": "user", "content": "Remove the background from this video of me presenting"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "bg-removal-project-001",
     "video_urls": ["https://example.com/presentation.mp4"]
   }'
 
 # Iterate with different background
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now replace it with a modern tech office background instead",
+    "messages": [{"role": "user", "content": "Now replace it with a modern tech office background instead"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "bg-removal-project-001"
   }'
 
 # Fine-tune the result
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "The edges look a bit rough around my hair. Can you refine the matte for better edge quality?",
+    "messages": [{"role": "user", "content": "The edges look a bit rough around my hair. Can you refine the matte for better edge quality?"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "bg-removal-project-001"
   }'
 ```
@@ -307,12 +335,14 @@ Video background removal is computationally intensive. Configure your HTTP clien
 
 ```bash
 # Example with explicit timeout using curl
-curl --max-time 600 -X POST https://sense.eachlabs.run/chat \
+curl --max-time 600 -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Remove background from this video",
+    "messages": [{"role": "user", "content": "Remove background from this video"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/long-video.mp4"]
   }'

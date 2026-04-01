@@ -3,7 +3,7 @@ name: interior-design-visualization
 description: Visualize interior design transformations using each::sense AI. Redesign rooms, change styles, update color schemes, and preview renovations from photos of your existing spaces.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Interior Design Visualization
@@ -24,12 +24,14 @@ Transform and visualize interior spaces using each::sense. This skill takes phot
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Redesign this living room in a modern minimalist style with neutral colors and clean lines",
+    "messages": [{"role": "user", "content": "Redesign this living room in a modern minimalist style with neutral colors and clean lines"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/my-living-room.jpg"],
     "mode": "max"
   }'
@@ -57,12 +59,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Transform an existing room with a complete redesign while maintaining the room's structure.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Completely redesign this room. Keep the same layout but update all furniture, decor, and colors. Make it feel more luxurious and sophisticated with a contemporary style. Include a statement light fixture and add some greenery.",
+    "messages": [{"role": "user", "content": "Completely redesign this room. Keep the same layout but update all furniture, decor, and colors. Make it feel more luxurious and sophisticated with a contemporary style. Include a statement light fixture and add some greenery."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/current-room.jpg"],
     "mode": "max"
   }'
@@ -73,12 +77,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Convert a room from one design style to another.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Transform this cluttered traditional living room into a minimalist Japanese-inspired space. Remove excess furniture, use a neutral color palette with whites and light wood tones, add a low platform sofa, and incorporate zen elements like a simple indoor plant and natural light.",
+    "messages": [{"role": "user", "content": "Transform this cluttered traditional living room into a minimalist Japanese-inspired space. Remove excess furniture, use a neutral color palette with whites and light wood tones, add a low platform sofa, and incorporate zen elements like a simple indoor plant and natural light."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/traditional-room.jpg"],
     "mode": "max"
   }'
@@ -89,12 +95,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 See how specific furniture pieces would look in your space.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Add furniture to this empty living room: place a large L-shaped sectional sofa in gray fabric facing the window, a round marble coffee table in the center, two accent armchairs in terracotta velvet, a media console against the wall, and a large area rug underneath. Keep the existing flooring and wall color.",
+    "messages": [{"role": "user", "content": "Add furniture to this empty living room: place a large L-shaped sectional sofa in gray fabric facing the window, a round marble coffee table in the center, two accent armchairs in terracotta velvet, a media console against the wall, and a large area rug underneath. Keep the existing flooring and wall color."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/empty-living-room.jpg"],
     "mode": "max"
   }'
@@ -105,12 +113,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Preview your room with different wall colors and accent colors.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Change the color scheme of this room. Paint the walls in a deep forest green, update the curtains to cream linen, add gold accent pieces, and change the throw pillows to mustard yellow and cream. Keep all existing furniture but change the soft furnishings.",
+    "messages": [{"role": "user", "content": "Change the color scheme of this room. Paint the walls in a deep forest green, update the curtains to cream linen, add gold accent pieces, and change the throw pillows to mustard yellow and cream. Keep all existing furniture but change the soft furnishings."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/beige-room.jpg"],
     "mode": "max"
   }'
@@ -121,12 +131,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Preview kitchen renovations including cabinets, countertops, and appliances.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Remodel this dated kitchen into a modern farmhouse style. Replace the cabinets with white shaker-style cabinets, add a large kitchen island with a butcher block top, install stainless steel appliances, add subway tile backsplash, change countertops to white quartz, and include open shelving on one wall. Add pendant lights over the island.",
+    "messages": [{"role": "user", "content": "Remodel this dated kitchen into a modern farmhouse style. Replace the cabinets with white shaker-style cabinets, add a large kitchen island with a butcher block top, install stainless steel appliances, add subway tile backsplash, change countertops to white quartz, and include open shelving on one wall. Add pendant lights over the island."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/old-kitchen.jpg"],
     "mode": "max"
   }'
@@ -137,12 +149,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Transform bathroom aesthetics with new fixtures and finishes.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Transform this outdated bathroom into a spa-like retreat. Replace the vanity with a floating double vanity in walnut wood, add a frameless glass shower enclosure, install large format white marble-look tiles on the walls, add matte black fixtures and hardware, include a freestanding soaking tub if space allows, and add warm LED lighting behind the mirror.",
+    "messages": [{"role": "user", "content": "Transform this outdated bathroom into a spa-like retreat. Replace the vanity with a floating double vanity in walnut wood, add a frameless glass shower enclosure, install large format white marble-look tiles on the walls, add matte black fixtures and hardware, include a freestanding soaking tub if space allows, and add warm LED lighting behind the mirror."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/bathroom-before.jpg"],
     "mode": "max"
   }'
@@ -153,12 +167,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create productive and stylish home office or commercial workspace designs.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design this spare bedroom as a professional home office. Add a large L-shaped desk in walnut, an ergonomic mesh office chair, built-in bookshelves on one wall, proper task lighting with a desk lamp and overhead light, some indoor plants for freshness, and a comfortable reading nook by the window. Keep it professional but warm.",
+    "messages": [{"role": "user", "content": "Design this spare bedroom as a professional home office. Add a large L-shaped desk in walnut, an ergonomic mesh office chair, built-in bookshelves on one wall, proper task lighting with a desk lamp and overhead light, some indoor plants for freshness, and a comfortable reading nook by the window. Keep it professional but warm."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/spare-bedroom.jpg"],
     "mode": "max"
   }'
@@ -169,12 +185,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Transform bedrooms with new furniture, textiles, and ambiance.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Give this master bedroom a luxury hotel makeover. Add an upholstered king bed with a tall tufted headboard in gray velvet, matching nightstands with elegant table lamps, a bench at the foot of the bed, floor-to-ceiling curtains in a soft white, layered bedding in white and taupe, and a plush area rug. Create a serene and sophisticated atmosphere.",
+    "messages": [{"role": "user", "content": "Give this master bedroom a luxury hotel makeover. Add an upholstered king bed with a tall tufted headboard in gray velvet, matching nightstands with elegant table lamps, a bench at the foot of the bed, floor-to-ceiling curtains in a soft white, layered bedding in white and taupe, and a plush area rug. Create a serene and sophisticated atmosphere."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/bedroom-current.jpg"],
     "mode": "max"
   }'
@@ -186,35 +204,41 @@ Generate multiple style options for the same room using session continuity.
 
 ```bash
 # First option - Modern style
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Redesign this living room in a modern contemporary style with clean lines, neutral colors, and sophisticated furniture. Include a sectional sofa, modern coffee table, and contemporary art.",
+    "messages": [{"role": "user", "content": "Redesign this living room in a modern contemporary style with clean lines, neutral colors, and sophisticated furniture. Include a sectional sofa, modern coffee table, and contemporary art."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/living-room.jpg"],
     "session_id": "living-room-options-001",
     "mode": "max"
   }'
 
 # Second option - Bohemian style (same session)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now redesign the same living room in a bohemian style. Use rich colors, layered textiles, eclectic furniture, lots of plants, and global-inspired decor. Make it feel cozy and collected.",
+    "messages": [{"role": "user", "content": "Now redesign the same living room in a bohemian style. Use rich colors, layered textiles, eclectic furniture, lots of plants, and global-inspired decor. Make it feel cozy and collected."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "living-room-options-001",
     "mode": "max"
   }'
 
 # Third option - Scandinavian style (same session)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a third option with Scandinavian style. Light wood floors, white walls, minimal furniture in light colors, cozy textiles like sheepskin throws, and plenty of natural light. Keep it simple and hygge.",
+    "messages": [{"role": "user", "content": "Create a third option with Scandinavian style. Light wood floors, white walls, minimal furniture in light colors, cozy textiles like sheepskin throws, and plenty of natural light. Keep it simple and hygge."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "living-room-options-001",
     "mode": "max"
   }'
@@ -225,12 +249,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Generate a side-by-side visualization showing the transformation.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a dramatic before and after comparison. Take this dated 1990s living room and transform it into a modern 2024 design. Show both versions side by side - the original on the left and the redesigned version on the right. The new design should feature contemporary furniture, updated lighting, modern color palette, and current design trends.",
+    "messages": [{"role": "user", "content": "Create a dramatic before and after comparison. Take this dated 1990s living room and transform it into a modern 2024 design. Show both versions side by side - the original on the left and the redesigned version on the right. The new design should feature contemporary furniture, updated lighting, modern color palette, and current design trends."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/dated-room.jpg"],
     "mode": "max"
   }'
@@ -278,35 +304,41 @@ Use `session_id` to iterate on designs:
 
 ```bash
 # Initial design
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Redesign this bedroom in a modern style with neutral colors",
+    "messages": [{"role": "user", "content": "Redesign this bedroom in a modern style with neutral colors"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/bedroom.jpg"],
     "session_id": "bedroom-project-001",
     "mode": "max"
   }'
 
 # Refine based on feedback
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "I like it but make the headboard larger and add more warm wood tones. Also add some plants.",
+    "messages": [{"role": "user", "content": "I like it but make the headboard larger and add more warm wood tones. Also add some plants."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "bedroom-project-001",
     "mode": "max"
   }'
 
 # Final adjustments
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Perfect! Now add some artwork above the bed and change the throw pillows to a dusty rose color.",
+    "messages": [{"role": "user", "content": "Perfect! Now add some artwork above the bed and change the throw pillows to a dusty rose color."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "bedroom-project-001",
     "mode": "max"
   }'

@@ -3,7 +3,7 @@ name: video-highlight-extraction
 description: Extract highlights, best moments, and key clips from long videos using each::sense AI. Perfect for gaming highlights, sports clips, podcast moments, webinar summaries, meeting recaps, and auto-trailer generation.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Video Highlight Extraction
@@ -24,12 +24,14 @@ Extract the best moments and highlights from long-form video content using each:
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Extract the 5 best highlight moments from this gaming video, focus on action sequences and wins",
+    "messages": [{"role": "user", "content": "Extract the 5 best highlight moments from this gaming video, focus on action sequences and wins"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/gameplay-session.mp4"]
   }'
@@ -53,12 +55,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Extract Best Moments from Long Video
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Analyze this 2-hour video and extract the top 10 most engaging moments. Look for emotional peaks, funny moments, and visually impressive scenes. Create individual clips of 30-60 seconds each.",
+    "messages": [{"role": "user", "content": "Analyze this 2-hour video and extract the top 10 most engaging moments. Look for emotional peaks, funny moments, and visually impressive scenes. Create individual clips of 30-60 seconds each."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/long-form-content.mp4"]
   }'
@@ -67,12 +71,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Gaming Highlight Detection
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Extract gaming highlights from this Valorant stream. Find all clutch rounds, ace plays, and epic kills. Create a highlight reel with smooth transitions between clips.",
+    "messages": [{"role": "user", "content": "Extract gaming highlights from this Valorant stream. Find all clutch rounds, ace plays, and epic kills. Create a highlight reel with smooth transitions between clips."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/valorant-stream.mp4"]
   }'
@@ -81,12 +87,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Sports Highlight Extraction
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a sports highlight reel from this football game. Extract all touchdowns, big plays, interceptions, and celebration moments. Include 2 seconds before and after each key moment for context.",
+    "messages": [{"role": "user", "content": "Create a sports highlight reel from this football game. Extract all touchdowns, big plays, interceptions, and celebration moments. Include 2 seconds before and after each key moment for context."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/football-game.mp4"]
   }'
@@ -95,12 +103,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Podcast Best Clips
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Find the most shareable clips from this podcast episode. Look for controversial takes, insightful moments, funny exchanges, and quotable statements. Extract 5-8 clips optimized for social media (under 60 seconds each).",
+    "messages": [{"role": "user", "content": "Find the most shareable clips from this podcast episode. Look for controversial takes, insightful moments, funny exchanges, and quotable statements. Extract 5-8 clips optimized for social media (under 60 seconds each)."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/podcast-episode.mp4"]
   }'
@@ -109,12 +119,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. Webinar Key Moments
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Extract key moments from this 90-minute webinar. Identify main talking points, important demonstrations, audience questions, and actionable takeaways. Create a 5-minute summary highlight reel.",
+    "messages": [{"role": "user", "content": "Extract key moments from this 90-minute webinar. Identify main talking points, important demonstrations, audience questions, and actionable takeaways. Create a 5-minute summary highlight reel."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/webinar-recording.mp4"]
   }'
@@ -123,12 +135,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Meeting Highlights
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a meeting highlight summary from this team call. Extract all decisions made, action items assigned, key discussion points, and any important announcements. Condense into a 3-minute recap video.",
+    "messages": [{"role": "user", "content": "Create a meeting highlight summary from this team call. Extract all decisions made, action items assigned, key discussion points, and any important announcements. Condense into a 3-minute recap video."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco",
     "video_urls": ["https://example.com/team-meeting.mp4"]
   }'
@@ -137,12 +151,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Concert Best Moments
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Extract the best moments from this concert recording. Find crowd singalongs, guitar solos, drum fills, artist interactions with crowd, and emotional peaks. Create a 4-minute highlight compilation with the most energetic parts.",
+    "messages": [{"role": "user", "content": "Extract the best moments from this concert recording. Find crowd singalongs, guitar solos, drum fills, artist interactions with crowd, and emotional peaks. Create a 4-minute highlight compilation with the most energetic parts."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/concert-full.mp4"]
   }'
@@ -151,12 +167,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Travel Video Highlights
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a travel highlight reel from my vacation footage. Extract the most scenic views, exciting activities, local food experiences, and memorable moments. Make a 2-minute shareable video with dynamic pacing.",
+    "messages": [{"role": "user", "content": "Create a travel highlight reel from my vacation footage. Extract the most scenic views, exciting activities, local food experiences, and memorable moments. Make a 2-minute shareable video with dynamic pacing."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/vacation-footage.mp4"]
   }'
@@ -165,12 +183,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. Wedding Highlight Reel
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a wedding highlight reel from the full ceremony and reception footage. Extract the vows, first kiss, first dance, cake cutting, bouquet toss, speeches with emotional reactions, and candid guest moments. Create a 5-minute cinematic highlight video.",
+    "messages": [{"role": "user", "content": "Create a wedding highlight reel from the full ceremony and reception footage. Extract the vows, first kiss, first dance, cake cutting, bouquet toss, speeches with emotional reactions, and candid guest moments. Create a 5-minute cinematic highlight video."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/wedding-full.mp4"]
   }'
@@ -179,12 +199,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 10. Auto-Generate Trailer from Movie
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a 2-minute trailer from this feature film. Select the most dramatic moments, action sequences, emotional beats, and visually stunning shots. Build tension with the pacing - start slow, build to climax. Avoid major spoilers but hint at the story.",
+    "messages": [{"role": "user", "content": "Generate a 2-minute trailer from this feature film. Select the most dramatic moments, action sequences, emotional beats, and visually stunning shots. Build tension with the pacing - start slow, build to climax. Avoid major spoilers but hint at the story."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/feature-film.mp4"]
   }'
@@ -207,33 +229,39 @@ Use `session_id` to iterate on extracted highlights:
 
 ```bash
 # Initial extraction
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Extract highlights from this gaming stream, focus on the best plays",
+    "messages": [{"role": "user", "content": "Extract highlights from this gaming stream, focus on the best plays"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "highlight-project-001",
     "video_urls": ["https://example.com/stream.mp4"]
   }'
 
 # Refine selection
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Remove the third clip and find more moments with team fights",
+    "messages": [{"role": "user", "content": "Remove the third clip and find more moments with team fights"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "highlight-project-001"
   }'
 
 # Adjust timing
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Make each clip shorter, around 15-20 seconds, and add transitions between them",
+    "messages": [{"role": "user", "content": "Make each clip shorter, around 15-20 seconds, and add transitions between them"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "highlight-project-001"
   }'
 ```
@@ -244,23 +272,27 @@ Generate highlights optimized for different platforms:
 
 ```bash
 # YouTube Shorts / TikTok (vertical 9:16)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Extract viral-worthy moments and format them as vertical 9:16 clips for TikTok/YouTube Shorts. Each clip should be 15-30 seconds with a strong hook in the first 2 seconds.",
+    "messages": [{"role": "user", "content": "Extract viral-worthy moments and format them as vertical 9:16 clips for TikTok/YouTube Shorts. Each clip should be 15-30 seconds with a strong hook in the first 2 seconds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/content.mp4"]
   }'
 
 # Twitter/X (square 1:1)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create square 1:1 highlight clips optimized for Twitter. Under 2 minutes each, punchy and shareable.",
+    "messages": [{"role": "user", "content": "Create square 1:1 highlight clips optimized for Twitter. Under 2 minutes each, punchy and shareable."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/content.mp4"]
   }'
@@ -271,12 +303,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Customize what the AI looks for:
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Extract highlights with the following criteria: prioritize moments with high audio energy (cheering, music peaks), visual motion (fast action, camera movement), and emotional expressions (laughter, surprise). Skip any slow or static segments. Create 8 clips of 20-40 seconds each.",
+    "messages": [{"role": "user", "content": "Extract highlights with the following criteria: prioritize moments with high audio energy (cheering, music peaks), visual motion (fast action, camera movement), and emotional expressions (laughter, surprise). Skip any slow or static segments. Create 8 clips of 20-40 seconds each."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/event-footage.mp4"]
   }'

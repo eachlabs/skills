@@ -3,7 +3,7 @@ name: nsfw-content-generation
 description: Generate NSFW and adult content using each::sense API with safety checker disabled. Supports artistic nude, glamour, boudoir, fantasy, and mature themed content creation with full creative freedom.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # NSFW Content Generation with each::sense
@@ -31,18 +31,20 @@ Set the `EACHLABS_API_KEY` environment variable.
 ## Base URL
 
 ```
-https://sense.eachlabs.run
+https://eachsense-agent.core.eachlabs.run
 ```
 
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate an artistic nude portrait with renaissance painting style, soft dramatic lighting",
+    "messages": [{"role": "user", "content": "Generate an artistic nude portrait with renaissance painting style, soft dramatic lighting"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "enable_safety_checker": false
   }'
@@ -67,7 +69,8 @@ The endpoint returns Server-Sent Events (SSE) with real-time progress and the fi
 
 ```json
 {
-  "message": "string (required) - Content description",
+  "messages": [{"role": "user", "content": "string (required) - Content description"}],
+  "model": "eachsense/beta",
   "session_id": "string (optional) - Session ID for consistent characters",
   "mode": "string (optional, default: 'max') - Quality mode: 'max' or 'eco'",
   "image_urls": "array[string] (optional) - Reference images",
@@ -90,12 +93,14 @@ The endpoint returns Server-Sent Events (SSE) with real-time progress and the fi
 ### 1. Artistic Nude Portrait
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate an artistic nude portrait of a woman, renaissance painting style, soft chiaroscuro lighting, classical pose reminiscent of Botticelli, fine art gallery quality",
+    "messages": [{"role": "user", "content": "Generate an artistic nude portrait of a woman, renaissance painting style, soft chiaroscuro lighting, classical pose reminiscent of Botticelli, fine art gallery quality"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "enable_safety_checker": false
   }'
@@ -104,12 +109,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Glamour Photography
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a glamour photography shot, elegant woman in silk lingerie, luxurious bedroom setting, soft golden hour lighting through sheer curtains, high-end fashion magazine quality",
+    "messages": [{"role": "user", "content": "Generate a glamour photography shot, elegant woman in silk lingerie, luxurious bedroom setting, soft golden hour lighting through sheer curtains, high-end fashion magazine quality"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "enable_safety_checker": false
   }'
@@ -118,12 +125,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Boudoir Photography
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate an intimate boudoir photograph, woman on a vintage chaise lounge, romantic candlelit atmosphere, soft focus, warm skin tones, tasteful and elegant composition",
+    "messages": [{"role": "user", "content": "Generate an intimate boudoir photograph, woman on a vintage chaise lounge, romantic candlelit atmosphere, soft focus, warm skin tones, tasteful and elegant composition"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "enable_safety_checker": false
   }'
@@ -132,12 +141,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Fantasy Art
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a fantasy art scene, elven queen in a moonlit forest glade, ethereal beauty, flowing translucent fabrics, magical atmosphere with floating lights, sensual and mystical",
+    "messages": [{"role": "user", "content": "Generate a fantasy art scene, elven queen in a moonlit forest glade, ethereal beauty, flowing translucent fabrics, magical atmosphere with floating lights, sensual and mystical"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "enable_safety_checker": false
   }'
@@ -146,12 +157,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. Vintage Pin-Up Style
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a 1950s style pin-up illustration, playful pose, retro swimsuit, classic Vargas girl aesthetic, vibrant colors, vintage americana style",
+    "messages": [{"role": "user", "content": "Generate a 1950s style pin-up illustration, playful pose, retro swimsuit, classic Vargas girl aesthetic, vibrant colors, vintage americana style"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "enable_safety_checker": false
   }'
@@ -160,12 +173,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Fine Art Figure Study
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a classical figure study, graceful female form, marble sculpture aesthetic, dramatic studio lighting, museum quality fine art, anatomically elegant",
+    "messages": [{"role": "user", "content": "Generate a classical figure study, graceful female form, marble sculpture aesthetic, dramatic studio lighting, museum quality fine art, anatomically elegant"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "enable_safety_checker": false
   }'
@@ -174,12 +189,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Cinematic Sensual Scene
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a cinematic film still, intimate moment between lovers, noir lighting with venetian blind shadows, moody atmosphere, art house film aesthetic",
+    "messages": [{"role": "user", "content": "Generate a cinematic film still, intimate moment between lovers, noir lighting with venetian blind shadows, moody atmosphere, art house film aesthetic"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "enable_safety_checker": false
   }'
@@ -188,12 +205,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Editorial Fashion Nude
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a high fashion editorial photograph, artistic partial nude, avant-garde styling with dramatic jewelry, stark white studio background, Helmut Newton inspired composition",
+    "messages": [{"role": "user", "content": "Generate a high fashion editorial photograph, artistic partial nude, avant-garde styling with dramatic jewelry, stark white studio background, Helmut Newton inspired composition"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "enable_safety_checker": false
   }'
@@ -205,38 +224,47 @@ Use `session_id` to maintain character consistency across multiple generations:
 
 ```bash
 # First image - establish character
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a glamour portrait, woman with long auburn hair, green eyes, elegant features, wearing a silk robe, soft window lighting",
+    "messages": [{"role": "user", "content": "Generate a glamour portrait, woman with long auburn hair, green eyes, elegant features, wearing a silk robe, soft window lighting"}],
+    "model": "eachsense/beta",
     "session_id": "glamour-series-001",
     "mode": "max",
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 
 # Second image - same character, different scene
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate the same woman from the previous image, now in an outdoor setting, sheer summer dress, golden hour beach scene",
+    "messages": [{"role": "user", "content": "Generate the same woman from the previous image, now in an outdoor setting, sheer summer dress, golden hour beach scene"}],
+    "model": "eachsense/beta",
     "session_id": "glamour-series-001",
     "mode": "max",
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 
 # Third image - same character, artistic pose
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate the same woman in an artistic nude pose, classical sculpture aesthetic, studio lighting",
+    "messages": [{"role": "user", "content": "Generate the same woman in an artistic nude pose, classical sculpture aesthetic, studio lighting"}],
+    "model": "eachsense/beta",
     "session_id": "glamour-series-001",
     "mode": "max",
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 ```
@@ -246,14 +274,17 @@ curl -X POST https://sense.eachlabs.run/chat \
 Use `image_urls` to provide style or pose references:
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a glamour photograph matching the pose and lighting style from this reference image, but with a different model and setting",
+    "messages": [{"role": "user", "content": "Generate a glamour photograph matching the pose and lighting style from this reference image, but with a different model and setting"}],
+    "model": "eachsense/beta",
     "image_urls": ["https://example.com/reference-pose.jpg"],
     "mode": "max",
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 ```
@@ -265,12 +296,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Uses the highest quality models for detailed, refined output. Best for final content and publication-ready images.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate artistic boudoir photography...",
+    "messages": [{"role": "user", "content": "Generate artistic boudoir photography..."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "enable_safety_checker": false
   }'
@@ -281,13 +314,16 @@ curl -X POST https://sense.eachlabs.run/chat \
 Faster and more cost-effective. Good for testing prompts and generating drafts.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate artistic boudoir photography...",
+    "messages": [{"role": "user", "content": "Generate artistic boudoir photography..."}],
+    "model": "eachsense/beta",
     "mode": "eco",
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 ```
@@ -345,7 +381,9 @@ This API feature is intended for adult users only. By using `enable_safety_check
 
 | Error Message | Cause | Solution |
 |--------------|-------|----------|
-| `Safety check failed` | Forgot to disable safety checker | Add `"enable_safety_checker": false` |
+| `Safety check failed` | Forgot to disable safety checker | Add `"model": "eachsense/beta",
+    "stream": true,
+    "enable_safety_checker": false` |
 | `Failed to create prediction: HTTP 422` | Insufficient balance | Top up at eachlabs.ai |
 | `Invalid API key` | Missing/wrong API key | Check EACHLABS_API_KEY |
 | `Rate limit exceeded` | Too many requests | Wait and retry |
@@ -355,12 +393,14 @@ This API feature is intended for adult users only. By using `enable_safety_check
 For complex generations, increase your timeout:
 
 ```bash
-curl --max-time 600 -X POST https://sense.eachlabs.run/chat \
+curl --max-time 600 -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate detailed artistic content...",
+    "messages": [{"role": "user", "content": "Generate detailed artistic content..."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "enable_safety_checker": false
   }'

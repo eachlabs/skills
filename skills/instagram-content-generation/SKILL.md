@@ -3,7 +3,7 @@ name: instagram-content-generation
 description: Generate Instagram content using each::sense AI. Create feed posts, stories, reels covers, carousels, quote graphics, and brand visuals optimized for Instagram's formats and engagement best practices.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Instagram Content Generation
@@ -25,12 +25,14 @@ Generate engaging Instagram content using each::sense. This skill creates images
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1:1 Instagram feed post for a coffee brand showing a latte with beautiful latte art, morning light, cozy cafe vibes",
+    "messages": [{"role": "user", "content": "Create a 1:1 Instagram feed post for a coffee brand showing a latte with beautiful latte art, morning light, cozy cafe vibes"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -53,12 +55,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Classic square format for Instagram feed with maximum compatibility across all placements.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1:1 square Instagram feed post for a sustainable fashion brand. Show a model in casual earth-toned clothing against a natural outdoor background. Warm, authentic aesthetic with soft natural lighting. Clean composition suitable for a curated Instagram grid.",
+    "messages": [{"role": "user", "content": "Create a 1:1 square Instagram feed post for a sustainable fashion brand. Show a model in casual earth-toned clothing against a natural outdoor background. Warm, authentic aesthetic with soft natural lighting. Clean composition suitable for a curated Instagram grid."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -68,12 +72,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Full-screen vertical content optimized for Instagram Stories.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 9:16 Instagram Story for a yoga studio. Show a serene meditation scene with a person in lotus position, soft morning light streaming through windows, calming pastel colors. Leave safe zones at top and bottom for Instagram UI elements and swipe-up area.",
+    "messages": [{"role": "user", "content": "Create a 9:16 Instagram Story for a yoga studio. Show a serene meditation scene with a person in lotus position, soft morning light streaming through windows, calming pastel colors. Leave safe zones at top and bottom for Instagram UI elements and swipe-up area."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -83,12 +89,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Eye-catching thumbnail that represents the Reel content and encourages clicks.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 9:16 Reel cover image for a cooking tutorial. Show an appetizing finished dish (pasta with fresh basil) from above, vibrant colors, food photography style. The image should be eye-catching and make viewers want to watch the full Reel. Leave space at bottom for the Reel title overlay.",
+    "messages": [{"role": "user", "content": "Create a 9:16 Reel cover image for a cooking tutorial. Show an appetizing finished dish (pasta with fresh basil) from above, vibrant colors, food photography style. The image should be eye-catching and make viewers want to watch the full Reel. Leave space at bottom for the Reel title overlay."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -99,34 +107,40 @@ Create cohesive multi-image posts that tell a story or showcase multiple product
 
 ```bash
 # First carousel image - Cover slide
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1:1 carousel image 1 of 5 for a skincare brand. This is the cover slide showing all 5 products arranged beautifully with soft pink and white aesthetic, clean minimal background, soft shadows. Premium feel.",
+    "messages": [{"role": "user", "content": "Create a 1:1 carousel image 1 of 5 for a skincare brand. This is the cover slide showing all 5 products arranged beautifully with soft pink and white aesthetic, clean minimal background, soft shadows. Premium feel."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "skincare-carousel-001",
     "mode": "max"
   }'
 
 # Second carousel image - Product detail
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create carousel image 2 of 5. Show the cleanser product close-up with water droplets and fresh ingredients like cucumber slices. Same aesthetic and lighting as the first image.",
+    "messages": [{"role": "user", "content": "Create carousel image 2 of 5. Show the cleanser product close-up with water droplets and fresh ingredients like cucumber slices. Same aesthetic and lighting as the first image."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "skincare-carousel-001",
     "mode": "max"
   }'
 
 # Third carousel image - Another product
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create carousel image 3 of 5. Show the moisturizer with a soft texture swatch, dewy fresh feel. Maintain visual consistency with previous images.",
+    "messages": [{"role": "user", "content": "Create carousel image 3 of 5. Show the moisturizer with a soft texture swatch, dewy fresh feel. Maintain visual consistency with previous images."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "skincare-carousel-001",
     "mode": "max"
   }'
@@ -137,12 +151,15 @@ curl -X POST https://sense.eachlabs.run/chat \
 Typography-focused content that drives engagement and shares.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1:1 Instagram quote graphic with the text: \"Success is not final, failure is not fatal: it is the courage to continue that counts.\" Use a minimalist design with elegant serif typography on a soft gradient background (light beige to warm cream). Add subtle decorative elements like thin lines or small botanical illustrations. Suitable for a motivational or business coaching account.",
+    "messages": [{"role": "user", "content": "Create a 1:1 Instagram quote graphic with the text: \"Success is not final, failure is not fatal: it is the courage to continue that counts.\" Use a minimalist design with elegant serif typography on a soft gradient background (light beige to warm cream). Add subtle decorative elements like thin lines or small botanical illustrations. Suitable for a motivational or business coaching account."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -152,12 +169,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 E-commerce focused content that highlights products in lifestyle context.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 4:5 Instagram product showcase for wireless headphones. Show the headphones being worn by a stylish person in an urban setting, walking through a modern city. Lifestyle photography style with natural lighting, premium aspirational feel. The product should be clearly visible but feel natural in the scene.",
+    "messages": [{"role": "user", "content": "Create a 4:5 Instagram product showcase for wireless headphones. Show the headphones being worn by a stylish person in an urban setting, walking through a modern city. Lifestyle photography style with natural lighting, premium aspirational feel. The product should be clearly visible but feel natural in the scene."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -167,12 +186,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Authentic, candid-style content that builds connection with the audience.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1:1 behind-the-scenes Instagram post for a bakery. Show a baker in the kitchen early morning, hands covered in flour, kneading dough. Warm golden lighting, authentic and candid feel - not overly polished. Capture the passion and craft of artisan baking. Documentary photography style.",
+    "messages": [{"role": "user", "content": "Create a 1:1 behind-the-scenes Instagram post for a bakery. Show a baker in the kitchen early morning, hands covered in flour, kneading dough. Warm golden lighting, authentic and candid feel - not overly polished. Capture the passion and craft of artisan baking. Documentary photography style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -182,12 +203,15 @@ curl -X POST https://sense.eachlabs.run/chat \
 Event launches, sales, and promotional announcement content.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1:1 Instagram announcement graphic for a summer sale. Bold, eye-catching design with tropical vibes - palm leaves, bright colors (coral, turquoise, sunny yellow). Leave clear space for text overlay that will say \"SUMMER SALE - UP TO 50% OFF\". Modern, fresh, energetic aesthetic suitable for a fashion brand.",
+    "messages": [{"role": "user", "content": "Create a 1:1 Instagram announcement graphic for a summer sale. Bold, eye-catching design with tropical vibes - palm leaves, bright colors (coral, turquoise, sunny yellow). Leave clear space for text overlay that will say \"SUMMER SALE - UP TO 50% OFF\". Modern, fresh, energetic aesthetic suitable for a fashion brand."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -197,12 +221,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Curated overhead product arrangements popular for lifestyle and product brands.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1:1 Instagram flat lay for a travel brand. Overhead shot of travel essentials arranged aesthetically: passport, sunglasses, straw hat, camera, map, coffee cup, and small succulent. Marble or light wood surface background. Clean, organized, Pinterest-worthy composition with soft natural lighting. Wanderlust aesthetic.",
+    "messages": [{"role": "user", "content": "Create a 1:1 Instagram flat lay for a travel brand. Overhead shot of travel essentials arranged aesthetically: passport, sunglasses, straw hat, camera, map, coffee cup, and small succulent. Marble or light wood surface background. Clean, organized, Pinterest-worthy composition with soft natural lighting. Wanderlust aesthetic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -213,34 +239,40 @@ Create cohesive visuals that contribute to a unified Instagram grid aesthetic.
 
 ```bash
 # First grid image
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1:1 Instagram post for a minimalist home decor brand. Show a clean, modern living room corner with a simple plant, neutral tones (white, beige, light gray), lots of negative space. This is part of a cohesive grid aesthetic - keep colors muted and style consistent. Scandinavian interior design influence.",
+    "messages": [{"role": "user", "content": "Create a 1:1 Instagram post for a minimalist home decor brand. Show a clean, modern living room corner with a simple plant, neutral tones (white, beige, light gray), lots of negative space. This is part of a cohesive grid aesthetic - keep colors muted and style consistent. Scandinavian interior design influence."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "home-decor-grid",
     "mode": "max"
   }'
 
 # Second grid image - maintaining consistency
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create another 1:1 post for the same minimalist home decor brand. Show a bedroom detail - perhaps a textured throw on a bed with a small nightstand. Same color palette and aesthetic as the previous image to maintain grid cohesion.",
+    "messages": [{"role": "user", "content": "Create another 1:1 post for the same minimalist home decor brand. Show a bedroom detail - perhaps a textured throw on a bed with a small nightstand. Same color palette and aesthetic as the previous image to maintain grid cohesion."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "home-decor-grid",
     "mode": "max"
   }'
 
 # Third grid image
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a third 1:1 post continuing the grid aesthetic. Show a close-up of a ceramic vase with dried pampas grass. Same minimalist, neutral, Scandinavian-inspired style.",
+    "messages": [{"role": "user", "content": "Create a third 1:1 post continuing the grid aesthetic. Show a close-up of a ceramic vase with dried pampas grass. Same minimalist, neutral, Scandinavian-inspired style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "home-decor-grid",
     "mode": "max"
   }'
@@ -309,32 +341,38 @@ Use `session_id` to iterate on content and maintain visual consistency:
 
 ```bash
 # Initial concept
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1:1 Instagram post for a jewelry brand, elegant and minimal",
+    "messages": [{"role": "user", "content": "Create a 1:1 Instagram post for a jewelry brand, elegant and minimal"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "jewelry-content"
   }'
 
 # Iterate based on feedback
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Make it more luxurious, add soft bokeh background with golden tones",
+    "messages": [{"role": "user", "content": "Make it more luxurious, add soft bokeh background with golden tones"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "jewelry-content"
   }'
 
 # Request Story version
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now create a 9:16 Story version of this same visual style",
+    "messages": [{"role": "user", "content": "Now create a 9:16 Story version of this same visual style"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "jewelry-content"
   }'
 ```
@@ -345,32 +383,38 @@ Generate multiple pieces of content for planning:
 
 ```bash
 # Monday motivation
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1:1 motivational Monday post for a fitness brand - energetic gym scene, morning workout vibes",
+    "messages": [{"role": "user", "content": "Create a 1:1 motivational Monday post for a fitness brand - energetic gym scene, morning workout vibes"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 
 # Wednesday product feature
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1:1 product showcase for the same fitness brand - protein shake in a gym bag flat lay",
+    "messages": [{"role": "user", "content": "Create a 1:1 product showcase for the same fitness brand - protein shake in a gym bag flat lay"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 
 # Friday lifestyle
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1:1 lifestyle post for the same fitness brand - friends laughing after a workout, feel-good Friday vibes",
+    "messages": [{"role": "user", "content": "Create a 1:1 lifestyle post for the same fitness brand - friends laughing after a workout, feel-good Friday vibes"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 ```

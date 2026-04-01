@@ -1,230 +1,481 @@
-# SSE Events Reference
+# SSE Event Reference
 
-Server-Sent Events (SSE) reference for the each::sense API streaming responses.
+Detailed documentation for all Server-Sent Events (SSE) returned by the each::sense `/v1/chat/completions` endpoint.
 
-## Event Types
+## Event Format
+
+Events are wrapped in OpenAI `chat.completion.chunk` format with an `eachlabs` extension field:
+```
+data: {"id":"chatcmpl-123","object":"chat.completion.chunk","choices":[{"delta":{"content":""}}],"eachlabs":{"type":"event_type",...}}\n\n
+```
+
+Stream ends with:
+```
+data: [DONE]\n\n
+```
+
+---
+
+## Event Types (18 Total)
 
 ### thinking_delta
-Incremental thinking/reasoning updates from the model.
+
+AI reasoning streamed in real-time. Use this to show users what the AI is thinking.
 
 ```json
 {
   "type": "thinking_delta",
-  "content": "Analyzing the request parameters..."
+  "content": "Let me find the best model for portrait generation..."
 }
 ```
 
-### status
-Current processing status updates.
+| Field | Type | Description |
+|-------|------|-------------|
+| `content` | string | Incremental thinking text |
 
-```json
-{
-  "type": "status",
-  "status": "processing",
-  "message": "Generating creative assets"
-}
-```
+---
 
 ### text_response
-Text content streaming from the model.
+
+Assistant message content (explanations, answers, plans).
 
 ```json
 {
   "type": "text_response",
-  "content": "Here is the generated ad copy...",
-  "delta": "ad copy"
+  "content": "I'll create a stunning portrait for you with cinematic lighting and a warm mood."
 }
 ```
 
-### generation_response
-Media generation results (images, videos, audio).
+| Field | Type | Description |
+|-------|------|-------------|
+| `content` | string | Text response content |
+
+---
+
+### status
+
+Current operation being executed. Shows tool usage and parameters.
 
 ```json
 {
-  "type": "generation_response",
-  "media_type": "video",
-  "url": "https://cdn.example.com/output.mp4",
-  "metadata": {
-    "duration": 15,
-    "resolution": "1080x1920"
+  "type": "status",
+  "message": "Searching for image generation models...",
+  "tool_name": "search_models",
+  "parameters": {"use_case": "text to image portrait"}
+}
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `message` | string | Human-readable status message |
+| `tool_name` | string | Internal tool being used |
+| `parameters` | object | Tool parameters (optional) |
+
+---
+
+### tool_call
+
+Details of a tool being called. Useful for debugging and transparency.
+
+```json
+{
+  "type": "tool_call",
+  "name": "execute_model",
+  "input": {
+    "model_name": "flux-2-max",
+    "inputs": {
+      "prompt": "A beautiful woman portrait...",
+      "aspect_ratio": "1:1"
+    }
   }
 }
 ```
 
+| Field | Type | Description |
+|-------|------|-------------|
+| `name` | string | Tool name |
+| `input` | object | Tool input parameters |
+
+---
+
+### message
+
+Informational message from the agent.
+
+```json
+{
+  "type": "message",
+  "content": "Your video is being processed. This typically takes 2-3 minutes."
+}
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `content` | string | Message content |
+
+---
+
+### progress
+
+Progress update with percentage completion.
+
+```json
+{
+  "type": "progress",
+  "message": "Generating image...",
+  "percent": 65
+}
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `message` | string | Progress description |
+| `percent` | number | Completion percentage |
+
+---
+
+### generation_response
+
+Generated media URL (image, video, audio). This is the primary output event.
+
+```json
+{
+  "type": "generation_response",
+  "url": "https://storage.eachlabs.ai/outputs/abc123.png",
+  "generations": ["https://storage.eachlabs.ai/outputs/abc123.png"],
+  "model": "flux-2-max",
+  "execution_time_ms": 8500
+}
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `url` | string | Primary output URL |
+| `generations` | array | All generated URLs |
+| `model` | string | Model used for generation |
+| `execution_time_ms` | number | Processing time in milliseconds |
+
+---
+
 ### clarification_needed
-Request for additional user input.
+
+AI needs more information to proceed. Present options to the user.
 
 ```json
 {
   "type": "clarification_needed",
-  "question": "What is the target audience for this ad?",
-  "options": ["Gen Z", "Millennials", "General"]
+  "question": "What type of edit would you like to make to this image?",
+  "options": [
+    "Remove the background",
+    "Apply a style transfer",
+    "Upscale to higher resolution",
+    "Add or modify elements"
+  ],
+  "context": "I can see you've uploaded an image, but I need to understand what changes you'd like.",
+  "requires_response": true
 }
 ```
 
-### workflow_started
-Workflow execution has begun.
+| Field | Type | Description |
+|-------|------|-------------|
+| `question` | string | The question to ask the user |
+| `options` | array | Suggested options (can be displayed as buttons) |
+| `context` | string | Additional context about the clarification |
+| `requires_response` | boolean | Whether a response is required to proceed |
+
+**Handling:** Display the question and options to the user. Send their response in a follow-up request with the same `session_id`.
+
+---
+
+### web_search_query
+
+Web search being executed.
 
 ```json
 {
-  "type": "workflow_started",
+  "type": "web_search_query",
+  "query": "best AI video generation models 2024",
+  "recency": "month"
+}
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `query` | string | Search query |
+| `recency` | string | Time filter (day, week, month, year) |
+
+---
+
+### web_search_citations
+
+Citations from web search results.
+
+```json
+{
+  "type": "web_search_citations",
+  "citations": [
+    {"title": "AI Video Comparison", "url": "https://example.com/ai-video", "snippet": "..."}
+  ]
+}
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `citations` | array | Array of objects with `title`, `url`, `snippet` |
+
+---
+
+### workflow_created
+
+New workflow was created for complex multi-step generation.
+
+```json
+{
+  "type": "workflow_created",
   "workflow_id": "wf_abc123",
-  "workflow_name": "tiktok_ad_pipeline"
+  "version_id": "v1",
+  "steps_count": 5
 }
 ```
 
-### workflow_step
-Individual workflow step progress.
+| Field | Type | Description |
+|-------|------|-------------|
+| `workflow_id` | string | Unique workflow identifier |
+| `version_id` | string | Workflow version |
+| `steps_count` | number | Number of steps in workflow |
+
+---
+
+### workflow_fetched
+
+Existing workflow was loaded (when `workflow_id` is provided in request).
 
 ```json
 {
-  "type": "workflow_step",
-  "step": 2,
-  "total_steps": 5,
-  "step_name": "generate_visuals",
-  "status": "running"
+  "type": "workflow_fetched",
+  "workflow_name": "Product Video Generator",
+  "existing_steps": 3,
+  "existing_definition": {}
 }
 ```
 
-### workflow_completed
-Workflow execution finished.
+| Field | Type | Description |
+|-------|------|-------------|
+| `workflow_name` | string | Name of the workflow |
+| `existing_steps` | number | Number of existing steps |
+| `existing_definition` | object | Current workflow definition |
+
+---
+
+### workflow_built
+
+Workflow definition was constructed.
 
 ```json
 {
-  "type": "workflow_completed",
+  "type": "workflow_built",
+  "steps_count": 4,
+  "definition": {
+    "version": "v1",
+    "input_schema": {},
+    "steps": []
+  }
+}
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `steps_count` | number | Number of steps |
+| `definition` | object | Full workflow definition |
+
+---
+
+### workflow_updated
+
+Workflow was pushed to the EachLabs API.
+
+```json
+{
+  "type": "workflow_updated",
+  "success": true,
   "workflow_id": "wf_abc123",
-  "duration_ms": 12500
+  "version_id": "v1",
+  "definition": {}
 }
 ```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `success` | boolean | Whether update succeeded |
+| `workflow_id` | string | Workflow identifier |
+| `version_id` | string | Version identifier |
+| `definition` | object | Updated definition |
+
+---
 
 ### execution_started
-Task execution has begun.
+
+Workflow execution has begun.
 
 ```json
 {
   "type": "execution_started",
   "execution_id": "exec_xyz789",
-  "task": "video_generation"
+  "workflow_id": "wf_abc123"
 }
 ```
 
+| Field | Type | Description |
+|-------|------|-------------|
+| `execution_id` | string | Unique execution identifier |
+| `workflow_id` | string | Workflow being executed |
+
+---
+
 ### execution_progress
-Task execution progress update.
+
+Progress update during workflow execution.
 
 ```json
 {
   "type": "execution_progress",
-  "execution_id": "exec_xyz789",
-  "progress": 65,
-  "message": "Rendering frames..."
+  "step_id": "step2",
+  "completed_steps": 2,
+  "total_steps": 5
 }
 ```
 
+| Field | Type | Description |
+|-------|------|-------------|
+| `step_id` | string | Current step identifier |
+| `completed_steps` | number | Steps completed so far |
+| `total_steps` | number | Total steps in workflow |
+
+---
+
 ### execution_completed
-Task execution finished.
+
+Workflow execution finished.
 
 ```json
 {
   "type": "execution_completed",
   "execution_id": "exec_xyz789",
-  "result": {
-    "output_url": "https://cdn.example.com/result.mp4"
-  }
+  "output": "https://storage.eachlabs.ai/outputs/final.mp4",
+  "all_outputs": {
+    "step1": "https://storage.eachlabs.ai/outputs/step1.png",
+    "step2": "https://storage.eachlabs.ai/outputs/step2.png",
+    "step3": "https://storage.eachlabs.ai/outputs/final.mp4"
+  },
+  "total_time_ms": 45000
 }
 ```
 
-### tool_call
-Model invoking an external tool.
+| Field | Type | Description |
+|-------|------|-------------|
+| `execution_id` | string | Execution identifier |
+| `output` | string | Final output URL |
+| `all_outputs` | object | All step outputs keyed by step_id |
+| `total_time_ms` | number | Total execution time in milliseconds |
 
-```json
-{
-  "type": "tool_call",
-  "tool_name": "image_generator",
-  "tool_id": "call_001",
-  "parameters": {
-    "prompt": "Product showcase with dynamic lighting",
-    "aspect_ratio": "9:16"
-  }
-}
-```
-
-### tool_result
-Result from a tool invocation.
-
-```json
-{
-  "type": "tool_result",
-  "tool_id": "call_001",
-  "result": {
-    "image_url": "https://cdn.example.com/image.png"
-  }
-}
-```
-
-### message
-General informational message.
-
-```json
-{
-  "type": "message",
-  "role": "assistant",
-  "content": "Processing your TikTok ad creative request."
-}
-```
+---
 
 ### complete
-Stream finished successfully.
+
+Final event with summary. Always sent when stream completes.
 
 ```json
 {
   "type": "complete",
-  "usage": {
-    "input_tokens": 150,
-    "output_tokens": 420
-  }
+  "task_id": "chat_1708345678901",
+  "status": "ok",
+  "generations": ["https://storage.eachlabs.ai/outputs/abc123.png"],
+  "model": "flux-2-max"
 }
 ```
 
+| Field | Type | Description |
+|-------|------|-------------|
+| `task_id` | string | Unique task identifier |
+| `status` | string | Final status (ok, error, clarification_needed) |
+| `generations` | array | All generated output URLs |
+| `model` | string | Primary model used |
+
+**Status values:**
+- `ok` - Completed successfully
+- `clarification_needed` - Waiting for user clarification
+- `error` - An error occurred
+
+---
+
 ### error
-Error occurred during processing.
+
+An error occurred during processing.
 
 ```json
 {
   "type": "error",
-  "code": "GENERATION_FAILED",
-  "message": "Video generation timed out",
-  "retry_after": 5
+  "message": "Failed to generate image: Invalid aspect ratio",
+  "error_code": "INVALID_INPUT",
+  "details": {}
 }
 ```
 
+| Field | Type | Description |
+|-------|------|-------------|
+| `message` | string | Error message |
+| `error_code` | string | Error code identifier |
+| `details` | object | Additional error details |
+
+---
+
 ## Event Flow Examples
 
-### Simple Text Generation
+### Simple Image Generation
+
 ```
-thinking_delta -> thinking_delta -> text_response -> text_response -> complete
+thinking_delta → "I'll create a beautiful portrait..."
+status → "Searching for models..."
+status → "Getting model details..."
+text_response → "Here's your generated image..."
+generation_response → {url: "https://...", model: "flux-2-max", execution_time_ms: 8500}
+complete → {status: "ok", generations: [...]}
+[DONE]
 ```
 
-### Media Generation with Tool Call
+### Clarification Flow
+
 ```
-status (processing) -> tool_call -> execution_started -> execution_progress ->
-execution_completed -> tool_result -> generation_response -> complete
+thinking_delta → "I see an image, but need to know what edit..."
+clarification_needed → {question: "What edit?", options: [...]}
+complete → {status: "clarification_needed"}
+[DONE]
 ```
 
 ### Workflow Execution
+
 ```
-workflow_started -> workflow_step (1/3) -> tool_call -> tool_result ->
-workflow_step (2/3) -> execution_started -> execution_progress -> execution_completed ->
-workflow_step (3/3) -> generation_response -> workflow_completed -> complete
+thinking_delta → "Creating a multi-step workflow..."
+status → "Searching for models..."
+workflow_created → {workflow_id: "wf_123", steps_count: 5}
+execution_started → {execution_id: "exec_456"}
+execution_progress → {completed_steps: 1, total_steps: 5}
+execution_progress → {completed_steps: 2, total_steps: 5}
+execution_progress → {completed_steps: 3, total_steps: 5}
+execution_progress → {completed_steps: 4, total_steps: 5}
+execution_completed → {output: "https://...", all_outputs: {...}, total_time_ms: 45000}
+complete → {status: "ok"}
+[DONE]
 ```
 
-### Error Recovery Flow
-```
-status (processing) -> execution_started -> error -> status (retrying) ->
-execution_started -> execution_completed -> complete
-```
+### Web Search
 
-### Interactive Flow with Clarification
 ```
-thinking_delta -> clarification_needed -> [user response] ->
-thinking_delta -> tool_call -> tool_result -> generation_response -> complete
+thinking_delta → "Let me search for current information..."
+web_search_query → {query: "best AI models 2024"}
+status → "Searching the web..."
+web_search_citations → {citations: [{title, url, snippet}, ...]}
+text_response → "Based on current information..."
+complete → {status: "ok"}
+[DONE]
 ```

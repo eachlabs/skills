@@ -3,7 +3,7 @@ name: video-format-conversion
 description: Convert videos between formats, codecs, and aspect ratios using each::sense AI. Support for MP4, WebM, GIF, ProRes, and social media optimized outputs.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Video Format Conversion
@@ -23,12 +23,14 @@ Convert videos between formats, codecs, and aspect ratios using each::sense. Thi
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Convert this video to MP4 H.264 format optimized for web playback",
+    "messages": [{"role": "user", "content": "Convert this video to MP4 H.264 format optimized for web playback"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/source-video.mov"]
   }'
@@ -62,12 +64,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Standard MP4 conversion with H.264 codec for maximum compatibility.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Convert this video to MP4 with H.264 codec. Use high quality settings with a bitrate suitable for 1080p playback. Maintain original aspect ratio.",
+    "messages": [{"role": "user", "content": "Convert this video to MP4 with H.264 codec. Use high quality settings with a bitrate suitable for 1080p playback. Maintain original aspect ratio."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/source-video.mov"]
   }'
@@ -78,12 +82,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 WebM format with VP9 codec for efficient web delivery.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Convert this MP4 video to WebM format using VP9 codec. Optimize for web streaming with good quality at smaller file size. Target around 5 Mbps bitrate.",
+    "messages": [{"role": "user", "content": "Convert this MP4 video to WebM format using VP9 codec. Optimize for web streaming with good quality at smaller file size. Target around 5 Mbps bitrate."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/source-video.mp4"]
   }'
@@ -94,12 +100,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create animated GIF from video for social sharing and previews.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Convert this video to an animated GIF. Use the first 5 seconds, resize to 480px width, and optimize for file size under 10MB. Create a smooth loop if possible.",
+    "messages": [{"role": "user", "content": "Convert this video to an animated GIF. Use the first 5 seconds, resize to 480px width, and optimize for file size under 10MB. Create a smooth loop if possible."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco",
     "image_urls": ["https://example.com/source-video.mp4"]
   }'
@@ -110,12 +118,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Transform landscape video to vertical format for mobile platforms.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Convert this 16:9 landscape video to 9:16 vertical format. Use smart cropping to keep the main subject centered. Output as MP4 H.264 at 1080x1920 resolution.",
+    "messages": [{"role": "user", "content": "Convert this 16:9 landscape video to 9:16 vertical format. Use smart cropping to keep the main subject centered. Output as MP4 H.264 at 1080x1920 resolution."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/landscape-video.mp4"]
   }'
@@ -126,12 +136,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create square format video for Instagram feed and Twitter.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Convert this video to 1:1 square format at 1080x1080 resolution. Center crop the content and output as MP4 with H.264 codec optimized for social media.",
+    "messages": [{"role": "user", "content": "Convert this video to 1:1 square format at 1080x1080 resolution. Center crop the content and output as MP4 with H.264 codec optimized for social media."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/widescreen-video.mp4"]
   }'
@@ -142,12 +154,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Classic 4:3 aspect ratio for presentations and legacy displays.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Convert this 16:9 video to 4:3 aspect ratio. Add letterboxing or pillarboxing as needed rather than cropping. Output at 1440x1080 resolution in MP4 format.",
+    "messages": [{"role": "user", "content": "Convert this 16:9 video to 4:3 aspect ratio. Add letterboxing or pillarboxing as needed rather than cropping. Output at 1440x1080 resolution in MP4 format."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco",
     "image_urls": ["https://example.com/widescreen-video.mp4"]
   }'
@@ -158,12 +172,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create web-optimized video with fast start and adaptive quality.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Optimize this video for web streaming. Convert to MP4 H.264 with faststart enabled for progressive download. Use 2-pass encoding, target 3-5 Mbps bitrate, AAC audio at 128kbps. Ensure moov atom is at the beginning for instant playback.",
+    "messages": [{"role": "user", "content": "Optimize this video for web streaming. Convert to MP4 H.264 with faststart enabled for progressive download. Use 2-pass encoding, target 3-5 Mbps bitrate, AAC audio at 128kbps. Ensure moov atom is at the beginning for instant playback."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/raw-video.mov"]
   }'
@@ -174,12 +190,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Professional ProRes format for video editing workflows.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Convert this video to Apple ProRes 422 format in a MOV container. Maintain original resolution and frame rate. This is for professional editing in Final Cut Pro and DaVinci Resolve.",
+    "messages": [{"role": "user", "content": "Convert this video to Apple ProRes 422 format in a MOV container. Maintain original resolution and frame rate. This is for professional editing in Final Cut Pro and DaVinci Resolve."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/compressed-video.mp4"]
   }'
@@ -190,12 +208,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Platform-optimized video for Instagram Reels and TikTok.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Convert this video for Instagram Reels and TikTok. Use 9:16 aspect ratio at 1080x1920, MP4 H.264 codec, 30fps, and optimize for mobile playback. Keep file size under 100MB and duration under 60 seconds.",
+    "messages": [{"role": "user", "content": "Convert this video for Instagram Reels and TikTok. Use 9:16 aspect ratio at 1080x1920, MP4 H.264 codec, 30fps, and optimize for mobile playback. Keep file size under 100MB and duration under 60 seconds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/source-video.mov"]
   }'
@@ -207,36 +227,42 @@ Process multiple videos in a single session with consistent settings.
 
 ```bash
 # Start batch conversion session
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "I need to convert multiple videos to MP4 H.264 format at 1080p. All videos should use the same encoding settings: H.264 High Profile, 8 Mbps bitrate, AAC audio at 192kbps. Start with this first video.",
+    "messages": [{"role": "user", "content": "I need to convert multiple videos to MP4 H.264 format at 1080p. All videos should use the same encoding settings: H.264 High Profile, 8 Mbps bitrate, AAC audio at 192kbps. Start with this first video."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "batch-convert-001",
     "mode": "eco",
     "image_urls": ["https://example.com/video1.mov"]
   }'
 
 # Continue with second video (same session)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Convert the next video with the same settings.",
+    "messages": [{"role": "user", "content": "Convert the next video with the same settings."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "batch-convert-001",
     "mode": "eco",
     "image_urls": ["https://example.com/video2.mov"]
   }'
 
 # Continue with third video
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Convert this one too, same format.",
+    "messages": [{"role": "user", "content": "Convert this one too, same format."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "batch-convert-001",
     "mode": "eco",
     "image_urls": ["https://example.com/video3.mov"]
@@ -260,33 +286,39 @@ Use `session_id` to maintain context for iterative conversions:
 
 ```bash
 # Initial conversion
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Convert this video to MP4 for YouTube at 1080p",
+    "messages": [{"role": "user", "content": "Convert this video to MP4 for YouTube at 1080p"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "youtube-upload-project",
     "image_urls": ["https://example.com/raw-footage.mov"]
   }'
 
 # Request different format from same source
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now create a vertical version of that same video for YouTube Shorts at 9:16",
+    "messages": [{"role": "user", "content": "Now create a vertical version of that same video for YouTube Shorts at 9:16"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "youtube-upload-project"
   }'
 
 # Request thumbnail extraction
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Extract a thumbnail from the best frame of that video",
+    "messages": [{"role": "user", "content": "Extract a thumbnail from the best frame of that video"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "youtube-upload-project"
   }'
 ```

@@ -4,7 +4,7 @@ description: Generate professional real estate photography, virtual staging, int
 metadata:
   category: real-estate
   api: each::sense
-  endpoint: https://sense.eachlabs.run/chat
+  endpoint: https://eachsense-agent.core.eachlabs.run/v1/chat/completions
   method: POST
   features:
     - listing-photos
@@ -31,12 +31,14 @@ The each::sense API provides comprehensive real estate visualization capabilitie
 ## Quick Start
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a professional real estate photo of a modern 3-bedroom house exterior with manicured lawn, blue sky, warm afternoon lighting",
+    "messages": [{"role": "user", "content": "Generate a professional real estate photo of a modern 3-bedroom house exterior with manicured lawn, blue sky, warm afternoon lighting"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -60,12 +62,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Generate a classic front-of-house listing photo:
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Professional real estate exterior photo of a two-story colonial house with white siding, black shutters, red front door, landscaped front yard with flowering bushes, paved driveway, bright sunny day with blue sky and white clouds, wide angle lens perspective, HDR photography style",
+    "messages": [{"role": "user", "content": "Professional real estate exterior photo of a two-story colonial house with white siding, black shutters, red front door, landscaped front yard with flowering bushes, paved driveway, bright sunny day with blue sky and white clouds, wide angle lens perspective, HDR photography style"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -75,12 +79,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Create an inviting living space photo:
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Bright and airy open concept living room, hardwood floors, large windows with natural light streaming in, modern gray sectional sofa, white walls, fireplace with stone surround, 10 foot ceilings, professional real estate interior photography, wide angle shot",
+    "messages": [{"role": "user", "content": "Bright and airy open concept living room, hardwood floors, large windows with natural light streaming in, modern gray sectional sofa, white walls, fireplace with stone surround, 10 foot ceilings, professional real estate interior photography, wide angle shot"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -90,12 +96,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Showcase a stunning kitchen:
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Modern farmhouse kitchen with white shaker cabinets, quartz countertops, stainless steel appliances, large center island with pendant lighting, subway tile backsplash, breakfast nook with window, professional real estate photography, bright natural lighting, wide angle perspective highlighting the spacious layout",
+    "messages": [{"role": "user", "content": "Modern farmhouse kitchen with white shaker cabinets, quartz countertops, stainless steel appliances, large center island with pendant lighting, subway tile backsplash, breakfast nook with window, professional real estate photography, bright natural lighting, wide angle perspective highlighting the spacious layout"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -105,12 +113,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Transform an empty room using an existing photo:
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Virtually stage this empty living room with contemporary furniture: a modern beige sectional sofa, glass coffee table, area rug, floor lamp, wall art, potted plants. Keep the existing room architecture, flooring, and windows. Make it look professionally staged and inviting for real estate listing",
+    "messages": [{"role": "user", "content": "Virtually stage this empty living room with contemporary furniture: a modern beige sectional sofa, glass coffee table, area rug, floor lamp, wall art, potted plants. Keep the existing room architecture, flooring, and windows. Make it look professionally staged and inviting for real estate listing"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/empty-living-room.jpg"],
     "mode": "max"
   }'
@@ -121,12 +131,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Create dramatic evening curb appeal:
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Luxury home exterior at twilight, dusk photography, warm interior lights glowing through windows, dramatic purple and orange sky, landscape lighting illuminating walkway and architectural features, modern Mediterranean style villa, pool visible with underwater lighting, professional real estate twilight photography",
+    "messages": [{"role": "user", "content": "Luxury home exterior at twilight, dusk photography, warm interior lights glowing through windows, dramatic purple and orange sky, landscape lighting illuminating walkway and architectural features, modern Mediterranean style villa, pool visible with underwater lighting, professional real estate twilight photography"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -136,12 +148,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Visualize a bathroom remodel:
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Modern spa-like master bathroom renovation, freestanding soaking tub, walk-in shower with frameless glass and rainfall showerhead, double vanity with vessel sinks, large format marble tiles, LED mirror lighting, heated floors, neutral palette with brass fixtures, professional interior photography",
+    "messages": [{"role": "user", "content": "Modern spa-like master bathroom renovation, freestanding soaking tub, walk-in shower with frameless glass and rainfall showerhead, double vanity with vessel sinks, large format marble tiles, LED mirror lighting, heated floors, neutral palette with brass fixtures, professional interior photography"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -151,12 +165,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Showcase outdoor living areas:
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Expansive backyard with covered patio, outdoor kitchen with built-in grill and bar seating, rectangular swimming pool with spa, manicured lawn, mature landscaping, string lights overhead, outdoor fireplace, comfortable seating area, golden hour lighting, professional real estate photography showing entire outdoor space",
+    "messages": [{"role": "user", "content": "Expansive backyard with covered patio, outdoor kitchen with built-in grill and bar seating, rectangular swimming pool with spa, manicured lawn, mature landscaping, string lights overhead, outdoor fireplace, comfortable seating area, golden hour lighting, professional real estate photography showing entire outdoor space"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -166,12 +182,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Generate overhead property perspectives:
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Aerial drone photography of residential property on 2-acre lot, birds eye view showing ranch-style home, detached 3-car garage, swimming pool, tennis court, circular driveway, surrounded by trees, neighboring properties visible, clear sunny day, professional real estate aerial photography",
+    "messages": [{"role": "user", "content": "Aerial drone photography of residential property on 2-acre lot, birds eye view showing ranch-style home, detached 3-car garage, swimming pool, tennis court, circular driveway, surrounded by trees, neighboring properties visible, clear sunny day, professional real estate aerial photography"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -181,12 +199,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Visualize architectural plans:
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "3D architectural render of open floor plan home interior, view from above at 45 degree angle showing living room flowing into kitchen and dining area, furniture placed throughout, realistic materials and textures, afternoon sunlight through windows, architectural visualization style, professional quality",
+    "messages": [{"role": "user", "content": "3D architectural render of open floor plan home interior, view from above at 45 degree angle showing living room flowing into kitchen and dining area, furniture placed throughout, realistic materials and textures, afternoon sunlight through windows, architectural visualization style, professional quality"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -196,12 +216,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Show transformation potential:
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Transform this dated kitchen into a modern renovation: replace oak cabinets with white shaker style, add quartz countertops, install stainless steel appliances, update to pendant lighting over island, add subway tile backsplash, keep the same window and layout, photorealistic renovation preview",
+    "messages": [{"role": "user", "content": "Transform this dated kitchen into a modern renovation: replace oak cabinets with white shaker style, add quartz countertops, install stainless steel appliances, update to pendant lighting over island, add subway tile backsplash, keep the same window and layout, photorealistic renovation preview"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/dated-kitchen.jpg"],
     "mode": "max"
   }'
@@ -212,12 +234,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 The `image_urls` parameter enables powerful virtual staging and renovation visualization by providing existing property photos as reference:
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Virtually stage this empty bedroom as a luxurious master suite: king size bed with upholstered headboard, matching nightstands with lamps, bench at foot of bed, area rug, curtains on windows, tasteful artwork. Maintain the room dimensions, flooring, and natural light from the windows",
+    "messages": [{"role": "user", "content": "Virtually stage this empty bedroom as a luxurious master suite: king size bed with upholstered headboard, matching nightstands with lamps, bench at foot of bed, area rug, curtains on windows, tasteful artwork. Maintain the room dimensions, flooring, and natural light from the windows"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://your-domain.com/empty-bedroom-photo.jpg"],
     "mode": "max"
   }'
@@ -279,22 +303,26 @@ Choose the appropriate mode based on your quality and speed requirements:
 
 ```bash
 # High-quality listing photo
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Luxury master bedroom with king bed, tray ceiling, sitting area by bay window",
+    "messages": [{"role": "user", "content": "Luxury master bedroom with king bed, tray ceiling, sitting area by bay window"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 
 # Quick concept preview
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Modern kitchen concept with waterfall island",
+    "messages": [{"role": "user", "content": "Modern kitchen concept with waterfall island"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 ```
@@ -305,34 +333,40 @@ Use `session_id` to maintain consistency when generating multiple images for the
 
 ```bash
 # Generate exterior shot
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Modern craftsman style home exterior, gray siding with white trim, covered front porch, landscaped yard, sunny day",
+    "messages": [{"role": "user", "content": "Modern craftsman style home exterior, gray siding with white trim, covered front porch, landscaped yard, sunny day"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "property-123-listing",
     "mode": "max"
   }'
 
 # Generate matching interior - maintains style consistency
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Living room interior of this craftsman home, matching the exterior style, built-in bookshelves, hardwood floors, neutral palette",
+    "messages": [{"role": "user", "content": "Living room interior of this craftsman home, matching the exterior style, built-in bookshelves, hardwood floors, neutral palette"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "property-123-listing",
     "mode": "max"
   }'
 
 # Generate kitchen with same style language
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Kitchen of this craftsman home, shaker cabinets, apron sink, butcher block island, consistent with the home style",
+    "messages": [{"role": "user", "content": "Kitchen of this craftsman home, shaker cabinets, apron sink, butcher block island, consistent with the home style"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "property-123-listing",
     "mode": "max"
   }'
@@ -350,12 +384,14 @@ Handle API responses appropriately in your integration:
 
 ```bash
 # Request with error handling
-response=$(curl -s -w "\n%{http_code}" -X POST "https://sense.eachlabs.run/chat" \
+response=$(curl -s -w "\n%{http_code}" -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Modern house exterior photo",
+    "messages": [{"role": "user", "content": "Modern house exterior photo"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }')
 

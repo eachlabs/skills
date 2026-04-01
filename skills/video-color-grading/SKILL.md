@@ -3,7 +3,7 @@ name: video-color-grading
 description: Apply professional color grading and correction to videos using each::sense AI. Create cinematic looks, film emulations, color corrections, and stylized grades for any video content.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Video Color Grading
@@ -24,12 +24,14 @@ Apply professional color grading and color correction to videos using each::sens
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Apply a cinematic color grade to this video with teal shadows and warm highlights",
+    "messages": [{"role": "user", "content": "Apply a cinematic color grade to this video with teal shadows and warm highlights"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/my-video.mp4"]
   }'
@@ -53,12 +55,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Cinematic Color Grade
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Apply a cinematic color grade to this video. I want crushed blacks, slightly desaturated midtones, and a subtle teal push in the shadows with warm highlights. Make it look like a modern Hollywood film.",
+    "messages": [{"role": "user", "content": "Apply a cinematic color grade to this video. I want crushed blacks, slightly desaturated midtones, and a subtle teal push in the shadows with warm highlights. Make it look like a modern Hollywood film."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/raw-footage.mp4"]
   }'
@@ -67,12 +71,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Film Emulation (Kodak Vision3)
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Color grade this video to look like it was shot on Kodak Vision3 500T film stock. I want that classic film look with natural skin tones, rich shadows, and subtle grain. Tungsten balanced with warm color science.",
+    "messages": [{"role": "user", "content": "Color grade this video to look like it was shot on Kodak Vision3 500T film stock. I want that classic film look with natural skin tones, rich shadows, and subtle grain. Tungsten balanced with warm color science."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/digital-footage.mp4"]
   }'
@@ -81,12 +87,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Orange and Teal Look
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Apply the classic orange and teal color grade to this video. Push warm orange tones into the skin and highlights, and cool teal into the shadows and backgrounds. Make it punchy like a Michael Bay film but not over the top.",
+    "messages": [{"role": "user", "content": "Apply the classic orange and teal color grade to this video. Push warm orange tones into the skin and highlights, and cool teal into the shadows and backgrounds. Make it punchy like a Michael Bay film but not over the top."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/action-scene.mp4"]
   }'
@@ -95,12 +103,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Vintage/Retro Color Grade
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Give this video a vintage 1980s look. Faded blacks, warm color cast, reduced saturation with boosted reds and yellows. Add subtle softness and that nostalgic analog feel. Think retro music video aesthetic.",
+    "messages": [{"role": "user", "content": "Give this video a vintage 1980s look. Faded blacks, warm color cast, reduced saturation with boosted reds and yellows. Add subtle softness and that nostalgic analog feel. Think retro music video aesthetic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/modern-footage.mp4"]
   }'
@@ -109,12 +119,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. Black and White Conversion
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Convert this video to cinematic black and white. I want high contrast with deep blacks and bright highlights. Focus on dramatic tonal separation. Think classic film noir or modern prestige drama. Rich monochrome, not flat.",
+    "messages": [{"role": "user", "content": "Convert this video to cinematic black and white. I want high contrast with deep blacks and bright highlights. Focus on dramatic tonal separation. Think classic film noir or modern prestige drama. Rich monochrome, not flat."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/color-footage.mp4"]
   }'
@@ -123,12 +135,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Color Correction (Fix White Balance)
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "This video was shot with incorrect white balance - it has a strong orange/yellow color cast from tungsten lighting. Please correct the white balance to neutral, fix the skin tones to look natural, and balance the overall exposure. Keep it looking natural, just properly corrected.",
+    "messages": [{"role": "user", "content": "This video was shot with incorrect white balance - it has a strong orange/yellow color cast from tungsten lighting. Please correct the white balance to neutral, fix the skin tones to look natural, and balance the overall exposure. Keep it looking natural, just properly corrected."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/bad-white-balance.mp4"]
   }'
@@ -137,12 +151,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Match Color Between Clips
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "I have two video clips that need to match. The first video is my reference with the color grade I like. Please apply the same color grade to the second video so they look consistent when edited together. Match the contrast, saturation, color temperature, and overall tone.",
+    "messages": [{"role": "user", "content": "I have two video clips that need to match. The first video is my reference with the color grade I like. Please apply the same color grade to the second video so they look consistent when edited together. Match the contrast, saturation, color temperature, and overall tone."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": [
       "https://example.com/reference-clip.mp4",
@@ -154,12 +170,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Moody Dark Grade
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Apply a moody, dark color grade to this video. I want crushed shadows, desaturated colors with selective color pops, and a cold blue-green tint. Think David Fincher or Denis Villeneuve - atmospheric and brooding. Low-key lighting feel even if the original is brighter.",
+    "messages": [{"role": "user", "content": "Apply a moody, dark color grade to this video. I want crushed shadows, desaturated colors with selective color pops, and a cold blue-green tint. Think David Fincher or Denis Villeneuve - atmospheric and brooding. Low-key lighting feel even if the original is brighter."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/scene-footage.mp4"]
   }'
@@ -168,12 +186,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. Bright and Airy Grade
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Give this video a bright and airy look perfect for wedding or lifestyle content. Lift the shadows, add soft pastel tones, slightly warm skin tones, and reduce contrast for that dreamy quality. Clean, fresh, and romantic feeling. Keep it natural but elevated.",
+    "messages": [{"role": "user", "content": "Give this video a bright and airy look perfect for wedding or lifestyle content. Lift the shadows, add soft pastel tones, slightly warm skin tones, and reduce contrast for that dreamy quality. Clean, fresh, and romantic feeling. Keep it natural but elevated."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/wedding-footage.mp4"]
   }'
@@ -182,12 +202,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 10. HDR Enhancement
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Enhance this video with HDR-style color grading. Expand the dynamic range, bring out detail in both shadows and highlights, boost color vibrancy without oversaturation. Make skies more dramatic, colors more vivid, and overall image more impactful. Great for landscape and travel footage.",
+    "messages": [{"role": "user", "content": "Enhance this video with HDR-style color grading. Expand the dynamic range, bring out detail in both shadows and highlights, boost color vibrancy without oversaturation. Make skies more dramatic, colors more vivid, and overall image more impactful. Great for landscape and travel footage."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/landscape-video.mp4"]
   }'
@@ -233,33 +255,39 @@ Use `session_id` to iterate on color grades:
 
 ```bash
 # Initial grade
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Apply a cinematic teal and orange grade to this video",
+    "messages": [{"role": "user", "content": "Apply a cinematic teal and orange grade to this video"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "color-grade-project-001",
     "video_urls": ["https://example.com/my-video.mp4"]
   }'
 
 # Refine the grade
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "The teal is too strong in the shadows. Can you reduce it and add more warmth to the skin tones?",
+    "messages": [{"role": "user", "content": "The teal is too strong in the shadows. Can you reduce it and add more warmth to the skin tones?"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "color-grade-project-001"
   }'
 
 # Apply to additional clips
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Apply the same grade we developed to this new clip",
+    "messages": [{"role": "user", "content": "Apply the same grade we developed to this new clip"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "color-grade-project-001",
     "video_urls": ["https://example.com/second-clip.mp4"]
   }'
@@ -271,23 +299,27 @@ Grade multiple clips with the same look:
 
 ```bash
 # Grade first clip and establish look
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Apply a moody cinematic grade to this video - this will be my hero look for the project",
+    "messages": [{"role": "user", "content": "Apply a moody cinematic grade to this video - this will be my hero look for the project"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "music-video-grade",
     "video_urls": ["https://example.com/clip-01.mp4"]
   }'
 
 # Apply same look to remaining clips
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Apply the same color grade to these additional clips for consistency",
+    "messages": [{"role": "user", "content": "Apply the same color grade to these additional clips for consistency"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "music-video-grade",
     "video_urls": [
       "https://example.com/clip-02.mp4",

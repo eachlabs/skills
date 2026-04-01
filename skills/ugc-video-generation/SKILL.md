@@ -11,7 +11,7 @@ metadata:
     - user-content
     - social-media
   api: each::sense
-  version: "1.0"
+  version: "2.0"
 ---
 
 # UGC Video Generation
@@ -34,12 +34,14 @@ UGC videos are characterized by their authentic, casual feel - as if recorded by
 ## Quick Start
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a UGC testimonial video of a woman in her 30s talking about how this skincare product changed her skin. Casual iPhone footage look, natural lighting, filmed in her bathroom. She should be excited but genuine.",
+    "messages": [{"role": "user", "content": "Create a UGC testimonial video of a woman in her 30s talking about how this skincare product changed her skin. Casual iPhone footage look, natural lighting, filmed in her bathroom. She should be excited but genuine."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -64,12 +66,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Generate a genuine-feeling customer testimonial.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a UGC testimonial video. A young professional man in his late 20s sits on his couch, talking directly to camera. He shares how the meal prep service saved him hours every week. iPhone selfie camera angle, living room setting with natural window light. Casual clothes, authentic delivery - not scripted feeling. He should occasionally look away thinking, then back at camera. 15-20 seconds.",
+    "messages": [{"role": "user", "content": "Create a UGC testimonial video. A young professional man in his late 20s sits on his couch, talking directly to camera. He shares how the meal prep service saved him hours every week. iPhone selfie camera angle, living room setting with natural window light. Casual clothes, authentic delivery - not scripted feeling. He should occasionally look away thinking, then back at camera. 15-20 seconds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -79,12 +83,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Create an authentic unboxing experience video.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate an unboxing video UGC style. A college-age woman opens a subscription beauty box on her bed. POV angle showing her hands and reactions. She pulls items out one by one, showing genuine excitement and surprise. Natural bedroom lighting, casual setting with some clutter visible. She comments on each product as she discovers it. iPhone footage aesthetic, 20-25 seconds.",
+    "messages": [{"role": "user", "content": "Generate an unboxing video UGC style. A college-age woman opens a subscription beauty box on her bed. POV angle showing her hands and reactions. She pulls items out one by one, showing genuine excitement and surprise. Natural bedroom lighting, casual setting with some clutter visible. She comments on each product as she discovers it. iPhone footage aesthetic, 20-25 seconds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -94,12 +100,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Show a transformation with authentic reveal moment.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a before/after UGC video for a fitness app. Split format or transition style. Person films themselves in mirror - first clip shows them at the start of their journey (tired, unsure), then cut/transition to 3 months later (confident, energetic, visible progress). Bathroom or bedroom mirror, natural phone recording style. Include authentic facial expressions - nervous in before, proud in after. 15 seconds.",
+    "messages": [{"role": "user", "content": "Create a before/after UGC video for a fitness app. Split format or transition style. Person films themselves in mirror - first clip shows them at the start of their journey (tired, unsure), then cut/transition to 3 months later (confident, energetic, visible progress). Bathroom or bedroom mirror, natural phone recording style. Include authentic facial expressions - nervous in before, proud in after. 15 seconds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -109,12 +117,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Generate step-by-step instructional content.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a UGC tutorial video showing how to use a face serum. POV hands-on demonstration. Woman applies product step by step - cleanser first, then serum application technique, gentle patting motions. Bathroom counter setup, ring light visible in reflection for authenticity. She explains each step casually like talking to a friend. Some minor mistakes are okay - keeps it real. 25-30 seconds.",
+    "messages": [{"role": "user", "content": "Create a UGC tutorial video showing how to use a face serum. POV hands-on demonstration. Woman applies product step by step - cleanser first, then serum application technique, gentle patting motions. Bathroom counter setup, ring light visible in reflection for authenticity. She explains each step casually like talking to a friend. Some minor mistakes are okay - keeps it real. 25-30 seconds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -124,12 +134,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Create an honest-feeling product review.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a UGC product review video. Man in his 40s reviews wireless earbuds from his home office. He shows the product, tests features, shares honest pros and cons. Webcam quality footage, casual home office background with some personalization visible. He demonstrates the fit, tests the sound, mentions battery life from his experience. Conversational tone, not overly polished. 30 seconds.",
+    "messages": [{"role": "user", "content": "Generate a UGC product review video. Man in his 40s reviews wireless earbuds from his home office. He shows the product, tests features, shares honest pros and cons. Webcam quality footage, casual home office background with some personalization visible. He demonstrates the fit, tests the sound, mentions battery life from his experience. Conversational tone, not overly polished. 30 seconds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -139,12 +151,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Show natural product integration into daily routine.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a day-in-the-life UGC video featuring a productivity app. Quick montage style - morning routine checking the app with coffee, using it during commute, referencing it during work, end of day review. Young professional woman, various locations throughout her day. iPhone footage, some clips handheld, some propped up. Natural lighting varies by scene. Lifestyle content feel, 20-25 seconds.",
+    "messages": [{"role": "user", "content": "Create a day-in-the-life UGC video featuring a productivity app. Quick montage style - morning routine checking the app with coffee, using it during commute, referencing it during work, end of day review. Young professional woman, various locations throughout her day. iPhone footage, some clips handheld, some propped up. Natural lighting varies by scene. Lifestyle content feel, 20-25 seconds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -154,12 +168,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Generate personal routine content.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a GRWM (Get Ready With Me) UGC video. Woman does her morning skincare and makeup routine while casually chatting to camera. Bathroom vanity setup, phone propped against mirror. She applies each product naturally, mentioning what she uses and why. Soft morning light, slightly messy counter with various products. Relaxed, friendly vibe like catching up with a friend. 30-35 seconds.",
+    "messages": [{"role": "user", "content": "Create a GRWM (Get Ready With Me) UGC video. Woman does her morning skincare and makeup routine while casually chatting to camera. Bathroom vanity setup, phone propped against mirror. She applies each product naturally, mentioning what she uses and why. Soft morning light, slightly messy counter with various products. Relaxed, friendly vibe like catching up with a friend. 30-35 seconds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -169,12 +185,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Capture authentic first impression responses.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a reaction video UGC style. Teen reacts to trying a new snack for the first time. Selfie angle, bedroom background with posters visible. Initial skepticism, first bite, genuine surprise at the taste, enthusiastic recommendation. Raw, unfiltered reactions - could be positive or comically disgusted. Natural facial expressions, authentic Gen-Z energy. 15 seconds.",
+    "messages": [{"role": "user", "content": "Generate a reaction video UGC style. Teen reacts to trying a new snack for the first time. Selfie angle, bedroom background with posters visible. Initial skepticism, first bite, genuine surprise at the taste, enthusiastic recommendation. Raw, unfiltered reactions - could be positive or comically disgusted. Natural facial expressions, authentic Gen-Z energy. 15 seconds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -184,12 +202,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Use image_urls to maintain consistent presenter across videos.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a UGC testimonial video using the person in the reference image. They should be in their kitchen, talking about their experience with a cooking app. Natural morning light, casual pajamas, coffee in hand. Genuine enthusiasm about how the app helped them learn to cook. iPhone front camera angle, 20 seconds.",
+    "messages": [{"role": "user", "content": "Create a UGC testimonial video using the person in the reference image. They should be in their kitchen, talking about their experience with a cooking app. Natural morning light, casual pajamas, coffee in hand. Genuine enthusiasm about how the app helped them learn to cook. iPhone front camera angle, 20 seconds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/your-presenter-reference.jpg"],
     "mode": "max"
   }'
@@ -200,12 +220,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Include product images for consistent product appearance.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an unboxing and first impressions UGC video featuring this product. Young woman opens the package at her desk, examines the product from the reference image, tests it out, shares initial thoughts. Home office setting, afternoon light from window, laptop visible in background. Authentic excitement, genuine reactions. 25 seconds.",
+    "messages": [{"role": "user", "content": "Create an unboxing and first impressions UGC video featuring this product. Young woman opens the package at her desk, examines the product from the reference image, tests it out, shares initial thoughts. Home office setting, afternoon light from window, laptop visible in background. Authentic excitement, genuine reactions. 25 seconds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/your-product-image.jpg"],
     "mode": "max"
   }'
@@ -284,12 +306,14 @@ Use session_id to maintain context and create consistent content across a series
 ### Initial Video
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a UGC testimonial. Young woman talks about discovering a new vitamin brand. Casual, in her kitchen, morning light. She explains why she decided to try it.",
+    "messages": [{"role": "user", "content": "Create a UGC testimonial. Young woman talks about discovering a new vitamin brand. Casual, in her kitchen, morning light. She explains why she decided to try it."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "ugc-campaign-001",
     "mode": "max"
   }'
@@ -298,12 +322,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ### Follow-Up Video (Same Presenter)
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a follow-up video with the same presenter. Now she has been using the vitamins for 2 weeks. Same kitchen setting but different outfit. She shares her experience so far - more energy, better sleep. Still casual and genuine.",
+    "messages": [{"role": "user", "content": "Create a follow-up video with the same presenter. Now she has been using the vitamins for 2 weeks. Same kitchen setting but different outfit. She shares her experience so far - more energy, better sleep. Still casual and genuine."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "ugc-campaign-001",
     "mode": "max"
   }'
@@ -312,12 +338,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ### Series Conclusion
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Final video in the series with our presenter. One month update. She gives her honest final review, would she recommend it? Kitchen setting, but this time shes making her morning smoothie while talking. Natural integration of the product into her routine.",
+    "messages": [{"role": "user", "content": "Final video in the series with our presenter. One month update. She gives her honest final review, would she recommend it? Kitchen setting, but this time shes making her morning smoothie while talking. Natural integration of the product into her routine."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "ugc-campaign-001",
     "mode": "max"
   }'
@@ -338,12 +366,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ```bash
 # Simple retry with delay
 for i in 1 2 3; do
-  response=$(curl -s -w "%{http_code}" -X POST "https://sense.eachlabs.run/chat" \
+  response=$(curl -s -w "%{http_code}" -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
     -H "Content-Type: application/json" \
     -H "X-API-Key: $EACHLABS_API_KEY" \
     -H "Accept: text/event-stream" \
     -d '{
-      "message": "Create a quick UGC testimonial video, casual selfie style, 10 seconds.",
+      "messages": [{"role": "user", "content": "Create a quick UGC testimonial video, casual selfie style, 10 seconds."}],
+      "model": "eachsense/beta",
+    "stream": true,
       "mode": "eco"
     }')
 

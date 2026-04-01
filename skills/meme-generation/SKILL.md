@@ -3,7 +3,7 @@ name: meme-generation
 description: Generate memes using each::sense AI. Create classic meme templates, custom memes, brand memes, reaction memes, comparison memes, trending formats, and more for social media, marketing, and entertainment.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Meme Generation
@@ -26,12 +26,14 @@ Generate viral-worthy memes using each::sense. This skill creates images optimiz
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a meme about developers when the code works on the first try - shocked and suspicious expression",
+    "messages": [{"role": "user", "content": "Create a meme about developers when the code works on the first try - shocked and suspicious expression"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -54,12 +56,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Generate images in the style of popular meme templates.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a meme image in the style of the Drake meme format. Two panels vertically stacked. Top panel: a person looking away dismissively with hand up rejecting something. Bottom panel: same person smiling and pointing approvingly. Clean white background, expressive poses.",
+    "messages": [{"role": "user", "content": "Create a meme image in the style of the Drake meme format. Two panels vertically stacked. Top panel: a person looking away dismissively with hand up rejecting something. Bottom panel: same person smiling and pointing approvingly. Clean white background, expressive poses."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -69,12 +73,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create an original meme image from a creative concept.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a meme image of a cat sitting at a computer desk looking extremely confused at the screen, office setting, dramatic lighting from the monitor, the cat has reading glasses on. Funny and relatable vibe for when you receive a confusing email.",
+    "messages": [{"role": "user", "content": "Create a meme image of a cat sitting at a computer desk looking extremely confused at the screen, office setting, dramatic lighting from the monitor, the cat has reading glasses on. Funny and relatable vibe for when you receive a confusing email."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -84,12 +90,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create memes suitable for brand social media accounts.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a clean, brand-safe meme image for a coffee company social media. Show a person dramatically hugging a giant coffee cup like it is their best friend. Office morning setting, humorous but professional enough for brand use. Warm, inviting colors.",
+    "messages": [{"role": "user", "content": "Create a clean, brand-safe meme image for a coffee company social media. Show a person dramatically hugging a giant coffee cup like it is their best friend. Office morning setting, humorous but professional enough for brand use. Warm, inviting colors."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -99,12 +107,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Generate expressive images for social media reactions.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a reaction meme image of a person with an extremely exaggerated surprised face, eyes wide, jaw dropped, hands on cheeks. Simple background, highly expressive, perfect for replying to shocking news or announcements online.",
+    "messages": [{"role": "user", "content": "Create a reaction meme image of a person with an extremely exaggerated surprised face, eyes wide, jaw dropped, hands on cheeks. Simple background, highly expressive, perfect for replying to shocking news or announcements online."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -114,12 +124,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create side-by-side comparison format memes.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a two-panel comparison meme image. Left panel labeled area for expectation: a person confidently presenting at a meeting looking professional. Right panel labeled area for reality: the same person nervously fumbling with papers, coffee spilled, chaotic scene. Corporate office setting.",
+    "messages": [{"role": "user", "content": "Create a two-panel comparison meme image. Left panel labeled area for expectation: a person confidently presenting at a meeting looking professional. Right panel labeled area for reality: the same person nervously fumbling with papers, coffee spilled, chaotic scene. Corporate office setting."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -129,12 +141,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Generate memes in currently popular viral styles.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a meme image in the style of the woman yelling at cat meme format. Left side: an angry woman pointing and yelling expressively at a dinner table. Right side: a confused white cat sitting at a table with a plate in front of it, looking bewildered. Split panel format.",
+    "messages": [{"role": "user", "content": "Create a meme image in the style of the woman yelling at cat meme format. Left side: an angry woman pointing and yelling expressively at a dinner table. Right side: a confused white cat sitting at a table with a plate in front of it, looking bewildered. Split panel format."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -144,12 +158,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create images designed for bold text overlays.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a meme background image of a galaxy brain or expanding brain concept. Show a person in meditation pose with a glowing, oversized brain emanating light and energy. Cosmic background with stars. Leave clear space at top and bottom for impact font text overlay.",
+    "messages": [{"role": "user", "content": "Create a meme background image of a galaxy brain or expanding brain concept. Show a person in meditation pose with a glowing, oversized brain emanating light and energy. Cosmic background with stars. Leave clear space at top and bottom for impact font text overlay."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -159,12 +175,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Generate comic-strip style sequential memes.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 4-panel meme comic strip. Panel 1: person calmly saying they will just check one email. Panel 2: person still at computer, slightly concerned. Panel 3: person surrounded by multiple screens, stressed. Panel 4: person collapsed at desk, it is now nighttime. Office setting, escalating chaos.",
+    "messages": [{"role": "user", "content": "Create a 4-panel meme comic strip. Panel 1: person calmly saying they will just check one email. Panel 2: person still at computer, slightly concerned. Panel 3: person surrounded by multiple screens, stressed. Panel 4: person collapsed at desk, it is now nighttime. Office setting, escalating chaos."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "session_id": "multi-panel-meme-001"
   }'
@@ -175,12 +193,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create office humor memes for professional contexts.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a workplace meme image. Scene: a meeting room with a person presenting a very simple obvious solution on a whiteboard while everyone else at the table looks shocked and amazed as if it is genius. Exaggerated reactions, corporate office setting, humorous take on overthinking simple problems.",
+    "messages": [{"role": "user", "content": "Create a workplace meme image. Scene: a meeting room with a person presenting a very simple obvious solution on a whiteboard while everyone else at the table looks shocked and amazed as if it is genius. Exaggerated reactions, corporate office setting, humorous take on overthinking simple problems."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -190,12 +210,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Generate memes for niche professional communities.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a programmer/developer meme image. A developer sitting at a desk surrounded by multiple monitors showing code, but they are intensely focused on a tiny bug that is literally represented as a small cartoon bug on the screen. The bug is tiny but the developer is using a magnifying glass. Dramatic lighting, humorous debugging scene.",
+    "messages": [{"role": "user", "content": "Create a programmer/developer meme image. A developer sitting at a desk surrounded by multiple monitors showing code, but they are intensely focused on a tiny bug that is literally represented as a small cartoon bug on the screen. The bug is tiny but the developer is using a magnifying glass. Dramatic lighting, humorous debugging scene."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -261,32 +283,38 @@ Use `session_id` to iterate on meme concepts:
 
 ```bash
 # Initial meme concept
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a meme of a dog at a computer looking frustrated",
+    "messages": [{"role": "user", "content": "Create a meme of a dog at a computer looking frustrated"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "meme-project-001"
   }'
 
 # Iterate based on feedback
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Make the dog expression more dramatic, add coffee cup for extra relatability",
+    "messages": [{"role": "user", "content": "Make the dog expression more dramatic, add coffee cup for extra relatability"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "meme-project-001"
   }'
 
 # Request variation
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a cat version of the same meme for comparison",
+    "messages": [{"role": "user", "content": "Create a cat version of the same meme for comparison"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "meme-project-001"
   }'
 ```
@@ -297,23 +325,27 @@ Generate multiple related memes for a campaign:
 
 ```bash
 # Meme 1 - Monday mood
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a weekday mood meme - Monday: exhausted office worker barely awake at desk",
+    "messages": [{"role": "user", "content": "Create a weekday mood meme - Monday: exhausted office worker barely awake at desk"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco",
     "session_id": "weekday-series"
   }'
 
 # Meme 2 - Friday mood (same session for consistency)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Same style but Friday: the same worker now energetic and celebrating, leaving the office",
+    "messages": [{"role": "user", "content": "Same style but Friday: the same worker now energetic and celebrating, leaving the office"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco",
     "session_id": "weekday-series"
   }'

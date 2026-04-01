@@ -3,7 +3,7 @@ name: discord-graphics-generation
 description: Generate Discord server graphics using each::sense AI. Create server icons, banners, role icons, welcome graphics, event banners, bot avatars, emojis, and more optimized for Discord's format requirements.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Discord Graphics Generation
@@ -26,12 +26,14 @@ Generate professional Discord server graphics using each::sense. This skill crea
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a Discord server icon for a gaming community called Pixel Warriors, featuring a pixel art sword and shield with purple and blue colors",
+    "messages": [{"role": "user", "content": "Create a Discord server icon for a gaming community called Pixel Warriors, featuring a pixel art sword and shield with purple and blue colors"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -53,12 +55,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Discord Server Icon
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 512x512 Discord server icon for a tech community called CodeHub. Feature a modern code bracket symbol with gradient from cyan to purple, dark background, clean minimal design that reads well at small sizes.",
+    "messages": [{"role": "user", "content": "Create a 512x512 Discord server icon for a tech community called CodeHub. Feature a modern code bracket symbol with gradient from cyan to purple, dark background, clean minimal design that reads well at small sizes."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -66,12 +70,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Server Banner
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 960x540 Discord server banner for an anime discussion community. Show a stylish anime-inspired cityscape at night with neon lights, purple and pink color scheme. Leave the center area less busy for the server name overlay.",
+    "messages": [{"role": "user", "content": "Create a 960x540 Discord server banner for an anime discussion community. Show a stylish anime-inspired cityscape at night with neon lights, purple and pink color scheme. Leave the center area less busy for the server name overlay."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -80,32 +86,38 @@ curl -X POST https://sense.eachlabs.run/chat \
 
 ```bash
 # Admin role icon
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 64x64 Discord role icon for Admin role. Gold crown symbol on dark background, simple and recognizable at small size. Clean vector-style design.",
+    "messages": [{"role": "user", "content": "Create a 64x64 Discord role icon for Admin role. Gold crown symbol on dark background, simple and recognizable at small size. Clean vector-style design."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "discord-roles-001"
   }'
 
 # Moderator role icon (same session for consistency)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 64x64 Discord role icon for Moderator role. Silver shield symbol, same style as the admin icon. Simple and recognizable.",
+    "messages": [{"role": "user", "content": "Create a 64x64 Discord role icon for Moderator role. Silver shield symbol, same style as the admin icon. Simple and recognizable."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "discord-roles-001"
   }'
 
 # VIP role icon
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 64x64 Discord role icon for VIP members. Purple diamond or star symbol, matching the style of previous role icons.",
+    "messages": [{"role": "user", "content": "Create a 64x64 Discord role icon for VIP members. Purple diamond or star symbol, matching the style of previous role icons."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "discord-roles-001"
   }'
 ```
@@ -113,12 +125,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Welcome Channel Graphic
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a wide banner graphic for a Discord welcome channel. Friendly and inviting design with soft gradients in blue and purple. Include visual space for welcome text. Aspect ratio 16:9, dimensions 1200x675. Make it warm and community-focused.",
+    "messages": [{"role": "user", "content": "Create a wide banner graphic for a Discord welcome channel. Friendly and inviting design with soft gradients in blue and purple. Include visual space for welcome text. Aspect ratio 16:9, dimensions 1200x675. Make it warm and community-focused."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -126,12 +140,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. Rules Channel Graphic
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a Discord rules channel header graphic. Professional and authoritative design with a scroll or document motif. Dark theme with gold accents. 1200x400 pixels. Include subtle gavel or scales of justice imagery. Clean and readable.",
+    "messages": [{"role": "user", "content": "Create a Discord rules channel header graphic. Professional and authoritative design with a scroll or document motif. Dark theme with gold accents. 1200x400 pixels. Include subtle gavel or scales of justice imagery. Clean and readable."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -139,12 +155,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Announcement Graphics
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a Discord announcement banner for a server update. Exciting and attention-grabbing with a megaphone or notification bell motif. Red and orange energy colors with dark background. 1200x600 pixels. Space for announcement text.",
+    "messages": [{"role": "user", "content": "Create a Discord announcement banner for a server update. Exciting and attention-grabbing with a megaphone or notification bell motif. Red and orange energy colors with dark background. 1200x600 pixels. Space for announcement text."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -152,12 +170,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Event Banner
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a Discord event banner for a gaming tournament. Esports style with dynamic angles and energy effects. Team colors: red vs blue. 1200x675 pixels. Include space for event name, date, and prize info. Competitive and exciting mood.",
+    "messages": [{"role": "user", "content": "Create a Discord event banner for a gaming tournament. Esports style with dynamic angles and energy effects. Team colors: red vs blue. 1200x675 pixels. Include space for event name, date, and prize info. Competitive and exciting mood."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -165,12 +185,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Bot Avatar
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 512x512 Discord bot avatar for a music bot called BeatBot. Friendly robot face with headphones, musical notes floating around. Cyan and white color scheme on dark background. Cute but modern design, reads well as small circle.",
+    "messages": [{"role": "user", "content": "Create a 512x512 Discord bot avatar for a music bot called BeatBot. Friendly robot face with headphones, musical notes floating around. Cyan and white color scheme on dark background. Cute but modern design, reads well as small circle."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -179,32 +201,38 @@ curl -X POST https://sense.eachlabs.run/chat \
 
 ```bash
 # Generate consistent emoji set
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 128x128 Discord emoji of a happy pepe-style frog giving thumbs up. Simple, clean design with thick outlines for visibility at small sizes. Green frog, expressive eyes.",
+    "messages": [{"role": "user", "content": "Create a 128x128 Discord emoji of a happy pepe-style frog giving thumbs up. Simple, clean design with thick outlines for visibility at small sizes. Green frog, expressive eyes."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "emoji-pack-001"
   }'
 
 # Sad emoji
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 128x128 Discord emoji of the same frog character but sad with a single tear. Same art style as before, consistent design.",
+    "messages": [{"role": "user", "content": "Create a 128x128 Discord emoji of the same frog character but sad with a single tear. Same art style as before, consistent design."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "emoji-pack-001"
   }'
 
 # Laughing emoji
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 128x128 Discord emoji of the same frog character laughing hard with tears of joy. Consistent style with previous emojis.",
+    "messages": [{"role": "user", "content": "Create a 128x128 Discord emoji of the same frog character laughing hard with tears of joy. Consistent style with previous emojis."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "emoji-pack-001"
   }'
 ```
@@ -212,12 +240,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 10. Server Booster Badge
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 64x64 Discord role icon for Server Boosters. Premium feel with Discord Nitro pink/purple gradient colors. Lightning bolt or rocket symbol to represent boost. Shiny metallic effect, stands out from other role icons.",
+    "messages": [{"role": "user", "content": "Create a 64x64 Discord role icon for Server Boosters. Premium feel with Discord Nitro pink/purple gradient colors. Lightning bolt or rocket symbol to represent boost. Shiny metallic effect, stands out from other role icons."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -289,32 +319,38 @@ Use `session_id` to iterate on Discord graphics:
 
 ```bash
 # Initial server icon concept
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 512x512 Discord server icon for a space exploration gaming community",
+    "messages": [{"role": "user", "content": "Create a 512x512 Discord server icon for a space exploration gaming community"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "space-server-branding"
   }'
 
 # Iterate based on feedback
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Make the planet more prominent and add some stars in the background. Keep the same color scheme.",
+    "messages": [{"role": "user", "content": "Make the planet more prominent and add some stars in the background. Keep the same color scheme."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "space-server-branding"
   }'
 
 # Create matching banner
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now create a matching 960x540 server banner with the same space theme and color palette",
+    "messages": [{"role": "user", "content": "Now create a matching 960x540 server banner with the same space theme and color palette"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "space-server-branding"
   }'
 ```
@@ -325,34 +361,40 @@ Generate a cohesive branding package:
 
 ```bash
 # 1. Server icon
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 512x512 Discord server icon for a creative art community called ArtVault. Modern abstract paint splash design, vibrant rainbow colors on dark background.",
+    "messages": [{"role": "user", "content": "Create a 512x512 Discord server icon for a creative art community called ArtVault. Modern abstract paint splash design, vibrant rainbow colors on dark background."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "artvault-branding",
     "mode": "max"
   }'
 
 # 2. Server banner
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a matching 960x540 server banner. Extend the paint splash theme across a wider canvas. Same colors and style.",
+    "messages": [{"role": "user", "content": "Create a matching 960x540 server banner. Extend the paint splash theme across a wider canvas. Same colors and style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "artvault-branding",
     "mode": "max"
   }'
 
 # 3. Role icons
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create 3 role icons (64x64 each) for Artist, Moderator, and VIP roles. Use paintbrush for Artist (blue), palette for Mod (orange), and star for VIP (gold). Same art style as the server icon.",
+    "messages": [{"role": "user", "content": "Create 3 role icons (64x64 each) for Artist, Moderator, and VIP roles. Use paintbrush for Artist (blue), palette for Mod (orange), and star for VIP (gold). Same art style as the server icon."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "artvault-branding",
     "mode": "max"
   }'

@@ -3,7 +3,7 @@ name: eye-color-changer
 description: Change eye colors in photos using each::sense AI. Transform natural eye colors, create fantasy effects, heterochromia, glowing eyes, and more with realistic blending and natural-looking results.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Eye Color Changer
@@ -23,12 +23,14 @@ Transform eye colors in photos using each::sense. This skill enables realistic e
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Change the eye color to bright blue in this photo",
+    "messages": [{"role": "user", "content": "Change the eye color to bright blue in this photo"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/portrait.jpg"],
     "mode": "max"
   }'
@@ -48,12 +50,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Change to Blue Eyes
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Change the eye color to a natural bright blue. Keep the iris texture and reflections realistic. The blue should look like natural blue eyes, not contact lenses.",
+    "messages": [{"role": "user", "content": "Change the eye color to a natural bright blue. Keep the iris texture and reflections realistic. The blue should look like natural blue eyes, not contact lenses."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/portrait.jpg"],
     "mode": "max"
   }'
@@ -62,12 +66,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Change to Green Eyes
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Transform the eye color to emerald green. Maintain natural iris patterns and make sure the color blends realistically with the skin tone around the eyes.",
+    "messages": [{"role": "user", "content": "Transform the eye color to emerald green. Maintain natural iris patterns and make sure the color blends realistically with the skin tone around the eyes."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/portrait.jpg"],
     "mode": "max"
   }'
@@ -76,12 +82,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Change to Brown Eyes
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Change the eyes to warm brown color. Make it look like natural dark brown eyes with subtle golden flecks in the iris for realism.",
+    "messages": [{"role": "user", "content": "Change the eyes to warm brown color. Make it look like natural dark brown eyes with subtle golden flecks in the iris for realism."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/portrait.jpg"],
     "mode": "max"
   }'
@@ -90,12 +98,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Change to Hazel Eyes
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Transform the eye color to hazel - a natural blend of green and brown with golden undertones. The color should transition from darker near the pupil to lighter at the edges of the iris.",
+    "messages": [{"role": "user", "content": "Transform the eye color to hazel - a natural blend of green and brown with golden undertones. The color should transition from darker near the pupil to lighter at the edges of the iris."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/portrait.jpg"],
     "mode": "max"
   }'
@@ -105,34 +115,40 @@ curl -X POST https://sense.eachlabs.run/chat \
 
 ```bash
 # Purple/Violet Eyes
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Change the eye color to a deep violet purple. Make it look otherworldly but still maintain realistic iris texture. Perfect for a fantasy or cosplay character look.",
+    "messages": [{"role": "user", "content": "Change the eye color to a deep violet purple. Make it look otherworldly but still maintain realistic iris texture. Perfect for a fantasy or cosplay character look."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/portrait.jpg"],
     "mode": "max"
   }'
 
 # Red Eyes
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Transform the eyes to a striking crimson red color. Keep the iris detail and make it look like supernatural red eyes - vampire or demon aesthetic.",
+    "messages": [{"role": "user", "content": "Transform the eyes to a striking crimson red color. Keep the iris detail and make it look like supernatural red eyes - vampire or demon aesthetic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/portrait.jpg"],
     "mode": "max"
   }'
 
 # Golden Eyes
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Change the eye color to golden yellow, like a wolf or supernatural being. Maintain realistic iris patterns but with a luminous golden color.",
+    "messages": [{"role": "user", "content": "Change the eye color to golden yellow, like a wolf or supernatural being. Maintain realistic iris patterns but with a luminous golden color."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/portrait.jpg"],
     "mode": "max"
   }'
@@ -141,12 +157,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Heterochromia (Different Colored Eyes)
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create heterochromia - make the left eye bright blue and the right eye emerald green. Both eyes should look natural and realistic, just different colors from each other.",
+    "messages": [{"role": "user", "content": "Create heterochromia - make the left eye bright blue and the right eye emerald green. Both eyes should look natural and realistic, just different colors from each other."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/portrait.jpg"],
     "mode": "max"
   }'
@@ -155,12 +173,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Cat/Slit Pupil Effect
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Transform the eyes to have cat-like vertical slit pupils with golden yellow iris color. Make it look like feline or reptilian eyes while keeping the overall eye shape natural to the face.",
+    "messages": [{"role": "user", "content": "Transform the eyes to have cat-like vertical slit pupils with golden yellow iris color. Make it look like feline or reptilian eyes while keeping the overall eye shape natural to the face."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/portrait.jpg"],
     "mode": "max"
   }'
@@ -169,12 +189,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Glowing Eyes Effect
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Make the eyes glow with an ethereal blue light. Add a subtle luminous effect that makes the eyes appear to emit light, with a soft glow around the iris. Perfect for a supernatural or magical character effect.",
+    "messages": [{"role": "user", "content": "Make the eyes glow with an ethereal blue light. Add a subtle luminous effect that makes the eyes appear to emit light, with a soft glow around the iris. Perfect for a supernatural or magical character effect."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/portrait.jpg"],
     "mode": "max"
   }'
@@ -183,12 +205,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. Natural Color Enhancement
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Enhance the natural eye color to make it more vivid and striking. Intensify the existing color, add more depth and clarity to the iris, and make the eyes really pop without changing the base color.",
+    "messages": [{"role": "user", "content": "Enhance the natural eye color to make it more vivid and striking. Intensify the existing color, add more depth and clarity to the iris, and make the eyes really pop without changing the base color."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/portrait.jpg"],
     "mode": "max"
   }'
@@ -199,35 +223,41 @@ curl -X POST https://sense.eachlabs.run/chat \
 ```bash
 # Use session_id to generate multiple variations
 # First variation - Blue
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Change the eye color to bright blue. Keep it natural looking.",
+    "messages": [{"role": "user", "content": "Change the eye color to bright blue. Keep it natural looking."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/portrait.jpg"],
     "session_id": "eye-color-variations-001",
     "mode": "eco"
   }'
 
 # Second variation - Green (same session)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now create another version with emerald green eyes instead.",
+    "messages": [{"role": "user", "content": "Now create another version with emerald green eyes instead."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "eye-color-variations-001",
     "mode": "eco"
   }'
 
 # Third variation - Hazel (same session)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create one more version with hazel eyes.",
+    "messages": [{"role": "user", "content": "Create one more version with hazel eyes."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "eye-color-variations-001",
     "mode": "eco"
   }'
@@ -265,33 +295,39 @@ Use `session_id` to refine eye color changes:
 
 ```bash
 # Initial change
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Change the eye color to blue",
+    "messages": [{"role": "user", "content": "Change the eye color to blue"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/portrait.jpg"],
     "session_id": "eye-edit-project"
   }'
 
 # Refine the result
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Make the blue more intense and add a slight ring of darker blue around the edge of the iris",
+    "messages": [{"role": "user", "content": "Make the blue more intense and add a slight ring of darker blue around the edge of the iris"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "eye-edit-project"
   }'
 
 # Add special effect
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now add a subtle glow effect to make the eyes look magical",
+    "messages": [{"role": "user", "content": "Now add a subtle glow effect to make the eyes look magical"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "eye-edit-project"
   }'
 ```

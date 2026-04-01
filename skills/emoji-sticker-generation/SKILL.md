@@ -3,7 +3,7 @@ name: emoji-sticker-generation
 description: Generate custom emoji and sticker packs using each::sense AI. Create personalized emoji from photos, expression packs, animated stickers, and platform-specific emoji sets for Slack, Discord, WhatsApp, and more.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Emoji & Sticker Generation
@@ -24,12 +24,14 @@ Generate custom emoji and sticker packs using each::sense. This skill creates pe
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a cute cartoon emoji from this photo, suitable for Slack",
+    "messages": [{"role": "user", "content": "Create a cute cartoon emoji from this photo, suitable for Slack"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/my-photo.jpg"]
   }'
@@ -53,12 +55,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create a personalized emoji from a portrait photo.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Transform this photo into a cute cartoon emoji. Make it expressive with big eyes and a friendly smile. Style should be like modern emoji with clean lines and vibrant colors. Output at 512x512 with transparent background.",
+    "messages": [{"role": "user", "content": "Transform this photo into a cute cartoon emoji. Make it expressive with big eyes and a friendly smile. Style should be like modern emoji with clean lines and vibrant colors. Output at 512x512 with transparent background."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/portrait.jpg"]
   }'
@@ -70,24 +74,28 @@ Generate a complete set of expressions from one reference.
 
 ```bash
 # Initial emoji creation
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a cartoon character emoji from this photo. I want to use this as a base for an expression pack.",
+    "messages": [{"role": "user", "content": "Create a cartoon character emoji from this photo. I want to use this as a base for an expression pack."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "session_id": "emoji-pack-001",
     "image_urls": ["https://example.com/face.jpg"]
   }'
 
 # Generate expression variations
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now create 6 expression variations of this character: happy, sad, laughing, surprised, angry, and thinking. Keep the same style and character design consistent across all expressions.",
+    "messages": [{"role": "user", "content": "Now create 6 expression variations of this character: happy, sad, laughing, surprised, angry, and thinking. Keep the same style and character design consistent across all expressions."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "session_id": "emoji-pack-001"
   }'
@@ -98,12 +106,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create moving stickers with simple animations.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an animated emoji sticker of a cute waving hand. Make it loop smoothly with a friendly wave motion. Cartoon style with bold outlines, bright skin tone. Output as a short looping animation suitable for messaging apps.",
+    "messages": [{"role": "user", "content": "Create an animated emoji sticker of a cute waving hand. Make it loop smoothly with a friendly wave motion. Cartoon style with bold outlines, bright skin tone. Output as a short looping animation suitable for messaging apps."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -113,23 +123,27 @@ curl -X POST https://sense.eachlabs.run/chat \
 Generate a custom emoji set for team workspaces.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a set of 5 custom Slack emoji for a tech startup: 1) Ship it rocket, 2) LGTM thumbs up, 3) Coffee break mug, 4) Bug squash, 5) Celebration party. Modern flat design style with bold colors. 128x128 pixels each with transparent backgrounds.",
+    "messages": [{"role": "user", "content": "Create a set of 5 custom Slack emoji for a tech startup: 1) Ship it rocket, 2) LGTM thumbs up, 3) Coffee break mug, 4) Bug squash, 5) Celebration party. Modern flat design style with bold colors. 128x128 pixels each with transparent backgrounds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "session_id": "slack-emoji-set"
   }'
 
 # Add more to the set
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Add 3 more emoji to the set in the same style: 1) Thinking face with code brackets, 2) PR approved checkmark, 3) Deploy success. Keep the same flat design aesthetic.",
+    "messages": [{"role": "user", "content": "Add 3 more emoji to the set in the same style: 1) Thinking face with code brackets, 2) PR approved checkmark, 3) Deploy success. Keep the same flat design aesthetic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "session_id": "slack-emoji-set"
   }'
@@ -140,12 +154,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create a sticker pack optimized for WhatsApp.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a WhatsApp sticker pack with a cute cat character. Generate 8 stickers showing: greeting, thank you, love, laughing, sleeping, eating, confused, and celebrating. Kawaii anime style with pastel colors. 512x512 pixels with transparent background for each sticker.",
+    "messages": [{"role": "user", "content": "Create a WhatsApp sticker pack with a cute cat character. Generate 8 stickers showing: greeting, thank you, love, laughing, sleeping, eating, confused, and celebrating. Kawaii anime style with pastel colors. 512x512 pixels with transparent background for each sticker."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -156,24 +172,28 @@ Create a personalized avatar emoji set in Bitmoji style.
 
 ```bash
 # Create avatar base
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a Bitmoji-style avatar from this photo. Cartoon character with recognizable features but stylized. Clean vector-like art style similar to Bitmoji/Snapchat avatars.",
+    "messages": [{"role": "user", "content": "Create a Bitmoji-style avatar from this photo. Cartoon character with recognizable features but stylized. Clean vector-like art style similar to Bitmoji/Snapchat avatars."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "session_id": "my-avatar-emoji",
     "image_urls": ["https://example.com/my-selfie.jpg"]
   }'
 
 # Generate situational stickers
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create 5 stickers of my avatar in different situations: 1) Working on laptop, 2) Drinking coffee, 3) High-fiving, 4) Mind blown gesture, 5) Dancing celebration. Same Bitmoji art style, keep my avatar consistent.",
+    "messages": [{"role": "user", "content": "Create 5 stickers of my avatar in different situations: 1) Working on laptop, 2) Drinking coffee, 3) High-fiving, 4) Mind blown gesture, 5) Dancing celebration. Same Bitmoji art style, keep my avatar consistent."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "session_id": "my-avatar-emoji"
   }'
@@ -185,23 +205,27 @@ Generate a consistent mascot emoji set for brand communications.
 
 ```bash
 # Define mascot
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a brand mascot emoji: a friendly robot character with rounded features, blue and white color scheme, expressive LED eyes. This will be used for our tech company Slack and social media. Start with a neutral happy expression.",
+    "messages": [{"role": "user", "content": "Create a brand mascot emoji: a friendly robot character with rounded features, blue and white color scheme, expressive LED eyes. This will be used for our tech company Slack and social media. Start with a neutral happy expression."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "session_id": "brand-mascot-emoji"
   }'
 
 # Generate mascot pack
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a complete emoji pack with this robot mascot showing: thumbs up, thinking, celebrating, waving hello, error/oops face, loading/processing, success checkmark pose, and question mark confused. Maintain exact same character design and brand colors.",
+    "messages": [{"role": "user", "content": "Create a complete emoji pack with this robot mascot showing: thumbs up, thinking, celebrating, waving hello, error/oops face, loading/processing, success checkmark pose, and question mark confused. Maintain exact same character design and brand colors."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "session_id": "brand-mascot-emoji"
   }'
@@ -212,12 +236,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create custom reaction emoji for team or community use.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a set of 10 reaction emoji in a consistent playful illustrated style: 1) Fire/lit, 2) 100 percent, 3) Eyes looking, 4) Chef kiss, 5) Mind blown explosion, 6) Facepalm, 7) Clapping hands, 8) Raising hands celebration, 9) Laughing crying, 10) Heart eyes. Bold colors, clean outlines, 128x128 transparent PNG style.",
+    "messages": [{"role": "user", "content": "Create a set of 10 reaction emoji in a consistent playful illustrated style: 1) Fire/lit, 2) 100 percent, 3) Eyes looking, 4) Chef kiss, 5) Mind blown explosion, 6) Facepalm, 7) Clapping hands, 8) Raising hands celebration, 9) Laughing crying, 10) Heart eyes. Bold colors, clean outlines, 128x128 transparent PNG style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -227,23 +253,27 @@ curl -X POST https://sense.eachlabs.run/chat \
 Transform pet photos into adorable emoji stickers.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Turn this photo of my dog into a cute cartoon emoji sticker. Capture the personality and distinctive features. Kawaii style with big sparkly eyes and adorable expression. Create it as a 512x512 sticker with transparent background.",
+    "messages": [{"role": "user", "content": "Turn this photo of my dog into a cute cartoon emoji sticker. Capture the personality and distinctive features. Kawaii style with big sparkly eyes and adorable expression. Create it as a 512x512 sticker with transparent background."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/my-dog.jpg"]
   }'
 
 # Create pet expression pack
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create 6 emoji variations of this dog: happy with tongue out, sleepy, begging for treats, playful with ball, confused head tilt, and excited jumping. Keep the same cartoon style consistent.",
+    "messages": [{"role": "user", "content": "Create 6 emoji variations of this dog: happy with tongue out, sleepy, begging for treats, playful with ball, confused head tilt, and excited jumping. Keep the same cartoon style consistent."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "session_id": "pet-emoji-pack",
     "image_urls": ["https://example.com/my-dog.jpg"]
@@ -255,12 +285,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create custom text and typography-based emoji.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create custom text emoji stickers for common team reactions: 1) NICE in rainbow gradient bubble letters, 2) SHIP IT with rocket trail effect, 3) WFH in cozy style with house icon, 4) BRB with clock elements, 5) TY in heart shape, 6) GG in gaming style. Each should be readable at 128x128 with transparent background, bold fun typography.",
+    "messages": [{"role": "user", "content": "Create custom text emoji stickers for common team reactions: 1) NICE in rainbow gradient bubble letters, 2) SHIP IT with rocket trail effect, 3) WFH in cozy style with house icon, 4) BRB with clock elements, 5) TY in heart shape, 6) GG in gaming style. Each should be readable at 128x128 with transparent background, bold fun typography."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -323,32 +355,38 @@ Use `session_id` to build cohesive emoji packs:
 
 ```bash
 # Start with character design
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a cute mascot character for my emoji pack - a happy cloud with a face",
+    "messages": [{"role": "user", "content": "Design a cute mascot character for my emoji pack - a happy cloud with a face"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "cloud-emoji-project"
   }'
 
 # Add expressions
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create this cloud with a rainy sad expression",
+    "messages": [{"role": "user", "content": "Create this cloud with a rainy sad expression"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "cloud-emoji-project"
   }'
 
 # Continue building the pack
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now make a sunny happy version with rainbow",
+    "messages": [{"role": "user", "content": "Now make a sunny happy version with rainbow"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "cloud-emoji-project"
   }'
 ```
@@ -359,12 +397,14 @@ Generate complete packs efficiently:
 
 ```bash
 # Generate full expression set in one request
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a complete emoji pack of 8 food emoji: pizza slice, hamburger, sushi, taco, ice cream cone, donut, coffee cup, and avocado. All in the same cute kawaii style with happy faces, consistent line weight and color palette. 128x128 each with transparent backgrounds.",
+    "messages": [{"role": "user", "content": "Create a complete emoji pack of 8 food emoji: pizza slice, hamburger, sushi, taco, ice cream cone, donut, coffee cup, and avocado. All in the same cute kawaii style with happy faces, consistent line weight and color palette. 128x128 each with transparent backgrounds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 ```

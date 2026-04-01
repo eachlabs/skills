@@ -3,7 +3,7 @@ name: nft-art-generation
 description: Generate NFT artwork using each::sense AI. Create PFP collections, generative art, 1/1 pieces, pixel art, 3D renders, animated NFTs, and trait-based characters for Web3 projects.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # NFT Art Generation
@@ -24,12 +24,14 @@ Generate stunning NFT artwork using each::sense. This skill creates images and v
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a PFP NFT of an ape character with cyberpunk style, neon colors, wearing futuristic sunglasses and a hoodie, dark background",
+    "messages": [{"role": "user", "content": "Create a PFP NFT of an ape character with cyberpunk style, neon colors, wearing futuristic sunglasses and a hoodie, dark background"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -51,12 +53,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. PFP Collection Style (10K Style)
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1:1 PFP NFT in the style of a 10K collection. An anthropomorphic fox character with purple fur, wearing a gold chain necklace and a backwards cap. Solid gradient background from teal to purple. Clean digital art style, bold outlines, vibrant colors.",
+    "messages": [{"role": "user", "content": "Create a 1:1 PFP NFT in the style of a 10K collection. An anthropomorphic fox character with purple fur, wearing a gold chain necklace and a backwards cap. Solid gradient background from teal to purple. Clean digital art style, bold outlines, vibrant colors."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -64,12 +68,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Generative Art Piece
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a generative art piece inspired by algorithmic patterns. Abstract flowing lines and geometric shapes, inspired by Tyler Hobbs and Dmitri Cherniak. Use a limited color palette of deep blues, whites, and gold accents. Mathematical precision with organic flow. 1:1 aspect ratio.",
+    "messages": [{"role": "user", "content": "Create a generative art piece inspired by algorithmic patterns. Abstract flowing lines and geometric shapes, inspired by Tyler Hobbs and Dmitri Cherniak. Use a limited color palette of deep blues, whites, and gold accents. Mathematical precision with organic flow. 1:1 aspect ratio."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -77,12 +83,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. 1/1 Unique Artwork
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a high-quality 1/1 NFT artwork. A surreal dreamscape with a floating island in a cosmic void, ancient ruins overgrown with bioluminescent plants, multiple moons in the sky, ethereal atmosphere. Ultra detailed, cinematic lighting, museum-quality digital painting.",
+    "messages": [{"role": "user", "content": "Create a high-quality 1/1 NFT artwork. A surreal dreamscape with a floating island in a cosmic void, ancient ruins overgrown with bioluminescent plants, multiple moons in the sky, ethereal atmosphere. Ultra detailed, cinematic lighting, museum-quality digital painting."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -90,12 +98,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Pixel Art NFT
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a pixel art NFT character. A retro-style warrior knight with glowing sword, 32x32 pixel style scaled up cleanly. Limited color palette, nostalgic 8-bit aesthetic, solid color background. CryptoPunks meets fantasy RPG vibe.",
+    "messages": [{"role": "user", "content": "Create a pixel art NFT character. A retro-style warrior knight with glowing sword, 32x32 pixel style scaled up cleanly. Limited color palette, nostalgic 8-bit aesthetic, solid color background. CryptoPunks meets fantasy RPG vibe."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -103,12 +113,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. 3D NFT Artwork
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 3D rendered NFT character. A stylized robot head with chrome finish, glowing LED eyes, intricate mechanical details, floating in a dark studio environment with dramatic rim lighting. Octane render quality, subsurface scattering, 1:1 aspect ratio.",
+    "messages": [{"role": "user", "content": "Create a 3D rendered NFT character. A stylized robot head with chrome finish, glowing LED eyes, intricate mechanical details, floating in a dark studio environment with dramatic rim lighting. Octane render quality, subsurface scattering, 1:1 aspect ratio."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -116,12 +128,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Animated NFT (GIF/Video)
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an animated NFT, 3-5 seconds loop. A mystical crystal orb with swirling energy inside, particles floating around it, pulsing glow effect. Seamless loop, hypnotic motion, dark background with subtle ambient particles. 1:1 square format.",
+    "messages": [{"role": "user", "content": "Create an animated NFT, 3-5 seconds loop. A mystical crystal orb with swirling energy inside, particles floating around it, pulsing glow effect. Seamless loop, hypnotic motion, dark background with subtle ambient particles. 1:1 square format."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -129,12 +143,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. AI Art Collection
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an AI art piece for a collection exploring digital consciousness. Abstract portrait merging human and digital elements, data streams flowing through a face, glitch art effects, neural network visualization overlay. Vaporwave color palette with pink, cyan, and purple. Unique artistic interpretation.",
+    "messages": [{"role": "user", "content": "Create an AI art piece for a collection exploring digital consciousness. Abstract portrait merging human and digital elements, data streams flowing through a face, glitch art effects, neural network visualization overlay. Vaporwave color palette with pink, cyan, and purple. Unique artistic interpretation."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -143,22 +159,26 @@ curl -X POST https://sense.eachlabs.run/chat \
 
 ```bash
 # First character with base traits
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a trait-based NFT character for a collection. Base: Cat humanoid. Traits: Background=Sunset Orange, Fur=Calico pattern, Eyes=Laser red, Accessory=Pirate eyepatch, Clothing=Leather jacket, Headwear=None. Consistent flat illustration style suitable for a 10K PFP collection.",
+    "messages": [{"role": "user", "content": "Create a trait-based NFT character for a collection. Base: Cat humanoid. Traits: Background=Sunset Orange, Fur=Calico pattern, Eyes=Laser red, Accessory=Pirate eyepatch, Clothing=Leather jacket, Headwear=None. Consistent flat illustration style suitable for a 10K PFP collection."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "nft-collection-cats-001"
   }'
 
 # Second character variation (same session for consistency)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create another character with different traits. Same style as before. Traits: Background=Deep Space, Fur=White, Eyes=Diamond blue, Accessory=Monocle, Clothing=Tuxedo, Headwear=Top hat. Maintain the exact same art style.",
+    "messages": [{"role": "user", "content": "Create another character with different traits. Same style as before. Traits: Background=Deep Space, Fur=White, Eyes=Diamond blue, Accessory=Monocle, Clothing=Tuxedo, Headwear=Top hat. Maintain the exact same art style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "nft-collection-cats-001"
   }'
 ```
@@ -166,12 +186,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. Abstract Generative Art
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an abstract generative art NFT. Inspired by Art Blocks aesthetic - recursive geometric patterns, flow fields, mathematical beauty. Colors emerge from chaos into order. Black background with vibrant color accents in orange, pink, and electric blue. Crisp vector-like precision. 1:1 format.",
+    "messages": [{"role": "user", "content": "Create an abstract generative art NFT. Inspired by Art Blocks aesthetic - recursive geometric patterns, flow fields, mathematical beauty. Colors emerge from chaos into order. Black background with vibrant color accents in orange, pink, and electric blue. Crisp vector-like precision. 1:1 format."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -179,12 +201,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 10. Cyberpunk/Futuristic NFT
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a cyberpunk NFT artwork. A futuristic street samurai character with cybernetic augmentations, neon-lit visor, holographic HUD elements, rain-soaked environment reflected on surfaces. Blade Runner meets anime aesthetic. Neon pink and cyan color scheme, dark atmospheric mood. Premium collectible quality.",
+    "messages": [{"role": "user", "content": "Create a cyberpunk NFT artwork. A futuristic street samurai character with cybernetic augmentations, neon-lit visor, holographic HUD elements, rain-soaked environment reflected on surfaces. Blade Runner meets anime aesthetic. Neon pink and cyan color scheme, dark atmospheric mood. Premium collectible quality."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -250,32 +274,38 @@ Use `session_id` to develop collections iteratively:
 
 ```bash
 # Establish collection style
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a base character for my NFT collection. A stylized bear with streetwear fashion, bold flat colors, minimalist background.",
+    "messages": [{"role": "user", "content": "Create a base character for my NFT collection. A stylized bear with streetwear fashion, bold flat colors, minimalist background."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "bear-nft-project"
   }'
 
 # Request trait variation
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create the same bear character but with different accessories - add sunglasses and a gold chain. Keep the exact same art style.",
+    "messages": [{"role": "user", "content": "Create the same bear character but with different accessories - add sunglasses and a gold chain. Keep the exact same art style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "bear-nft-project"
   }'
 
 # Request rare variant
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a rare legendary variant - same bear but with cosmic/galaxy fur pattern, glowing eyes, and a crown. This is the 1/1 rare for the collection.",
+    "messages": [{"role": "user", "content": "Create a rare legendary variant - same bear but with cosmic/galaxy fur pattern, glowing eyes, and a crown. This is the 1/1 rare for the collection."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "bear-nft-project"
   }'
 ```
@@ -286,32 +316,38 @@ Generate multiple variations efficiently:
 
 ```bash
 # Variation 1 - Common trait
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create PFP NFT: Robot character, silver body, blue LED eyes, plain gray background, minimal style",
+    "messages": [{"role": "user", "content": "Create PFP NFT: Robot character, silver body, blue LED eyes, plain gray background, minimal style"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 
 # Variation 2 - Uncommon trait
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create PFP NFT: Robot character, gold body, green LED eyes, gradient purple background, minimal style",
+    "messages": [{"role": "user", "content": "Create PFP NFT: Robot character, gold body, green LED eyes, gradient purple background, minimal style"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 
 # Variation 3 - Rare trait
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create PFP NFT: Robot character, holographic rainbow body, laser red eyes, cosmic space background, minimal style",
+    "messages": [{"role": "user", "content": "Create PFP NFT: Robot character, holographic rainbow body, laser red eyes, cosmic space background, minimal style"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 ```

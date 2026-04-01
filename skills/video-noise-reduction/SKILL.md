@@ -3,7 +3,7 @@ name: video-noise-reduction
 description: Reduce noise and grain from videos using each::sense AI. Denoise low light footage, remove high ISO grain, enhance security camera video, restore old footage, and improve webcam quality.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Video Noise Reduction
@@ -25,12 +25,14 @@ Reduce noise, grain, and artifacts from videos using each::sense. This skill han
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Denoise this video, reduce the grain while keeping details sharp",
+    "messages": [{"role": "user", "content": "Denoise this video, reduce the grain while keeping details sharp"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/noisy-video.mp4"]
   }'
@@ -50,12 +52,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Low Light Video Denoising
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "This video was shot in very low light conditions. Please denoise it while maintaining natural skin tones and avoiding the plastic look. Keep the atmospheric mood but reduce the heavy grain.",
+    "messages": [{"role": "user", "content": "This video was shot in very low light conditions. Please denoise it while maintaining natural skin tones and avoiding the plastic look. Keep the atmospheric mood but reduce the heavy grain."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/low-light-indoor.mp4"]
   }'
@@ -64,12 +68,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. High ISO Grain Removal
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Remove the high ISO digital noise from this video. It was shot at ISO 12800 and has significant luminance and color noise. Clean it up while preserving edge details and facial features.",
+    "messages": [{"role": "user", "content": "Remove the high ISO digital noise from this video. It was shot at ISO 12800 and has significant luminance and color noise. Clean it up while preserving edge details and facial features."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/high-iso-concert.mp4"]
   }'
@@ -78,12 +84,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Security Camera Enhancement
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Enhance this security camera footage. Reduce the noise and compression artifacts, improve clarity so faces and license plates are more readable. The footage is from a night vision camera.",
+    "messages": [{"role": "user", "content": "Enhance this security camera footage. Reduce the noise and compression artifacts, improve clarity so faces and license plates are more readable. The footage is from a night vision camera."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/security-cam-footage.mp4"]
   }'
@@ -92,12 +100,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Old Footage Restoration
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Restore this old family video from the 90s. Remove the tape noise, reduce flickering, clean up the color bleeding, and improve overall clarity. Keep it looking natural, not overly processed.",
+    "messages": [{"role": "user", "content": "Restore this old family video from the 90s. Remove the tape noise, reduce flickering, clean up the color bleeding, and improve overall clarity. Keep it looking natural, not overly processed."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/vhs-family-video.mp4"]
   }'
@@ -106,12 +116,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. Webcam Quality Improvement
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Improve this webcam recording quality. It has noise from the small sensor and poor lighting. Denoise the footage, reduce the graininess, and make the speaker look clearer for a professional presentation.",
+    "messages": [{"role": "user", "content": "Improve this webcam recording quality. It has noise from the small sensor and poor lighting. Denoise the footage, reduce the graininess, and make the speaker look clearer for a professional presentation."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/zoom-recording.mp4"]
   }'
@@ -120,12 +132,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Night Mode Video Cleanup
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Clean up this night mode video shot on a smartphone. Remove the excessive noise reduction artifacts, smooth out the blotchy areas, and fix the color noise in the shadows while keeping highlights intact.",
+    "messages": [{"role": "user", "content": "Clean up this night mode video shot on a smartphone. Remove the excessive noise reduction artifacts, smooth out the blotchy areas, and fix the color noise in the shadows while keeping highlights intact."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/iphone-night-mode.mp4"]
   }'
@@ -134,12 +148,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Compression Artifact Removal
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Remove compression artifacts from this video. It was heavily compressed and has visible blocking, banding, and mosquito noise around edges. Clean it up to look like higher quality footage.",
+    "messages": [{"role": "user", "content": "Remove compression artifacts from this video. It was heavily compressed and has visible blocking, banding, and mosquito noise around edges. Clean it up to look like higher quality footage."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/compressed-video.mp4"]
   }'
@@ -148,12 +164,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Film Grain Removal
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Remove the film grain from this scanned 16mm footage. I want a clean digital look without the organic grain texture. Preserve the original colors and contrast but give it a smooth modern appearance.",
+    "messages": [{"role": "user", "content": "Remove the film grain from this scanned 16mm footage. I want a clean digital look without the organic grain texture. Preserve the original colors and contrast but give it a smooth modern appearance."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/16mm-film-scan.mp4"]
   }'
@@ -162,12 +180,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. Preserve Detail While Denoising
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Denoise this nature documentary footage. It has noise from shooting at dusk. Important: preserve fine details like animal fur texture, feather patterns, and grass blades. Only remove noise, do not smooth out real textures.",
+    "messages": [{"role": "user", "content": "Denoise this nature documentary footage. It has noise from shooting at dusk. Important: preserve fine details like animal fur texture, feather patterns, and grass blades. Only remove noise, do not smooth out real textures."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/wildlife-footage.mp4"]
   }'
@@ -177,34 +197,40 @@ curl -X POST https://sense.eachlabs.run/chat \
 
 ```bash
 # First clip
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "I have several clips from the same shoot that need denoising. Starting with clip 1 - apply moderate noise reduction suitable for low light indoor footage. Remember these settings for the next clips.",
+    "messages": [{"role": "user", "content": "I have several clips from the same shoot that need denoising. Starting with clip 1 - apply moderate noise reduction suitable for low light indoor footage. Remember these settings for the next clips."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "batch-denoise-project-001",
     "video_urls": ["https://example.com/project/clip-01.mp4"]
   }'
 
 # Second clip (same session for consistency)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Apply the same denoising settings to clip 2 from the same project. Keep the results consistent with the first clip.",
+    "messages": [{"role": "user", "content": "Apply the same denoising settings to clip 2 from the same project. Keep the results consistent with the first clip."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "batch-denoise-project-001",
     "video_urls": ["https://example.com/project/clip-02.mp4"]
   }'
 
 # Third clip (same session)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Continue with clip 3, same settings as before.",
+    "messages": [{"role": "user", "content": "Continue with clip 3, same settings as before."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "batch-denoise-project-001",
     "video_urls": ["https://example.com/project/clip-03.mp4"]
   }'
@@ -267,33 +293,39 @@ Use `session_id` to refine denoising results:
 
 ```bash
 # Initial denoise attempt
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Denoise this low light interview footage",
+    "messages": [{"role": "user", "content": "Denoise this low light interview footage"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "interview-denoise-project",
     "video_urls": ["https://example.com/interview-raw.mp4"]
   }'
 
 # Request adjustment
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "The skin looks too smooth and plastic. Can you redo it with more detail preservation? Keep some natural skin texture while still removing the noise.",
+    "messages": [{"role": "user", "content": "The skin looks too smooth and plastic. Can you redo it with more detail preservation? Keep some natural skin texture while still removing the noise."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "interview-denoise-project"
   }'
 
 # Fine-tune specific areas
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Better! But the background still has some noise. Can you apply stronger denoising to the out-of-focus background while keeping the subject sharp?",
+    "messages": [{"role": "user", "content": "Better! But the background still has some noise. Can you apply stronger denoising to the out-of-focus background while keeping the subject sharp?"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "interview-denoise-project"
   }'
 ```

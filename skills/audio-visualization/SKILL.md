@@ -3,7 +3,7 @@ name: audio-visualization
 description: Generate audio visualization videos using each::sense AI. Create waveforms, spectrum analyzers, particle effects, 3D visualizations, and beat-synced animations from audio files.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Audio Visualization
@@ -26,12 +26,14 @@ Generate stunning audio visualization videos using each::sense. This skill creat
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a neon waveform visualizer video for this electronic music track, purple and cyan colors, 16:9 format",
+    "messages": [{"role": "user", "content": "Create a neon waveform visualizer video for this electronic music track, purple and cyan colors, 16:9 format"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "audio_urls": ["https://example.com/music-track.mp3"]
   }'
@@ -54,12 +56,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Waveform Visualizer
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a smooth waveform visualizer video for this audio. Use a gradient from electric blue to pink, dark background, 1080p 16:9 format. The waveform should be centered and react smoothly to the audio frequencies.",
+    "messages": [{"role": "user", "content": "Create a smooth waveform visualizer video for this audio. Use a gradient from electric blue to pink, dark background, 1080p 16:9 format. The waveform should be centered and react smoothly to the audio frequencies."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "audio_urls": ["https://example.com/song.mp3"]
   }'
@@ -68,12 +72,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Spectrum Analyzer Bars
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a spectrum analyzer visualization with vertical bars that react to the music. EDM style with neon green and yellow gradient bars on a black background. Add glow effects and mirror reflection at the bottom. 1920x1080 landscape video.",
+    "messages": [{"role": "user", "content": "Generate a spectrum analyzer visualization with vertical bars that react to the music. EDM style with neon green and yellow gradient bars on a black background. Add glow effects and mirror reflection at the bottom. 1920x1080 landscape video."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "audio_urls": ["https://example.com/edm-track.mp3"]
   }'
@@ -82,12 +88,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Circular Audio Visualizer
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a circular audio visualizer with radial bars emanating from the center. Place an album art placeholder in the center circle. Use warm orange and red colors with a subtle pulsing glow effect. Square 1:1 format for social media.",
+    "messages": [{"role": "user", "content": "Create a circular audio visualizer with radial bars emanating from the center. Place an album art placeholder in the center circle. Use warm orange and red colors with a subtle pulsing glow effect. Square 1:1 format for social media."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "audio_urls": ["https://example.com/album-track.mp3"]
   }'
@@ -96,12 +104,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Particle-Based Visualizer
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate an audio-reactive particle system visualization. Particles should explode outward on bass hits and swirl gently during quieter sections. Use a cosmic color palette with blues, purples, and white sparkles. Deep space background. 16:9 HD video.",
+    "messages": [{"role": "user", "content": "Generate an audio-reactive particle system visualization. Particles should explode outward on bass hits and swirl gently during quieter sections. Use a cosmic color palette with blues, purples, and white sparkles. Deep space background. 16:9 HD video."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "audio_urls": ["https://example.com/electronic.mp3"]
   }'
@@ -110,12 +120,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. 3D Audio Visualization
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 3D audio visualization with a geometric landscape that responds to the music. The terrain should rise and fall with the frequencies, camera slowly moving forward through the scene. Synthwave aesthetic with neon grid lines, pink and cyan lighting. 1080p cinematic format.",
+    "messages": [{"role": "user", "content": "Create a 3D audio visualization with a geometric landscape that responds to the music. The terrain should rise and fall with the frequencies, camera slowly moving forward through the scene. Synthwave aesthetic with neon grid lines, pink and cyan lighting. 1080p cinematic format."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "audio_urls": ["https://example.com/synthwave.mp3"]
   }'
@@ -124,12 +136,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Abstract Reactive Visuals
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate abstract audio-reactive visuals with fluid, organic shapes that morph and flow with the music. Use a dreamy color palette with soft pastels transitioning through the spectrum. The visuals should feel like living art, responding to both rhythm and melody. Vertical 9:16 format for Instagram Reels.",
+    "messages": [{"role": "user", "content": "Generate abstract audio-reactive visuals with fluid, organic shapes that morph and flow with the music. Use a dreamy color palette with soft pastels transitioning through the spectrum. The visuals should feel like living art, responding to both rhythm and melody. Vertical 9:16 format for Instagram Reels."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "audio_urls": ["https://example.com/ambient-track.mp3"]
   }'
@@ -138,12 +152,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Podcast Waveform Video
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a clean, minimal podcast waveform video. Simple horizontal waveform bar in the center that responds to voice audio. White waveform on a dark gray background. Leave space at the top for a podcast title and bottom for episode info. Professional and clean look. Square 1:1 format.",
+    "messages": [{"role": "user", "content": "Create a clean, minimal podcast waveform video. Simple horizontal waveform bar in the center that responds to voice audio. White waveform on a dark gray background. Leave space at the top for a podcast title and bottom for episode info. Professional and clean look. Square 1:1 format."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco",
     "audio_urls": ["https://example.com/podcast-episode.mp3"]
   }'
@@ -152,12 +168,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Music Video Visualizer
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a full music video visualizer combining multiple effects. Start with abstract flowing shapes, transition to particle bursts during the chorus, and include subtle waveform elements throughout. High energy, colorful, psychedelic style matching the energetic music. 1920x1080 landscape format, full track length.",
+    "messages": [{"role": "user", "content": "Create a full music video visualizer combining multiple effects. Start with abstract flowing shapes, transition to particle bursts during the chorus, and include subtle waveform elements throughout. High energy, colorful, psychedelic style matching the energetic music. 1920x1080 landscape format, full track length."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "audio_urls": ["https://example.com/full-song.mp3"]
   }'
@@ -166,12 +184,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. Beat-Synced Animation
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a beat-synced animation where geometric shapes pulse, rotate, and transform exactly on the beat. Sharp, precise animations on every kick drum and snare hit. Minimal black and white design with red accent flashes on the strongest beats. Perfect sync is critical. 16:9 HD video.",
+    "messages": [{"role": "user", "content": "Generate a beat-synced animation where geometric shapes pulse, rotate, and transform exactly on the beat. Sharp, precise animations on every kick drum and snare hit. Minimal black and white design with red accent flashes on the strongest beats. Perfect sync is critical. 16:9 HD video."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "audio_urls": ["https://example.com/drum-track.mp3"]
   }'
@@ -181,24 +201,28 @@ curl -X POST https://sense.eachlabs.run/chat \
 
 ```bash
 # Initial branded visualizer
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a branded audio visualizer for a record label. Use brand colors: deep purple (#6B21A8) and gold (#F59E0B). Include a circular visualizer with space in the center for a logo. Add a subtle animated gradient background. Professional, premium feel. 1:1 square format for social media.",
+    "messages": [{"role": "user", "content": "Create a branded audio visualizer for a record label. Use brand colors: deep purple (#6B21A8) and gold (#F59E0B). Include a circular visualizer with space in the center for a logo. Add a subtle animated gradient background. Professional, premium feel. 1:1 square format for social media."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "audio_urls": ["https://example.com/label-release.mp3"],
     "session_id": "branded-viz-001"
   }'
 
 # Iterate on the design
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Add more gold particle sparkles that react to high frequencies, and make the purple glow more intense on bass hits",
+    "messages": [{"role": "user", "content": "Add more gold particle sparkles that react to high frequencies, and make the purple glow more intense on bass hits"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "branded-viz-001"
   }'
 ```
@@ -265,33 +289,39 @@ Use `session_id` to iterate on visualizations:
 
 ```bash
 # Initial visualization
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a spectrum analyzer visualization for this EDM track",
+    "messages": [{"role": "user", "content": "Create a spectrum analyzer visualization for this EDM track"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "audio_urls": ["https://example.com/track.mp3"],
     "session_id": "viz-project-001"
   }'
 
 # Refine colors
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Change the color scheme to cyan and magenta, add more glow",
+    "messages": [{"role": "user", "content": "Change the color scheme to cyan and magenta, add more glow"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "viz-project-001"
   }'
 
 # Add effects
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Add particle trails on the peaks and a subtle mirror reflection",
+    "messages": [{"role": "user", "content": "Add particle trails on the peaks and a subtle mirror reflection"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "viz-project-001"
   }'
 ```
@@ -300,23 +330,27 @@ curl -X POST https://sense.eachlabs.run/chat \
 
 ```bash
 # Track 1
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a circular visualizer for this track, purple and blue colors",
+    "messages": [{"role": "user", "content": "Create a circular visualizer for this track, purple and blue colors"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco",
     "audio_urls": ["https://example.com/track1.mp3"]
   }'
 
 # Track 2 (same style)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a circular visualizer for this track, same purple and blue style as track1",
+    "messages": [{"role": "user", "content": "Create a circular visualizer for this track, same purple and blue style as track1"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco",
     "audio_urls": ["https://example.com/track2.mp3"]
   }'

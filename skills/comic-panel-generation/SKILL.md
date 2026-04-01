@@ -3,7 +3,7 @@ name: comic-panel-generation
 description: Generate comic and manga panels, strips, and pages using each::sense AI. Create superhero comics, manga pages, webtoons, action sequences, and convert photos to comic art with consistent characters.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Comic Panel Generation
@@ -26,12 +26,14 @@ Generate professional comic and manga artwork using each::sense. This skill crea
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a single comic panel of a superhero landing dramatically on a rooftop at night, cape billowing, city lights in background",
+    "messages": [{"role": "user", "content": "Create a single comic panel of a superhero landing dramatically on a rooftop at night, cape billowing, city lights in background"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -53,12 +55,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Single Comic Panel
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a single comic panel showing a detective in a noir style examining clues in a dimly lit office. Heavy shadows, black and white with selective color on a red lamp. Include dramatic lighting from venetian blinds.",
+    "messages": [{"role": "user", "content": "Create a single comic panel showing a detective in a noir style examining clues in a dimly lit office. Heavy shadows, black and white with selective color on a red lamp. Include dramatic lighting from venetian blinds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -66,12 +70,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Multi-Panel Comic Strip
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 4-panel horizontal comic strip. Panel 1: A cat staring at an empty food bowl. Panel 2: Cat meowing at its sleeping owner. Panel 3: Cat knocking items off a shelf. Panel 4: Owner finally awake and annoyed, cat looking innocent. Cute cartoon style, pastel colors.",
+    "messages": [{"role": "user", "content": "Create a 4-panel horizontal comic strip. Panel 1: A cat staring at an empty food bowl. Panel 2: Cat meowing at its sleeping owner. Panel 3: Cat knocking items off a shelf. Panel 4: Owner finally awake and annoyed, cat looking innocent. Cute cartoon style, pastel colors."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -79,12 +85,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Manga Page Layout
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a full manga page with 5-6 panels. Scene: A young samurai drawing his sword for the first time. Include dynamic panel sizes - one large panel for the dramatic sword draw moment, smaller panels for reaction shots. Black and white manga style with screentones, speed lines for action. Right-to-left reading flow.",
+    "messages": [{"role": "user", "content": "Create a full manga page with 5-6 panels. Scene: A young samurai drawing his sword for the first time. Include dynamic panel sizes - one large panel for the dramatic sword draw moment, smaller panels for reaction shots. Black and white manga style with screentones, speed lines for action. Right-to-left reading flow."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -92,12 +100,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Superhero Comic Style
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a superhero comic panel in classic Marvel/DC style. A female superhero with electric powers charging up, lightning crackling around her fists, dramatic low angle shot. Bold colors, heavy inks, dynamic pose, Kirby-style energy effects. Include a starburst background.",
+    "messages": [{"role": "user", "content": "Create a superhero comic panel in classic Marvel/DC style. A female superhero with electric powers charging up, lightning crackling around her fists, dramatic low angle shot. Bold colors, heavy inks, dynamic pose, Kirby-style energy effects. Include a starburst background."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -105,12 +115,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. Webtoon Vertical Format
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a vertical webtoon-style comic segment with 3 connected scenes. Scene 1: A student walking into a mysterious antique shop. Scene 2: Close-up of a glowing amulet on a shelf. Scene 3: The shopkeeper appearing mysteriously behind them. Korean webtoon art style, soft colors, vertical scroll format optimized for mobile. 9:16 or taller aspect ratio.",
+    "messages": [{"role": "user", "content": "Create a vertical webtoon-style comic segment with 3 connected scenes. Scene 1: A student walking into a mysterious antique shop. Scene 2: Close-up of a glowing amulet on a shelf. Scene 3: The shopkeeper appearing mysteriously behind them. Korean webtoon art style, soft colors, vertical scroll format optimized for mobile. 9:16 or taller aspect ratio."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -118,12 +130,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Photo to Comic Conversion
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Convert this photo into a comic book style illustration. Apply bold black outlines, halftone dots for shading, vibrant pop art colors. Make it look like a panel from a graphic novel. Keep the composition but stylize all elements.",
+    "messages": [{"role": "user", "content": "Convert this photo into a comic book style illustration. Apply bold black outlines, halftone dots for shading, vibrant pop art colors. Make it look like a panel from a graphic novel. Keep the composition but stylize all elements."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/portrait-photo.jpg"]
   }'
@@ -132,12 +146,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Speech Bubble Generation
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a comic panel with two characters arguing. Include speech bubbles with placeholder text areas. Character 1 (angry businessman): large jagged speech bubble for shouting. Character 2 (calm woman): regular oval speech bubble for response. Also include a thought bubble above the woman showing she is unimpressed. Western comic style.",
+    "messages": [{"role": "user", "content": "Create a comic panel with two characters arguing. Include speech bubbles with placeholder text areas. Character 1 (angry businessman): large jagged speech bubble for shouting. Character 2 (calm woman): regular oval speech bubble for response. Also include a thought bubble above the woman showing she is unimpressed. Western comic style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -145,12 +161,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Action Sequence Panels
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 3-panel action sequence showing a martial arts fight. Panel 1: Fighter A launching a flying kick (motion blur, speed lines). Panel 2: Impact moment with dramatic POW effect and motion burst. Panel 3: Fighter B crashing through wooden crates. Manga action style with heavy use of speed lines, impact effects, and dynamic camera angles.",
+    "messages": [{"role": "user", "content": "Create a 3-panel action sequence showing a martial arts fight. Panel 1: Fighter A launching a flying kick (motion blur, speed lines). Panel 2: Impact moment with dramatic POW effect and motion burst. Panel 3: Fighter B crashing through wooden crates. Manga action style with heavy use of speed lines, impact effects, and dynamic camera angles."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -159,34 +177,40 @@ curl -X POST https://sense.eachlabs.run/chat \
 
 ```bash
 # First panel - establish character
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a comic panel introducing a character: A teenage girl with short blue hair, large round glasses, wearing a yellow raincoat. She is looking up at the rain with wonder. Anime/manga style, soft colors. This is panel 1 of a series - I need to maintain her appearance in future panels.",
+    "messages": [{"role": "user", "content": "Create a comic panel introducing a character: A teenage girl with short blue hair, large round glasses, wearing a yellow raincoat. She is looking up at the rain with wonder. Anime/manga style, soft colors. This is panel 1 of a series - I need to maintain her appearance in future panels."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "comic-rainy-day-001",
     "mode": "max"
   }'
 
 # Second panel - same character, different scene
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create panel 2 with the same blue-haired girl with glasses and yellow raincoat. Now she is jumping in a puddle, splashing water, with a big smile. Maintain the exact same character design and art style from panel 1.",
+    "messages": [{"role": "user", "content": "Create panel 2 with the same blue-haired girl with glasses and yellow raincoat. Now she is jumping in a puddle, splashing water, with a big smile. Maintain the exact same character design and art style from panel 1."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "comic-rainy-day-001",
     "mode": "max"
   }'
 
 # Third panel - continue the story
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create panel 3: Same character discovers a small frog on a lily pad in the puddle. She kneels down, delighted. Keep her blue hair, round glasses, yellow raincoat consistent. Same manga art style.",
+    "messages": [{"role": "user", "content": "Create panel 3: Same character discovers a small frog on a lily pad in the puddle. She kneels down, delighted. Keep her blue hair, round glasses, yellow raincoat consistent. Same manga art style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "comic-rainy-day-001",
     "mode": "max"
   }'
@@ -195,12 +219,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 10. Comic Cover Design
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a comic book cover for issue #1 of SHADOW KNIGHTS. Feature a team of 4 heroes in dramatic poses - a knight with a glowing sword, an archer with shadow powers, a mage with fire magic, and a rogue with dual daggers. Dark fantasy style, dramatic lighting from below, epic composition. Leave space at the top for the title logo and bottom for issue number and barcode area. 2:3 aspect ratio.",
+    "messages": [{"role": "user", "content": "Create a comic book cover for issue #1 of SHADOW KNIGHTS. Feature a team of 4 heroes in dramatic poses - a knight with a glowing sword, an archer with shadow powers, a mage with fire magic, and a rogue with dual daggers. Dark fantasy style, dramatic lighting from below, epic composition. Leave space at the top for the title logo and bottom for issue number and barcode area. 2:3 aspect ratio."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -257,32 +283,38 @@ Use `session_id` to build a complete comic across multiple requests:
 
 ```bash
 # Page 1 - Establish the story
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create page 1 of a sci-fi manga. A space bounty hunter enters a seedy alien bar. 4 panels: exterior shot of neon-lit bar, hunter walking in (silhouette), aliens turning to look, close-up of hunters determined eyes.",
+    "messages": [{"role": "user", "content": "Create page 1 of a sci-fi manga. A space bounty hunter enters a seedy alien bar. 4 panels: exterior shot of neon-lit bar, hunter walking in (silhouette), aliens turning to look, close-up of hunters determined eyes."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "space-bounty-comic"
   }'
 
 # Page 2 - Continue the narrative
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create page 2 continuing the scene. The hunter approaches a table of alien criminals. Include panels showing: the target alien recognizing danger, the hunters hand reaching for a weapon, tension building. Same art style as page 1.",
+    "messages": [{"role": "user", "content": "Create page 2 continuing the scene. The hunter approaches a table of alien criminals. Include panels showing: the target alien recognizing danger, the hunters hand reaching for a weapon, tension building. Same art style as page 1."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "space-bounty-comic"
   }'
 
 # Request style adjustment
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Recreate page 2 but with more dramatic lighting - add more shadows and a red color accent from the bar neon signs. Keep all other elements the same.",
+    "messages": [{"role": "user", "content": "Recreate page 2 but with more dramatic lighting - add more shadows and a red color accent from the bar neon signs. Keep all other elements the same."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "space-bounty-comic"
   }'
 ```
@@ -293,32 +325,38 @@ Generate multiple pages or variations efficiently:
 
 ```bash
 # Cover variations
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a manga cover - a magical girl transformation scene, sparkles and ribbons, dramatic pose",
+    "messages": [{"role": "user", "content": "Create a manga cover - a magical girl transformation scene, sparkles and ribbons, dramatic pose"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 
 # Alternative cover style
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create the same magical girl cover but in darker, more mature art style - less sparkles, more dramatic shadows",
+    "messages": [{"role": "user", "content": "Create the same magical girl cover but in darker, more mature art style - less sparkles, more dramatic shadows"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 
 # Western comic adaptation
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create the magical girl transformation but in Western superhero comic style - bold colors, heavy inks, more muscular proportions",
+    "messages": [{"role": "user", "content": "Create the magical girl transformation but in Western superhero comic style - bold colors, heavy inks, more muscular proportions"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 ```

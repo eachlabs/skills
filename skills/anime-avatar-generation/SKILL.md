@@ -3,7 +3,7 @@ name: anime-avatar-generation
 description: Generate anime-style avatars and characters using each::sense AI. Transform photos into anime, create Ghibli-style portraits, manga characters, chibi avatars, and full character sheets with multiple angles.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Anime Avatar Generation
@@ -24,12 +24,14 @@ Generate stunning anime-style avatars and characters using each::sense. This ski
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an anime avatar of a young woman with long blue hair and golden eyes, soft lighting, studio quality",
+    "messages": [{"role": "user", "content": "Create an anime avatar of a young woman with long blue hair and golden eyes, soft lighting, studio quality"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -53,12 +55,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Transform a real photo into anime-style artwork.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Convert this photo to anime style. Keep the facial features recognizable but transform it into a beautiful anime portrait with vibrant colors and soft shading.",
+    "messages": [{"role": "user", "content": "Convert this photo to anime style. Keep the facial features recognizable but transform it into a beautiful anime portrait with vibrant colors and soft shading."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/my-photo.jpg"]
   }'
@@ -69,12 +73,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create a Studio Ghibli-inspired character portrait.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a Studio Ghibli style portrait of a young girl with short brown hair, wearing a simple blue dress. Soft watercolor aesthetic, gentle expression, surrounded by nature with small forest spirits in the background. Hayao Miyazaki inspired art style.",
+    "messages": [{"role": "user", "content": "Create a Studio Ghibli style portrait of a young girl with short brown hair, wearing a simple blue dress. Soft watercolor aesthetic, gentle expression, surrounded by nature with small forest spirits in the background. Hayao Miyazaki inspired art style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -84,12 +90,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Generate a black and white manga-style character.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a manga-style character portrait in black and white. A confident male protagonist with spiky black hair, sharp eyes, wearing a school uniform. Dynamic pose, dramatic shading with screentones, shonen manga aesthetic.",
+    "messages": [{"role": "user", "content": "Create a manga-style character portrait in black and white. A confident male protagonist with spiky black hair, sharp eyes, wearing a school uniform. Dynamic pose, dramatic shading with screentones, shonen manga aesthetic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -99,12 +107,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create a futuristic neon-lit anime character.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a cyberpunk anime character. A hacker girl with short neon pink hair with cyan highlights, cybernetic eye implants, wearing a leather jacket with glowing circuit patterns. Dark urban background with neon signs, rain, and holographic advertisements. Ghost in the Shell meets Akira aesthetic.",
+    "messages": [{"role": "user", "content": "Create a cyberpunk anime character. A hacker girl with short neon pink hair with cyan highlights, cybernetic eye implants, wearing a leather jacket with glowing circuit patterns. Dark urban background with neon signs, rain, and holographic advertisements. Ghost in the Shell meets Akira aesthetic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -114,12 +124,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Generate a cute super-deformed character.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a chibi anime avatar. A cute girl with big sparkly purple eyes, long wavy pink hair with star clips, wearing a magical girl outfit with ribbons and bows. Super deformed proportions with big head and small body, kawaii expression, pastel color palette, simple clean background.",
+    "messages": [{"role": "user", "content": "Create a chibi anime avatar. A cute girl with big sparkly purple eyes, long wavy pink hair with star clips, wearing a magical girl outfit with ribbons and bows. Super deformed proportions with big head and small body, kawaii expression, pastel color palette, simple clean background."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -129,12 +141,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create an optimized avatar for social media profiles.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1:1 square anime profile picture. A mysterious character with silver hair covering one eye, heterochromia (one blue eye, one red eye), wearing a high-collar black coat. Dramatic lighting from the side, dark elegant background. The composition should work well as a small avatar icon.",
+    "messages": [{"role": "user", "content": "Create a 1:1 square anime profile picture. A mysterious character with silver hair covering one eye, heterochromia (one blue eye, one red eye), wearing a high-collar black coat. Dramatic lighting from the side, dark elegant background. The composition should work well as a small avatar icon."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -144,12 +158,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Design a complete character with outfit and pose.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a full body anime character design. A female warrior with long red hair in a ponytail, green eyes, wearing ornate silver armor with a flowing cape. She holds a glowing magical sword. Dynamic standing pose, fantasy setting with castle in the background. High detail anime illustration style.",
+    "messages": [{"role": "user", "content": "Create a full body anime character design. A female warrior with long red hair in a ponytail, green eyes, wearing ornate silver armor with a flowing cape. She holds a glowing magical sword. Dynamic standing pose, fantasy setting with castle in the background. High detail anime illustration style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -159,12 +175,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Generate multiple characters in one scene.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an anime illustration of a couple. A tall guy with messy black hair and glasses wearing a casual hoodie, and a shorter girl with twin-tail blonde hair wearing a sundress. They are standing together at a summer festival, holding hands, with fireworks in the night sky behind them. Romantic shojo anime style.",
+    "messages": [{"role": "user", "content": "Create an anime illustration of a couple. A tall guy with messy black hair and glasses wearing a casual hoodie, and a shorter girl with twin-tail blonde hair wearing a sundress. They are standing together at a summer festival, holding hands, with fireworks in the night sky behind them. Romantic shojo anime style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -174,12 +192,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create a character with precise color specifications.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an anime character with very specific colors: gradient hair that transitions from deep purple at the roots to lavender at the tips, bright amber eyes with a subtle golden glow, pale skin with a slight blush. The character should have an elegant hairstyle with braids and loose strands. Portrait shot, soft dreamy lighting, flower petals floating around.",
+    "messages": [{"role": "user", "content": "Create an anime character with very specific colors: gradient hair that transitions from deep purple at the roots to lavender at the tips, bright amber eyes with a subtle golden glow, pale skin with a slight blush. The character should have an elegant hairstyle with braids and loose strands. Portrait shot, soft dreamy lighting, flower petals floating around."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -189,12 +209,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Generate a reference sheet with multiple views for consistency.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an anime character reference sheet with multiple angles. The character is a young male mage with medium-length teal hair and bright orange eyes, wearing a wizard robe with gold trim. Show front view, side view (profile), 3/4 view, and back view on a clean white background. Include close-up details of the face and any accessories. Professional character design sheet format.",
+    "messages": [{"role": "user", "content": "Create an anime character reference sheet with multiple angles. The character is a young male mage with medium-length teal hair and bright orange eyes, wearing a wizard robe with gold trim. Show front view, side view (profile), 3/4 view, and back view on a clean white background. Include close-up details of the face and any accessories. Professional character design sheet format."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -216,32 +238,38 @@ Use `session_id` to iterate on character designs:
 
 ```bash
 # Initial character concept
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an anime character - a mysterious ninja with dark clothing",
+    "messages": [{"role": "user", "content": "Create an anime character - a mysterious ninja with dark clothing"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "ninja-character-design"
   }'
 
 # Refine based on feedback
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "I like it but make the character female, add a red scarf, and give her white hair",
+    "messages": [{"role": "user", "content": "I like it but make the character female, add a red scarf, and give her white hair"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "ninja-character-design"
   }'
 
 # Request style variation
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now create the same character but in chibi style",
+    "messages": [{"role": "user", "content": "Now create the same character but in chibi style"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "ninja-character-design"
   }'
 ```
@@ -252,22 +280,26 @@ Create multiple characters with consistent art style:
 
 ```bash
 # First character
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an anime hero character - a young man with spiky orange hair and determined expression, wearing a battle-worn jacket",
+    "messages": [{"role": "user", "content": "Create an anime hero character - a young man with spiky orange hair and determined expression, wearing a battle-worn jacket"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "anime-team-project"
   }'
 
 # Second character (same session for style consistency)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now create his rival - a calm, cool character with slicked-back blue hair, wearing a formal coat. Keep the same art style as the previous character.",
+    "messages": [{"role": "user", "content": "Now create his rival - a calm, cool character with slicked-back blue hair, wearing a formal coat. Keep the same art style as the previous character."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "anime-team-project"
   }'
 ```

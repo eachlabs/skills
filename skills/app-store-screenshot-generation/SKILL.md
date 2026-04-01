@@ -3,7 +3,7 @@ name: app-store-screenshot-generation
 description: Generate App Store and Google Play screenshot assets using each::sense AI. Create device-framed screenshots, feature highlights, localized versions, and promotional visuals optimized for iOS App Store and Google Play Store requirements.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # App Store Screenshot Generation
@@ -26,12 +26,14 @@ Generate high-converting App Store and Google Play screenshot assets using each:
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an iPhone App Store screenshot for a fitness tracking app showing the workout dashboard with an iPhone 15 Pro device frame, 1320x2868 pixels",
+    "messages": [{"role": "user", "content": "Create an iPhone App Store screenshot for a fitness tracking app showing the workout dashboard with an iPhone 15 Pro device frame, 1320x2868 pixels"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -49,12 +51,15 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. iOS App Store Screenshot with Device Frame
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an iPhone App Store screenshot at 1320x2868 pixels. Show a sleek iPhone 15 Pro device frame displaying a meditation app interface with a calming gradient background, session timer, and breathing animation. Add headline text at the top: \"Find Your Inner Peace\". Clean, minimal design with soft purple and blue tones.",
+    "messages": [{"role": "user", "content": "Create an iPhone App Store screenshot at 1320x2868 pixels. Show a sleek iPhone 15 Pro device frame displaying a meditation app interface with a calming gradient background, session timer, and breathing animation. Add headline text at the top: \"Find Your Inner Peace\". Clean, minimal design with soft purple and blue tones."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -62,12 +67,15 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Google Play Screenshot
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a Google Play Store screenshot at 1080x1920 pixels. Show an Android phone displaying a recipe app with a food photo, ingredients list, and cooking steps. Include feature text: \"10,000+ Recipes at Your Fingertips\". Bright, appetizing color scheme with warm orange accents.",
+    "messages": [{"role": "user", "content": "Create a Google Play Store screenshot at 1080x1920 pixels. Show an Android phone displaying a recipe app with a food photo, ingredients list, and cooking steps. Include feature text: \"10,000+ Recipes at Your Fingertips\". Bright, appetizing color scheme with warm orange accents."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -75,12 +83,15 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Feature Highlight Screenshot
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an iPhone App Store screenshot at 1320x2868 pixels for a banking app. Show iPhone device frame with the app dashboard displaying account balances and recent transactions. Add visual callouts pointing to key features: instant transfers, budget tracking, and bill reminders. Use professional blue color scheme. Headline: \"Smart Banking Made Simple\".",
+    "messages": [{"role": "user", "content": "Create an iPhone App Store screenshot at 1320x2868 pixels for a banking app. Show iPhone device frame with the app dashboard displaying account balances and recent transactions. Add visual callouts pointing to key features: instant transfers, budget tracking, and bill reminders. Use professional blue color scheme. Headline: \"Smart Banking Made Simple\"."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -88,12 +99,15 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Lifestyle/Context Screenshot
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an iPhone App Store screenshot at 1320x2868 pixels showing a travel app in lifestyle context. Show a person holding an iPhone at an airport terminal, screen displaying flight boarding pass and gate information. Natural lighting, professional travel photography style. Include subtle text overlay: \"Your Journey Starts Here\". Blurred airport background for depth.",
+    "messages": [{"role": "user", "content": "Create an iPhone App Store screenshot at 1320x2868 pixels showing a travel app in lifestyle context. Show a person holding an iPhone at an airport terminal, screen displaying flight boarding pass and gate information. Natural lighting, professional travel photography style. Include subtle text overlay: \"Your Journey Starts Here\". Blurred airport background for depth."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -101,12 +115,15 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. Localized Screenshot (Spanish)
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an iPhone App Store screenshot at 1320x2868 pixels for a language learning app, localized for Spanish market. Show iPhone device frame with Spanish lesson interface. All text in Spanish: headline \"Aprende Ingles en 10 Minutos al Dia\", feature callouts \"Lecciones Interactivas\" and \"Practica con Nativos\". Vibrant educational color scheme with green and yellow accents.",
+    "messages": [{"role": "user", "content": "Create an iPhone App Store screenshot at 1320x2868 pixels for a language learning app, localized for Spanish market. Show iPhone device frame with Spanish lesson interface. All text in Spanish: headline \"Aprende Ingles en 10 Minutos al Dia\", feature callouts \"Lecciones Interactivas\" and \"Practica con Nativos\". Vibrant educational color scheme with green and yellow accents."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -114,12 +131,15 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. App Preview Video Thumbnail
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an App Preview video thumbnail at 1320x2868 pixels for a photo editing app. Show iPhone 15 Pro frame with the app interface mid-edit - a stunning portrait photo with editing tools visible. Add a prominent play button overlay in the center. Dramatic headline: \"Transform Your Photos\". Dynamic, creative composition that entices users to watch the preview.",
+    "messages": [{"role": "user", "content": "Create an App Preview video thumbnail at 1320x2868 pixels for a photo editing app. Show iPhone 15 Pro frame with the app interface mid-edit - a stunning portrait photo with editing tools visible. Add a prominent play button overlay in the center. Dramatic headline: \"Transform Your Photos\". Dynamic, creative composition that entices users to watch the preview."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -127,12 +147,15 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Before/After Comparison Screenshot
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an iPhone App Store screenshot at 1320x2868 pixels for a photo enhancement app. Show a split-screen before/after comparison - left side shows original dark, grainy photo, right side shows the same photo enhanced with better lighting, color, and clarity. Include divider line with drag handle. Labels \"Before\" and \"After\" above each side. Headline at top: \"One Tap Enhancement\".",
+    "messages": [{"role": "user", "content": "Create an iPhone App Store screenshot at 1320x2868 pixels for a photo enhancement app. Show a split-screen before/after comparison - left side shows original dark, grainy photo, right side shows the same photo enhanced with better lighting, color, and clarity. Include divider line with drag handle. Labels \"Before\" and \"After\" above each side. Headline at top: \"One Tap Enhancement\"."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -141,32 +164,41 @@ curl -X POST https://sense.eachlabs.run/chat \
 
 ```bash
 # First onboarding screen
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create iPhone App Store screenshot 1 of 3 for a habit tracking app onboarding flow, 1320x2868 pixels. Show iPhone device frame with welcome screen - friendly illustration of person achieving goals, headline \"Build Better Habits\", subtitle \"Track your daily progress and reach your goals\". Include pagination dots showing first of three screens. Motivational, energetic color scheme.",
+    "messages": [{"role": "user", "content": "Create iPhone App Store screenshot 1 of 3 for a habit tracking app onboarding flow, 1320x2868 pixels. Show iPhone device frame with welcome screen - friendly illustration of person achieving goals, headline \"Build Better Habits\", subtitle \"Track your daily progress and reach your goals\". Include pagination dots showing first of three screens. Motivational, energetic color scheme."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "onboarding-habit-app"
   }'
 
 # Second onboarding screen (same session for consistency)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create screenshot 2 of 3 for the same habit tracking app. Show the habit dashboard with streak counters, progress rings, and daily checklist. Headline \"Stay Consistent\", subtitle \"Visual progress keeps you motivated\". Maintain same style and pagination dots showing second screen.",
+    "messages": [{"role": "user", "content": "Create screenshot 2 of 3 for the same habit tracking app. Show the habit dashboard with streak counters, progress rings, and daily checklist. Headline \"Stay Consistent\", subtitle \"Visual progress keeps you motivated\". Maintain same style and pagination dots showing second screen."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "onboarding-habit-app"
   }'
 
 # Third onboarding screen
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create screenshot 3 of 3 for the habit tracking app. Show reminder notifications and weekly statistics view. Headline \"Never Miss a Day\", subtitle \"Smart reminders at the perfect time\". Same style, pagination dots showing third screen. Include a subtle call-to-action feel.",
+    "messages": [{"role": "user", "content": "Create screenshot 3 of 3 for the habit tracking app. Show reminder notifications and weekly statistics view. Headline \"Never Miss a Day\", subtitle \"Smart reminders at the perfect time\". Same style, pagination dots showing third screen. Include a subtle call-to-action feel."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "onboarding-habit-app"
   }'
 ```
@@ -175,22 +207,28 @@ curl -X POST https://sense.eachlabs.run/chat \
 
 ```bash
 # Light mode version
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an iPhone App Store screenshot at 1320x2868 pixels for a notes app - LIGHT MODE version. Show iPhone 15 Pro silver device frame with the app in light theme: white background, clean typography, organized note cards. Headline \"Capture Every Idea\". Bright, clean, minimalist aesthetic.",
+    "messages": [{"role": "user", "content": "Create an iPhone App Store screenshot at 1320x2868 pixels for a notes app - LIGHT MODE version. Show iPhone 15 Pro silver device frame with the app in light theme: white background, clean typography, organized note cards. Headline \"Capture Every Idea\". Bright, clean, minimalist aesthetic."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "notes-app-themes"
   }'
 
 # Dark mode version (same session)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create the same notes app screenshot but in DARK MODE. Show iPhone 15 Pro space black device frame with dark theme interface: dark gray background, same layout as light mode but inverted colors. Headline \"Easy on Your Eyes\". Elegant, sophisticated dark aesthetic. Maintain visual consistency with light mode version.",
+    "messages": [{"role": "user", "content": "Create the same notes app screenshot but in DARK MODE. Show iPhone 15 Pro space black device frame with dark theme interface: dark gray background, same layout as light mode but inverted colors. Headline \"Easy on Your Eyes\". Elegant, sophisticated dark aesthetic. Maintain visual consistency with light mode version."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "notes-app-themes"
   }'
 ```
@@ -199,32 +237,41 @@ curl -X POST https://sense.eachlabs.run/chat \
 
 ```bash
 # Variation A - Feature-focused
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create iPhone App Store screenshot at 1320x2868 pixels for a workout app - VARIATION A (feature-focused). Show iPhone device frame with workout library screen displaying exercise thumbnails. Headline emphasizing features: \"500+ Workouts, Zero Equipment\". Clean, informative design focusing on app content and variety.",
+    "messages": [{"role": "user", "content": "Create iPhone App Store screenshot at 1320x2868 pixels for a workout app - VARIATION A (feature-focused). Show iPhone device frame with workout library screen displaying exercise thumbnails. Headline emphasizing features: \"500+ Workouts, Zero Equipment\". Clean, informative design focusing on app content and variety."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 
 # Variation B - Benefit-focused
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create iPhone App Store screenshot at 1320x2868 pixels for a workout app - VARIATION B (benefit-focused). Show iPhone device frame with progress tracking screen showing weight loss chart and achievements. Headline emphasizing results: \"Transform Your Body in 30 Days\". Motivational, aspirational design focusing on outcomes.",
+    "messages": [{"role": "user", "content": "Create iPhone App Store screenshot at 1320x2868 pixels for a workout app - VARIATION B (benefit-focused). Show iPhone device frame with progress tracking screen showing weight loss chart and achievements. Headline emphasizing results: \"Transform Your Body in 30 Days\". Motivational, aspirational design focusing on outcomes."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 
 # Variation C - Social proof
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create iPhone App Store screenshot at 1320x2868 pixels for a workout app - VARIATION C (social proof). Show iPhone device frame with community feed showing user transformations and testimonials. Headline: \"Join 2 Million Active Users\". Community-focused design with user photos and star ratings visible.",
+    "messages": [{"role": "user", "content": "Create iPhone App Store screenshot at 1320x2868 pixels for a workout app - VARIATION C (social proof). Show iPhone device frame with community feed showing user transformations and testimonials. Headline: \"Join 2 Million Active Users\". Community-focused design with user photos and star ratings visible."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 ```
@@ -266,32 +313,39 @@ Use `session_id` to iterate on screenshot designs:
 
 ```bash
 # Initial screenshot
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an iPhone App Store screenshot at 1320x2868 for a podcast app with episode list view",
+    "messages": [{"role": "user", "content": "Create an iPhone App Store screenshot at 1320x2868 for a podcast app with episode list view"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "podcast-screenshot-v1"
   }'
 
 # Iterate based on feedback
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Add a headline saying \"Your Daily Commute Companion\" and change the background to a gradient purple",
+    "messages": [{"role": "user", "content": "Add a headline saying \"Your Daily Commute Companion\" and change the background to a gradient purple"}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "podcast-screenshot-v1"
   }'
 
 # Request variation
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create 2 more variations with different headline angles - one focusing on discovery, one on offline listening",
+    "messages": [{"role": "user", "content": "Create 2 more variations with different headline angles - one focusing on discovery, one on offline listening"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "podcast-screenshot-v1"
   }'
 ```
@@ -299,12 +353,15 @@ curl -X POST https://sense.eachlabs.run/chat \
 ## iPad Screenshot Generation
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an iPad App Store screenshot at 2064x2752 pixels for a design app. Show iPad Pro device frame with the canvas workspace, featuring drawing tools, layers panel, and color picker. Professional creative app interface. Headline: \"Design Without Limits\". Take advantage of the larger screen to show detailed UI.",
+    "messages": [{"role": "user", "content": "Create an iPad App Store screenshot at 2064x2752 pixels for a design app. Show iPad Pro device frame with the canvas workspace, featuring drawing tools, layers panel, and color picker. Professional creative app interface. Headline: \"Design Without Limits\". Take advantage of the larger screen to show detailed UI."}],
+
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```

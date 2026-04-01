@@ -3,7 +3,7 @@ name: ai-avatar-generation
 description: Generate AI avatars from photos or text descriptions using each::sense. Create professional headshots, cartoon avatars, 3D characters, fantasy personas, gaming avatars, and consistent character designs for various platforms.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # AI Avatar Generation
@@ -24,12 +24,14 @@ Generate stunning AI avatars using each::sense. Transform selfies into professio
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a professional avatar from this selfie, make it look like a corporate headshot with studio lighting",
+    "messages": [{"role": "user", "content": "Create a professional avatar from this selfie, make it look like a corporate headshot with studio lighting"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/my-selfie.jpg"]
   }'
@@ -53,12 +55,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Transform a casual selfie into a polished professional headshot suitable for LinkedIn or corporate profiles.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Transform this selfie into a professional corporate headshot. Clean studio background (soft gray gradient), perfect lighting, slight smile, confident expression. Make it suitable for LinkedIn. Keep my facial features recognizable but enhance to look polished and professional.",
+    "messages": [{"role": "user", "content": "Transform this selfie into a professional corporate headshot. Clean studio background (soft gray gradient), perfect lighting, slight smile, confident expression. Make it suitable for LinkedIn. Keep my facial features recognizable but enhance to look polished and professional."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/my-selfie.jpg"]
   }'
@@ -69,12 +73,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Convert a photo into a fun cartoon or illustrated avatar.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Convert this photo into a Pixar-style cartoon avatar. Exaggerated friendly features, big expressive eyes, smooth colorful rendering. Keep the likeness recognizable but make it fun and animated. Bright cheerful background.",
+    "messages": [{"role": "user", "content": "Convert this photo into a Pixar-style cartoon avatar. Exaggerated friendly features, big expressive eyes, smooth colorful rendering. Keep the likeness recognizable but make it fun and animated. Bright cheerful background."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/my-photo.jpg"]
   }'
@@ -85,12 +91,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create a 3D rendered avatar character from a photo or description.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a 3D rendered avatar based on this photo. Make it look like a high-quality video game character with clean topology, subsurface skin scattering, realistic hair rendering. Neutral pose, front-facing, clean dark studio background. Suitable for metaverse or gaming profile.",
+    "messages": [{"role": "user", "content": "Generate a 3D rendered avatar based on this photo. Make it look like a high-quality video game character with clean topology, subsurface skin scattering, realistic hair rendering. Neutral pose, front-facing, clean dark studio background. Suitable for metaverse or gaming profile."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/reference-photo.jpg"]
   }'
@@ -102,23 +110,27 @@ Create fantasy character avatars for gaming or creative communities.
 
 ```bash
 # Wizard Avatar
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Transform this photo into a powerful wizard avatar. Add a mystical purple cloak with glowing runes, a long silver beard (if male) or flowing magical hair, ancient staff, and magical energy particles around the hands. Fantasy art style, dramatic lighting with magical glow. Epic RPG character portrait.",
+    "messages": [{"role": "user", "content": "Transform this photo into a powerful wizard avatar. Add a mystical purple cloak with glowing runes, a long silver beard (if male) or flowing magical hair, ancient staff, and magical energy particles around the hands. Fantasy art style, dramatic lighting with magical glow. Epic RPG character portrait."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/my-photo.jpg"]
   }'
 
 # Knight Avatar
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Transform this photo into a noble knight avatar. Shining silver armor with gold accents, red cape, battle-worn but heroic appearance. Medieval castle background with dramatic sunset. Keep my facial features but make me look like a legendary warrior. High fantasy art style.",
+    "messages": [{"role": "user", "content": "Transform this photo into a noble knight avatar. Shining silver armor with gold accents, red cape, battle-worn but heroic appearance. Medieval castle background with dramatic sunset. Keep my facial features but make me look like a legendary warrior. High fantasy art style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/my-photo.jpg"]
   }'
@@ -129,12 +141,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Design futuristic cyberpunk or space-themed character avatars.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Transform this photo into a cyberpunk avatar. Add neon circuit tattoos, cybernetic eye implant with glowing blue iris, futuristic collar with LED strips, slick dark hair with neon highlights. Dark city background with rain and neon signs. Blade Runner aesthetic, dramatic lighting.",
+    "messages": [{"role": "user", "content": "Transform this photo into a cyberpunk avatar. Add neon circuit tattoos, cybernetic eye implant with glowing blue iris, futuristic collar with LED strips, slick dark hair with neon highlights. Dark city background with rain and neon signs. Blade Runner aesthetic, dramatic lighting."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/my-photo.jpg"]
   }'
@@ -146,23 +160,27 @@ Create platform-optimized avatars for various social networks.
 
 ```bash
 # Instagram Profile Avatar
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a trendy Instagram profile avatar from this photo. Modern aesthetic, soft warm filter, slight glow effect, friendly approachable expression. 1:1 square format optimized for circular crop. Pastel gradient background. Keep it authentic but polished, influencer-style.",
+    "messages": [{"role": "user", "content": "Create a trendy Instagram profile avatar from this photo. Modern aesthetic, soft warm filter, slight glow effect, friendly approachable expression. 1:1 square format optimized for circular crop. Pastel gradient background. Keep it authentic but polished, influencer-style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/my-photo.jpg"]
   }'
 
 # Discord/Gaming Avatar
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a cool Discord avatar from this photo. Anime-inspired style with bold outlines, vibrant colors, confident expression. Add gaming headphones, RGB lighting effects in the background. Square format, works well at small sizes. Energetic gamer aesthetic.",
+    "messages": [{"role": "user", "content": "Create a cool Discord avatar from this photo. Anime-inspired style with bold outlines, vibrant colors, confident expression. Add gaming headphones, RGB lighting effects in the background. Square format, works well at small sizes. Energetic gamer aesthetic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/my-photo.jpg"]
   }'
@@ -173,12 +191,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Generate character avatars for gaming profiles and streaming.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an epic gaming avatar from this photo. Transform me into an RPG hero character - detailed armor, confident battle-ready pose, dramatic lighting with volumetric rays. Style similar to League of Legends or Valorant character art. High detail, vibrant colors, professional esports team portrait quality.",
+    "messages": [{"role": "user", "content": "Create an epic gaming avatar from this photo. Transform me into an RPG hero character - detailed armor, confident battle-ready pose, dramatic lighting with volumetric rays. Style similar to League of Legends or Valorant character art. High detail, vibrant colors, professional esports team portrait quality."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/my-photo.jpg"]
   }'
@@ -190,34 +210,40 @@ Generate several different style variations of the same person.
 
 ```bash
 # Initial request - set up the session
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "I want to create multiple avatar variations from this photo. Start with a professional headshot version.",
+    "messages": [{"role": "user", "content": "I want to create multiple avatar variations from this photo. Start with a professional headshot version."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "session_id": "avatar-variations-001",
     "image_urls": ["https://example.com/my-photo.jpg"]
   }'
 
 # Second variation - cartoon style
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now create a cartoon/illustrated version of the same person",
+    "messages": [{"role": "user", "content": "Now create a cartoon/illustrated version of the same person"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "avatar-variations-001"
   }'
 
 # Third variation - 3D render
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 3D rendered version, like a video game character",
+    "messages": [{"role": "user", "content": "Create a 3D rendered version, like a video game character"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "avatar-variations-001"
   }'
 ```
@@ -228,34 +254,40 @@ Generate the same character in multiple poses while maintaining consistency.
 
 ```bash
 # Define the character
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a character avatar based on this photo. Professional illustration style, clean lines, distinctive features. This will be my consistent character for multiple images. Front-facing portrait first.",
+    "messages": [{"role": "user", "content": "Create a character avatar based on this photo. Professional illustration style, clean lines, distinctive features. This will be my consistent character for multiple images. Front-facing portrait first."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "session_id": "consistent-character-001",
     "image_urls": ["https://example.com/my-photo.jpg"]
   }'
 
 # Same character, different pose
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate the same character in a 3/4 side view, looking confident with arms crossed. Maintain exact same style, colors, and features.",
+    "messages": [{"role": "user", "content": "Generate the same character in a 3/4 side view, looking confident with arms crossed. Maintain exact same style, colors, and features."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "consistent-character-001"
   }'
 
 # Same character, action pose
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now show the same character waving hello, friendly expression. Keep all features consistent with previous images.",
+    "messages": [{"role": "user", "content": "Now show the same character waving hello, friendly expression. Keep all features consistent with previous images."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "consistent-character-001"
   }'
 ```
@@ -266,34 +298,40 @@ Create avatars with specific themed backgrounds.
 
 ```bash
 # Beach/Travel themed
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an avatar from this photo with a beautiful tropical beach background. Sunset golden hour lighting, palm trees, ocean waves. Make it look like a premium travel profile picture. Professional color grading, dreamy atmosphere.",
+    "messages": [{"role": "user", "content": "Create an avatar from this photo with a beautiful tropical beach background. Sunset golden hour lighting, palm trees, ocean waves. Make it look like a premium travel profile picture. Professional color grading, dreamy atmosphere."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/my-photo.jpg"]
   }'
 
 # Studio with colored backdrop
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a professional avatar from this photo with a vibrant gradient background (purple to blue). Studio lighting setup, clean and modern. Perfect for a creative professional or designer profile.",
+    "messages": [{"role": "user", "content": "Create a professional avatar from this photo with a vibrant gradient background (purple to blue). Studio lighting setup, clean and modern. Perfect for a creative professional or designer profile."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/my-photo.jpg"]
   }'
 
 # Nature/Outdoor backdrop
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate an avatar with a mountain landscape background. Person in focus with bokeh effect on the scenic mountains behind. Adventure/outdoor enthusiast vibe. Natural lighting, authentic feel.",
+    "messages": [{"role": "user", "content": "Generate an avatar with a mountain landscape background. Person in focus with bokeh effect on the scenic mountains behind. Adventure/outdoor enthusiast vibe. Natural lighting, authentic feel."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/my-photo.jpg"]
   }'
@@ -337,33 +375,39 @@ Use `session_id` to iterate and refine your avatar:
 
 ```bash
 # Initial avatar
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a professional avatar from this photo",
+    "messages": [{"role": "user", "content": "Create a professional avatar from this photo"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "my-avatar-project",
     "image_urls": ["https://example.com/my-photo.jpg"]
   }'
 
 # Refine based on feedback
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Make the lighting warmer and add a slight smile",
+    "messages": [{"role": "user", "content": "Make the lighting warmer and add a slight smile"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "my-avatar-project"
   }'
 
 # Try a different style
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Can you make a cartoon version of this same avatar?",
+    "messages": [{"role": "user", "content": "Can you make a cartoon version of this same avatar?"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "my-avatar-project"
   }'
 ```

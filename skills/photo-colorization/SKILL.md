@@ -3,7 +3,7 @@ name: photo-colorization
 description: Colorize black and white photos using each::sense AI. Bring old family portraits, historical images, vintage photographs, and archival footage to life with intelligent, context-aware colorization.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Photo Colorization
@@ -23,12 +23,14 @@ Transform black and white photographs into vibrant, realistic color images using
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Colorize this black and white photo with natural, realistic colors",
+    "messages": [{"role": "user", "content": "Colorize this black and white photo with natural, realistic colors"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/bw-photo.jpg"],
     "mode": "max"
   }'
@@ -53,12 +55,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Basic colorization with AI-detected colors.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Colorize this black and white photograph. Apply natural, realistic colors based on the image content. Maintain the original quality and details.",
+    "messages": [{"role": "user", "content": "Colorize this black and white photograph. Apply natural, realistic colors based on the image content. Maintain the original quality and details."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/old-photo.jpg"],
     "mode": "max"
   }'
@@ -69,12 +73,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Colorize with period-appropriate historical accuracy.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Colorize this historical photograph from the 1940s. Use period-accurate colors typical of that era - muted tones, authentic clothing colors, and historically appropriate details. This appears to be a street scene.",
+    "messages": [{"role": "user", "content": "Colorize this historical photograph from the 1940s. Use period-accurate colors typical of that era - muted tones, authentic clothing colors, and historically appropriate details. This appears to be a street scene."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/1940s-street.jpg"],
     "mode": "max"
   }'
@@ -85,12 +91,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Bring old family photos to life with warm, natural tones.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Colorize this old family portrait photo. Apply natural skin tones, realistic hair colors, and period-appropriate clothing colors. The photo appears to be from the 1950s-1960s era. Make it look warm and inviting.",
+    "messages": [{"role": "user", "content": "Colorize this old family portrait photo. Apply natural skin tones, realistic hair colors, and period-appropriate clothing colors. The photo appears to be from the 1950s-1960s era. Make it look warm and inviting."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/family-portrait-bw.jpg"],
     "mode": "max"
   }'
@@ -101,12 +109,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Natural outdoor and scenic colorization.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Colorize this black and white landscape photograph. Apply natural colors - blue sky, green foliage, brown earth tones. Make it look like a vibrant summer day while preserving the original composition and atmosphere.",
+    "messages": [{"role": "user", "content": "Colorize this black and white landscape photograph. Apply natural colors - blue sky, green foliage, brown earth tones. Make it look like a vibrant summer day while preserving the original composition and atmosphere."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/landscape-bw.jpg"],
     "mode": "max"
   }'
@@ -117,12 +127,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Control skin tone colorization for accurate results.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Colorize this portrait photograph. The subject has a medium olive skin tone and dark brown hair. Apply natural, warm skin colors with subtle pink undertones. Eyes appear to be brown. Clothing looks like a dark formal suit.",
+    "messages": [{"role": "user", "content": "Colorize this portrait photograph. The subject has a medium olive skin tone and dark brown hair. Apply natural, warm skin colors with subtle pink undertones. Eyes appear to be brown. Clothing looks like a dark formal suit."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/portrait-bw.jpg"],
     "mode": "max"
   }'
@@ -133,12 +145,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Restore old photographs with era-specific styling.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Colorize this vintage photograph from the 1920s. Apply colors that match the Art Deco era - rich jewel tones for clothing, sepia-influenced skin tones, and period-appropriate interior colors. Maintain the vintage aesthetic while adding realistic color.",
+    "messages": [{"role": "user", "content": "Colorize this vintage photograph from the 1920s. Apply colors that match the Art Deco era - rich jewel tones for clothing, sepia-influenced skin tones, and period-appropriate interior colors. Maintain the vintage aesthetic while adding realistic color."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/1920s-vintage.jpg"],
     "mode": "max"
   }'
@@ -149,12 +163,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Historical military photograph restoration with accuracy.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Colorize this World War II military photograph. Apply historically accurate colors - olive drab for US Army uniforms, appropriate skin tones for the soldiers, realistic equipment colors. Maintain the somber, documentary feel of the original while adding authentic military colors.",
+    "messages": [{"role": "user", "content": "Colorize this World War II military photograph. Apply historically accurate colors - olive drab for US Army uniforms, appropriate skin tones for the soldiers, realistic equipment colors. Maintain the somber, documentary feel of the original while adding authentic military colors."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/wwii-soldiers.jpg"],
     "mode": "max"
   }'
@@ -165,12 +181,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Building and interior photograph colorization.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Colorize this black and white photograph of a Victorian-era building. Apply appropriate architectural colors - red or brown brick, white trim, dark roof tiles, green copper patina if visible. Include natural sky colors and surrounding landscape elements.",
+    "messages": [{"role": "user", "content": "Colorize this black and white photograph of a Victorian-era building. Apply appropriate architectural colors - red or brown brick, white trim, dark roof tiles, green copper patina if visible. Include natural sky colors and surrounding landscape elements."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/victorian-building.jpg"],
     "mode": "max"
   }'
@@ -181,12 +199,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Accurate fabric and fashion colorization.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Colorize this 1960s fashion photograph. Apply era-appropriate colors - bold mod colors like orange, turquoise, and pink were popular. The model appears to be wearing a structured dress. Apply realistic fabric textures and vibrant 60s palette.",
+    "messages": [{"role": "user", "content": "Colorize this 1960s fashion photograph. Apply era-appropriate colors - bold mod colors like orange, turquoise, and pink were popular. The model appears to be wearing a structured dress. Apply realistic fabric textures and vibrant 60s palette."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/1960s-fashion.jpg"],
     "mode": "max"
   }'
@@ -198,36 +218,42 @@ Process multiple photos with consistent styling using session continuity.
 
 ```bash
 # First photo in batch
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Colorize this black and white family photo from the 1950s. Apply warm, natural colors with period-appropriate tones. This is photo 1 of a series from the same family album.",
+    "messages": [{"role": "user", "content": "Colorize this black and white family photo from the 1950s. Apply warm, natural colors with period-appropriate tones. This is photo 1 of a series from the same family album."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/family-album-001.jpg"],
     "session_id": "family-album-colorization",
     "mode": "max"
   }'
 
 # Second photo (same session for consistency)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Colorize this second photo from the same family album. Maintain consistent skin tones and color style as the previous colorization.",
+    "messages": [{"role": "user", "content": "Colorize this second photo from the same family album. Maintain consistent skin tones and color style as the previous colorization."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/family-album-002.jpg"],
     "session_id": "family-album-colorization",
     "mode": "max"
   }'
 
 # Third photo (continuing series)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Colorize the third photo. Same family, same era. Keep the color palette consistent with previous images.",
+    "messages": [{"role": "user", "content": "Colorize the third photo. Same family, same era. Keep the color palette consistent with previous images."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/family-album-003.jpg"],
     "session_id": "family-album-colorization",
     "mode": "max"
@@ -269,33 +295,39 @@ Use `session_id` to iterate and refine colorization:
 
 ```bash
 # Initial colorization
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Colorize this old portrait photograph with natural colors",
+    "messages": [{"role": "user", "content": "Colorize this old portrait photograph with natural colors"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/portrait.jpg"],
     "session_id": "portrait-restoration"
   }'
 
 # Refine the result
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "The skin tones look a bit too warm. Can you redo the colorization with cooler, more natural skin tones?",
+    "messages": [{"role": "user", "content": "The skin tones look a bit too warm. Can you redo the colorization with cooler, more natural skin tones?"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "portrait-restoration"
   }'
 
 # Further adjustment
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "The dress should be blue, not green. Please adjust the clothing color.",
+    "messages": [{"role": "user", "content": "The dress should be blue, not green. Please adjust the clothing color."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "portrait-restoration"
   }'
 ```

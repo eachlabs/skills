@@ -3,7 +3,7 @@ name: style-transfer
 description: Transform photos into stunning artistic styles using each::sense AI. Apply Van Gogh, Picasso, anime, watercolor, oil painting, and more to any image.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Image Style Transfer
@@ -22,12 +22,14 @@ Transform any photo into stunning artistic styles using each::sense. This skill 
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Transform this photo into Van Gogh Starry Night style with swirling brushstrokes and vibrant blues",
+    "messages": [{"role": "user", "content": "Transform this photo into Van Gogh Starry Night style with swirling brushstrokes and vibrant blues"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/my-portrait.jpg"],
     "mode": "max"
   }'
@@ -51,12 +53,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Transform photos with Van Gogh's iconic swirling brushstrokes and expressive color palette.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Apply Van Gogh Starry Night style to this cityscape photo. Use swirling, dynamic brushstrokes, deep blues and bright yellows, expressive post-impressionist technique. Make the sky dramatic with spiral patterns.",
+    "messages": [{"role": "user", "content": "Apply Van Gogh Starry Night style to this cityscape photo. Use swirling, dynamic brushstrokes, deep blues and bright yellows, expressive post-impressionist technique. Make the sky dramatic with spiral patterns."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/cityscape.jpg"],
     "mode": "max"
   }'
@@ -67,12 +71,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Deconstruct and reimagine photos in Picasso's revolutionary cubist style.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Transform this portrait into Picasso cubist style. Fragment the face into geometric shapes, show multiple perspectives simultaneously, use muted earth tones with bold accents. Analytical cubism approach.",
+    "messages": [{"role": "user", "content": "Transform this portrait into Picasso cubist style. Fragment the face into geometric shapes, show multiple perspectives simultaneously, use muted earth tones with bold accents. Analytical cubism approach."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/portrait.jpg"],
     "mode": "max"
   }'
@@ -83,12 +89,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Apply Monet's soft, light-filled impressionist technique to landscapes and scenes.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Apply Claude Monet impressionist style to this garden photo. Soft dappled light, loose brushstrokes, focus on atmosphere and light rather than details. Like his Water Lilies series - dreamy and ethereal.",
+    "messages": [{"role": "user", "content": "Apply Claude Monet impressionist style to this garden photo. Soft dappled light, loose brushstrokes, focus on atmosphere and light rather than details. Like his Water Lilies series - dreamy and ethereal."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/garden.jpg"],
     "mode": "max"
   }'
@@ -99,12 +107,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Convert photos into Japanese anime or manga illustration style.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Transform this photo into anime style. Large expressive eyes, clean line art, cel-shaded coloring, vibrant colors. Studio Ghibli inspired aesthetic with soft backgrounds and detailed character rendering.",
+    "messages": [{"role": "user", "content": "Transform this photo into anime style. Large expressive eyes, clean line art, cel-shaded coloring, vibrant colors. Studio Ghibli inspired aesthetic with soft backgrounds and detailed character rendering."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/person-photo.jpg"],
     "mode": "max"
   }'
@@ -115,12 +125,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Transform photos into delicate watercolor paintings with flowing colors and soft edges.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Convert this landscape photo into a watercolor painting. Soft washes of color, visible paper texture, gentle color bleeds, transparent layers. Traditional watercolor technique with wet-on-wet effects.",
+    "messages": [{"role": "user", "content": "Convert this landscape photo into a watercolor painting. Soft washes of color, visible paper texture, gentle color bleeds, transparent layers. Traditional watercolor technique with wet-on-wet effects."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/landscape.jpg"],
     "mode": "max"
   }'
@@ -131,12 +143,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Apply rich, textured oil painting techniques to create museum-quality artistic renditions.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Transform this portrait into a classical oil painting. Rich impasto brushstrokes, dramatic chiaroscuro lighting, deep saturated colors. Renaissance master style with visible paint texture and depth.",
+    "messages": [{"role": "user", "content": "Transform this portrait into a classical oil painting. Rich impasto brushstrokes, dramatic chiaroscuro lighting, deep saturated colors. Renaissance master style with visible paint texture and depth."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/portrait.jpg"],
     "mode": "max"
   }'
@@ -147,12 +161,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Convert photos into detailed pencil drawings with crosshatching and shading.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Convert this photo into a detailed pencil sketch. Fine crosshatching for shading, clean outlines, graphite texture on paper. Photorealistic pencil drawing style with subtle gradients and precise details.",
+    "messages": [{"role": "user", "content": "Convert this photo into a detailed pencil sketch. Fine crosshatching for shading, clean outlines, graphite texture on paper. Photorealistic pencil drawing style with subtle gradients and precise details."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/subject.jpg"],
     "mode": "max"
   }'
@@ -163,12 +179,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Transform photos into bold, colorful pop art inspired by Warhol and Lichtenstein.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Apply pop art style to this portrait. Bold flat colors, Ben-Day dots, high contrast, Andy Warhol inspired. Bright neon palette with black outlines, comic book aesthetic meets fine art.",
+    "messages": [{"role": "user", "content": "Apply pop art style to this portrait. Bold flat colors, Ben-Day dots, high contrast, Andy Warhol inspired. Bright neon palette with black outlines, comic book aesthetic meets fine art."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/portrait.jpg"],
     "mode": "max"
   }'
@@ -179,12 +197,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Convert photos into retro pixel art with limited color palettes.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Transform this photo into pixel art style. 16-bit retro gaming aesthetic, limited color palette, visible pixels, clean edges. Like classic SNES or arcade game sprites but detailed.",
+    "messages": [{"role": "user", "content": "Transform this photo into pixel art style. 16-bit retro gaming aesthetic, limited color palette, visible pixels, clean edges. Like classic SNES or arcade game sprites but detailed."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/character.jpg"],
     "mode": "max"
   }'
@@ -195,12 +215,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Use any artwork as a style reference to transfer its aesthetic to your photo.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Apply the artistic style from the first image (the reference artwork) to the second image (the photo). Match the color palette, brushwork, texture, and overall aesthetic of the reference while preserving the composition of the photo.",
+    "messages": [{"role": "user", "content": "Apply the artistic style from the first image (the reference artwork) to the second image (the photo). Match the color palette, brushwork, texture, and overall aesthetic of the reference while preserving the composition of the photo."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": [
       "https://example.com/reference-artwork.jpg",
       "https://example.com/my-photo.jpg"
@@ -258,33 +280,39 @@ Use `session_id` to iterate on style transfers:
 
 ```bash
 # Initial style transfer
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Apply Van Gogh style to this portrait",
+    "messages": [{"role": "user", "content": "Apply Van Gogh style to this portrait"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/portrait.jpg"],
     "session_id": "style-project-001"
   }'
 
 # Refine the style
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Make the brushstrokes more pronounced and add more yellow tones like in Starry Night",
+    "messages": [{"role": "user", "content": "Make the brushstrokes more pronounced and add more yellow tones like in Starry Night"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "style-project-001"
   }'
 
 # Try a variation
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now create a version with cooler blue tones instead",
+    "messages": [{"role": "user", "content": "Now create a version with cooler blue tones instead"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "style-project-001"
   }'
 ```
@@ -295,34 +323,40 @@ Generate multiple style variations for comparison:
 
 ```bash
 # Van Gogh variation
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Apply Van Gogh style to this photo",
+    "messages": [{"role": "user", "content": "Apply Van Gogh style to this photo"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/photo.jpg"],
     "mode": "eco"
   }'
 
 # Monet variation
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Apply Monet impressionist style to this photo",
+    "messages": [{"role": "user", "content": "Apply Monet impressionist style to this photo"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/photo.jpg"],
     "mode": "eco"
   }'
 
 # Anime variation
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Transform this photo into anime style",
+    "messages": [{"role": "user", "content": "Transform this photo into anime style"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/photo.jpg"],
     "mode": "eco"
   }'

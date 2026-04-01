@@ -3,7 +3,7 @@ name: video-trimming
 description: Trim, cut, and split videos using each::sense AI. Extract specific segments, remove intros/outros, create social media clips, detect scenes automatically, and batch process multiple videos.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Video Trimming
@@ -26,12 +26,14 @@ Trim, cut, and split videos using each::sense. This skill enables precise video 
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Trim this video to the first 30 seconds",
+    "messages": [{"role": "user", "content": "Trim this video to the first 30 seconds"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/my-video.mp4"]
   }'
@@ -57,12 +59,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Trim a video to a specific length from the beginning.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Trim this video to exactly 60 seconds, keeping the first minute only",
+    "messages": [{"role": "user", "content": "Trim this video to exactly 60 seconds, keeping the first minute only"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/full-video.mp4"]
   }'
@@ -73,12 +77,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Extract a specific portion from the middle of a video using timestamps.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Cut out the segment from 1:30 to 2:45 of this video. I want just that middle portion as a standalone clip.",
+    "messages": [{"role": "user", "content": "Cut out the segment from 1:30 to 2:45 of this video. I want just that middle portion as a standalone clip."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/interview.mp4"]
   }'
@@ -89,12 +95,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Clean up a video by removing unwanted intro and outro sections.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Remove the first 10 seconds (intro) and last 15 seconds (outro) from this video. Keep only the main content in the middle.",
+    "messages": [{"role": "user", "content": "Remove the first 10 seconds (intro) and last 15 seconds (outro) from this video. Keep only the main content in the middle."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/youtube-video.mp4"]
   }'
@@ -105,12 +113,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Divide a long video into several shorter segments.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Split this 5-minute video into five 1-minute clips. Each clip should be a separate output.",
+    "messages": [{"role": "user", "content": "Split this 5-minute video into five 1-minute clips. Each clip should be a separate output."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/long-video.mp4"]
   }'
@@ -121,12 +131,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Pull out the best moments from a longer video.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Extract the most engaging or action-packed moments from this video. Create a highlight reel of the best 30 seconds.",
+    "messages": [{"role": "user", "content": "Extract the most engaging or action-packed moments from this video. Create a highlight reel of the best 30 seconds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/sports-footage.mp4"]
   }'
@@ -137,12 +149,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Automatically detect and remove silent portions from a video.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Remove all silent portions and dead air from this video. Cut out any segments where there is no speaking or significant audio for more than 2 seconds.",
+    "messages": [{"role": "user", "content": "Remove all silent portions and dead air from this video. Cut out any segments where there is no speaking or significant audio for more than 2 seconds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/podcast-recording.mp4"]
   }'
@@ -153,12 +167,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Use AI to detect scene changes and split the video accordingly.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Analyze this video and split it into separate clips based on scene changes. Each time the visual scene changes significantly, create a new clip.",
+    "messages": [{"role": "user", "content": "Analyze this video and split it into separate clips based on scene changes. Each time the visual scene changes significantly, create a new clip."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/multi-scene-video.mp4"]
   }'
@@ -170,36 +186,42 @@ Process multiple videos with the same trimming rules using session continuity.
 
 ```bash
 # First video
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Trim this video to 30 seconds from the start. We will process multiple videos with the same rule.",
+    "messages": [{"role": "user", "content": "Trim this video to 30 seconds from the start. We will process multiple videos with the same rule."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "batch-trim-001",
     "mode": "eco",
     "video_urls": ["https://example.com/video1.mp4"]
   }'
 
 # Second video (same session)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Apply the same 30-second trim to this video",
+    "messages": [{"role": "user", "content": "Apply the same 30-second trim to this video"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "batch-trim-001",
     "mode": "eco",
     "video_urls": ["https://example.com/video2.mp4"]
   }'
 
 # Third video (same session)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "And the same for this one",
+    "messages": [{"role": "user", "content": "And the same for this one"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "batch-trim-001",
     "mode": "eco",
     "video_urls": ["https://example.com/video3.mp4"]
@@ -212,34 +234,40 @@ Optimize videos for specific social media platform requirements.
 
 ```bash
 # Instagram Reels / TikTok (15 seconds)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Trim this video to exactly 15 seconds for Instagram Reels. Pick the most engaging 15-second segment.",
+    "messages": [{"role": "user", "content": "Trim this video to exactly 15 seconds for Instagram Reels. Pick the most engaging 15-second segment."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/content.mp4"]
   }'
 
 # YouTube Shorts (30 seconds)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 30-second clip optimized for YouTube Shorts from this video. Focus on the hook at the start.",
+    "messages": [{"role": "user", "content": "Create a 30-second clip optimized for YouTube Shorts from this video. Focus on the hook at the start."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/content.mp4"]
   }'
 
 # Standard social clip (60 seconds)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Trim to 60 seconds maximum for Twitter/X. Keep the most important content.",
+    "messages": [{"role": "user", "content": "Trim to 60 seconds maximum for Twitter/X. Keep the most important content."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/content.mp4"]
   }'
@@ -250,12 +278,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create seamlessly looping video clips for social media.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Trim this video to create a seamless loop. Find a segment where the end flows naturally back to the beginning, ideally 5-10 seconds long for a satisfying social media loop.",
+    "messages": [{"role": "user", "content": "Trim this video to create a seamless loop. Find a segment where the end flows naturally back to the beginning, ideally 5-10 seconds long for a satisfying social media loop."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "video_urls": ["https://example.com/loopable-content.mp4"]
   }'
@@ -321,33 +351,39 @@ Use `session_id` to iterate on video edits:
 
 ```bash
 # Initial trim
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Trim this video to the segment from 0:30 to 1:30",
+    "messages": [{"role": "user", "content": "Trim this video to the segment from 0:30 to 1:30"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "edit-session-001",
     "video_urls": ["https://example.com/raw-footage.mp4"]
   }'
 
 # Adjust the trim
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Actually, extend the end by 10 more seconds to include the conclusion",
+    "messages": [{"role": "user", "content": "Actually, extend the end by 10 more seconds to include the conclusion"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "edit-session-001"
   }'
 
 # Request additional version
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a shorter 15-second version of this same segment for Instagram",
+    "messages": [{"role": "user", "content": "Create a shorter 15-second version of this same segment for Instagram"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "edit-session-001"
   }'
 ```

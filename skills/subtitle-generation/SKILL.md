@@ -3,7 +3,7 @@ name: subtitle-generation
 description: Generate subtitles and captions for videos using each::sense AI. Create auto-generated subtitles, multi-language captions, animated TikTok-style text, SRT/VTT exports, speaker diarization, and burned-in subtitles.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Subtitle Generation
@@ -26,12 +26,14 @@ Generate professional subtitles and captions for videos using each::sense. This 
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate subtitles for this video with accurate timestamps",
+    "messages": [{"role": "user", "content": "Generate subtitles for this video with accurate timestamps"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "file_urls": ["https://example.com/my-video.mp4"]
   }'
@@ -54,12 +56,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Automatically transcribe speech from a video file with accurate word-level timestamps.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Transcribe this video and generate subtitles with accurate timestamps. Output as SRT format. The video contains English speech.",
+    "messages": [{"role": "user", "content": "Transcribe this video and generate subtitles with accurate timestamps. Output as SRT format. The video contains English speech."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "file_urls": ["https://example.com/interview-video.mp4"]
   }'
@@ -70,12 +74,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Generate subtitles in multiple languages directly from the audio.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate subtitles for this video in English, Spanish, and French. Provide separate SRT files for each language. The original audio is in English.",
+    "messages": [{"role": "user", "content": "Generate subtitles for this video in English, Spanish, and French. Provide separate SRT files for each language. The original audio is in English."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "file_urls": ["https://example.com/product-demo.mp4"]
   }'
@@ -86,12 +92,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create eye-catching animated captions with word-by-word highlighting, popular on TikTok and Instagram Reels.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Add TikTok-style animated captions to this video. Use bold white text with black outline, word-by-word pop animation, centered at the bottom third of the screen. Make it trendy and engaging.",
+    "messages": [{"role": "user", "content": "Add TikTok-style animated captions to this video. Use bold white text with black outline, word-by-word pop animation, centered at the bottom third of the screen. Make it trendy and engaging."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "file_urls": ["https://example.com/short-form-content.mp4"]
   }'
@@ -102,12 +110,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Generate clean subtitle files in standard formats for use in video editors or streaming platforms.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Transcribe this video and export subtitles in both SRT and VTT formats. Ensure proper line breaks (max 42 characters per line, 2 lines max). Include timestamps accurate to milliseconds.",
+    "messages": [{"role": "user", "content": "Transcribe this video and export subtitles in both SRT and VTT formats. Ensure proper line breaks (max 42 characters per line, 2 lines max). Include timestamps accurate to milliseconds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "file_urls": ["https://example.com/documentary.mp4"]
   }'
@@ -118,12 +128,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Generate subtitles that identify and label different speakers in conversations, interviews, or podcasts.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate subtitles for this podcast with speaker diarization. There are 2 speakers - identify them as Speaker 1 and Speaker 2 (or Host and Guest if you can determine roles). Format each line with the speaker label.",
+    "messages": [{"role": "user", "content": "Generate subtitles for this podcast with speaker diarization. There are 2 speakers - identify them as Speaker 1 and Speaker 2 (or Host and Guest if you can determine roles). Format each line with the speaker label."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "file_urls": ["https://example.com/podcast-episode.mp4"]
   }'
@@ -134,12 +146,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Translate existing subtitles from one language to another while preserving timing.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Translate these English subtitles to Japanese. Preserve the original timing and format. Ensure natural Japanese phrasing rather than literal translation.",
+    "messages": [{"role": "user", "content": "Translate these English subtitles to Japanese. Preserve the original timing and format. Ensure natural Japanese phrasing rather than literal translation."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "file_urls": ["https://example.com/original-subtitles.srt"]
   }'
@@ -150,12 +164,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Render subtitles directly into the video file (hardcoded/embedded) so they appear without needing player support.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate subtitles for this video and burn them directly into the video. Use white text with black background box, Arial font, positioned at bottom center. Output a new video file with embedded subtitles.",
+    "messages": [{"role": "user", "content": "Generate subtitles for this video and burn them directly into the video. Use white text with black background box, Arial font, positioned at bottom center. Output a new video file with embedded subtitles."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "file_urls": ["https://example.com/social-media-clip.mp4"]
   }'
@@ -166,12 +182,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create karaoke-style subtitles with word-by-word highlighting, perfect for music videos and lyric content.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create karaoke-style subtitles for this music video. Display lyrics with word-by-word highlighting as they are sung. Use a gradient color change effect (from white to yellow) for the currently sung word. Center the text on screen.",
+    "messages": [{"role": "user", "content": "Create karaoke-style subtitles for this music video. Display lyrics with word-by-word highlighting as they are sung. Use a gradient color change effect (from white to yellow) for the currently sung word. Center the text on screen."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "file_urls": ["https://example.com/music-video.mp4"]
   }'
@@ -183,24 +201,28 @@ Fine-tune subtitle timing for better synchronization with audio.
 
 ```bash
 # First, upload video and generate initial subtitles
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate subtitles for this video",
+    "messages": [{"role": "user", "content": "Generate subtitles for this video"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "session_id": "subtitle-timing-project",
     "file_urls": ["https://example.com/video-with-delay.mp4"]
   }'
 
 # Then adjust timing in the same session
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "The subtitles are appearing 500 milliseconds too early. Shift all subtitle timings forward by 500ms and regenerate the SRT file.",
+    "messages": [{"role": "user", "content": "The subtitles are appearing 500 milliseconds too early. Shift all subtitle timings forward by 500ms and regenerate the SRT file."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "subtitle-timing-project"
   }'
 ```
@@ -210,12 +232,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Generate subtitles for multiple videos in a single workflow.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate English subtitles for all these videos. Output SRT files for each. Use consistent formatting across all videos: max 2 lines, 42 characters per line, minimum 1 second display time per subtitle.",
+    "messages": [{"role": "user", "content": "Generate English subtitles for all these videos. Output SRT files for each. Use consistent formatting across all videos: max 2 lines, 42 characters per line, minimum 1 second display time per subtitle."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "file_urls": [
       "https://example.com/episode-01.mp4",
@@ -289,33 +313,39 @@ Use `session_id` to iterate on subtitle generation:
 
 ```bash
 # Initial subtitle generation
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate subtitles for this video with speaker identification",
+    "messages": [{"role": "user", "content": "Generate subtitles for this video with speaker identification"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "subtitle-project-001",
     "file_urls": ["https://example.com/interview.mp4"]
   }'
 
 # Refine based on feedback
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Change Speaker 1 label to John and Speaker 2 to Sarah. Also fix the spelling of TensorFlow wherever it appears.",
+    "messages": [{"role": "user", "content": "Change Speaker 1 label to John and Speaker 2 to Sarah. Also fix the spelling of TensorFlow wherever it appears."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "subtitle-project-001"
   }'
 
 # Add styling and export
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now create a burned-in version with the corrected subtitles. Use yellow text for John and cyan for Sarah.",
+    "messages": [{"role": "user", "content": "Now create a burned-in version with the corrected subtitles. Use yellow text for John and cyan for Sarah."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "subtitle-project-001"
   }'
 ```

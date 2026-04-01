@@ -3,7 +3,7 @@ name: google-ad-creative-generation
 description: Generate Google Ads creatives using each::sense AI. Create display ads, YouTube thumbnails, Discovery ads, Performance Max assets, and responsive display ads optimized for Google's ad formats and best practices.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Google Ad Creative Generation
@@ -24,12 +24,14 @@ Generate high-converting Google Ads creatives using each::sense. This skill crea
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a Google Display ad banner for a SaaS product, 300x250 medium rectangle, showing a clean dashboard interface with professional blue color scheme",
+    "messages": [{"role": "user", "content": "Create a Google Display ad banner for a SaaS product, 300x250 medium rectangle, showing a clean dashboard interface with professional blue color scheme"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -80,12 +82,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Display Banner Ad (Medium Rectangle)
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 300x250 Google Display ad for an online course platform. Show a person learning on laptop, modern gradient background in purple and blue, leave space for headline text at top and CTA button at bottom.",
+    "messages": [{"role": "user", "content": "Create a 300x250 Google Display ad for an online course platform. Show a person learning on laptop, modern gradient background in purple and blue, leave space for headline text at top and CTA button at bottom."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -93,12 +97,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. YouTube Custom Thumbnail
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 16:9 YouTube thumbnail for a tech review video. Show a smartphone floating with dramatic lighting, bold contrasting colors, leave right side clear for text overlay. Eye-catching and clickable style.",
+    "messages": [{"role": "user", "content": "Create a 16:9 YouTube thumbnail for a tech review video. Show a smartphone floating with dramatic lighting, bold contrasting colors, leave right side clear for text overlay. Eye-catching and clickable style."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -106,12 +112,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Discovery Ad (Gmail/Discover)
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1.91:1 landscape Discovery ad for a travel agency. Show a stunning beach destination with turquoise water, aspirational vacation vibes. Native content feel, not overly promotional. 1200x628 pixels.",
+    "messages": [{"role": "user", "content": "Create a 1.91:1 landscape Discovery ad for a travel agency. Show a stunning beach destination with turquoise water, aspirational vacation vibes. Native content feel, not overly promotional. 1200x628 pixels."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -119,12 +127,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Shopping Ad Product Image
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a product image for Google Shopping. Show wireless headphones on pure white background, multiple angles visible, clean e-commerce style. High detail, professional product photography look.",
+    "messages": [{"role": "user", "content": "Create a product image for Google Shopping. Show wireless headphones on pure white background, multiple angles visible, clean e-commerce style. High detail, professional product photography look."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -132,12 +142,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. App Campaign Ad
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1:1 square ad for a fitness app install campaign. Show app interface mockup on phone screen with workout tracking visible, energetic person exercising in background. Vibrant orange and black brand colors.",
+    "messages": [{"role": "user", "content": "Create a 1:1 square ad for a fitness app install campaign. Show app interface mockup on phone screen with workout tracking visible, energetic person exercising in background. Vibrant orange and black brand colors."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -146,22 +158,26 @@ curl -X POST https://sense.eachlabs.run/chat \
 
 ```bash
 # Landscape asset (required)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1200x628 landscape image for responsive display ads. Insurance company - show a happy family in front of their home, warm and trustworthy feeling, soft natural lighting. Leave clear space for headline overlay.",
+    "messages": [{"role": "user", "content": "Create a 1200x628 landscape image for responsive display ads. Insurance company - show a happy family in front of their home, warm and trustworthy feeling, soft natural lighting. Leave clear space for headline overlay."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "responsive-insurance-001"
   }'
 
 # Square asset (required)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1200x1200 square version of the same insurance ad. Same family, same style, recomposed for square format.",
+    "messages": [{"role": "user", "content": "Create a 1200x1200 square version of the same insurance ad. Same family, same style, recomposed for square format."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "responsive-insurance-001"
   }'
 ```
@@ -170,34 +186,40 @@ curl -X POST https://sense.eachlabs.run/chat \
 
 ```bash
 # Asset 1 - Square
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1:1 square image for Performance Max campaign. E-commerce fashion brand - show model wearing casual summer dress, lifestyle outdoor setting, Instagram-worthy aesthetic.",
+    "messages": [{"role": "user", "content": "Create a 1:1 square image for Performance Max campaign. E-commerce fashion brand - show model wearing casual summer dress, lifestyle outdoor setting, Instagram-worthy aesthetic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "pmax-fashion-001",
     "mode": "max"
   }'
 
 # Asset 2 - Landscape
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1.91:1 landscape version for the same fashion campaign, same model and dress, wider scene showing more environment.",
+    "messages": [{"role": "user", "content": "Create a 1.91:1 landscape version for the same fashion campaign, same model and dress, wider scene showing more environment."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "pmax-fashion-001",
     "mode": "max"
   }'
 
 # Asset 3 - Portrait
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 4:5 portrait version for mobile placements, same fashion campaign, vertical composition focusing on the dress.",
+    "messages": [{"role": "user", "content": "Create a 4:5 portrait version for mobile placements, same fashion campaign, vertical composition focusing on the dress."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "pmax-fashion-001",
     "mode": "max"
   }'
@@ -206,12 +228,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. YouTube Bumper Ad
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 6 second 16:9 bumper ad video for a car dealership. Quick cuts showing sleek new car exterior, interior dashboard, driving on highway. End with logo frame. Fast-paced, cinematic quality.",
+    "messages": [{"role": "user", "content": "Create a 6 second 16:9 bumper ad video for a car dealership. Quick cuts showing sleek new car exterior, interior dashboard, driving on highway. End with logo frame. Fast-paced, cinematic quality."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -219,12 +243,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. Leaderboard Banner
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 728x90 leaderboard banner for a web hosting company. Horizontal layout with server imagery on left, gradient blue tech background. Leave center-right area for headline and CTA. Modern and professional.",
+    "messages": [{"role": "user", "content": "Create a 728x90 leaderboard banner for a web hosting company. Horizontal layout with server imagery on left, gradient blue tech background. Leave center-right area for headline and CTA. Modern and professional."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -232,12 +258,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 10. Remarketing Ad (with Product Image)
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 300x250 remarketing display ad featuring this watch product. Place the watch prominently with a lifestyle background showing success and sophistication. Add visual urgency elements suggesting limited availability.",
+    "messages": [{"role": "user", "content": "Create a 300x250 remarketing display ad featuring this watch product. Place the watch prominently with a lifestyle background showing success and sophistication. Add visual urgency elements suggesting limited availability."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max",
     "image_urls": ["https://example.com/product-watch.jpg"]
   }'
@@ -314,32 +342,38 @@ Use `session_id` to iterate on ad creatives:
 
 ```bash
 # Initial creative
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 300x250 display ad for a fintech app, modern and trustworthy",
+    "messages": [{"role": "user", "content": "Create a 300x250 display ad for a fintech app, modern and trustworthy"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "fintech-display-001"
   }'
 
 # Iterate based on feedback
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Make the background darker, add subtle grid pattern, more techy feel",
+    "messages": [{"role": "user", "content": "Make the background darker, add subtle grid pattern, more techy feel"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "fintech-display-001"
   }'
 
 # Generate size variations
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now create a 728x90 leaderboard version with the same style",
+    "messages": [{"role": "user", "content": "Now create a 728x90 leaderboard version with the same style"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "fintech-display-001"
   }'
 ```
@@ -350,34 +384,40 @@ Generate multiple banner sizes for a campaign:
 
 ```bash
 # Medium Rectangle
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 300x250 display ad for online shoe store, lifestyle shot of running shoes in action",
+    "messages": [{"role": "user", "content": "Create a 300x250 display ad for online shoe store, lifestyle shot of running shoes in action"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "shoe-campaign-001",
     "mode": "eco"
   }'
 
 # Leaderboard
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 728x90 leaderboard version, same shoe campaign style, horizontal layout",
+    "messages": [{"role": "user", "content": "Create a 728x90 leaderboard version, same shoe campaign style, horizontal layout"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "shoe-campaign-001",
     "mode": "eco"
   }'
 
 # Half Page
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 300x600 half page version, vertical layout showcasing the shoes",
+    "messages": [{"role": "user", "content": "Create a 300x600 half page version, vertical layout showcasing the shoes"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "shoe-campaign-001",
     "mode": "eco"
   }'

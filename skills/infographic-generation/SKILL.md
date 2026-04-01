@@ -3,7 +3,7 @@ name: infographic-generation
 description: Generate professional infographics using each::sense AI. Create statistical, process, comparison, timeline, list, geographic, hierarchical, resume, report, and social media infographics optimized for visual communication.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Infographic Generation
@@ -26,12 +26,14 @@ Generate professional, visually compelling infographics using each::sense. This 
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a statistical infographic showing global renewable energy adoption rates with bar charts and key statistics",
+    "messages": [{"role": "user", "content": "Create a statistical infographic showing global renewable energy adoption rates with bar charts and key statistics"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -56,12 +58,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Statistical Infographic
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a statistical infographic about global coffee consumption. Include: bar chart showing top 5 consuming countries, pie chart of coffee types (espresso, latte, cappuccino, etc.), key stats like 2.25 billion cups consumed daily, and icons representing coffee culture. Modern minimal design with warm brown and cream color palette. Portrait orientation.",
+    "messages": [{"role": "user", "content": "Create a statistical infographic about global coffee consumption. Include: bar chart showing top 5 consuming countries, pie chart of coffee types (espresso, latte, cappuccino, etc.), key stats like 2.25 billion cups consumed daily, and icons representing coffee culture. Modern minimal design with warm brown and cream color palette. Portrait orientation."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -69,12 +73,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Process/How-To Infographic
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a how-to infographic for making sourdough bread. Show 8 steps: 1) Create starter, 2) Feed starter, 3) Mix dough, 4) Autolyse, 5) Stretch and fold, 6) Bulk ferment, 7) Shape and proof, 8) Bake. Use illustrated icons for each step, numbered circles, arrows showing flow. Rustic warm color scheme. Vertical layout.",
+    "messages": [{"role": "user", "content": "Create a how-to infographic for making sourdough bread. Show 8 steps: 1) Create starter, 2) Feed starter, 3) Mix dough, 4) Autolyse, 5) Stretch and fold, 6) Bulk ferment, 7) Shape and proof, 8) Bake. Use illustrated icons for each step, numbered circles, arrows showing flow. Rustic warm color scheme. Vertical layout."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -82,12 +88,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Comparison Infographic
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a comparison infographic: Electric Cars vs Gas Cars. Compare: Initial cost, Fuel/charging costs, Maintenance costs, Environmental impact, Range, Charging/refueling time. Use side-by-side layout with green for electric and gray for gas. Include icons for each category, checkmarks for advantages. Clean modern design.",
+    "messages": [{"role": "user", "content": "Create a comparison infographic: Electric Cars vs Gas Cars. Compare: Initial cost, Fuel/charging costs, Maintenance costs, Environmental impact, Range, Charging/refueling time. Use side-by-side layout with green for electric and gray for gas. Include icons for each category, checkmarks for advantages. Clean modern design."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -95,12 +103,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Timeline Infographic
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a timeline infographic showing the history of artificial intelligence. Key milestones: 1950 Turing Test proposed, 1956 Dartmouth Conference (AI term coined), 1966 ELIZA chatbot, 1997 Deep Blue beats Kasparov, 2011 IBM Watson wins Jeopardy, 2012 Deep Learning breakthrough, 2016 AlphaGo beats Lee Sedol, 2022 ChatGPT released. Horizontal timeline with alternating above/below entries, tech-inspired blue color scheme, circuit board design elements.",
+    "messages": [{"role": "user", "content": "Create a timeline infographic showing the history of artificial intelligence. Key milestones: 1950 Turing Test proposed, 1956 Dartmouth Conference (AI term coined), 1966 ELIZA chatbot, 1997 Deep Blue beats Kasparov, 2011 IBM Watson wins Jeopardy, 2012 Deep Learning breakthrough, 2016 AlphaGo beats Lee Sedol, 2022 ChatGPT released. Horizontal timeline with alternating above/below entries, tech-inspired blue color scheme, circuit board design elements."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -108,12 +118,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. List Infographic
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a list infographic: Top 10 Productivity Tips for Remote Workers. Include: 1) Create dedicated workspace, 2) Set regular hours, 3) Take scheduled breaks, 4) Use time-blocking, 5) Minimize distractions, 6) Dress for work, 7) Stay connected with team, 8) Set boundaries, 9) Exercise daily, 10) End work ritual. Use numbered list format with icons for each tip, modern gradient purple and blue color scheme, clean typography.",
+    "messages": [{"role": "user", "content": "Create a list infographic: Top 10 Productivity Tips for Remote Workers. Include: 1) Create dedicated workspace, 2) Set regular hours, 3) Take scheduled breaks, 4) Use time-blocking, 5) Minimize distractions, 6) Dress for work, 7) Stay connected with team, 8) Set boundaries, 9) Exercise daily, 10) End work ritual. Use numbered list format with icons for each tip, modern gradient purple and blue color scheme, clean typography."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -121,12 +133,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Geographic/Map Infographic
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a geographic infographic showing internet penetration rates across continents. Include a world map with color-coded regions: North America 93%, Europe 89%, South America 75%, Asia 64%, Africa 43%. Add data callouts for top 5 countries by users. Use a tech-inspired blue gradient for high penetration to gray for low. Include legend and source citation area.",
+    "messages": [{"role": "user", "content": "Create a geographic infographic showing internet penetration rates across continents. Include a world map with color-coded regions: North America 93%, Europe 89%, South America 75%, Asia 64%, Africa 43%. Add data callouts for top 5 countries by users. Use a tech-inspired blue gradient for high penetration to gray for low. Include legend and source citation area."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -134,12 +148,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Hierarchical Infographic
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a hierarchical infographic showing a typical tech startup organizational structure. CEO at top, branching to: CTO (with Engineering Manager, then Frontend/Backend/DevOps teams), CPO (with Product Managers, UX Designers), CFO (with Finance, HR), CMO (with Marketing, Sales). Use tree diagram format with connecting lines, professional corporate blue and gray colors, rounded rectangles for each role, icons representing each department.",
+    "messages": [{"role": "user", "content": "Create a hierarchical infographic showing a typical tech startup organizational structure. CEO at top, branching to: CTO (with Engineering Manager, then Frontend/Backend/DevOps teams), CPO (with Product Managers, UX Designers), CFO (with Finance, HR), CMO (with Marketing, Sales). Use tree diagram format with connecting lines, professional corporate blue and gray colors, rounded rectangles for each role, icons representing each department."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -147,12 +163,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Resume Infographic
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a visual resume infographic for a UX Designer. Include sections: Profile summary with placeholder for photo, Skills with horizontal progress bars (Figma 95%, User Research 90%, Prototyping 85%, HTML/CSS 70%), Work experience as vertical timeline (2020-2023 Senior UX at TechCorp, 2017-2020 UX Designer at StartupXYZ), Education icons, Contact info with icons. Modern minimalist design, teal and dark gray color scheme, A4 portrait.",
+    "messages": [{"role": "user", "content": "Create a visual resume infographic for a UX Designer. Include sections: Profile summary with placeholder for photo, Skills with horizontal progress bars (Figma 95%, User Research 90%, Prototyping 85%, HTML/CSS 70%), Work experience as vertical timeline (2020-2023 Senior UX at TechCorp, 2017-2020 UX Designer at StartupXYZ), Education icons, Contact info with icons. Modern minimalist design, teal and dark gray color scheme, A4 portrait."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -160,12 +178,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. Report Infographic
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an annual report infographic for a SaaS company. Include: Header with company logo placeholder and year 2024, Key metrics section (Revenue $12M up 45%, Customers 5,000+ up 60%, Team size 85 up 30%, NPS score 72), Revenue growth line chart, Customer acquisition funnel, Geographic expansion map showing presence in 25 countries, Product milestones timeline. Professional corporate design, navy blue and gold accent colors.",
+    "messages": [{"role": "user", "content": "Create an annual report infographic for a SaaS company. Include: Header with company logo placeholder and year 2024, Key metrics section (Revenue $12M up 45%, Customers 5,000+ up 60%, Team size 85 up 30%, NPS score 72), Revenue growth line chart, Customer acquisition funnel, Geographic expansion map showing presence in 25 countries, Product milestones timeline. Professional corporate design, navy blue and gold accent colors."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -173,12 +193,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 10. Social Media Infographic
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a square 1:1 social media infographic about benefits of meditation. Title: 5 Science-Backed Benefits of Daily Meditation. Points: 1) Reduces stress hormones by 23%, 2) Improves focus and concentration, 3) Better sleep quality, 4) Lower blood pressure, 5) Increased emotional well-being. Bold readable text, calming purple and teal gradient background, simple icons for each benefit, Instagram-optimized with high contrast for mobile viewing.",
+    "messages": [{"role": "user", "content": "Create a square 1:1 social media infographic about benefits of meditation. Title: 5 Science-Backed Benefits of Daily Meditation. Points: 1) Reduces stress hormones by 23%, 2) Improves focus and concentration, 3) Better sleep quality, 4) Lower blood pressure, 5) Increased emotional well-being. Bold readable text, calming purple and teal gradient background, simple icons for each benefit, Instagram-optimized with high contrast for mobile viewing."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -189,32 +211,38 @@ Use `session_id` to iterate on infographic designs:
 
 ```bash
 # Initial infographic
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an infographic about climate change impacts with key statistics and a world map",
+    "messages": [{"role": "user", "content": "Create an infographic about climate change impacts with key statistics and a world map"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "climate-infographic-001"
   }'
 
 # Iterate based on feedback
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Add more emphasis on ocean temperature data and include a temperature anomaly chart",
+    "messages": [{"role": "user", "content": "Add more emphasis on ocean temperature data and include a temperature anomaly chart"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "climate-infographic-001"
   }'
 
 # Request color variation
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an alternate version with a warmer color palette using oranges and reds to emphasize urgency",
+    "messages": [{"role": "user", "content": "Create an alternate version with a warmer color palette using oranges and reds to emphasize urgency"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "climate-infographic-001"
   }'
 ```
@@ -225,32 +253,38 @@ Generate multiple infographic variations:
 
 ```bash
 # Variation A - Minimalist style
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a minimalist infographic about healthy eating habits, white background, simple line icons, lots of whitespace",
+    "messages": [{"role": "user", "content": "Create a minimalist infographic about healthy eating habits, white background, simple line icons, lots of whitespace"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 
 # Variation B - Bold colorful style
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a bold colorful infographic about healthy eating habits, vibrant gradients, filled icons, energetic design",
+    "messages": [{"role": "user", "content": "Create a bold colorful infographic about healthy eating habits, vibrant gradients, filled icons, energetic design"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 
 # Variation C - Corporate professional style
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a corporate professional infographic about healthy eating habits, navy and gray colors, formal typography, business report style",
+    "messages": [{"role": "user", "content": "Create a corporate professional infographic about healthy eating habits, navy and gray colors, formal typography, business report style"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 ```

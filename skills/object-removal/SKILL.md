@@ -3,7 +3,7 @@ name: object-removal
 description: Remove unwanted objects, people, text, and imperfections from photos using each::sense AI. Clean up images with intelligent inpainting that seamlessly fills removed areas.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Object Removal & Inpainting
@@ -24,12 +24,14 @@ Remove unwanted elements from photos using each::sense. This skill intelligently
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Remove the person standing on the left side of this photo",
+    "messages": [{"role": "user", "content": "Remove the person standing on the left side of this photo"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/beach-photo.jpg"],
     "mode": "max"
   }'
@@ -42,12 +44,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Remove an unwanted person from a group photo or scenic shot.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Remove the person in the red shirt from this beach photo. Fill the area naturally with the ocean and sand background.",
+    "messages": [{"role": "user", "content": "Remove the person in the red shirt from this beach photo. Fill the area naturally with the ocean and sand background."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/beach-group.jpg"],
     "mode": "max"
   }'
@@ -58,12 +62,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Clean up photos by removing distracting objects.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Remove the trash can and bench from the right side of this park landscape photo. Make it look like a clean natural scene.",
+    "messages": [{"role": "user", "content": "Remove the trash can and bench from the right side of this park landscape photo. Make it look like a clean natural scene."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/park-landscape.jpg"],
     "mode": "max"
   }'
@@ -74,12 +80,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Clean up images with unwanted text overlays or watermarks.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Remove the watermark from the bottom right corner of this image. Restore the original background seamlessly.",
+    "messages": [{"role": "user", "content": "Remove the watermark from the bottom right corner of this image. Restore the original background seamlessly."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/watermarked-image.jpg"],
     "mode": "max"
   }'
@@ -90,12 +98,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Clean up skin imperfections or photo artifacts.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Remove the skin blemishes and acne marks from this portrait photo. Keep the skin looking natural and maintain the original skin texture.",
+    "messages": [{"role": "user", "content": "Remove the skin blemishes and acne marks from this portrait photo. Keep the skin looking natural and maintain the original skin texture."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/portrait.jpg"],
     "mode": "max"
   }'
@@ -106,12 +116,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Clean up landscape and architectural photos by removing distracting wires.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Remove all the power lines and electrical wires from this sunset cityscape photo. Make the sky look clean and unobstructed.",
+    "messages": [{"role": "user", "content": "Remove all the power lines and electrical wires from this sunset cityscape photo. Make the sky look clean and unobstructed."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/cityscape-wires.jpg"],
     "mode": "max"
   }'
@@ -122,12 +134,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Get that perfect empty landmark shot by removing crowds.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Remove all the tourists and people from this Eiffel Tower photo. I want it to look like an empty plaza with just the monument.",
+    "messages": [{"role": "user", "content": "Remove all the tourists and people from this Eiffel Tower photo. I want it to look like an empty plaza with just the monument."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/eiffel-tower-crowded.jpg"],
     "mode": "max"
   }'
@@ -138,12 +152,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Salvage memories by removing someone from personal photos.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Remove the person on the right side of this vacation photo. Fill in with the background scenery naturally so it looks like a solo travel photo.",
+    "messages": [{"role": "user", "content": "Remove the person on the right side of this vacation photo. Fill in with the background scenery naturally so it looks like a solo travel photo."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/vacation-couple.jpg"],
     "mode": "max"
   }'
@@ -154,12 +170,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Clean up product photos or images with unwanted branding.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Remove the brand logo from the t-shirt in this photo. Replace it with plain fabric that matches the shirt color and texture.",
+    "messages": [{"role": "user", "content": "Remove the brand logo from the t-shirt in this photo. Replace it with plain fabric that matches the shirt color and texture."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/branded-shirt.jpg"],
     "mode": "max"
   }'
@@ -170,12 +188,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Remove distracting elements from e-commerce product shots.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Clean up this product photo by removing the price tag, dust spots, and the reflection of the photographer in the surface. Make it look professional and ready for e-commerce.",
+    "messages": [{"role": "user", "content": "Clean up this product photo by removing the price tag, dust spots, and the reflection of the photographer in the surface. Make it look professional and ready for e-commerce."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/product-raw.jpg"],
     "mode": "max"
   }'
@@ -186,12 +206,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Eliminate unwanted shadows from photos.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Remove the harsh shadow cast by the photographer on the ground in this outdoor portrait. Make the lighting look natural and even.",
+    "messages": [{"role": "user", "content": "Remove the harsh shadow cast by the photographer on the ground in this outdoor portrait. Make the lighting look natural and even."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/portrait-shadow.jpg"],
     "mode": "max"
   }'
@@ -203,33 +225,39 @@ Use `session_id` for iterative removal and refinement:
 
 ```bash
 # First removal
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Remove the car parked on the left side of this street photo",
+    "messages": [{"role": "user", "content": "Remove the car parked on the left side of this street photo"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/street-scene.jpg"],
     "session_id": "cleanup-project-001"
   }'
 
 # Second removal (same session)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now also remove the garbage bins near the building entrance",
+    "messages": [{"role": "user", "content": "Now also remove the garbage bins near the building entrance"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "cleanup-project-001"
   }'
 
 # Refinement (same session)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "The area where the car was removed looks a bit blurry. Can you improve the texture to match the surrounding pavement better?",
+    "messages": [{"role": "user", "content": "The area where the car was removed looks a bit blurry. Can you improve the texture to match the surrounding pavement better?"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "cleanup-project-001"
   }'
 ```
@@ -303,12 +331,14 @@ Object removal operations can take time, especially for complex scenes. Configur
 
 ```bash
 # Example with extended timeout
-curl --max-time 600 -X POST https://sense.eachlabs.run/chat \
+curl --max-time 600 -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Remove all people from this crowded plaza photo",
+    "messages": [{"role": "user", "content": "Remove all people from this crowded plaza photo"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/crowded-plaza.jpg"],
     "mode": "max"
   }'

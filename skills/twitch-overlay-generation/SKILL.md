@@ -3,7 +3,7 @@ name: twitch-overlay-generation
 description: Generate Twitch and streaming overlays using each::sense AI. Create webcam frames, starting soon screens, BRB screens, alerts, chat boxes, panels, emotes, subscriber badges, and channel banners optimized for streaming platforms.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Twitch Overlay Generation
@@ -26,12 +26,14 @@ Generate professional streaming overlays and graphics using each::sense. This sk
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a cyberpunk themed webcam frame with neon purple and blue colors, futuristic tech elements, transparent center for the webcam",
+    "messages": [{"role": "user", "content": "Create a cyberpunk themed webcam frame with neon purple and blue colors, futuristic tech elements, transparent center for the webcam"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -57,12 +59,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Stream Overlay with Webcam Frame
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1920x1080 stream overlay with a webcam frame in the bottom right corner. Gaming theme with dark purple and gold accents. Include decorative borders, transparent center for webcam, and space for recent events on the left side. Modern esports aesthetic.",
+    "messages": [{"role": "user", "content": "Create a 1920x1080 stream overlay with a webcam frame in the bottom right corner. Gaming theme with dark purple and gold accents. Include decorative borders, transparent center for webcam, and space for recent events on the left side. Modern esports aesthetic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -70,12 +74,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Starting Soon Screen
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1920x1080 Starting Soon screen for a gaming stream. Neon synthwave theme with retro grid, glowing text area for STARTING SOON, animated feel with light rays and particles. Include space for social media handles at the bottom. Pink, purple, and cyan color scheme.",
+    "messages": [{"role": "user", "content": "Create a 1920x1080 Starting Soon screen for a gaming stream. Neon synthwave theme with retro grid, glowing text area for STARTING SOON, animated feel with light rays and particles. Include space for social media handles at the bottom. Pink, purple, and cyan color scheme."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -83,12 +89,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. BRB (Be Right Back) Screen
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1920x1080 BRB screen for Twitch. Cozy lo-fi aesthetic with warm colors, include a cute animated coffee cup or snack visual. Text space for BE RIGHT BACK in stylized font. Soft lighting, relaxing vibes. Include subtle chat reminder at bottom.",
+    "messages": [{"role": "user", "content": "Create a 1920x1080 BRB screen for Twitch. Cozy lo-fi aesthetic with warm colors, include a cute animated coffee cup or snack visual. Text space for BE RIGHT BACK in stylized font. Soft lighting, relaxing vibes. Include subtle chat reminder at bottom."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -96,12 +104,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Stream Ending Screen
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1920x1080 stream ending screen. Thanks for watching theme with space for STREAM ENDED or THANKS FOR WATCHING text. Include areas for social media icons/handles, next stream schedule, and a follow reminder. Dark elegant theme with gold accents and particle effects.",
+    "messages": [{"role": "user", "content": "Create a 1920x1080 stream ending screen. Thanks for watching theme with space for STREAM ENDED or THANKS FOR WATCHING text. Include areas for social media icons/handles, next stream schedule, and a follow reminder. Dark elegant theme with gold accents and particle effects."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -110,34 +120,40 @@ curl -X POST https://sense.eachlabs.run/chat \
 
 ```bash
 # Follow Alert
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 400x400 transparent PNG follow alert graphic for Twitch. Cute anime-style character celebrating with confetti and sparkles. Include a heart icon and space for NEW FOLLOWER text. Vibrant colors, kawaii aesthetic.",
+    "messages": [{"role": "user", "content": "Create a 400x400 transparent PNG follow alert graphic for Twitch. Cute anime-style character celebrating with confetti and sparkles. Include a heart icon and space for NEW FOLLOWER text. Vibrant colors, kawaii aesthetic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "alert-set-001",
     "mode": "max"
   }'
 
 # Subscribe Alert (same session for consistency)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a matching 400x400 subscribe alert. Same style as the follow alert but with a star icon and more elaborate celebration effects. Space for NEW SUB text.",
+    "messages": [{"role": "user", "content": "Create a matching 400x400 subscribe alert. Same style as the follow alert but with a star icon and more elaborate celebration effects. Space for NEW SUB text."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "alert-set-001",
     "mode": "max"
   }'
 
 # Donation Alert
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a matching 400x400 donation/tip alert. Same style with coin or money effects, extra sparkle and celebration. Space for donation amount text.",
+    "messages": [{"role": "user", "content": "Create a matching 400x400 donation/tip alert. Same style with coin or money effects, extra sparkle and celebration. Space for donation amount text."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "alert-set-001",
     "mode": "max"
   }'
@@ -146,12 +162,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Chat Box Frame
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 400x600 transparent chat box frame overlay. Cyberpunk tech theme with glowing border edges, circuit board patterns. Mostly transparent center where chat will display. Include a small CHAT header area at top. Neon green and black color scheme.",
+    "messages": [{"role": "user", "content": "Create a 400x600 transparent chat box frame overlay. Cyberpunk tech theme with glowing border edges, circuit board patterns. Mostly transparent center where chat will display. Include a small CHAT header area at top. Neon green and black color scheme."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -160,34 +178,40 @@ curl -X POST https://sense.eachlabs.run/chat \
 
 ```bash
 # About Panel
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 320x160 Twitch panel graphic for an ABOUT ME section. Clean modern design with the text ABOUT ME. Dark background with gradient accent, gaming controller or headset icon. Professional streamer aesthetic.",
+    "messages": [{"role": "user", "content": "Create a 320x160 Twitch panel graphic for an ABOUT ME section. Clean modern design with the text ABOUT ME. Dark background with gradient accent, gaming controller or headset icon. Professional streamer aesthetic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "panel-set-001",
     "mode": "max"
   }'
 
 # Schedule Panel
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a matching 320x160 SCHEDULE panel. Same style as previous with calendar icon. Text says SCHEDULE.",
+    "messages": [{"role": "user", "content": "Create a matching 320x160 SCHEDULE panel. Same style as previous with calendar icon. Text says SCHEDULE."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "panel-set-001",
     "mode": "max"
   }'
 
 # Rules Panel
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a matching 320x160 RULES panel. Same style with a book or list icon.",
+    "messages": [{"role": "user", "content": "Create a matching 320x160 RULES panel. Same style with a book or list icon."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "panel-set-001",
     "mode": "max"
   }'
@@ -196,22 +220,26 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Twitch Emote Generation
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 112x112 Twitch emote. A cute cat face with heart eyes, chibi/kawaii style. Expressive, bold lines, vibrant colors that pop against dark backgrounds. Transparent background. The emote should be readable at small sizes.",
+    "messages": [{"role": "user", "content": "Create a 112x112 Twitch emote. A cute cat face with heart eyes, chibi/kawaii style. Expressive, bold lines, vibrant colors that pop against dark backgrounds. Transparent background. The emote should be readable at small sizes."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 
 # Emote variations
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a set of 3 Twitch emotes at 112x112 each: 1) Pog/excited face, 2) Sad/cry face, 3) Laugh/LUL face. All featuring a cute frog character, consistent style across all three. Bold outlines, expressive features, transparent backgrounds.",
+    "messages": [{"role": "user", "content": "Create a set of 3 Twitch emotes at 112x112 each: 1) Pog/excited face, 2) Sad/cry face, 3) Laugh/LUL face. All featuring a cute frog character, consistent style across all three. Bold outlines, expressive features, transparent backgrounds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -219,22 +247,26 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. Subscriber Badges
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a set of 6 Twitch subscriber badges at 72x72 pixels each, tiered progression for 1 month, 3 months, 6 months, 1 year, 2 years, and 3 years. Theme: crystal/gem progression from small rough gem to elaborate crown jewel. Each tier more detailed and prestigious. Transparent backgrounds, clear at small sizes.",
+    "messages": [{"role": "user", "content": "Create a set of 6 Twitch subscriber badges at 72x72 pixels each, tiered progression for 1 month, 3 months, 6 months, 1 year, 2 years, and 3 years. Theme: crystal/gem progression from small rough gem to elaborate crown jewel. Each tier more detailed and prestigious. Transparent backgrounds, clear at small sizes."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 
 # Alternative badge style
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create 6 subscriber loyalty badges, 72x72 pixels. Military rank progression theme: bronze star (1mo), silver star (3mo), gold star (6mo), bronze medal (1yr), silver medal (2yr), gold medal with laurels (3yr). Clear iconography, readable at 18x18 size, transparent backgrounds.",
+    "messages": [{"role": "user", "content": "Create 6 subscriber loyalty badges, 72x72 pixels. Military rank progression theme: bronze star (1mo), silver star (3mo), gold star (6mo), bronze medal (1yr), silver medal (2yr), gold medal with laurels (3yr). Clear iconography, readable at 18x18 size, transparent backgrounds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -242,22 +274,26 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 10. Channel Banner
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1200x480 Twitch channel banner. Epic gaming scene with dramatic lighting, mountain landscape with fantasy elements. Space on the right side for channel name text. Color scheme: deep blues and purples with orange accent lighting. Cinematic, high quality.",
+    "messages": [{"role": "user", "content": "Create a 1200x480 Twitch channel banner. Epic gaming scene with dramatic lighting, mountain landscape with fantasy elements. Space on the right side for channel name text. Color scheme: deep blues and purples with orange accent lighting. Cinematic, high quality."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 
 # Offline Screen
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1920x1080 Twitch offline screen. Cozy nighttime scene with a gaming setup, monitors off, ambient lighting from RGB peripherals. Text space for CURRENTLY OFFLINE and social media handles. Moody atmospheric lighting, lo-fi aesthetic.",
+    "messages": [{"role": "user", "content": "Create a 1920x1080 Twitch offline screen. Cozy nighttime scene with a gaming setup, monitors off, ambient lighting from RGB peripherals. Text space for CURRENTLY OFFLINE and social media handles. Moody atmospheric lighting, lo-fi aesthetic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -321,42 +357,50 @@ Use `session_id` to create cohesive overlay packages:
 
 ```bash
 # Create base style
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a webcam frame with a Japanese cherry blossom theme, soft pink and white colors, elegant minimal design",
+    "messages": [{"role": "user", "content": "Create a webcam frame with a Japanese cherry blossom theme, soft pink and white colors, elegant minimal design"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "sakura-overlay-set"
   }'
 
 # Create matching starting soon
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a matching Starting Soon screen in the same cherry blossom style",
+    "messages": [{"role": "user", "content": "Create a matching Starting Soon screen in the same cherry blossom style"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "sakura-overlay-set"
   }'
 
 # Create matching BRB screen
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a matching BRB screen, same aesthetic with falling petals",
+    "messages": [{"role": "user", "content": "Create a matching BRB screen, same aesthetic with falling petals"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "sakura-overlay-set"
   }'
 
 # Create matching alerts
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create follow and subscribe alerts matching this cherry blossom theme",
+    "messages": [{"role": "user", "content": "Create follow and subscribe alerts matching this cherry blossom theme"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "sakura-overlay-set"
   }'
 ```
@@ -367,12 +411,14 @@ Generate a full streaming package in one session:
 
 ```bash
 # Initialize the package style
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "I am creating a complete Twitch overlay package. Theme: Cyberpunk Neon City. Colors: Hot pink, electric blue, purple. Style: Futuristic, glowing edges, holographic elements. Start with the main webcam overlay frame at 1920x1080.",
+    "messages": [{"role": "user", "content": "I am creating a complete Twitch overlay package. Theme: Cyberpunk Neon City. Colors: Hot pink, electric blue, purple. Style: Futuristic, glowing edges, holographic elements. Start with the main webcam overlay frame at 1920x1080."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "cyberpunk-package",
     "mode": "max"
   }'

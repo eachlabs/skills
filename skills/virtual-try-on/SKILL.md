@@ -4,7 +4,7 @@ description: AI-powered virtual try-on for clothing, accessories, makeup, hairst
 metadata:
   category: fashion
   api: each::sense
-  endpoint: https://sense.eachlabs.run/chat
+  endpoint: https://eachsense-agent.core.eachlabs.run/v1/chat/completions
   features:
     - clothing-try-on
     - accessories
@@ -34,12 +34,14 @@ The Virtual Try-On skill leverages each::sense API to provide realistic visualiz
 ## Quick Start
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Show me wearing this dress",
+    "messages": [{"role": "user", "content": "Show me wearing this dress"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": [
       "https://example.com/person-photo.jpg",
       "https://example.com/dress-product.jpg"
@@ -67,12 +69,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Visualize how a specific clothing item looks on a person.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Show me wearing this blue blazer. Keep my face and body proportions accurate.",
+    "messages": [{"role": "user", "content": "Show me wearing this blue blazer. Keep my face and body proportions accurate."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": [
       "https://example.com/my-photo.jpg",
       "https://example.com/blue-blazer.jpg"
@@ -86,12 +90,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Try on different eyewear styles virtually.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Put these round tortoiseshell glasses on me. Make sure the fit looks natural on my face shape.",
+    "messages": [{"role": "user", "content": "Put these round tortoiseshell glasses on me. Make sure the fit looks natural on my face shape."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": [
       "https://example.com/face-photo.jpg",
       "https://example.com/tortoiseshell-glasses.jpg"
@@ -105,12 +111,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Visualize jewelry items like necklaces, earrings, or bracelets.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Show me wearing this gold necklace. Position it naturally on my neckline.",
+    "messages": [{"role": "user", "content": "Show me wearing this gold necklace. Position it naturally on my neckline."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": [
       "https://example.com/portrait-photo.jpg",
       "https://example.com/gold-necklace.jpg"
@@ -124,12 +132,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Try on watches to see how they fit your wrist.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Put this luxury watch on my wrist. Show how it looks from a natural angle.",
+    "messages": [{"role": "user", "content": "Put this luxury watch on my wrist. Show how it looks from a natural angle."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": [
       "https://example.com/wrist-photo.jpg",
       "https://example.com/luxury-watch.jpg"
@@ -143,12 +153,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Apply virtual makeup looks or specific cosmetic products.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Apply this red lipstick shade to my lips. Keep the rest of my makeup natural.",
+    "messages": [{"role": "user", "content": "Apply this red lipstick shade to my lips. Keep the rest of my makeup natural."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": [
       "https://example.com/face-closeup.jpg",
       "https://example.com/red-lipstick-product.jpg"
@@ -162,12 +174,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Experiment with different hairstyles and hair colors.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Give me this bob haircut style. Match the hair color to the reference image.",
+    "messages": [{"role": "user", "content": "Give me this bob haircut style. Match the hair color to the reference image."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": [
       "https://example.com/my-current-photo.jpg",
       "https://example.com/bob-hairstyle-reference.jpg"
@@ -181,12 +195,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Visualize how different footwear looks.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Show me wearing these white sneakers. Display a full body view.",
+    "messages": [{"role": "user", "content": "Show me wearing these white sneakers. Display a full body view."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": [
       "https://example.com/full-body-photo.jpg",
       "https://example.com/white-sneakers.jpg"
@@ -200,12 +216,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Create a complete look with multiple clothing items.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Style me in this complete outfit - the jacket, pants, and shoes together. Create a cohesive look.",
+    "messages": [{"role": "user", "content": "Style me in this complete outfit - the jacket, pants, and shoes together. Create a cohesive look."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": [
       "https://example.com/my-photo.jpg",
       "https://example.com/leather-jacket.jpg",
@@ -221,12 +239,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Combine multiple accessories for a complete look.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Put these sunglasses and this scarf on me together. Make the accessories complement each other.",
+    "messages": [{"role": "user", "content": "Put these sunglasses and this scarf on me together. Make the accessories complement each other."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": [
       "https://example.com/portrait.jpg",
       "https://example.com/aviator-sunglasses.jpg",
@@ -241,12 +261,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Create looks for specific occasions.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Dress me for a formal wedding. Use this evening gown and add elegant jewelry to complete the look.",
+    "messages": [{"role": "user", "content": "Dress me for a formal wedding. Use this evening gown and add elegant jewelry to complete the look."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": [
       "https://example.com/my-photo.jpg",
       "https://example.com/evening-gown.jpg",
@@ -314,23 +336,27 @@ The `image_urls` parameter accepts an array of image URLs for virtual try-on:
 
 ```bash
 # High quality for final decision
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Show me in this wedding dress with maximum detail",
+    "messages": [{"role": "user", "content": "Show me in this wedding dress with maximum detail"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/me.jpg", "https://example.com/dress.jpg"],
     "mode": "max"
   }'
 
 # Quick preview mode
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Quick preview of this t-shirt on me",
+    "messages": [{"role": "user", "content": "Quick preview of this t-shirt on me"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/me.jpg", "https://example.com/tshirt.jpg"],
     "mode": "eco"
   }'
@@ -343,12 +369,14 @@ Use `session_id` to try multiple items in a continuous session, maintaining cont
 ### Starting a Session
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "This is my photo. I want to try on several outfits for a job interview.",
+    "messages": [{"role": "user", "content": "This is my photo. I want to try on several outfits for a job interview."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/my-photo.jpg"],
     "session_id": "tryon-session-12345",
     "mode": "max"
@@ -359,36 +387,42 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 
 ```bash
 # Try first outfit
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now show me in this navy suit",
+    "messages": [{"role": "user", "content": "Now show me in this navy suit"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/navy-suit.jpg"],
     "session_id": "tryon-session-12345",
     "mode": "max"
   }'
 
 # Try second outfit
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "How about this charcoal blazer with khakis instead?",
+    "messages": [{"role": "user", "content": "How about this charcoal blazer with khakis instead?"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/charcoal-blazer.jpg", "https://example.com/khakis.jpg"],
     "session_id": "tryon-session-12345",
     "mode": "max"
   }'
 
 # Compare options
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Which outfit looked more professional on me?",
+    "messages": [{"role": "user", "content": "Which outfit looked more professional on me?"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "tryon-session-12345",
     "mode": "max"
   }'
@@ -409,12 +443,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 
 ```bash
 # Check response status and handle errors
-response=$(curl -s -w "\n%{http_code}" -X POST "https://sense.eachlabs.run/chat" \
+response=$(curl -s -w "\n%{http_code}" -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Show me in this jacket",
+    "messages": [{"role": "user", "content": "Show me in this jacket"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/me.jpg", "https://example.com/jacket.jpg"],
     "mode": "max"
   }')

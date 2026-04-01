@@ -3,7 +3,7 @@ name: logo-generation
 description: Generate professional logos using each::sense AI. Create wordmarks, icon logos, combination marks, monograms, mascots, emblems, and abstract logos for brands, startups, and businesses.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Logo Generation
@@ -26,12 +26,14 @@ Generate professional, creative logos using each::sense. This skill creates vari
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a modern minimalist logo for a tech startup called Nexus. Clean lines, professional look.",
+    "messages": [{"role": "user", "content": "Create a modern minimalist logo for a tech startup called Nexus. Clean lines, professional look."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -54,12 +56,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Text-Based Logo (Wordmark)
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a wordmark logo for a coffee brand called BREW HAVEN. Use elegant serif typography with a warm, artisanal feel. Rich brown and cream colors. The text should be the main focus with subtle coffee-inspired styling.",
+    "messages": [{"role": "user", "content": "Create a wordmark logo for a coffee brand called BREW HAVEN. Use elegant serif typography with a warm, artisanal feel. Rich brown and cream colors. The text should be the main focus with subtle coffee-inspired styling."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -67,12 +71,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Icon/Symbol Logo
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an icon logo for a fitness app. Design a bold, dynamic symbol that represents strength and movement. Use a single striking icon without any text. Electric blue and white colors. Must work well as an app icon at small sizes.",
+    "messages": [{"role": "user", "content": "Create an icon logo for a fitness app. Design a bold, dynamic symbol that represents strength and movement. Use a single striking icon without any text. Electric blue and white colors. Must work well as an app icon at small sizes."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -80,12 +86,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Combination Logo (Icon + Text)
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a combination logo for an eco-friendly cleaning company called GreenClean. Include a leaf icon integrated with the company name. Fresh green and white color scheme. Modern sans-serif font. The icon should work standalone but also pair well with the text.",
+    "messages": [{"role": "user", "content": "Create a combination logo for an eco-friendly cleaning company called GreenClean. Include a leaf icon integrated with the company name. Fresh green and white color scheme. Modern sans-serif font. The icon should work standalone but also pair well with the text."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -93,12 +101,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Monogram Logo
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a monogram logo for a luxury fashion brand with initials JM (James Morrison). Interlock the letters elegantly. Gold on black background. High-end, sophisticated feel. Classic with a modern twist.",
+    "messages": [{"role": "user", "content": "Create a monogram logo for a luxury fashion brand with initials JM (James Morrison). Interlock the letters elegantly. Gold on black background. High-end, sophisticated feel. Classic with a modern twist."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -106,12 +116,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. Mascot Logo
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a mascot logo for a gaming company called Thunder Wolves. Design a fierce but friendly wolf character with lightning bolt elements. Bold colors - purple, electric blue, white. The wolf should have personality and attitude. Suitable for esports branding.",
+    "messages": [{"role": "user", "content": "Create a mascot logo for a gaming company called Thunder Wolves. Design a fierce but friendly wolf character with lightning bolt elements. Bold colors - purple, electric blue, white. The wolf should have personality and attitude. Suitable for esports branding."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -119,12 +131,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Abstract Logo
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an abstract logo for a fintech startup called Quantum Finance. Use geometric shapes that suggest growth, security, and innovation. Gradient from deep blue to teal. No literal imagery - focus on abstract forms that feel professional and cutting-edge.",
+    "messages": [{"role": "user", "content": "Create an abstract logo for a fintech startup called Quantum Finance. Use geometric shapes that suggest growth, security, and innovation. Gradient from deep blue to teal. No literal imagery - focus on abstract forms that feel professional and cutting-edge."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -132,12 +146,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Emblem/Badge Logo
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an emblem logo for a craft brewery called Mountain Peak Brewing, established 2015. Design a circular badge with mountain imagery, hops, and the company name. Vintage Americana style. Navy blue, gold, and cream colors. Should look great on bottle labels and merchandise.",
+    "messages": [{"role": "user", "content": "Create an emblem logo for a craft brewery called Mountain Peak Brewing, established 2015. Design a circular badge with mountain imagery, hops, and the company name. Vintage Americana style. Navy blue, gold, and cream colors. Should look great on bottle labels and merchandise."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -145,12 +161,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Minimalist Logo
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an ultra-minimalist logo for a design studio called FORM. Single color, black on white. Reduce the concept to its absolute essence - clean lines, perfect proportions, no unnecessary elements. Should work at any size from favicon to billboard.",
+    "messages": [{"role": "user", "content": "Create an ultra-minimalist logo for a design studio called FORM. Single color, black on white. Reduce the concept to its absolute essence - clean lines, perfect proportions, no unnecessary elements. Should work at any size from favicon to billboard."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -161,34 +179,40 @@ Use `session_id` to create consistent logo variations:
 
 ```bash
 # Create the primary logo
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a modern logo for a sustainable fashion brand called Earthwear. Combine a stylized leaf with elegant typography. Earth tones - forest green and warm brown.",
+    "messages": [{"role": "user", "content": "Create a modern logo for a sustainable fashion brand called Earthwear. Combine a stylized leaf with elegant typography. Earth tones - forest green and warm brown."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "earthwear-logo-project",
     "mode": "max"
   }'
 
 # Create black and white version
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now create a black and white version of this logo. Pure black on white background, maintaining all the visual impact.",
+    "messages": [{"role": "user", "content": "Now create a black and white version of this logo. Pure black on white background, maintaining all the visual impact."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "earthwear-logo-project",
     "mode": "max"
   }'
 
 # Create icon-only version
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an icon-only version - just the leaf symbol without any text. This will be used for app icons and social media profile pictures.",
+    "messages": [{"role": "user", "content": "Create an icon-only version - just the leaf symbol without any text. This will be used for app icons and social media profile pictures."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "earthwear-logo-project",
     "mode": "max"
   }'
@@ -197,12 +221,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 10. Logo with Transparent Background
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a logo for a photography studio called Aperture Arts. Modern camera aperture icon with elegant text. Create it with a transparent background (PNG format) so it can be placed on any color background. Black logo that will work on light backgrounds.",
+    "messages": [{"role": "user", "content": "Create a logo for a photography studio called Aperture Arts. Modern camera aperture icon with elegant text. Create it with a transparent background (PNG format) so it can be placed on any color background. Black logo that will work on light backgrounds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -255,32 +281,38 @@ Use `session_id` for iterative logo design:
 
 ```bash
 # Initial concept
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a logo for a tech company called Nova Labs. Modern, innovative feel.",
+    "messages": [{"role": "user", "content": "Create a logo for a tech company called Nova Labs. Modern, innovative feel."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "nova-labs-branding"
   }'
 
 # Refine based on feedback
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "I like the concept but make it more bold and add a gradient from purple to blue.",
+    "messages": [{"role": "user", "content": "I like the concept but make it more bold and add a gradient from purple to blue."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "nova-labs-branding"
   }'
 
 # Request variations
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create 3 more variations with different icon styles but keep the same color scheme.",
+    "messages": [{"role": "user", "content": "Create 3 more variations with different icon styles but keep the same color scheme."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "nova-labs-branding"
   }'
 ```
@@ -291,32 +323,38 @@ Generate multiple concepts quickly:
 
 ```bash
 # Concept A - Minimalist
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a minimalist logo for Horizon Analytics - clean geometric shapes, single color",
+    "messages": [{"role": "user", "content": "Create a minimalist logo for Horizon Analytics - clean geometric shapes, single color"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 
 # Concept B - Bold
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a bold logo for Horizon Analytics - strong typography, gradient colors",
+    "messages": [{"role": "user", "content": "Create a bold logo for Horizon Analytics - strong typography, gradient colors"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 
 # Concept C - Abstract
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an abstract logo for Horizon Analytics - flowing shapes suggesting data and insight",
+    "messages": [{"role": "user", "content": "Create an abstract logo for Horizon Analytics - flowing shapes suggesting data and insight"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 ```

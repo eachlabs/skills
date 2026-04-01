@@ -3,7 +3,7 @@ name: pinterest-pin-generation
 description: Generate Pinterest pin images using each::sense AI. Create standard pins, idea pins, product pins, recipe pins, infographics, and more optimized for Pinterest's formats and best practices.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Pinterest Pin Generation
@@ -26,12 +26,14 @@ Generate high-performing Pinterest pin images using each::sense. This skill crea
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 2:3 Pinterest pin for a home decor brand showing a cozy living room with warm lighting, minimalist Scandinavian style, space at top for text overlay",
+    "messages": [{"role": "user", "content": "Create a 2:3 Pinterest pin for a home decor brand showing a cozy living room with warm lighting, minimalist Scandinavian style, space at top for text overlay"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -52,12 +54,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Standard Pin (2:3 Ratio)
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 2:3 vertical Pinterest pin for a travel blog about Santorini, Greece. Show the iconic white buildings with blue domes overlooking the sea, golden hour lighting, dreamy atmosphere. Leave space at the top third for text overlay like a blog title.",
+    "messages": [{"role": "user", "content": "Create a 2:3 vertical Pinterest pin for a travel blog about Santorini, Greece. Show the iconic white buildings with blue domes overlooking the sea, golden hour lighting, dreamy atmosphere. Leave space at the top third for text overlay like a blog title."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -65,12 +69,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Idea Pin Cover
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 9:16 Idea Pin cover for a morning routine series. Show an aesthetic flat lay of coffee, journal, plants, and skincare products on a marble surface. Soft natural morning light, clean minimalist aesthetic. This is the cover image for a multi-page story.",
+    "messages": [{"role": "user", "content": "Create a 9:16 Idea Pin cover for a morning routine series. Show an aesthetic flat lay of coffee, journal, plants, and skincare products on a marble surface. Soft natural morning light, clean minimalist aesthetic. This is the cover image for a multi-page story."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -78,12 +84,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Product Pin
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 2:3 Pinterest product pin for handmade ceramic mugs. Show a beautiful handcrafted mug with coffee, placed on a wooden table with soft natural light, cozy kitchen background slightly blurred. Lifestyle product photography style, warm and inviting mood.",
+    "messages": [{"role": "user", "content": "Create a 2:3 Pinterest product pin for handmade ceramic mugs. Show a beautiful handcrafted mug with coffee, placed on a wooden table with soft natural light, cozy kitchen background slightly blurred. Lifestyle product photography style, warm and inviting mood."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -91,12 +99,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Recipe Pin
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 2:3 Pinterest recipe pin for homemade chocolate chip cookies. Show freshly baked cookies on a cooling rack, some stacked, with melted chocolate visible, rustic wooden background. Food photography style with steam or warmth visible. Leave top portion clear for recipe title text.",
+    "messages": [{"role": "user", "content": "Create a 2:3 Pinterest recipe pin for homemade chocolate chip cookies. Show freshly baked cookies on a cooling rack, some stacked, with melted chocolate visible, rustic wooden background. Food photography style with steam or warmth visible. Leave top portion clear for recipe title text."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -104,12 +114,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. DIY/Tutorial Pin
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 2:3 Pinterest pin for a DIY macrame wall hanging tutorial. Show the finished macrame piece hanging on a white wall with a plant nearby, bohemian aesthetic. The image should look like the final result of a craft project, inspiring and achievable. Space for tutorial title at top.",
+    "messages": [{"role": "user", "content": "Create a 2:3 Pinterest pin for a DIY macrame wall hanging tutorial. Show the finished macrame piece hanging on a white wall with a plant nearby, bohemian aesthetic. The image should look like the final result of a craft project, inspiring and achievable. Space for tutorial title at top."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -117,12 +129,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Infographic Pin
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 1:2.1 long Pinterest infographic background for productivity tips. Design a clean, modern gradient background going from soft blue at top to teal at bottom, with subtle geometric patterns or icons related to productivity (clocks, checkmarks, calendars). Leave clear spaces for 5-6 text sections. Minimal and professional design.",
+    "messages": [{"role": "user", "content": "Create a 1:2.1 long Pinterest infographic background for productivity tips. Design a clean, modern gradient background going from soft blue at top to teal at bottom, with subtle geometric patterns or icons related to productivity (clocks, checkmarks, calendars). Leave clear spaces for 5-6 text sections. Minimal and professional design."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -130,12 +144,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Quote Pin
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 2:3 Pinterest quote pin background for motivational content. Show a serene nature scene - misty mountains at sunrise with soft pink and purple colors. The image should be slightly muted/faded to allow white text to be readable on top. Inspirational and calming mood.",
+    "messages": [{"role": "user", "content": "Create a 2:3 Pinterest quote pin background for motivational content. Show a serene nature scene - misty mountains at sunrise with soft pink and purple colors. The image should be slightly muted/faded to allow white text to be readable on top. Inspirational and calming mood."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -143,12 +159,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Shopping Pin
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 2:3 Pinterest shopping pin for a summer dress collection. Show a floral maxi dress on a model in a garden setting, natural daylight, lifestyle fashion photography. The dress should be clearly visible and the main focus, styled with simple accessories. E-commerce catalog quality.",
+    "messages": [{"role": "user", "content": "Create a 2:3 Pinterest shopping pin for a summer dress collection. Show a floral maxi dress on a model in a garden setting, natural daylight, lifestyle fashion photography. The dress should be clearly visible and the main focus, styled with simple accessories. E-commerce catalog quality."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -156,12 +174,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. Video Pin Thumbnail
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 2:3 Pinterest video thumbnail for a makeup tutorial. Show a close-up of a woman with beautiful eye makeup, soft ring light reflection in eyes, beauty photography style. The image should be eye-catching and make people want to watch the video. Professional makeup artistry showcase.",
+    "messages": [{"role": "user", "content": "Create a 2:3 Pinterest video thumbnail for a makeup tutorial. Show a close-up of a woman with beautiful eye makeup, soft ring light reflection in eyes, beauty photography style. The image should be eye-catching and make people want to watch the video. Professional makeup artistry showcase."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -169,12 +189,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 10. Board Cover Image
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 2:3 Pinterest board cover for a Wedding Inspiration board. Show an elegant flat lay with wedding elements - white flowers, gold rings, lace fabric, calligraphy card, on a soft marble background. Romantic, luxurious, cohesive aesthetic that represents wedding planning content.",
+    "messages": [{"role": "user", "content": "Create a 2:3 Pinterest board cover for a Wedding Inspiration board. Show an elegant flat lay with wedding elements - white flowers, gold rings, lace fabric, calligraphy card, on a soft marble background. Romantic, luxurious, cohesive aesthetic that represents wedding planning content."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -240,32 +262,38 @@ Use `session_id` to iterate on pin designs:
 
 ```bash
 # Initial pin design
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 2:3 Pinterest pin for a fitness brand, showing healthy meal prep",
+    "messages": [{"role": "user", "content": "Create a 2:3 Pinterest pin for a fitness brand, showing healthy meal prep"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "fitness-pin-project"
   }'
 
 # Iterate based on feedback
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Add more colorful vegetables and make the lighting brighter and more energetic",
+    "messages": [{"role": "user", "content": "Add more colorful vegetables and make the lighting brighter and more energetic"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "fitness-pin-project"
   }'
 
 # Request variation
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create 2 more variations with different angles and compositions",
+    "messages": [{"role": "user", "content": "Create 2 more variations with different angles and compositions"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "fitness-pin-project"
   }'
 ```
@@ -276,23 +304,27 @@ Generate themed pin sets for seasonal content:
 
 ```bash
 # Spring collection pin 1
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 2:3 spring Pinterest pin for a gardening blog - show colorful tulips in a garden, morning dew, fresh spring aesthetic",
+    "messages": [{"role": "user", "content": "Create a 2:3 spring Pinterest pin for a gardening blog - show colorful tulips in a garden, morning dew, fresh spring aesthetic"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "spring-collection",
     "mode": "eco"
   }'
 
 # Spring collection pin 2
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create another spring pin for the same gardening blog - show someone planting seeds in a terracotta pot, hands in soil, same fresh spring aesthetic",
+    "messages": [{"role": "user", "content": "Create another spring pin for the same gardening blog - show someone planting seeds in a terracotta pot, hands in soil, same fresh spring aesthetic"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "spring-collection",
     "mode": "eco"
   }'

@@ -4,7 +4,7 @@ description: Generate adult video content using each::sense API with safety chec
 metadata:
   category: video-generation
   subcategory: adult-content
-  api_endpoint: https://sense.eachlabs.run/chat
+  api_endpoint: https://eachsense-agent.core.eachlabs.run/v1/chat/completions
   content_rating: adult
   requires_age_verification: true
 tags:
@@ -29,12 +29,14 @@ The each::sense API enables creation of adult video content when the `enable_saf
 - **Fantasy themes** - Mythological and fantasy adult content
 - **Couples content** - Romantic and intimate pair scenarios
 
-> **Important**: All requests must include `"enable_safety_checker": false` to generate NSFW content.
+> **Important**: All requests must include `"model": "eachsense/beta",
+    "stream": true,
+    "enable_safety_checker": false` to generate NSFW content.
 
 ## Quick Start
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -d '{
@@ -45,6 +47,8 @@ curl -X POST "https://sense.eachlabs.run/chat" \
       }
     ],
     "mode": "video",
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 ```
@@ -67,7 +71,7 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Create fine art inspired nude videography with classical aesthetics.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -d '{
@@ -78,6 +82,8 @@ curl -X POST "https://sense.eachlabs.run/chat" \
       }
     ],
     "mode": "video",
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 ```
@@ -87,7 +93,7 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Professional glamour and lingerie video production.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -d '{
@@ -98,6 +104,8 @@ curl -X POST "https://sense.eachlabs.run/chat" \
       }
     ],
     "mode": "video",
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 ```
@@ -107,7 +115,7 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Intimate boudoir-style video with soft, romantic aesthetics.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -d '{
@@ -118,6 +126,8 @@ curl -X POST "https://sense.eachlabs.run/chat" \
       }
     ],
     "mode": "video",
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 ```
@@ -127,7 +137,7 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Sensual dance and movement-focused video content.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -d '{
@@ -138,6 +148,8 @@ curl -X POST "https://sense.eachlabs.run/chat" \
       }
     ],
     "mode": "video",
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 ```
@@ -147,7 +159,7 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Mythological and fantasy adult content with creative themes.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -d '{
@@ -158,6 +170,8 @@ curl -X POST "https://sense.eachlabs.run/chat" \
       }
     ],
     "mode": "video",
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 ```
@@ -167,7 +181,7 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Romantic and intimate couples video scenarios.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -d '{
@@ -178,6 +192,8 @@ curl -X POST "https://sense.eachlabs.run/chat" \
       }
     ],
     "mode": "video",
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 ```
@@ -187,7 +203,7 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Animate an existing image into NSFW video content by providing image URLs.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -d '{
@@ -199,6 +215,8 @@ curl -X POST "https://sense.eachlabs.run/chat" \
     ],
     "mode": "video",
     "image_urls": ["https://example.com/artistic-photo.jpg"],
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 ```
@@ -209,7 +227,7 @@ Create multiple videos with the same character using session_id for continuity.
 
 ```bash
 # First video in series
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -d '{
@@ -221,11 +239,13 @@ curl -X POST "https://sense.eachlabs.run/chat" \
     ],
     "mode": "video",
     "session_id": "glamour-series-001",
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 
 # Second video continuing the series
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -d '{
@@ -237,6 +257,8 @@ curl -X POST "https://sense.eachlabs.run/chat" \
     ],
     "mode": "video",
     "session_id": "glamour-series-001",
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 ```
@@ -246,7 +268,7 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Outdoor sensual video content with natural settings.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -d '{
@@ -257,6 +279,8 @@ curl -X POST "https://sense.eachlabs.run/chat" \
       }
     ],
     "mode": "video",
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 ```
@@ -266,7 +290,7 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Classic pin-up and vintage aesthetic adult content.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -d '{
@@ -277,6 +301,8 @@ curl -X POST "https://sense.eachlabs.run/chat" \
       }
     ],
     "mode": "video",
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 ```
@@ -334,7 +360,7 @@ Example:
 Use `session_id` to maintain character consistency across multiple video generations:
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -d '{
@@ -346,6 +372,8 @@ curl -X POST "https://sense.eachlabs.run/chat" \
     ],
     "mode": "video",
     "session_id": "dancer-series-2024",
+    "model": "eachsense/beta",
+    "stream": true,
     "enable_safety_checker": false
   }'
 ```

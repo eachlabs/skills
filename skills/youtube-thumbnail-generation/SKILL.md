@@ -4,7 +4,7 @@ description: Generate click-worthy YouTube thumbnails with high CTR designs usin
 metadata:
   category: image-generation
   api: each::sense
-  base_url: https://sense.eachlabs.run/chat
+  base_url: https://eachsense-agent.core.eachlabs.run/v1/chat/completions
   method: POST
   tags:
     - youtube
@@ -32,12 +32,14 @@ The each::sense API creates YouTube thumbnails optimized for engagement:
 ## Quick Start
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a YouTube thumbnail: shocked face reaction to an unbelievable reveal, mouth wide open, eyes popping, bright yellow and red background, space on the right side for text overlay, dramatic lighting, ultra high contrast, 1280x720 aspect ratio",
+    "messages": [{"role": "user", "content": "Generate a YouTube thumbnail: shocked face reaction to an unbelievable reveal, mouth wide open, eyes popping, bright yellow and red background, space on the right side for text overlay, dramatic lighting, ultra high contrast, 1280x720 aspect ratio"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -61,12 +63,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Classic YouTube thumbnail with exaggerated shocked expression.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a YouTube thumbnail with a person showing extreme shock and disbelief, jaw dropped, eyes wide open, hands on cheeks, bright neon pink and electric blue gradient background, dramatic side lighting creating shadows, space in the upper right corner for text, hyper-saturated colors, 1280x720 YouTube thumbnail format",
+    "messages": [{"role": "user", "content": "Create a YouTube thumbnail with a person showing extreme shock and disbelief, jaw dropped, eyes wide open, hands on cheeks, bright neon pink and electric blue gradient background, dramatic side lighting creating shadows, space in the upper right corner for text, hyper-saturated colors, 1280x720 YouTube thumbnail format"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -76,12 +80,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Split-screen showing dramatic transformation.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a before and after YouTube thumbnail, split down the middle, left side showing a messy cluttered room in dull gray tones, right side showing the same room transformed into a beautiful organized space with warm golden lighting, red arrow pointing from left to right, high contrast, text space at top, 1280x720 aspect ratio",
+    "messages": [{"role": "user", "content": "Generate a before and after YouTube thumbnail, split down the middle, left side showing a messy cluttered room in dull gray tones, right side showing the same room transformed into a beautiful organized space with warm golden lighting, red arrow pointing from left to right, high contrast, text space at top, 1280x720 aspect ratio"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -91,12 +97,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Educational content with clear step visualization.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a tutorial YouTube thumbnail showing someone at a computer with code on screen, confident helpful expression, pointing gesture toward the screen, clean modern workspace, teal and orange color scheme, large empty space on the left side for step numbers and text overlay, professional lighting, 1280x720 thumbnail dimensions",
+    "messages": [{"role": "user", "content": "Create a tutorial YouTube thumbnail showing someone at a computer with code on screen, confident helpful expression, pointing gesture toward the screen, clean modern workspace, teal and orange color scheme, large empty space on the left side for step numbers and text overlay, professional lighting, 1280x720 thumbnail dimensions"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -106,12 +114,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Personal and authentic vlog aesthetic.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a vlog YouTube thumbnail, person with genuine excited smile in an interesting location, travel destination background with beautiful scenery, warm golden hour lighting, candid natural pose, soft bokeh background, space at the bottom for text, lifestyle aesthetic, bright and inviting colors, 1280x720 format",
+    "messages": [{"role": "user", "content": "Generate a vlog YouTube thumbnail, person with genuine excited smile in an interesting location, travel destination background with beautiful scenery, warm golden hour lighting, candid natural pose, soft bokeh background, space at the bottom for text, lifestyle aesthetic, bright and inviting colors, 1280x720 format"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -121,12 +131,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 High-energy gaming content thumbnail.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an epic gaming YouTube thumbnail, intense gamer with headset showing competitive focus, RGB lighting in purple and green, gaming setup visible, action game scene explosion in background, dynamic diagonal composition, neon glow effects, bold and aggressive style, text space in corner, extremely vibrant colors, 1280x720 thumbnail",
+    "messages": [{"role": "user", "content": "Create an epic gaming YouTube thumbnail, intense gamer with headset showing competitive focus, RGB lighting in purple and green, gaming setup visible, action game scene explosion in background, dynamic diagonal composition, neon glow effects, bold and aggressive style, text space in corner, extremely vibrant colors, 1280x720 thumbnail"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -136,12 +148,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Clear product-focused review thumbnail.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a product review YouTube thumbnail, person holding a tech gadget with curious examining expression, clean white and blue gradient background, product prominently displayed, subtle star rating visual element, professional studio lighting, space on the right for review verdict text, crisp and clean aesthetic, 1280x720 aspect ratio",
+    "messages": [{"role": "user", "content": "Generate a product review YouTube thumbnail, person holding a tech gadget with curious examining expression, clean white and blue gradient background, product prominently displayed, subtle star rating visual element, professional studio lighting, space on the right for review verdict text, crisp and clean aesthetic, 1280x720 aspect ratio"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -151,12 +165,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Multiple elements for list-style content.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a top 10 listicle YouTube thumbnail, collage style with multiple small images arranged creatively, person with thoughtful counting gesture, bold red and yellow color scheme, large number 10 visual element, energetic diagonal layout, space for list title text at top, high saturation, eye-catching composition, 1280x720 thumbnail format",
+    "messages": [{"role": "user", "content": "Create a top 10 listicle YouTube thumbnail, collage style with multiple small images arranged creatively, person with thoughtful counting gesture, bold red and yellow color scheme, large number 10 visual element, energetic diagonal layout, space for list title text at top, high saturation, eye-catching composition, 1280x720 thumbnail format"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -166,12 +182,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Side-by-side product or concept comparison.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a comparison YouTube thumbnail, VS battle style, two products or options facing each other from opposite sides, lightning bolt or versus symbol in the center, red versus blue color split background, dramatic confrontational lighting, person in the middle with confused deciding expression, text space at top and bottom, 1280x720 dimensions",
+    "messages": [{"role": "user", "content": "Generate a comparison YouTube thumbnail, VS battle style, two products or options facing each other from opposite sides, lightning bolt or versus symbol in the center, red versus blue color split background, dramatic confrontational lighting, person in the middle with confused deciding expression, text space at top and bottom, 1280x720 dimensions"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -181,12 +199,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Engaging storytelling content thumbnail.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a story time YouTube thumbnail, person with dramatic secretive expression, finger over lips or whispering gesture, mysterious dark purple and black background with spotlight effect, intriguing shadowy elements suggesting the story topic, gossip or secret-sharing vibe, text space for story title on the side, dramatic theatrical lighting, 1280x720 thumbnail",
+    "messages": [{"role": "user", "content": "Create a story time YouTube thumbnail, person with dramatic secretive expression, finger over lips or whispering gesture, mysterious dark purple and black background with spotlight effect, intriguing shadowy elements suggesting the story topic, gossip or secret-sharing vibe, text space for story title on the side, dramatic theatrical lighting, 1280x720 thumbnail"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -196,12 +216,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Action-packed challenge content.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a challenge video YouTube thumbnail, person mid-action with determined intense expression, dynamic motion blur suggesting movement, bright orange and cyan color scheme, timer or countdown element, extreme angle shot, high energy chaotic composition, sweat and effort visible, bold space for challenge name text, 1280x720 aspect ratio",
+    "messages": [{"role": "user", "content": "Generate a challenge video YouTube thumbnail, person mid-action with determined intense expression, dynamic motion blur suggesting movement, bright orange and cyan color scheme, timer or countdown element, extreme angle shot, high energy chaotic composition, sweat and effort visible, bold space for challenge name text, 1280x720 aspect ratio"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -264,12 +286,14 @@ Choose the appropriate mode based on your needs:
 Higher quality output ideal for final thumbnails.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a professional YouTube thumbnail with maximum detail and quality, person with excited expression, vibrant colors, perfect for publishing",
+    "messages": [{"role": "user", "content": "Generate a professional YouTube thumbnail with maximum detail and quality, person with excited expression, vibrant colors, perfect for publishing"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -279,12 +303,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 Faster generation for rapid iteration and concept testing.
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Quick thumbnail concept: shocked face, yellow background, text space right side",
+    "messages": [{"role": "user", "content": "Quick thumbnail concept: shocked face, yellow background, text space right side"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco"
   }'
 ```
@@ -296,12 +322,14 @@ Use `session_id` to maintain consistent style across multiple thumbnails for you
 ### Start a Thumbnail Session
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "I am creating thumbnails for a tech review YouTube channel. The style should be: clean modern aesthetic, blue and white color scheme, product focus with reviewer face, professional lighting, consistent text placement on the right side. Generate the first thumbnail for a smartphone review.",
+    "messages": [{"role": "user", "content": "I am creating thumbnails for a tech review YouTube channel. The style should be: clean modern aesthetic, blue and white color scheme, product focus with reviewer face, professional lighting, consistent text placement on the right side. Generate the first thumbnail for a smartphone review."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "tech-channel-thumbnails-001",
     "mode": "max"
   }'
@@ -310,12 +338,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ### Continue with Consistent Style
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now create a thumbnail for a laptop review using the same channel style",
+    "messages": [{"role": "user", "content": "Now create a thumbnail for a laptop review using the same channel style"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "tech-channel-thumbnails-001",
     "mode": "max"
   }'
@@ -324,12 +354,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ### Build a Thumbnail Series
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create the third thumbnail in this series for a headphones review, maintaining brand consistency",
+    "messages": [{"role": "user", "content": "Create the third thumbnail in this series for a headphones review, maintaining brand consistency"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "tech-channel-thumbnails-001",
     "mode": "max"
   }'
@@ -342,12 +374,14 @@ Generate multiple thumbnail variations to test which performs best.
 ### Variation A: Emotion Focus
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "YouTube thumbnail variation A: extreme shocked face taking up most of the frame, minimal background, pure emotional impact, red and yellow, text space bottom, 1280x720",
+    "messages": [{"role": "user", "content": "YouTube thumbnail variation A: extreme shocked face taking up most of the frame, minimal background, pure emotional impact, red and yellow, text space bottom, 1280x720"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "ab-test-video-123",
     "mode": "max"
   }'
@@ -356,12 +390,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ### Variation B: Context Focus
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "YouTube thumbnail variation B: same topic but showing more context and environment, smaller face with interesting background elements, blue and orange, text space top right, 1280x720",
+    "messages": [{"role": "user", "content": "YouTube thumbnail variation B: same topic but showing more context and environment, smaller face with interesting background elements, blue and orange, text space top right, 1280x720"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "ab-test-video-123",
     "mode": "max"
   }'
@@ -370,12 +406,14 @@ curl -X POST "https://sense.eachlabs.run/chat" \
 ### Variation C: Minimalist Approach
 
 ```bash
-curl -X POST "https://sense.eachlabs.run/chat" \
+curl -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "YouTube thumbnail variation C: clean minimalist design, single powerful visual element, bold solid color background, maximum contrast, text space centered, 1280x720",
+    "messages": [{"role": "user", "content": "YouTube thumbnail variation C: clean minimalist design, single powerful visual element, bold solid color background, maximum contrast, text space centered, 1280x720"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "ab-test-video-123",
     "mode": "max"
   }'
@@ -387,12 +425,14 @@ Handle API responses appropriately in your applications.
 
 ```bash
 # Check response status and handle errors
-response=$(curl -s -w "\n%{http_code}" -X POST "https://sense.eachlabs.run/chat" \
+response=$(curl -s -w "\n%{http_code}" -X POST "https://eachsense-agent.core.eachlabs.run/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Generate a YouTube thumbnail with shocked expression, bright colors, 1280x720",
+    "messages": [{"role": "user", "content": "Generate a YouTube thumbnail with shocked expression, bright colors, 1280x720"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }')
 

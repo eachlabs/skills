@@ -3,7 +3,7 @@ name: sticker-design-generation
 description: Generate custom sticker designs using each::sense AI. Create die-cut stickers, vinyl decals, kawaii designs, brand logos, emoji packs, laptop stickers, bumper stickers, planner stickers, holographic effects, and complete sticker sheets.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Sticker Design Generation
@@ -26,12 +26,14 @@ Generate professional sticker designs using each::sense. This skill creates prin
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a die-cut sticker design of a cute cat astronaut floating in space with stars around it, white background for easy cutting",
+    "messages": [{"role": "user", "content": "Create a die-cut sticker design of a cute cat astronaut floating in space with stars around it, white background for easy cutting"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -56,12 +58,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Die-Cut Sticker Design
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a die-cut sticker design of a retro cassette tape with vibrant 80s colors (pink, cyan, purple). The design should have clean edges suitable for die-cutting, white background, vintage aesthetic with slight wear texture.",
+    "messages": [{"role": "user", "content": "Create a die-cut sticker design of a retro cassette tape with vibrant 80s colors (pink, cyan, purple). The design should have clean edges suitable for die-cutting, white background, vintage aesthetic with slight wear texture."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -69,12 +73,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Vinyl Sticker Design
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a weatherproof vinyl sticker for outdoor use. Mountain landscape with a sunset, bold colors that stand out, simple shapes that read well from a distance. Include a small border for durability. Style: flat illustration, vector-like clean lines.",
+    "messages": [{"role": "user", "content": "Design a weatherproof vinyl sticker for outdoor use. Mountain landscape with a sunset, bold colors that stand out, simple shapes that read well from a distance. Include a small border for durability. Style: flat illustration, vector-like clean lines."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -82,12 +88,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Kawaii/Cute Sticker
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a kawaii sticker design of a blushing strawberry with cute anime-style eyes, tiny hands, and sparkles around it. Pastel pink colors, white background, Japanese cute aesthetic. Add small hearts and stars as decorative elements.",
+    "messages": [{"role": "user", "content": "Create a kawaii sticker design of a blushing strawberry with cute anime-style eyes, tiny hands, and sparkles around it. Pastel pink colors, white background, Japanese cute aesthetic. Add small hearts and stars as decorative elements."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -95,12 +103,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Brand Logo Sticker
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a professional brand logo sticker for a coffee shop called 'Brew & Bean'. Circular badge design with a coffee cup icon, modern minimalist style, black and gold colors on white background. Include the brand name in a clean sans-serif font. Print-ready with bleed area.",
+    "messages": [{"role": "user", "content": "Design a professional brand logo sticker for a coffee shop called 'Brew & Bean'. Circular badge design with a coffee cup icon, modern minimalist style, black and gold colors on white background. Include the brand name in a clean sans-serif font. Print-ready with bleed area."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -109,32 +119,38 @@ curl -X POST https://sense.eachlabs.run/chat \
 
 ```bash
 # First emoji in the pack
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create the first sticker in an emoji-style pack featuring a round yellow character. This one shows a happy laughing expression with closed eyes and open mouth. Bold black outlines, flat colors, transparent background. Style similar to popular messaging app stickers.",
+    "messages": [{"role": "user", "content": "Create the first sticker in an emoji-style pack featuring a round yellow character. This one shows a happy laughing expression with closed eyes and open mouth. Bold black outlines, flat colors, transparent background. Style similar to popular messaging app stickers."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "emoji-pack-001"
   }'
 
 # Second emoji (same session for consistency)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create the second sticker in the pack with the same character, but showing a surprised/shocked expression with wide eyes and small O-shaped mouth. Maintain the same style and colors as the first one.",
+    "messages": [{"role": "user", "content": "Create the second sticker in the pack with the same character, but showing a surprised/shocked expression with wide eyes and small O-shaped mouth. Maintain the same style and colors as the first one."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "emoji-pack-001"
   }'
 
 # Third emoji
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create the third sticker showing the character with heart eyes and a loving expression. Keep consistent with the previous designs.",
+    "messages": [{"role": "user", "content": "Create the third sticker showing the character with heart eyes and a loving expression. Keep consistent with the previous designs."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "emoji-pack-001"
   }'
 ```
@@ -142,12 +158,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Laptop Sticker Design
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a tech-themed laptop sticker featuring a cyberpunk-style geometric fox head with neon accents (electric blue and hot pink). Modern, edgy aesthetic suitable for developers and gamers. Clean die-cut shape, approximately 3 inches. Black background with glowing effects.",
+    "messages": [{"role": "user", "content": "Design a tech-themed laptop sticker featuring a cyberpunk-style geometric fox head with neon accents (electric blue and hot pink). Modern, edgy aesthetic suitable for developers and gamers. Clean die-cut shape, approximately 3 inches. Black background with glowing effects."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -155,12 +173,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Bumper Sticker Design
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a bumper sticker design, rectangular format (approximately 3x10 inch ratio). Bold text saying 'ADVENTURE AWAITS' with a mountain and sun icon. High contrast colors (navy blue background, white and yellow graphics) for visibility. Simple, readable from a distance, weather-resistant design considerations.",
+    "messages": [{"role": "user", "content": "Create a bumper sticker design, rectangular format (approximately 3x10 inch ratio). Bold text saying 'ADVENTURE AWAITS' with a mountain and sun icon. High contrast colors (navy blue background, white and yellow graphics) for visibility. Simple, readable from a distance, weather-resistant design considerations."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -168,12 +188,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Planner/Journal Stickers
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a set of planner stickers for productivity and journaling. Include: a 'To Do' header banner, small checkmark icons, coffee cup doodle, stack of books, tiny plant illustration, and motivational quote bubble saying 'You got this!'. Cohesive pastel color palette (mint, peach, lavender), hand-drawn illustration style, white background.",
+    "messages": [{"role": "user", "content": "Design a set of planner stickers for productivity and journaling. Include: a 'To Do' header banner, small checkmark icons, coffee cup doodle, stack of books, tiny plant illustration, and motivational quote bubble saying 'You got this!'. Cohesive pastel color palette (mint, peach, lavender), hand-drawn illustration style, white background."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -181,12 +203,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. Holographic Effect Sticker
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a holographic-style sticker design of a crystal cluster. Iridescent rainbow effect with prismatic light reflections, shifting colors from pink to blue to green. Add sparkle elements and light flares. The design should simulate the look of a holographic/foil sticker material. White background for die-cutting.",
+    "messages": [{"role": "user", "content": "Create a holographic-style sticker design of a crystal cluster. Iridescent rainbow effect with prismatic light reflections, shifting colors from pink to blue to green. Add sparkle elements and light flares. The design should simulate the look of a holographic/foil sticker material. White background for die-cutting."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -194,12 +218,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 10. Sticker Sheet Layout
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Design a complete sticker sheet (4x6 inch format) with a cohesive 'Ocean Life' theme. Include: 2 large stickers (jellyfish and sea turtle), 4 medium stickers (seashells, starfish, coral, seahorse), and 6 small decorative elements (bubbles, waves, anchors). Watercolor illustration style, soft blue and coral color palette. Arrange neatly on white background with proper spacing for cutting.",
+    "messages": [{"role": "user", "content": "Design a complete sticker sheet (4x6 inch format) with a cohesive 'Ocean Life' theme. Include: 2 large stickers (jellyfish and sea turtle), 4 medium stickers (seashells, starfish, coral, seahorse), and 6 small decorative elements (bubbles, waves, anchors). Watercolor illustration style, soft blue and coral color palette. Arrange neatly on white background with proper spacing for cutting."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -266,32 +292,38 @@ Use `session_id` to iterate on sticker designs:
 
 ```bash
 # Initial design concept
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a die-cut sticker of a happy cactus in a pot, kawaii style",
+    "messages": [{"role": "user", "content": "Create a die-cut sticker of a happy cactus in a pot, kawaii style"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "cactus-sticker-project"
   }'
 
 # Refine based on feedback
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Make the cactus blush more, add small flower on top, and include tiny sparkles around it",
+    "messages": [{"role": "user", "content": "Make the cactus blush more, add small flower on top, and include tiny sparkles around it"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "cactus-sticker-project"
   }'
 
 # Create variations
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create 3 more variations with different expressions: sleepy, excited, and winking",
+    "messages": [{"role": "user", "content": "Create 3 more variations with different expressions: sleepy, excited, and winking"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "cactus-sticker-project"
   }'
 ```
@@ -302,34 +334,40 @@ Generate multiple themed stickers efficiently:
 
 ```bash
 # Sticker 1 - Main character
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a cute raccoon character sticker, sitting pose, holding a cookie, kawaii style with pastel colors",
+    "messages": [{"role": "user", "content": "Create a cute raccoon character sticker, sitting pose, holding a cookie, kawaii style with pastel colors"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco",
     "session_id": "raccoon-pack"
   }'
 
 # Sticker 2 - Different pose
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Same raccoon character but sleeping curled up, with a tiny snot bubble",
+    "messages": [{"role": "user", "content": "Same raccoon character but sleeping curled up, with a tiny snot bubble"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco",
     "session_id": "raccoon-pack"
   }'
 
 # Sticker 3 - Action pose
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Same raccoon character waving hello with sparkles, cheerful expression",
+    "messages": [{"role": "user", "content": "Same raccoon character waving hello with sparkles, cheerful expression"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "eco",
     "session_id": "raccoon-pack"
   }'

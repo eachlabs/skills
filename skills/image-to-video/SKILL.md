@@ -3,7 +3,7 @@ name: image-to-video
 description: Transform static images into dynamic videos using each::sense AI. Create animations, Ken Burns effects, cinemagraphs, product showcases, and motion graphics from still photos.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Image to Video Animation
@@ -26,12 +26,14 @@ Transform static images into captivating videos using each::sense. This skill an
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Animate this photo with subtle natural movement, make it feel alive",
+    "messages": [{"role": "user", "content": "Animate this photo with subtle natural movement, make it feel alive"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/photo.jpg"],
     "mode": "max"
   }'
@@ -44,12 +46,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Transform a static photograph into a living moment with natural motion.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Animate this photo with gentle, natural movement. Add subtle motion like hair moving slightly, clothes flowing, and ambient movement. Keep it realistic and cinematic, 5 seconds.",
+    "messages": [{"role": "user", "content": "Animate this photo with gentle, natural movement. Add subtle motion like hair moving slightly, clothes flowing, and ambient movement. Keep it realistic and cinematic, 5 seconds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/portrait-photo.jpg"],
     "mode": "max"
   }'
@@ -60,12 +64,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create documentary-style pan and zoom movements for storytelling.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Apply Ken Burns effect to this image. Start zoomed out showing the full scene, then slowly zoom into the main subject in the center. Smooth, cinematic movement over 8 seconds.",
+    "messages": [{"role": "user", "content": "Apply Ken Burns effect to this image. Start zoomed out showing the full scene, then slowly zoom into the main subject in the center. Smooth, cinematic movement over 8 seconds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/landscape-scene.jpg"],
     "mode": "max"
   }'
@@ -76,12 +82,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create mesmerizing looping animations with isolated motion.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a cinemagraph from this coffee shop image. Keep the person still but animate only the steam rising from the coffee cup. Create a seamless loop, 3 seconds.",
+    "messages": [{"role": "user", "content": "Create a cinemagraph from this coffee shop image. Keep the person still but animate only the steam rising from the coffee cup. Create a seamless loop, 3 seconds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/coffee-shop.jpg"],
     "mode": "max"
   }'
@@ -92,12 +100,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create dynamic product presentations with rotating or revealing motion.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Animate this product photo into a showcase video. Add subtle camera orbit movement around the product, dramatic lighting transitions, and a premium feel. 6 seconds, perfect for e-commerce.",
+    "messages": [{"role": "user", "content": "Animate this product photo into a showcase video. Add subtle camera orbit movement around the product, dramatic lighting transitions, and a premium feel. 6 seconds, perfect for e-commerce."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/product-watch.jpg"],
     "mode": "max"
   }'
@@ -108,12 +118,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Add natural, subtle movements to portrait photos.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Animate this portrait with very subtle, natural movement. Add gentle breathing motion, slight eye movement, and micro-expressions. Keep it realistic and not exaggerated - like a living photograph. 4 seconds.",
+    "messages": [{"role": "user", "content": "Animate this portrait with very subtle, natural movement. Add gentle breathing motion, slight eye movement, and micro-expressions. Keep it realistic and not exaggerated - like a living photograph. 4 seconds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/headshot.jpg"],
     "mode": "max"
   }'
@@ -124,12 +136,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Bring nature scenes to life with environmental motion.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Animate this landscape photo. Make the clouds drift slowly across the sky, add gentle ripples to the lake water, and subtle movement in the trees from a light breeze. Peaceful, serene mood. 10 seconds loop.",
+    "messages": [{"role": "user", "content": "Animate this landscape photo. Make the clouds drift slowly across the sky, add gentle ripples to the lake water, and subtle movement in the trees from a light breeze. Peaceful, serene mood. 10 seconds loop."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/mountain-lake.jpg"],
     "mode": "max"
   }'
@@ -140,12 +154,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create depth-based motion for an immersive 3D feel.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a 3D parallax effect video from this image. Separate the foreground, midground, and background layers and move them at different speeds to create depth. Subtle camera drift that reveals the 3D space. 5 seconds.",
+    "messages": [{"role": "user", "content": "Create a 3D parallax effect video from this image. Separate the foreground, midground, and background layers and move them at different speeds to create depth. Subtle camera drift that reveals the 3D space. 5 seconds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/street-scene.jpg"],
     "mode": "max"
   }'
@@ -156,12 +172,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Transform a static logo into an animated intro.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Animate this logo for a video intro. Create a smooth reveal animation - the logo assembles or fades in with elegant motion. Add subtle shine or glow effect. Professional and modern style. 3 seconds.",
+    "messages": [{"role": "user", "content": "Animate this logo for a video intro. Create a smooth reveal animation - the logo assembles or fades in with elegant motion. Add subtle shine or glow effect. Professional and modern style. 3 seconds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/company-logo.png"],
     "mode": "max"
   }'
@@ -172,12 +190,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Bring artwork and paintings to life with artistic motion.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Animate this painting and bring it to life. Add flowing motion to the water in the scene, make the figures move subtly, and add atmospheric effects like floating particles or shifting light. Maintain the painterly style. 8 seconds.",
+    "messages": [{"role": "user", "content": "Animate this painting and bring it to life. Add flowing motion to the water in the scene, make the figures move subtly, and add atmospheric effects like floating particles or shifting light. Maintain the painterly style. 8 seconds."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/oil-painting.jpg"],
     "mode": "max"
   }'
@@ -188,12 +208,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create scroll-stopping animated content for social media.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Turn this static social media graphic into an eye-catching animated post. Add dynamic motion to the elements - pulsing, floating, or sliding effects. Make it loop seamlessly for Instagram. High energy, attention-grabbing. 3 seconds loop.",
+    "messages": [{"role": "user", "content": "Turn this static social media graphic into an eye-catching animated post. Add dynamic motion to the elements - pulsing, floating, or sliding effects. Make it loop seamlessly for Instagram. High energy, attention-grabbing. 3 seconds loop."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/social-graphic.png"],
     "mode": "max"
   }'
@@ -212,33 +234,39 @@ Use `session_id` to iterate on your animations:
 
 ```bash
 # Initial animation
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Animate this beach photo with waves and palm trees moving",
+    "messages": [{"role": "user", "content": "Animate this beach photo with waves and palm trees moving"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/beach.jpg"],
     "session_id": "beach-animation-001"
   }'
 
 # Iterate based on feedback
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Make the waves more dramatic and add some birds flying in the sky",
+    "messages": [{"role": "user", "content": "Make the waves more dramatic and add some birds flying in the sky"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "beach-animation-001"
   }'
 
 # Request a variation
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a sunset version with golden hour lighting",
+    "messages": [{"role": "user", "content": "Create a sunset version with golden hour lighting"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "beach-animation-001"
   }'
 ```

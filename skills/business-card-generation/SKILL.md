@@ -3,7 +3,7 @@ name: business-card-generation
 description: Generate professional business cards using each::sense AI. Create corporate, creative, minimalist, luxury, and specialty business cards optimized for print at standard 3.5 x 2 inch size.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Business Card Generation
@@ -23,12 +23,14 @@ Generate professional business cards using each::sense. This skill creates print
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a professional business card for a marketing consultant, clean modern design with space for name, title, phone, email, and website",
+    "messages": [{"role": "user", "content": "Create a professional business card for a marketing consultant, clean modern design with space for name, title, phone, email, and website"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -47,12 +49,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 1. Corporate Business Card
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a corporate business card at 1050x600 pixels for a senior financial advisor. Navy blue and gold color scheme, professional and trustworthy feel. Include placeholder areas for: name, title (Senior Financial Advisor), company name, phone number, email, and office address. Add a subtle geometric pattern in the background. Clean sans-serif typography.",
+    "messages": [{"role": "user", "content": "Create a corporate business card at 1050x600 pixels for a senior financial advisor. Navy blue and gold color scheme, professional and trustworthy feel. Include placeholder areas for: name, title (Senior Financial Advisor), company name, phone number, email, and office address. Add a subtle geometric pattern in the background. Clean sans-serif typography."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -60,12 +64,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 2. Creative/Designer Business Card
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create an artistic business card at 1050x600 pixels for a graphic designer. Bold, creative design with vibrant gradient colors (purple to pink to orange). Abstract geometric shapes, modern and eye-catching. Include space for name, title (Creative Director), portfolio website, email, and Instagram handle. Make it memorable and showcase design skills.",
+    "messages": [{"role": "user", "content": "Create an artistic business card at 1050x600 pixels for a graphic designer. Bold, creative design with vibrant gradient colors (purple to pink to orange). Abstract geometric shapes, modern and eye-catching. Include space for name, title (Creative Director), portfolio website, email, and Instagram handle. Make it memorable and showcase design skills."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -73,12 +79,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 3. Minimalist Business Card
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a minimalist business card at 1050x600 pixels. White background with black typography only. Elegant serif font for the name, clean sans-serif for contact details. Generous white space, sophisticated and refined. Include areas for: name, job title, email, phone, and a small logo placeholder in the corner. Less is more aesthetic.",
+    "messages": [{"role": "user", "content": "Create a minimalist business card at 1050x600 pixels. White background with black typography only. Elegant serif font for the name, clean sans-serif for contact details. Generous white space, sophisticated and refined. Include areas for: name, job title, email, phone, and a small logo placeholder in the corner. Less is more aesthetic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -86,12 +94,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 4. Luxury/Premium Business Card
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a luxury business card at 1050x600 pixels for a high-end jewelry brand owner. Black background with gold foil effect elements. Elegant script font for the name, refined serif for details. Include subtle embossed texture effect, ornate border detail. Space for: name, title (Founder & Creative Director), brand name, phone, email, and boutique address. Premium, exclusive feel.",
+    "messages": [{"role": "user", "content": "Create a luxury business card at 1050x600 pixels for a high-end jewelry brand owner. Black background with gold foil effect elements. Elegant script font for the name, refined serif for details. Include subtle embossed texture effect, ornate border detail. Space for: name, title (Founder & Creative Director), brand name, phone, email, and boutique address. Premium, exclusive feel."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -99,12 +109,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 5. Tech Startup Business Card
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a modern tech startup business card at 1050x600 pixels. Dark theme with neon accent colors (electric blue or cyan). Futuristic, innovative aesthetic with subtle circuit board or data visualization patterns. Clean modern typography. Include space for: name, title (Co-Founder & CTO), company name, email, LinkedIn profile, and QR code placeholder. Tech-forward and cutting-edge vibe.",
+    "messages": [{"role": "user", "content": "Create a modern tech startup business card at 1050x600 pixels. Dark theme with neon accent colors (electric blue or cyan). Futuristic, innovative aesthetic with subtle circuit board or data visualization patterns. Clean modern typography. Include space for: name, title (Co-Founder & CTO), company name, email, LinkedIn profile, and QR code placeholder. Tech-forward and cutting-edge vibe."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -112,12 +124,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 6. Real Estate Agent Card
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a real estate agent business card at 1050x600 pixels. Professional yet approachable design. Include a photo placeholder area on the left side. Color scheme: deep teal and white with gold accents. Include space for: agent name, title (Licensed Real Estate Agent), brokerage name, phone, email, website, and license number. Add a small house icon or property silhouette. Trustworthy and established feel.",
+    "messages": [{"role": "user", "content": "Create a real estate agent business card at 1050x600 pixels. Professional yet approachable design. Include a photo placeholder area on the left side. Color scheme: deep teal and white with gold accents. Include space for: agent name, title (Licensed Real Estate Agent), brokerage name, phone, email, website, and license number. Add a small house icon or property silhouette. Trustworthy and established feel."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -125,12 +139,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 7. Photographer Business Card
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a photographer business card at 1050x600 pixels. Artistic design with a large image placeholder area showing a blurred/abstract photograph background. Camera aperture icon or lens element as design feature. Elegant typography in white over the image. Include space for: photographer name, specialty (Wedding & Portrait Photography), phone, email, Instagram, and website. Creative and visual storytelling aesthetic.",
+    "messages": [{"role": "user", "content": "Create a photographer business card at 1050x600 pixels. Artistic design with a large image placeholder area showing a blurred/abstract photograph background. Camera aperture icon or lens element as design feature. Elegant typography in white over the image. Include space for: photographer name, specialty (Wedding & Portrait Photography), phone, email, Instagram, and website. Creative and visual storytelling aesthetic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -138,12 +154,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 8. Restaurant/Chef Business Card
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a restaurant chef business card at 1050x600 pixels. Warm, inviting color palette - cream background with burgundy and copper accents. Include a chef hat or knife icon. Elegant typography mixing script and serif fonts. Subtle food-related pattern or texture. Include space for: chef name, title (Executive Chef), restaurant name, phone, email, and restaurant address. Culinary excellence and artistry feel.",
+    "messages": [{"role": "user", "content": "Create a restaurant chef business card at 1050x600 pixels. Warm, inviting color palette - cream background with burgundy and copper accents. Include a chef hat or knife icon. Elegant typography mixing script and serif fonts. Subtle food-related pattern or texture. Include space for: chef name, title (Executive Chef), restaurant name, phone, email, and restaurant address. Culinary excellence and artistry feel."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -151,12 +169,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 ### 9. Vertical Business Card
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a vertical business card at 600x1050 pixels (portrait orientation) for an architect. Modern architectural design with clean lines and geometric shapes. Black and white with one accent color (coral or mustard). Include building silhouette or blueprint element. Space for: name at top, title (Principal Architect), firm name, contact details stacked vertically - phone, email, website, office address. Contemporary and structural aesthetic.",
+    "messages": [{"role": "user", "content": "Create a vertical business card at 600x1050 pixels (portrait orientation) for an architect. Modern architectural design with clean lines and geometric shapes. Black and white with one accent color (coral or mustard). Include building silhouette or blueprint element. Space for: name at top, title (Principal Architect), firm name, contact details stacked vertically - phone, email, website, office address. Contemporary and structural aesthetic."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "mode": "max"
   }'
 ```
@@ -165,22 +185,26 @@ curl -X POST https://sense.eachlabs.run/chat \
 
 ```bash
 # Front side
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create the FRONT side of a double-sided business card at 1050x600 pixels for a law firm partner. Clean, prestigious design with navy blue background. Large centered logo placeholder area, firm name in elegant gold serif typography below. Established, authoritative, trustworthy aesthetic. This is the presentation side - minimal information, maximum impact.",
+    "messages": [{"role": "user", "content": "Create the FRONT side of a double-sided business card at 1050x600 pixels for a law firm partner. Clean, prestigious design with navy blue background. Large centered logo placeholder area, firm name in elegant gold serif typography below. Established, authoritative, trustworthy aesthetic. This is the presentation side - minimal information, maximum impact."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "lawfirm-card-001"
   }'
 
 # Back side (same session for visual consistency)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create the BACK side of the same business card. White background with navy blue text to complement the front. Include all contact details: attorney name, title (Senior Partner), bar number, phone, fax, email, office address, and website. Clean layout with clear hierarchy. Add a thin gold accent line. Same typography style as front for consistency.",
+    "messages": [{"role": "user", "content": "Create the BACK side of the same business card. White background with navy blue text to complement the front. Include all contact details: attorney name, title (Senior Partner), bar number, phone, fax, email, office address, and website. Clean layout with clear hierarchy. Add a thin gold accent line. Same typography style as front for consistency."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "lawfirm-card-001"
   }'
 ```
@@ -245,32 +269,38 @@ Use `session_id` to iterate on business card designs:
 
 ```bash
 # Initial design
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a business card for a yoga instructor, calming natural aesthetic",
+    "messages": [{"role": "user", "content": "Create a business card for a yoga instructor, calming natural aesthetic"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "yoga-card-project"
   }'
 
 # Iterate based on feedback
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Make the colors warmer, add a lotus flower icon, and use a more elegant script font for the name",
+    "messages": [{"role": "user", "content": "Make the colors warmer, add a lotus flower icon, and use a more elegant script font for the name"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "yoga-card-project"
   }'
 
 # Request variation
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create 2 more variations with different color palettes - one with sage green, one with dusty rose",
+    "messages": [{"role": "user", "content": "Create 2 more variations with different color palettes - one with sage green, one with dusty rose"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "yoga-card-project"
   }'
 ```
@@ -281,23 +311,27 @@ Generate consistent cards for team members:
 
 ```bash
 # Template card
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Create a corporate business card template for Acme Corporation. Blue and white color scheme with the company logo area in top left. Fields: employee name, job title, department, phone, email, office location.",
+    "messages": [{"role": "user", "content": "Create a corporate business card template for Acme Corporation. Blue and white color scheme with the company logo area in top left. Fields: employee name, job title, department, phone, email, office location."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "acme-team-cards",
     "mode": "max"
   }'
 
 # Generate variations
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Using the same design, create cards with these titles: CEO, CFO, VP of Marketing, Head of Engineering. Keep all other design elements consistent.",
+    "messages": [{"role": "user", "content": "Using the same design, create cards with these titles: CEO, CFO, VP of Marketing, Head of Engineering. Keep all other design elements consistent."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "acme-team-cards"
   }'
 ```

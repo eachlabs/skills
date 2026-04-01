@@ -3,7 +3,7 @@ name: age-transformation
 description: Transform faces across ages using each::sense AI. Create age progressions, de-aging effects, baby-to-adult predictions, and aging simulations for entertainment, forensics, and visual effects.
 metadata:
   author: eachlabs
-  version: "1.0"
+  version: "2.0"
 ---
 
 # Age Transformation
@@ -26,12 +26,14 @@ Transform faces across different ages using each::sense. This skill enables real
 ## Quick Start
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Age this person to look 70 years old while maintaining their recognizable features",
+    "messages": [{"role": "user", "content": "Age this person to look 70 years old while maintaining their recognizable features"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/portrait.jpg"],
     "mode": "max"
   }'
@@ -44,12 +46,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Transform a young adult to appear significantly older with natural aging characteristics.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Age this person by 30 years. Add realistic aging features like wrinkles, slight sagging, gray hair, and age spots while keeping their identity clearly recognizable.",
+    "messages": [{"role": "user", "content": "Age this person by 30 years. Add realistic aging features like wrinkles, slight sagging, gray hair, and age spots while keeping their identity clearly recognizable."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/young-adult.jpg"],
     "mode": "max"
   }'
@@ -60,12 +64,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 De-age an older subject to appear younger with smoother skin and youthful features.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "De-age this person by 25 years. Make them look younger with smoother skin, fuller hair, tighter facial features, but keep their identity intact. Natural and realistic result.",
+    "messages": [{"role": "user", "content": "De-age this person by 25 years. Make them look younger with smoother skin, fuller hair, tighter facial features, but keep their identity intact. Natural and realistic result."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/middle-aged-person.jpg"],
     "mode": "max"
   }'
@@ -76,12 +82,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Predict how a baby or young child might look as an adult.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Transform this baby photo to show how they might look as a 30-year-old adult. Maintain key facial features like eye shape, nose structure, and overall face shape. Make it realistic and believable.",
+    "messages": [{"role": "user", "content": "Transform this baby photo to show how they might look as a 30-year-old adult. Maintain key facial features like eye shape, nose structure, and overall face shape. Make it realistic and believable."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/baby-photo.jpg"],
     "mode": "max"
   }'
@@ -92,12 +100,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Transform a child or adult to their teenage appearance.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Transform this person to look like a 16-year-old teenager. Adjust facial features to teenage proportions while preserving their recognizable identity. Natural skin, youthful energy.",
+    "messages": [{"role": "user", "content": "Transform this person to look like a 16-year-old teenager. Adjust facial features to teenage proportions while preserving their recognizable identity. Natural skin, youthful energy."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/adult-portrait.jpg"],
     "mode": "max"
   }'
@@ -108,12 +118,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Create a realistic elderly version with natural aging characteristics.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Age this person to 80 years old. Add deep wrinkles, age spots, white/gray hair, thinner skin, and natural elderly features. The result should look like a dignified senior while still being recognizable as the same person.",
+    "messages": [{"role": "user", "content": "Age this person to 80 years old. Add deep wrinkles, age spots, white/gray hair, thinner skin, and natural elderly features. The result should look like a dignified senior while still being recognizable as the same person."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/young-person.jpg"],
     "mode": "max"
   }'
@@ -124,12 +136,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Transform to a realistic middle-aged appearance.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Transform this young adult to appear 45-50 years old. Add subtle wrinkles, slight gray at the temples, mature skin texture, and natural middle-age characteristics while maintaining their identity.",
+    "messages": [{"role": "user", "content": "Transform this young adult to appear 45-50 years old. Add subtle wrinkles, slight gray at the temples, mature skin texture, and natural middle-age characteristics while maintaining their identity."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/25-year-old.jpg"],
     "mode": "max"
   }'
@@ -140,12 +154,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Apply minor, realistic aging for a 10-year progression.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Age this person by exactly 10 years. Apply subtle, realistic aging: fine lines around eyes and mouth, slightly less elastic skin, minimal gray hair starting to show. Keep changes believable and natural.",
+    "messages": [{"role": "user", "content": "Age this person by exactly 10 years. Apply subtle, realistic aging: fine lines around eyes and mouth, slightly less elastic skin, minimal gray hair starting to show. Keep changes believable and natural."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/current-photo.jpg"],
     "mode": "max"
   }'
@@ -156,12 +172,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Apply significant aging transformation spanning 40 years.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Age this 25-year-old by 40 years to look 65. Apply dramatic but realistic aging: significant wrinkles, sagging skin, gray/white hair, age spots, thinning hair, jowls. Result should be photorealistic and the person should still be recognizable.",
+    "messages": [{"role": "user", "content": "Age this 25-year-old by 40 years to look 65. Apply dramatic but realistic aging: significant wrinkles, sagging skin, gray/white hair, age spots, thinning hair, jowls. Result should be photorealistic and the person should still be recognizable."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/young-adult-25.jpg"],
     "mode": "max"
   }'
@@ -172,12 +190,14 @@ curl -X POST https://sense.eachlabs.run/chat \
 Professional de-aging suitable for film and video production.
 
 ```bash
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "De-age this actor to look 25 years younger for a film flashback scene. Remove wrinkles, tighten facial features, restore hair color and volume, create smooth youthful skin. Result must be cinematic quality, photorealistic, and maintain perfect identity consistency.",
+    "messages": [{"role": "user", "content": "De-age this actor to look 25 years younger for a film flashback scene. Remove wrinkles, tighten facial features, restore hair color and volume, create smooth youthful skin. Result must be cinematic quality, photorealistic, and maintain perfect identity consistency."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/actor-current.jpg"],
     "mode": "max"
   }'
@@ -189,35 +209,41 @@ Generate multiple age versions using session continuity.
 
 ```bash
 # First request - Age to 40
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "This is a 20-year-old. Create an age progression showing them at 40 years old. Maintain identity throughout.",
+    "messages": [{"role": "user", "content": "This is a 20-year-old. Create an age progression showing them at 40 years old. Maintain identity throughout."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/person-age-20.jpg"],
     "session_id": "age-timeline-project-001",
     "mode": "max"
   }'
 
 # Second request - Age to 60 (same session)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Now show the same person at 60 years old. Continue the aging progression naturally from the 40-year-old version.",
+    "messages": [{"role": "user", "content": "Now show the same person at 60 years old. Continue the aging progression naturally from the 40-year-old version."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "age-timeline-project-001",
     "mode": "max"
   }'
 
 # Third request - Age to 80 (same session)
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Finally, show them at 80 years old. Complete the age timeline with realistic elderly features.",
+    "messages": [{"role": "user", "content": "Finally, show them at 80 years old. Complete the age timeline with realistic elderly features."}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "age-timeline-project-001",
     "mode": "max"
   }'
@@ -272,33 +298,39 @@ Use `session_id` to iteratively refine age transformations:
 
 ```bash
 # Initial transformation
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Age this person to 70 years old",
+    "messages": [{"role": "user", "content": "Age this person to 70 years old"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "image_urls": ["https://example.com/portrait.jpg"],
     "session_id": "age-refinement-001"
   }'
 
 # Refine the result
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Add more prominent wrinkles and make the hair completely white",
+    "messages": [{"role": "user", "content": "Add more prominent wrinkles and make the hair completely white"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "age-refinement-001"
   }'
 
 # Further adjustment
-curl -X POST https://sense.eachlabs.run/chat \
+curl -X POST https://eachsense-agent.core.eachlabs.run/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-API-Key: $EACHLABS_API_KEY" \
   -H "Accept: text/event-stream" \
   -d '{
-    "message": "Keep the aging but make the expression warmer, add smile lines",
+    "messages": [{"role": "user", "content": "Keep the aging but make the expression warmer, add smile lines"}],
+    "model": "eachsense/beta",
+    "stream": true,
     "session_id": "age-refinement-001"
   }'
 ```
