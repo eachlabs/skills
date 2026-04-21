@@ -138,9 +138,8 @@ function cmdList() {
     console.log(`  ${cyan(skill.name.padEnd(maxName))}  ${desc}`);
   }
   console.log(`\n  ${dim(`${skills.length} skills available`)}`);
-  console.log(
-    `  Install: ${cyan("npx skills add eachlabs/skills")}\n`
-  );
+  console.log(`  Install all:  ${cyan("npx skills add eachlabs/skills")}`);
+  console.log(`  Install one:  ${cyan("npx skills add eachlabs/skills@<skill-name>")}\n`);
 }
 
 function printHelp() {
@@ -148,7 +147,8 @@ function printHelp() {
 ${bold("each::labs Agent Skills")}
 
 ${bold("Install via Vercel Skills CLI:")}
-  npx skills add eachlabs/skills
+  npx skills add eachlabs/skills                    # all skills
+  npx skills add eachlabs/skills@<skill-name>       # one skill
 
 ${bold("Or use the built-in CLI:")}
   skills add <name>       Install a skill to ~/.claude/skills/
@@ -158,6 +158,8 @@ ${bold("Or use the built-in CLI:")}
 
 ${bold("Examples:")}
   npx skills add eachlabs/skills
+  npx skills add eachlabs/skills@gpt-image-v2
+  npx skills add eachlabs/skills@bytedance-seedance-2-0
   npx @eachlabs/skills add eachlabs-video-generation
   npx @eachlabs/skills list
 `);

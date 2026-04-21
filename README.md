@@ -13,9 +13,9 @@ npx skills add eachlabs/skills
 Or install a single skill:
 
 ```bash
-npx skills add eachlabs/skills/eachlabs-video-generation
-npx skills add eachlabs/skills/eachlabs-image-generation
-npx skills add eachlabs/skills/eachlabs-music
+npx skills add eachlabs/skills@eachlabs-video-generation
+npx skills add eachlabs/skills@eachlabs-image-generation
+npx skills add eachlabs/skills@eachlabs-music
 ```
 
 ## What Can Your Agent Do?
