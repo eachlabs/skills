@@ -57,6 +57,7 @@ Poll until `status` is `"success"` or `"failed"`. The output video URL is in the
 | XAI Grok Imagine | `xai-grok-imagine-text-to-video` | Fast creative |
 | Kandinsky 5 Pro | `kandinsky5-pro-text-to-video` | Artistic, high quality |
 | Seedance v1.5 Pro | `seedance-v1-5-pro-text-to-video` | Cinematic quality |
+| Seedance 2.0 Fast | `bytedance-seedance-2-0-text-to-video-fast` | Native synchronized audio, 4–15s, 480p/720p |
 | Wan v2.6 | `wan-v2-6-text-to-video` | Long/narrative content |
 | Kling v2.6 Pro | `kling-v2-6-pro-text-to-video` | Motion control |
 | Pika v2.2 | `pika-v2-2-text-to-video` | Stylized, effects |
@@ -77,6 +78,7 @@ Poll until `status` is `"success"` or `"failed"`. The output video URL is in the
 | Wan v2.6 Flash | `wan-v2-6-image-to-video-flash` | Fastest |
 | Wan v2.6 | `wan-v2-6-image-to-video` | High quality |
 | Seedance v1.5 Pro | `seedance-v1-5-pro-image-to-video` | Cinematic |
+| Seedance 2.0 Fast | `bytedance-seedance-2-0-image-to-video-fast` | Native audio + end-frame transition, 4–15s |
 | Kandinsky 5 Pro | `kandinsky5-pro-image-to-video` | Artistic |
 | Kling v2.6 Pro I2V | `kling-v2-6-pro-image-to-video` | Best Kling quality |
 | Kling O1 | `kling-o1-image-to-video` | Latest Kling model |

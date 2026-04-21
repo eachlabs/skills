@@ -33,6 +33,7 @@ Set the `EACHLABS_API_KEY` environment variable. Get your key at [eachlabs.ai](h
 | Flux 2 LoRA Edit | `flux-2-lora-edit` | LoRA-powered editing |
 | XAI Grok Imagine Edit | `xai-grok-imagine-image-edit` | Creative edits |
 | GPT Image v1.5 Edit | `gpt-image-v1-5-edit` | High quality (up to 10 images) |
+| GPT Image v2 Edit | `gpt-image-v2-edit` | Highest-fidelity OpenAI edit, reference-faithful, strong in-image text |
 | Bytedance Seedream v4.5 Edit | `bytedance-seedream-v4-5-edit` | Bytedance latest |
 | Gemini 3 Pro Image Edit | `gemini-3-pro-image-preview-edit` | Google editing |
 | Qwen Image Edit Plus | `qwen-image-edit-plus` | Advanced Qwen editing |

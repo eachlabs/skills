@@ -67,6 +67,24 @@ Complete parameter reference for all video generation models. All models use ver
 
 ---
 
+## ByteDance | Seedance 2.0 | Text to Video | Fast
+
+**Slug:** `bytedance-seedance-2-0-text-to-video-fast`
+
+| Parameter | Type | Required | Default | Options / Constraints | Description |
+|-----------|------|----------|---------|----------------------|-------------|
+| `prompt` | string | Yes | — | — | Text prompt. Supports timeline prompting and quoted dialogue for native audio. |
+| `resolution` | string | No | `"720p"` | 480p,720p | 480p = faster/cheaper, 720p = balanced. |
+| `duration` | string | No | `"auto"` | auto,4,5,6,7,8,9,10,11,12,13,14,15 | Clip length in seconds, or `auto`. |
+| `aspect_ratio` | string | No | `"auto"` | auto,21:9,16:9,4:3,1:1,3:4,9:16 | Landscape, portrait, square, ultrawide, or `auto`. |
+| `generate_audio` | boolean | No | `"True"` | — | Synchronized SFX, ambience, and lip-synced speech. Cost unchanged either way. |
+| `seed` | string | No | — | — | Reproducibility hint — results may still drift slightly. |
+| `end_user_id` | string | No | — | — | End-user identifier. |
+
+Pricing: 480p $0.1129/sec, 720p $0.2419/sec. Typical runtime ~120s. See the dedicated `bytedance-seedance-2-0` skill for full details.
+
+---
+
 ## Wan | v2.6 | Text to Video
 
 **Slug:** `wan-v2-6-text-to-video`
@@ -1011,6 +1029,26 @@ Complete parameter reference for all video generation models. All models use ver
 | `generate_audio` | boolean | No | `"True"` | — | Whether to generate audio for the video |
 | `camera_fixed` | boolean | No | `"False"` | — | Whether to fix the camera position |
 | `seed` | integer | No | — | — | Random seed to control video generation. Use -1 for random. |
+
+---
+
+## ByteDance | Seedance 2.0 | Image to Video | Fast
+
+**Slug:** `bytedance-seedance-2-0-image-to-video-fast`
+
+| Parameter | Type | Required | Default | Options / Constraints | Description |
+|-----------|------|----------|---------|----------------------|-------------|
+| `prompt` | string | Yes | — | — | Motion / action the video should perform, plus optional quoted dialogue. |
+| `image_url` | string | Yes | — | JPEG/PNG/WebP, max 30 MB, HTTPS | Starting frame. |
+| `end_image_url` | string | No | — | JPEG/PNG/WebP, max 30 MB, HTTPS | Final frame; model interpolates between `image_url` and this. |
+| `resolution` | string | No | `"720p"` | 480p,720p | 480p = faster/cheaper, 720p = balanced. |
+| `duration` | string | No | `"auto"` | auto,4,5,6,7,8,9,10,11,12,13,14,15 | Clip length in seconds, or `auto`. |
+| `aspect_ratio` | string | No | `"auto"` | auto,21:9,16:9,4:3,1:1,3:4,9:16 | `auto` infers from the input image. |
+| `generate_audio` | boolean | No | `"True"` | — | Synchronized SFX, ambience, and lip-synced speech. Cost unchanged either way. |
+| `seed` | string | No | — | — | Reproducibility hint — results may still drift slightly. |
+| `end_user_id` | string | No | — | — | End-user identifier. |
+
+Pricing: 480p $0.1129/sec, 720p $0.2419/sec. Typical runtime ~150s. See the dedicated `bytedance-seedance-2-0` skill for full details.
 
 ---
 

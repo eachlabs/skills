@@ -62,6 +62,7 @@ Poll until `status` is `"success"` or `"failed"`. The output image URL is in the
 | Flux 2 LoRA | `flux-2-lora` | LoRA-powered generation |
 | XAI Grok Imagine | `xai-grok-imagine-text-to-image` | Creative and artistic |
 | GPT Image v1.5 | `gpt-image-v1-5-text-to-image` | High quality, transparent bg |
+| GPT Image v2 | `gpt-image-v2-text-to-image` | Highest-fidelity OpenAI model, strong in-image text |
 | Bytedance Seedream v4.5 | `bytedance-seedream-v4-5-text-to-image` | Bytedance latest |
 | Gemini 3 Pro Image | `gemini-3-pro-image-preview` | Google's latest |
 | Imagen 4 | `imagen4-preview` | Google Imagen 4 |

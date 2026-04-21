@@ -172,6 +172,19 @@ Complete parameter reference for all image editing models. All models use versio
 
 ---
 
+## GPT Image | v2 | Edit
+
+**Slug:** `gpt-image-v2-edit`
+
+| Parameter | Type | Required | Default | Options / Constraints | Description |
+|-----------|------|----------|---------|----------------------|-------------|
+| `prompt` | string | Yes | — | — | Natural-language edit instruction. Be explicit about what to keep vs change. |
+| `image_url` | string | Yes | — | Publicly reachable HTTPS URL | Reference image to edit. |
+
+GPT Image v2 edit delivers higher fidelity than v1.5 with stronger instruction-following and reference preservation. Reference images are **always processed at high fidelity**, so image-input tokens (and cost) run higher than v1.5 — prefer downscaling references to 1024px on the long edge unless detail matters. Dynamic token-based pricing: text in $5/M, image in $10/M, text out $40/M, image out $30/M. Typical runtime ~100s. Additional GPT Image family parameters may be available — resolve the live schema via `GET /v1/model?slug=gpt-image-v2-edit` before using them. See the dedicated `gpt-image-v2` skill for full details.
+
+---
+
 ## Flux 2 | Max | Edit
 
 **Slug:** `flux-2-max-edit`

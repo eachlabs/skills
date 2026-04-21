@@ -159,6 +159,18 @@ Complete parameter reference for all image generation models. All models use ver
 
 ---
 
+## GPT Image | v2 | Text to Image
+
+**Slug:** `gpt-image-v2-text-to-image`
+
+| Parameter | Type | Required | Default | Options / Constraints | Description |
+|-----------|------|----------|---------|----------------------|-------------|
+| `prompt` | string | Yes | — | — | Text description of the desired image. Supports quoted in-image text for precise rendering. |
+
+GPT Image v2 delivers higher fidelity than v1.5 with stronger prompt understanding, improved compositional consistency, more physically accurate lighting, and enhanced fine-detail rendering. Dynamic token-based pricing: text in $5/M, image in $10/M, text out $40/M, image out $30/M. Typical runtime ~40s. Additional GPT Image family parameters (`image_size`, `background`, `quality`, `num_images`, `output_format`, `sync_mode`) may be available — resolve the live schema via `GET /v1/model?slug=gpt-image-v2-text-to-image` before using them. See the dedicated `gpt-image-v2` skill for full details.
+
+---
+
 ## Flux 2 | Max | Text to Image
 
 **Slug:** `flux-2-max-text-to-image`
