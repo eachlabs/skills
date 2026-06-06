@@ -6,6 +6,24 @@
 
 ## Install
 
+### Claude Code Plugin (recommended)
+
+```shell
+/plugin marketplace add eachlabs/skills
+/plugin install eachlabs-skills@eachlabs
+```
+
+Or via CLI:
+
+```bash
+claude plugin marketplace add eachlabs/skills
+claude plugin install eachlabs-skills@eachlabs
+```
+
+Once installed, skills are available as `/eachlabs-skills:<skill-name>` — for example `/eachlabs-skills:eachlabs-video-generation`. Claude can also invoke them automatically based on task context.
+
+### Agent Skills Spec (other agents)
+
 ```bash
 npx skills add eachlabs/skills
 ```
@@ -43,7 +61,7 @@ No context switching. No browser tabs. Just ask your agent.
 | [eachlabs-image-edit](skills/eachlabs-image-edit/) | Style transfer, background removal, upscaling, inpainting, 3D generation | 124 |
 | [eachlabs-product-visuals](skills/eachlabs-product-visuals/) | E-commerce product shots, background replacement, lifestyle scenes, 360-degree views | 17 |
 | [eachlabs-fashion-ai](skills/eachlabs-fashion-ai/) | Fashion model imagery, virtual try-on, runway videos, campaign visuals | 12 |
-| [eachlabs-ugc-video](skills/eachlabs-ugc-video/) | Trending social media effects, dance clips, movie scene recreations | 130+ workflows |
+| [ugc-video-generation](skills/ugc-video-generation/) | Testimonials, unboxings, reviews, and selfie-style UGC videos | 130+ workflows |
 | [eachlabs-music](skills/eachlabs-music/) | Songs, instrumentals, lyrics, podcasts, stem separation, song recognition | 13 |
 | [eachlabs-voice-audio](skills/eachlabs-voice-audio/) | ElevenLabs TTS, Whisper transcription, RVC voice conversion | 35 |
 | [eachlabs-face-swap](skills/eachlabs-face-swap/) | Face swap across images and videos | 3 |
@@ -58,7 +76,13 @@ No context switching. No browser tabs. Just ask your agent.
    export EACHLABS_API_KEY="your-api-key"
    ```
 
-3. **Install skills:**
+3. **Install the plugin (Claude Code):**
+   ```shell
+   /plugin marketplace add eachlabs/skills
+   /plugin install eachlabs-skills@eachlabs
+   ```
+
+   For other agents:
    ```bash
    npx skills add eachlabs/skills
    ```
