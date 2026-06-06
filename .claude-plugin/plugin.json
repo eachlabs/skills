@@ -1,0 +1,14 @@
+{
+  "name": "eachlabs-skills",
+  "displayName": "each::labs Agent Skills",
+  "description": "Generate videos, images, music, voiceovers, and more with 445+ AI models. Works with Claude Code and any agent supporting the Agent Skills Spec.",
+  "version": "0.0.1",
+  "skills": "./skills",
+  "homepage": "https://eachlabs.ai",
+  "repository": "https://github.com/eachlabs/skills",
+  "license": "MIT",
+  "author": {
+    "name": "eachlabs"
+  },
+  "keywords": ["ai", "video", "image", "music", "voice", "generation", "creative"]
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "eachlabs",
+  "description": "445+ AI models for video, image, music, voice, and more — generate creative media directly from your agent",
+  "owner": {
+    "name": "eachlabs"
+  },
+  "plugins": [
+    {
+      "name": "eachlabs-skills",
+      "displayName": "each::labs Agent Skills",
+      "source": "./",
+      "description": "Generate videos, images, music, voiceovers, and more with 445+ AI models. Works with Claude Code and any agent supporting the Agent Skills Spec.",
+      "homepage": "https://eachlabs.ai",
+      "repository": "https://github.com/eachlabs/skills",
+      "license": "MIT",
+      "author": {
+        "name": "eachlabs"
+      },
+      "keywords": ["ai", "video", "image", "music", "voice", "generation", "creative"],
+      "category": "productivity"
+    }
+  ]
+}
