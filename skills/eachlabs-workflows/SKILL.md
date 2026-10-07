@@ -387,8 +387,11 @@ curl -X POST https://api.eachlabs.ai/v1/workflows/trigger/{workflowID}/v1 \
 ```
 
 The webhook body has the same shape as the execution response. Deliveries are attempted up to 3
-times, about 10 seconds apart. With a `webhook_secret`, verify `X-Webhook-Signature` (HMAC-SHA256
-over `<X-Webhook-Timestamp>.<raw body>`).
+times, about 10 seconds apart. With a `webhook_secret`, each delivery carries
+`X-Webhook-Signature: sha256=<hex>`, where `<hex>` is the lowercase-hex HMAC-SHA256 of
+`<X-Webhook-Timestamp>.<raw body>` keyed with the secret. Compare against the whole header value,
+`sha256=` prefix included, and hash the raw request bytes, not re-serialized JSON
+([Verifying Webhook Signatures](https://docs.eachlabs.ai/api/webhooks/verifying-signatures)).
 
 ## Workflow Builder via each::sense
 
