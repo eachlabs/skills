@@ -22,7 +22,7 @@ npx skills add eachlabs/skills@eachlabs-music
 
 Sign in with your each::labs account instead of creating an API key.
 
-### Claude / Codex
+### Plugin for Claude / Codex
 
 Add the [each::labs plugin](https://github.com/eachlabs/plugin). It adds the each::labs connector plus skills for common media tasks in one step.
 
