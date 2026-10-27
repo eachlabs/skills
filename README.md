@@ -22,12 +22,12 @@ npx skills add eachlabs/skills@eachlabs-music
 
 Sign in with your each::labs account instead of creating an API key.
 
-- **Claude or Codex:** add the [each::labs plugin](https://github.com/eachlabs/plugin).
-  It adds the each::labs connector plus skills for common media tasks in one step.
-  Setup: [docs.eachlabs.ai/plugin](https://docs.eachlabs.ai/plugin).
-- **Any other app that supports MCP**, such as ChatGPT or Grok: add
-  `https://mcp.eachlabs.ai/mcp` as a remote MCP server, sign in, and choose
-  your organization. Setup: [docs.eachlabs.ai/mcp-server](https://docs.eachlabs.ai/mcp-server).
+- **Claude / Codex:** add the [each::labs plugin](https://github.com/eachlabs/plugin).
+  It adds the each::labs connector plus skills for common media tasks in one step.<br>
+  **[→ Set up the plugin](https://docs.eachlabs.ai/plugin)**
+- **Any other app that supports MCP:** add `https://mcp.eachlabs.ai/mcp` as a
+  remote MCP server, sign in, and choose your organization.<br>
+  **[→ Set up the MCP server](https://docs.eachlabs.ai/mcp-server)**
 
 ## What Can Your Agent Do?
 
