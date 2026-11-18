@@ -99,6 +99,20 @@ each::labs exposes two APIs that skills interact with:
 
 All API calls are authenticated with your `EACHLABS_API_KEY` environment variable.
 
+## Checking Model Slugs
+
+A slug that is no longer in the catalog sends an agent to a model that does not exist. To list such slugs:
+
+```bash
+node scripts/check-model-slugs.mjs          # readable report
+node scripts/check-model-slugs.mjs --json   # for scripts and CI
+node --test scripts/*.test.mjs              # tests for the check itself
+```
+
+The check reads every skill that calls `/v1/prediction`, collects the slugs from model tables, `**Slug:**` lines and request examples, and compares them with the public catalog (`GET /v1/models`). A slug the catalog does not list gets a second look through `GET /v1/models/{slug}` before it is reported. Both endpoints are public: no API key is needed and nothing is billed.
+
+Exit code `0` means every slug exists, `1` means at least one was not found, and `2` means the check could not run (for example a network error or an empty catalog). Requires Node.js 18 or later.
+
 ## License
 
 MIT
